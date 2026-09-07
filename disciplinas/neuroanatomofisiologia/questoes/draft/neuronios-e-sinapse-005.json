@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "neuronios-e-sinapse-005",
+  "materialId": "neuronios-e-sinapse",
+  "topicId": "sinapse-quimica",
+  "subtopicId": "neurotransmissores",
+  "type": "text",
+  "difficulty": "medium",
+  "prompt": "Na sinapse quimica, qual substancia e secretada pelo neuronio na juncao, conforme o slide?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Neurotransmissor."
+    },
+    {
+      "id": "B",
+      "text": "Liquor."
+    },
+    {
+      "id": "C",
+      "text": "Mielina."
+    },
+    {
+      "id": "D",
+      "text": "Colageno."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide afirma que, na sinapse quimica, o neuronio secreta uma substancia quimica chamada neurotransmissor.",
+  "sourceSlide": 18,
+  "sourceExcerpt": "o neuronio secreta... uma substancia quimica chamada NEUROTRANSMISSOR",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:25:05.178Z"
+}

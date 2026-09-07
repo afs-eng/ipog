@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.348Z",
+  "id": "medula-espinal-006",
+  "materialId": "medula-espinal",
+  "topicId": "medula-espinal",
+  "subtopicId": "vista-posterior",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "Qual estrutura aparece no slide da vista posterior junto da cauda equina?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Cone medular."
+    },
+    {
+      "id": "B",
+      "text": "Corpo caloso."
+    },
+    {
+      "id": "C",
+      "text": "Plexo coroide."
+    },
+    {
+      "id": "D",
+      "text": "Lobo occipital."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "A legenda do slide 23 cita cone medular e cauda equina na vista posterior.",
+  "sourceSlide": 23,
+  "sourceExcerpt": "cone medular; cauda equina",
+  "imageUrl": "/neuroanatomofisiologia/medula-espinal-slide-23-image-1.jpeg"
+}

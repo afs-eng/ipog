@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "encefalo-006",
+  "materialId": "encefalo",
+  "topicId": "lobos-cerebrais",
+  "subtopicId": "lobo-occipital",
+  "type": "text",
+  "difficulty": "easy",
+  "prompt": "Qual lobo e associado no slide a recepcao, interpretacao e discriminacao de estimulos visuais?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Lobo occipital."
+    },
+    {
+      "id": "B",
+      "text": "Lobo temporal."
+    },
+    {
+      "id": "C",
+      "text": "Lobo parietal."
+    },
+    {
+      "id": "D",
+      "text": "Lobo frontal."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O lobo occipital e apresentado no material como ligado a visao e aos estimulos visuais.",
+  "sourceSlide": 25,
+  "sourceExcerpt": "Lobo Occipital | Visao... recepcao, interpretacao e discriminacao de estimulos visuais",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:25:05.178Z"
+}

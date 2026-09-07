@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:56:59.850Z",
+  "id": "cerebelo-e-tronco-encefalico-005",
+  "materialId": "cerebelo-e-tronco-encefalico",
+  "topicId": "ataxia-cerebelar",
+  "subtopicId": "dismetria",
+  "type": "text",
+  "difficulty": "medium",
+  "prompt": "Qual manifestacao e definida como incapacidade de avaliar distancias ao tentar alcancar objetos?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Dismetria."
+    },
+    {
+      "id": "B",
+      "text": "Ataxia cerebelar."
+    },
+    {
+      "id": "C",
+      "text": "Disartria."
+    },
+    {
+      "id": "D",
+      "text": "Nistagmo."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide define dismetria como incapacidade de avaliar distancias, com erro ao alcancar objetos.",
+  "sourceSlide": 13,
+  "sourceExcerpt": "Dismetria: Incapacidade de avaliar distancias"
+}

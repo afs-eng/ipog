@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "estruturas-osseas-do-cranio-001",
+  "materialId": "estruturas-osseas-do-cranio",
+  "topicId": "ossos-do-cranio",
+  "subtopicId": "ossos-cranianos",
+  "type": "text",
+  "difficulty": "easy",
+  "prompt": "Qual conjunto contem apenas ossos citados no slide como ossos do cranio?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Frontal, parietais, temporais, esfenoide, etmoide e occipital."
+    },
+    {
+      "id": "B",
+      "text": "Mandibula, vomer, maxilas, nasais e lacrimais."
+    },
+    {
+      "id": "C",
+      "text": "Zigomaticos, palatinos, hioide e conchas nasais inferiores."
+    },
+    {
+      "id": "D",
+      "text": "Mandibula, hioide, frontal, maxilas e vomer."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide separa os ossos do cranio dos ossos da face; frontal, parietais, temporais, esfenoide, etmoide e occipital aparecem como ossos do cranio.",
+  "sourceSlide": 3,
+  "sourceExcerpt": "OSSOS DO CRANIO: Frontal, Parietais, Temporais, Esfenoide, Etmoide e Occipital",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:25:05.178Z"
+}

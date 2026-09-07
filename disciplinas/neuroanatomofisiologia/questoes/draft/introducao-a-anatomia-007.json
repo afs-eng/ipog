@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.342Z",
+  "id": "introducao-a-anatomia-007",
+  "materialId": "introducao-a-anatomia",
+  "topicId": "nomenclatura-anatomica",
+  "subtopicId": "descricoes-anatomicas",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "Os termos tecnicos passaram a favorecer descricoes baseadas em quais criterios?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Forma, localizacao ou funcao."
+    },
+    {
+      "id": "B",
+      "text": "Autor, escola e ano."
+    },
+    {
+      "id": "C",
+      "text": "Peso, idade e sexo."
+    },
+    {
+      "id": "D",
+      "text": "Sintoma, diagnostico e tratamento."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "A fonte afirma que os termos foram descritos com base na forma, localizacao ou funcao das estruturas.",
+  "sourceSlide": 2,
+  "sourceExcerpt": "descricoes baseadas na forma, localizacao ou funcao das estruturas",
+  "imageUrl": "/neuroanatomofisiologia/introducao-a-anatomia-slide-2-image-1.jpeg"
+}

@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:56:59.850Z",
+  "id": "cerebelo-e-tronco-encefalico-007",
+  "materialId": "cerebelo-e-tronco-encefalico",
+  "topicId": "ataxia-cerebelar",
+  "subtopicId": "disartria",
+  "type": "text",
+  "difficulty": "medium",
+  "prompt": "Qual manifestacao e descrita como fala lenta, arrastada ou escandida?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Disartria."
+    },
+    {
+      "id": "B",
+      "text": "Nistagmo."
+    },
+    {
+      "id": "C",
+      "text": "Dismetria."
+    },
+    {
+      "id": "D",
+      "text": "Ataxia cerebelar."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide define disartria como fala lenta, arrastada ou escandida.",
+  "sourceSlide": 13,
+  "sourceExcerpt": "Disartria: Fala lenta, arrastada ou escandida"
+}

@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "neuronios-e-sinapse-004",
+  "materialId": "neuronios-e-sinapse",
+  "topicId": "sinapse",
+  "subtopicId": "tipos-de-sinapse",
+  "type": "text",
+  "difficulty": "easy",
+  "prompt": "Quais tipos de sinapse sao listados no slide?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Quimica e eletrica."
+    },
+    {
+      "id": "B",
+      "text": "Motora e cortical."
+    },
+    {
+      "id": "C",
+      "text": "Sensorial e occipital."
+    },
+    {
+      "id": "D",
+      "text": "Sagital e coronal."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide define sinapse como ponto de juncao e lista os tipos quimica e eletrica.",
+  "sourceSlide": 16,
+  "sourceExcerpt": "Tipos de sinapse: Quimica... Eletrica...",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:25:05.178Z"
+}

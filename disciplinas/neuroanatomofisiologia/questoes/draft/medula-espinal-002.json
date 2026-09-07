@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "medula-espinal-002",
+  "materialId": "medula-espinal",
+  "topicId": "medula-espinal",
+  "subtopicId": "estruturas-posteriores",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "Qual estrutura e citada no slide junto com cone medular, cauda equina e filamento terminal?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Intumescencia lombossacral."
+    },
+    {
+      "id": "B",
+      "text": "Fissura longitudinal."
+    },
+    {
+      "id": "C",
+      "text": "Sulco lateral."
+    },
+    {
+      "id": "D",
+      "text": "Corpo caloso."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide da vista posterior cita intumescencia lombossacral, cone medular, cauda equina, filamento terminal, dura-mater seccionada e medula espinal.",
+  "sourceSlide": 23,
+  "sourceExcerpt": "intumescencia lombossacral; cone medular; cauda equina; filamento terminal",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:57:02.345Z",
+  "imageUrl": "/neuroanatomofisiologia/medula-espinal-slide-23-image-1.jpeg"
+}

@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.342Z",
+  "id": "introducao-a-anatomia-008",
+  "materialId": "introducao-a-anatomia",
+  "topicId": "planos-de-corte",
+  "subtopicId": "introducao",
+  "type": "image",
+  "difficulty": "easy",
+  "prompt": "Qual tema aparece como titulo no slide 4 do material de Introducao a Anatomia?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Planos de Corte."
+    },
+    {
+      "id": "B",
+      "text": "Fossas Cranianas."
+    },
+    {
+      "id": "C",
+      "text": "Nervos Cranianos."
+    },
+    {
+      "id": "D",
+      "text": "Camadas do cortex cerebral."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide 4 do material traz o titulo Planos de Corte.",
+  "sourceSlide": 4,
+  "sourceExcerpt": "Planos de Corte",
+  "imageUrl": "/neuroanatomofisiologia/introducao-a-anatomia-slide-4-image-1.png"
+}

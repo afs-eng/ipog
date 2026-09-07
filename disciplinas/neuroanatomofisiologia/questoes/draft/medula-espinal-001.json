@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "medula-espinal-001",
+  "materialId": "medula-espinal",
+  "topicId": "cisterna-lombar",
+  "subtopicId": "limites-anatomicos",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "A cisterna lombar comeca em qual nivel aproximado e se estende ate qual nivel?",
+  "options": [
+    {
+      "id": "A",
+      "text": "De C1 ate T1."
+    },
+    {
+      "id": "B",
+      "text": "De T1 ate T12."
+    },
+    {
+      "id": "C",
+      "text": "De L1/L2 ate S2."
+    },
+    {
+      "id": "D",
+      "text": "De S2 ate o coccix."
+    }
+  ],
+  "correctOption": "C",
+  "explanation": "O slide descreve a cisterna lombar como fundo de saco dural apos a terminacao da medula espinhal, de L1/L2 ate S2.",
+  "sourceSlide": 13,
+  "sourceExcerpt": "Cisterna lombar... comeca de L1/L2 ate S2",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:57:02.345Z",
+  "imageUrl": "/neuroanatomofisiologia/medula-espinal-slide-13-image-1.png"
+}

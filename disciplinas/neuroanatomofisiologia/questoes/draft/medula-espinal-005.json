@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.348Z",
+  "id": "medula-espinal-005",
+  "materialId": "medula-espinal",
+  "topicId": "cisterna-lombar",
+  "subtopicId": "relacao-com-medula",
+  "type": "image",
+  "difficulty": "hard",
+  "prompt": "A cisterna lombar se localiza apos qual evento anatomico?",
+  "options": [
+    {
+      "id": "A",
+      "text": "A terminacao da medula espinhal."
+    },
+    {
+      "id": "B",
+      "text": "A abertura do sulco lateral."
+    },
+    {
+      "id": "C",
+      "text": "A formacao do corpo caloso."
+    },
+    {
+      "id": "D",
+      "text": "A divisao das fossas cranianas."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O texto diz que a cisterna lombar ocorre apos a terminacao da medula espinhal.",
+  "sourceSlide": 13,
+  "sourceExcerpt": "apos a terminacao da medula espinhal",
+  "imageUrl": "/neuroanatomofisiologia/medula-espinal-slide-13-image-1.png"
+}

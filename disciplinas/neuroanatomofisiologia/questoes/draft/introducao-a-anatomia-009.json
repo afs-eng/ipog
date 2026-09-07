@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.343Z",
+  "id": "introducao-a-anatomia-009",
+  "materialId": "introducao-a-anatomia",
+  "topicId": "anomalias",
+  "subtopicId": "exemplos",
+  "type": "image",
+  "difficulty": "easy",
+  "prompt": "Qual exemplo aparece no slide identificado como Anomalia?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Fissura labiopalatina."
+    },
+    {
+      "id": "B",
+      "text": "Situs inversus."
+    },
+    {
+      "id": "C",
+      "text": "Corpo caloso."
+    },
+    {
+      "id": "D",
+      "text": "Sulco central."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide de Anomalia cita fissura labiopalatina e alteracao do esterno.",
+  "sourceSlide": 9,
+  "sourceExcerpt": "Anomalia | Fissura labiopalatina | Alteracao do esterno",
+  "imageUrl": "/neuroanatomofisiologia/introducao-a-anatomia-slide-9-image-1.jpeg"
+}

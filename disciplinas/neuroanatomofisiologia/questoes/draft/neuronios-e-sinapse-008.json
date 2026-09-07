@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:56:59.850Z",
+  "id": "neuronios-e-sinapse-008",
+  "materialId": "neuronios-e-sinapse",
+  "topicId": "glia",
+  "subtopicId": "astrocytos",
+  "type": "text",
+  "difficulty": "medium",
+  "prompt": "Qual celula da glia e descrita como numerosa, estrelada e participante da barreira hematoencefalica?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Astrocito."
+    },
+    {
+      "id": "B",
+      "text": "Oligodendrocito."
+    },
+    {
+      "id": "C",
+      "text": "Microglia."
+    },
+    {
+      "id": "D",
+      "text": "Celula de Schwann."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide define astrocitos como numerosos, estrelados e relacionados a barreira hematoencefalica.",
+  "sourceSlide": 10,
+  "sourceExcerpt": "Astrocitos: As mais numerosas, tem forma estrelada. Formam a barreira hematoencefalica"
+}

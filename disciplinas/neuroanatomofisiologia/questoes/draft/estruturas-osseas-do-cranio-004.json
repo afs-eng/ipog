@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "estruturas-osseas-do-cranio-004",
+  "materialId": "estruturas-osseas-do-cranio",
+  "topicId": "pontos-antropometricos",
+  "subtopicId": "bregma",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "No material, o que e o bregma?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ponto de uniao das suturas sagital e coronal."
+    },
+    {
+      "id": "B",
+      "text": "Parte mais alta do cranio."
+    },
+    {
+      "id": "C",
+      "text": "Angulo da mandibula."
+    },
+    {
+      "id": "D",
+      "text": "Ponto de uniao dos ossos parietal, frontal, esfenoide e temporal."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide de pontos antropometricos define bregma como o ponto de uniao das suturas sagital e coronal.",
+  "sourceSlide": 18,
+  "sourceExcerpt": "Bregma - ponto de uniao das suturas sagital e coronal",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:57:02.332Z",
+  "imageUrl": "/neuroanatomofisiologia/estruturas-osseas-do-cranio-slide-18-image-1.png"
+}

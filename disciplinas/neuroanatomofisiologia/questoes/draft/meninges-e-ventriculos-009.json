@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.358Z",
+  "id": "meninges-e-ventriculos-009",
+  "materialId": "meninges-e-ventriculos",
+  "topicId": "espaco-subaracnoideo",
+  "subtopicId": "localizacao",
+  "type": "image",
+  "difficulty": "easy",
+  "prompt": "Qual espaco e citado nos slides junto ao liquor?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Espaco subaracnoideo."
+    },
+    {
+      "id": "B",
+      "text": "Espaco epidural craniano."
+    },
+    {
+      "id": "C",
+      "text": "Espaco orbitofrontal."
+    },
+    {
+      "id": "D",
+      "text": "Espaco sagital mediano."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide 8 apresenta Espaco subaracnoide e o slide 9 cita a circulacao no espaco subaracnoideo.",
+  "sourceSlide": 8,
+  "sourceExcerpt": "Espaco subaracnoide",
+  "imageUrl": "/neuroanatomofisiologia/meninges-e-ventriculos-slide-8-image-1.jpg"
+}

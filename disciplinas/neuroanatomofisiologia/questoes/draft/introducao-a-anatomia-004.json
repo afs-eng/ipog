@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.339Z",
+  "id": "introducao-a-anatomia-004",
+  "materialId": "introducao-a-anatomia",
+  "topicId": "nomenclatura-anatomica",
+  "subtopicId": "historia",
+  "type": "image",
+  "difficulty": "easy",
+  "prompt": "Em que ano a Nomina Anatomica passou a ser usada como padrao internacional?",
+  "options": [
+    {
+      "id": "A",
+      "text": "1895."
+    },
+    {
+      "id": "B",
+      "text": "1998."
+    },
+    {
+      "id": "C",
+      "text": "1632."
+    },
+    {
+      "id": "D",
+      "text": "2026."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide apresenta o periodo de uso da Nomina Anatomica como 1895 a 1998.",
+  "sourceSlide": 2,
+  "sourceExcerpt": "de 1895 ate 1998",
+  "imageUrl": "/neuroanatomofisiologia/introducao-a-anatomia-slide-2-image-1.jpeg"
+}

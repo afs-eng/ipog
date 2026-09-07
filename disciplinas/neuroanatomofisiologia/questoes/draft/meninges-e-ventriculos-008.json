@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.357Z",
+  "id": "meninges-e-ventriculos-008",
+  "materialId": "meninges-e-ventriculos",
+  "topicId": "liquor",
+  "subtopicId": "nutrientes-residuos",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "Alem de proteger, que outra funcao do liquor aparece no slide?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Fornecer nutrientes e remover residuos."
+    },
+    {
+      "id": "B",
+      "text": "Separar frontal e parietal."
+    },
+    {
+      "id": "C",
+      "text": "Conectar os hemisferios cerebrais."
+    },
+    {
+      "id": "D",
+      "text": "Movimentar a mandibula."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O material diz que o liquor fornece nutrientes e remove residuos.",
+  "sourceSlide": 9,
+  "sourceExcerpt": "fornece nutrientes e remove residuos",
+  "imageUrl": "/neuroanatomofisiologia/meninges-e-ventriculos-slide-9-image-1.jpeg"
+}

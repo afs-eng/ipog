@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "meninges-e-ventriculos-002",
+  "materialId": "meninges-e-ventriculos",
+  "topicId": "liquor",
+  "subtopicId": "circulacao",
+  "type": "image",
+  "difficulty": "easy",
+  "prompt": "Onde o liquido cefalorraquidiano circula, conforme o slide?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Nos ventriculos cerebrais e no espaco subaracnoideo."
+    },
+    {
+      "id": "B",
+      "text": "Apenas nos ossos do cranio."
+    },
+    {
+      "id": "C",
+      "text": "Somente no sistema nervoso periferico."
+    },
+    {
+      "id": "D",
+      "text": "Apenas na substancia branca cortical."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O material afirma que o liquor circula nos ventriculos cerebrais e no espaco subaracnoideo, banhando cerebro e medula espinhal.",
+  "sourceSlide": 9,
+  "sourceExcerpt": "circula nos ventriculos cerebrais e no espaco subaracnoideo",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:57:02.353Z",
+  "imageUrl": "/neuroanatomofisiologia/meninges-e-ventriculos-slide-9-image-1.jpeg"
+}

@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "neuronios-e-sinapse-003",
+  "materialId": "neuronios-e-sinapse",
+  "topicId": "fibras-nervosas",
+  "subtopicId": "mielina",
+  "type": "text",
+  "difficulty": "medium",
+  "prompt": "Qual diferenca entre fibras mielinicas e amielinicas aparece no material?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Mielinicas conduzem rapidamente; amielinicas conduzem lentamente."
+    },
+    {
+      "id": "B",
+      "text": "Mielinicas nao possuem bainha; amielinicas possuem bainha."
+    },
+    {
+      "id": "C",
+      "text": "Mielinicas conduzem a 0,5 m/s; amielinicas conduzem a 100 m/s."
+    },
+    {
+      "id": "D",
+      "text": "Ambas sempre conduzem na mesma velocidade."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide informa que fibras mielinicas possuem conducao rapida e saltatoria, enquanto as amielinicas possuem conducao lenta.",
+  "sourceSlide": 12,
+  "sourceExcerpt": "Mielinicas... Conducao rapida... Amielinicas... Conducao lenta",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:25:05.178Z"
+}

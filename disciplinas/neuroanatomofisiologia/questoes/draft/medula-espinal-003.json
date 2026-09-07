@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.346Z",
+  "id": "medula-espinal-003",
+  "materialId": "medula-espinal",
+  "topicId": "medula-espinal",
+  "subtopicId": "nervos-espinais",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "No slide da vista anterior da coluna espinal dissecada, que estruturas sao evidenciadas em sequencia?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Nervos espinais I a XII."
+    },
+    {
+      "id": "B",
+      "text": "Lobos cerebrais I a XII."
+    },
+    {
+      "id": "C",
+      "text": "Ventriculos cerebrais I a XII."
+    },
+    {
+      "id": "D",
+      "text": "Suturas cranianas I a XII."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "A legenda do slide cita nervo espinal I ate nervo espinal XII.",
+  "sourceSlide": 11,
+  "sourceExcerpt": "evidenciando nervo espinal I... nervo espinal XII",
+  "imageUrl": "/neuroanatomofisiologia/medula-espinal-slide-11-image-1.jpeg"
+}

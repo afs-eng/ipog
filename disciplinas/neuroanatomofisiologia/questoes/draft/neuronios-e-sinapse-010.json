@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.363Z",
+  "id": "neuronios-e-sinapse-010",
+  "materialId": "neuronios-e-sinapse",
+  "topicId": "sinapse-quimica",
+  "subtopicId": "calcio",
+  "type": "image",
+  "difficulty": "hard",
+  "prompt": "Qual ion participa do inicio da liberacao de neurotransmissores no terminal axonico?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Calcio, Ca2+."
+    },
+    {
+      "id": "B",
+      "text": "Sodio, Na+."
+    },
+    {
+      "id": "C",
+      "text": "Cloro, Cl-."
+    },
+    {
+      "id": "D",
+      "text": "Potassio, K+."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide do impulso nervoso afirma que a entrada de Ca2+ no terminal e essencial para iniciar a liberacao de neurotransmissores.",
+  "sourceSlide": 34,
+  "sourceExcerpt": "Entrada de calcio (Ca2+) no terminal... essencial para iniciar a liberacao de neurotransmissores",
+  "imageUrl": "/neuroanatomofisiologia/neuronios-e-sinapse-slide-34-image-1.jpeg"
+}

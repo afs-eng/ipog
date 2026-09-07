@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "cerebelo-e-tronco-encefalico-003",
+  "materialId": "cerebelo-e-tronco-encefalico",
+  "topicId": "tronco-encefalico",
+  "subtopicId": "divisoes",
+  "type": "image",
+  "difficulty": "easy",
+  "prompt": "Quais sao as tres divisoes do tronco encefalico listadas no slide?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Mesencefalo, ponte e bulbo."
+    },
+    {
+      "id": "B",
+      "text": "Telencefalo, diencefalo e cerebelo."
+    },
+    {
+      "id": "C",
+      "text": "Frontal, parietal e temporal."
+    },
+    {
+      "id": "D",
+      "text": "Dura-mater, aracnoide e pia-mater."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide do tronco encefalico lista suas tres divisoes: mesencefalo, ponte e bulbo.",
+  "sourceSlide": 17,
+  "sourceExcerpt": "Tronco encefalico | 3 divisoes: Mesencefalo, Ponte, Bulbo",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:57:02.322Z",
+  "imageUrl": "/neuroanatomofisiologia/cerebelo-e-tronco-encefalico-slide-17-image-1.gif"
+}

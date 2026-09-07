@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "cerebelo-e-tronco-encefalico-002",
+  "materialId": "cerebelo-e-tronco-encefalico",
+  "topicId": "ataxia-cerebelar",
+  "subtopicId": "manifestacoes",
+  "type": "clinical",
+  "difficulty": "medium",
+  "prompt": "No slide de ataxia cerebelar, qual manifestacao e descrita como marcha instavel com base alargada, desequilibrio e quedas frequentes?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ataxia cerebelar."
+    },
+    {
+      "id": "B",
+      "text": "Dismetria."
+    },
+    {
+      "id": "C",
+      "text": "Disdiadococinesia."
+    },
+    {
+      "id": "D",
+      "text": "Nistagmo."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O material define ataxia cerebelar como marcha instavel com base alargada, desequilibrio e quedas frequentes.",
+  "sourceSlide": 13,
+  "sourceExcerpt": "Ataxia Cerebelar: Marcha instavel com base alargada, desequilibrio e quedas frequentes",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:25:05.178Z"
+}

@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "encefalo-001",
+  "materialId": "encefalo",
+  "topicId": "partes-do-encefalo",
+  "subtopicId": "divisoes",
+  "type": "text",
+  "difficulty": "easy",
+  "prompt": "Quais partes do encefalo sao listadas no slide?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Telencefalo, diencefalo, tronco encefalico e cerebelo."
+    },
+    {
+      "id": "B",
+      "text": "Dura-mater, aracnoide, pia-mater e liquor."
+    },
+    {
+      "id": "C",
+      "text": "Frontal, parietal, temporal e occipital."
+    },
+    {
+      "id": "D",
+      "text": "Ponte, bulbo, sutura sagital e bregma."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide sobre encefalo lista telencefalo, diencefalo, tronco encefalico e cerebelo como partes.",
+  "sourceSlide": 3,
+  "sourceExcerpt": "Partes: Telencefalo, Diencefalo, Tronco encefalico, Cerebelo",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:25:05.178Z"
+}

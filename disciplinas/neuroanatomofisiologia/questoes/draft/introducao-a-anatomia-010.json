@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.344Z",
+  "id": "introducao-a-anatomia-010",
+  "materialId": "introducao-a-anatomia",
+  "topicId": "anomalias",
+  "subtopicId": "parede-toracica",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "Alem de fissura labiopalatina, qual alteracao e citada no slide de anomalia?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Alteracao do esterno."
+    },
+    {
+      "id": "B",
+      "text": "Sutura sagital."
+    },
+    {
+      "id": "C",
+      "text": "Giro pre-central."
+    },
+    {
+      "id": "D",
+      "text": "Plexo coroide."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide apresenta fissura labiopalatina e alteracao do esterno como exemplos na tela de anomalia.",
+  "sourceSlide": 9,
+  "sourceExcerpt": "Fissura labiopalatina | Alteracao do esterno",
+  "imageUrl": "/neuroanatomofisiologia/introducao-a-anatomia-slide-9-image-1.jpeg"
+}

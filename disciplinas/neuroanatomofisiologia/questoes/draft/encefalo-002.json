@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "encefalo-002",
+  "materialId": "encefalo",
+  "topicId": "hemisferios-cerebrais",
+  "subtopicId": "corpo-caloso",
+  "type": "text",
+  "difficulty": "easy",
+  "prompt": "Qual estrutura e descrita como responsavel por conectar os hemisferios cerebrais?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Corpo caloso."
+    },
+    {
+      "id": "B",
+      "text": "Sulco central."
+    },
+    {
+      "id": "C",
+      "text": "Giro pos-central."
+    },
+    {
+      "id": "D",
+      "text": "Fissura lateral."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "No slide, o corpo caloso e descrito como a estrutura que conecta os hemisferios cerebrais.",
+  "sourceSlide": 8,
+  "sourceExcerpt": "Corpo caloso: conecta os hemisferios cerebrais",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:25:05.178Z"
+}

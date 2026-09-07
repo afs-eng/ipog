@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.356Z",
+  "id": "meninges-e-ventriculos-006",
+  "materialId": "meninges-e-ventriculos",
+  "topicId": "liquor",
+  "subtopicId": "caracteristicas",
+  "type": "image",
+  "difficulty": "easy",
+  "prompt": "Como o liquor e descrito no slide?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Fluido incolor e aquoso."
+    },
+    {
+      "id": "B",
+      "text": "Tecido osseo compacto."
+    },
+    {
+      "id": "C",
+      "text": "Camada de substancia cinzenta."
+    },
+    {
+      "id": "D",
+      "text": "Nervo periferico misto."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide descreve o liquido cefalorraquidiano como fluido incolor e aquoso.",
+  "sourceSlide": 9,
+  "sourceExcerpt": "E um fluido incolor e aquoso",
+  "imageUrl": "/neuroanatomofisiologia/meninges-e-ventriculos-slide-9-image-1.jpeg"
+}

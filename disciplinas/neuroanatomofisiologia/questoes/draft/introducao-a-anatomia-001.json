@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "introducao-a-anatomia-001",
+  "materialId": "introducao-a-anatomia",
+  "topicId": "nomenclatura-anatomica",
+  "subtopicId": "terminologia-anatomica",
+  "type": "image",
+  "difficulty": "easy",
+  "prompt": "Qual foi uma finalidade da padronizacao da nomenclatura anatomica?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Unificar termos tecnicos e facilitar a comunicacao cientifica."
+    },
+    {
+      "id": "B",
+      "text": "Substituir descricoes anatomicas por nomes de pesquisadores."
+    },
+    {
+      "id": "C",
+      "text": "Criar nomenclaturas diferentes para cada universidade."
+    },
+    {
+      "id": "D",
+      "text": "Eliminar termos baseados em forma, localizacao ou funcao."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide afirma que a Nomina Anatomica foi desenvolvida para unificar e padronizar termos tecnicos, facilitando a comunicacao cientifica.",
+  "sourceSlide": 2,
+  "sourceExcerpt": "Desenvolvida para unificar e padronizar termos tecnicos... facilitando a comunicacao cientifica.",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:57:02.337Z",
+  "imageUrl": "/neuroanatomofisiologia/introducao-a-anatomia-slide-2-image-1.jpeg"
+}

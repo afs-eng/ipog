@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.340Z",
+  "id": "introducao-a-anatomia-005",
+  "materialId": "introducao-a-anatomia",
+  "topicId": "nomenclatura-anatomica",
+  "subtopicId": "terminologia",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "O que substituiu a Nomina Anatomica em 1998?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Terminologia Anatomica."
+    },
+    {
+      "id": "B",
+      "text": "Atlas de Anatomia Humana."
+    },
+    {
+      "id": "C",
+      "text": "Situs inversus."
+    },
+    {
+      "id": "D",
+      "text": "Planos de corte."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide afirma que a Nomina Anatomica foi substituida pela Terminologia Anatomica.",
+  "sourceSlide": 2,
+  "sourceExcerpt": "quando foi substituida pela Terminologia Anatomica",
+  "imageUrl": "/neuroanatomofisiologia/introducao-a-anatomia-slide-2-image-1.jpeg"
+}

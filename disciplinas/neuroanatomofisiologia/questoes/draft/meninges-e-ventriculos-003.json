@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "meninges-e-ventriculos-003",
+  "materialId": "meninges-e-ventriculos",
+  "topicId": "liquor",
+  "subtopicId": "producao-e-funcao",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "De acordo com o slide, por quais estruturas o liquor e produzido?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Plexos coroides."
+    },
+    {
+      "id": "B",
+      "text": "Corpo caloso."
+    },
+    {
+      "id": "C",
+      "text": "Giro pre-central."
+    },
+    {
+      "id": "D",
+      "text": "Sutura sagital."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide informa que o liquido cefalorraquidiano e produzido pelos plexos coroides.",
+  "sourceSlide": 9,
+  "sourceExcerpt": "Produzido pelos plexos coroides",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:57:02.354Z",
+  "imageUrl": "/neuroanatomofisiologia/meninges-e-ventriculos-slide-9-image-1.jpeg"
+}

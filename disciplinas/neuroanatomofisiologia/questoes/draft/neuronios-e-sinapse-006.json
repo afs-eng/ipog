@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "neuronios-e-sinapse-006",
+  "materialId": "neuronios-e-sinapse",
+  "topicId": "impulso-nervoso",
+  "subtopicId": "potencial-de-acao",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "O que acontece quando um estimulo adequado causa despolarizacao e atinge o limiar?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ocorre o potencial de acao."
+    },
+    {
+      "id": "B",
+      "text": "O neurotransmissor e degradado antes da fenda."
+    },
+    {
+      "id": "C",
+      "text": "A bainha de mielina desaparece."
+    },
+    {
+      "id": "D",
+      "text": "O liquor passa para os ventriculos."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O material descreve que a despolarizacao por entrada de Na+ pode atingir o limiar e gerar o potencial de acao.",
+  "sourceSlide": 34,
+  "sourceExcerpt": "Um estimulo adequado causa despolarizacao... Se atingir o limiar, ocorre o potencial de acao",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:57:02.361Z",
+  "imageUrl": "/neuroanatomofisiologia/neuronios-e-sinapse-slide-34-image-1.jpeg"
+}

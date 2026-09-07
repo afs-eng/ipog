@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.357Z",
+  "id": "meninges-e-ventriculos-007",
+  "materialId": "meninges-e-ventriculos",
+  "topicId": "liquor",
+  "subtopicId": "funcao",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "Qual funcao do liquor e citada no material?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Atuar como amortecedor de impactos."
+    },
+    {
+      "id": "B",
+      "text": "Formar a sutura sagital."
+    },
+    {
+      "id": "C",
+      "text": "Controlar movimentos voluntarios do corpo."
+    },
+    {
+      "id": "D",
+      "text": "Produzir bainha de mielina no SNP."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide informa que o liquor atua como amortecedor de impactos e protege o sistema nervoso.",
+  "sourceSlide": 9,
+  "sourceExcerpt": "atua como amortecedor de impactos, protege o sistema nervoso",
+  "imageUrl": "/neuroanatomofisiologia/meninges-e-ventriculos-slide-9-image-1.jpeg"
+}

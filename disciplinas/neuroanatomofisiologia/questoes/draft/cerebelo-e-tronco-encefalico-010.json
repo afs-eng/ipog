@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.326Z",
+  "id": "cerebelo-e-tronco-encefalico-010",
+  "materialId": "cerebelo-e-tronco-encefalico",
+  "topicId": "tronco-encefalico",
+  "subtopicId": "ponte",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "Qual funcao e atribuida a ponte no slide?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Manutencao da postura, equilibrio e tonus muscular."
+    },
+    {
+      "id": "B",
+      "text": "Producao do liquor."
+    },
+    {
+      "id": "C",
+      "text": "Separacao dos hemisferios."
+    },
+    {
+      "id": "D",
+      "text": "Compreensao da linguagem."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide 25 atribui a ponte manutencao da postura corporal, equilibrio do corpo e tonus muscular.",
+  "sourceSlide": 25,
+  "sourceExcerpt": "Ponte | Manutencao da postura corporal, equilibrio do corpo e tonus muscular",
+  "imageUrl": "/neuroanatomofisiologia/cerebelo-e-tronco-encefalico-slide-25-image-1.gif"
+}

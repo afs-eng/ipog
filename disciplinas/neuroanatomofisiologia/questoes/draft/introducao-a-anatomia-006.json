@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.341Z",
+  "id": "introducao-a-anatomia-006",
+  "materialId": "introducao-a-anatomia",
+  "topicId": "nomenclatura-anatomica",
+  "subtopicId": "eponimos",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "Qual tipo de nome a padronizacao buscou eliminar, de acordo com o slide?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Eponimos, ou nomes de pesquisadores."
+    },
+    {
+      "id": "B",
+      "text": "Nomes baseados na localizacao."
+    },
+    {
+      "id": "C",
+      "text": "Nomes baseados na funcao."
+    },
+    {
+      "id": "D",
+      "text": "Nomes baseados na forma."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O material diz que eliminou eponimos em favor de descricoes por forma, localizacao ou funcao.",
+  "sourceSlide": 2,
+  "sourceExcerpt": "eliminou eponimos (nomes de pesquisadores)",
+  "imageUrl": "/neuroanatomofisiologia/introducao-a-anatomia-slide-2-image-1.jpeg"
+}

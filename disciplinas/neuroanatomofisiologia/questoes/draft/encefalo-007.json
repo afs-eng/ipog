@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "encefalo-007",
+  "materialId": "encefalo",
+  "topicId": "telencefalo",
+  "subtopicId": "definicao",
+  "type": "text",
+  "difficulty": "medium",
+  "prompt": "O telencefalo corresponde a qual estrutura?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Cerebro."
+    },
+    {
+      "id": "B",
+      "text": "Cerebelo."
+    },
+    {
+      "id": "C",
+      "text": "Bulbo."
+    },
+    {
+      "id": "D",
+      "text": "Ponte."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O material afirma diretamente: Telencefalo = cerebro.",
+  "sourceSlide": 28,
+  "sourceExcerpt": "Telencefalo = cerebro",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:25:05.178Z"
+}

@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.336Z",
+  "id": "estruturas-osseas-do-cranio-009",
+  "materialId": "estruturas-osseas-do-cranio",
+  "topicId": "pontos-antropometricos",
+  "subtopicId": "lambda",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "O que o slide define como lambda?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Ponto de uniao das suturas sagital e lambdoide."
+    },
+    {
+      "id": "B",
+      "text": "Parte mais alta do cranio."
+    },
+    {
+      "id": "C",
+      "text": "Angulo da mandibula."
+    },
+    {
+      "id": "D",
+      "text": "Ponto entre parietal e temporal."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide define lambda como o ponto de uniao das suturas sagital e lambdoide.",
+  "sourceSlide": 18,
+  "sourceExcerpt": "Lambda - ponto de uniao das suturas sagital e lambdoide",
+  "imageUrl": "/neuroanatomofisiologia/estruturas-osseas-do-cranio-slide-18-image-1.png"
+}

@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.350Z",
+  "id": "medula-espinal-008",
+  "materialId": "medula-espinal",
+  "topicId": "medula-espinal",
+  "subtopicId": "dura-mater",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "No slide 23, qual meninge aparece como seccionada?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Dura-mater."
+    },
+    {
+      "id": "B",
+      "text": "Aracnoide."
+    },
+    {
+      "id": "C",
+      "text": "Pia-mater."
+    },
+    {
+      "id": "D",
+      "text": "Etmoide."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "A legenda do slide cita dura-mater seccionada.",
+  "sourceSlide": 23,
+  "sourceExcerpt": "dura-mater seccionada",
+  "imageUrl": "/neuroanatomofisiologia/medula-espinal-slide-23-image-1.jpeg"
+}

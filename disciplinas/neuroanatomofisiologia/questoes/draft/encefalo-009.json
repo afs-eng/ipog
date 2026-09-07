@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:56:59.850Z",
+  "id": "encefalo-009",
+  "materialId": "encefalo",
+  "topicId": "lobos-cerebrais",
+  "subtopicId": "lobo-parietal",
+  "type": "text",
+  "difficulty": "medium",
+  "prompt": "Qual lobo e descrito como sensitivo e localizado atras do sulco central?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Lobo parietal."
+    },
+    {
+      "id": "B",
+      "text": "Lobo frontal."
+    },
+    {
+      "id": "C",
+      "text": "Lobo temporal."
+    },
+    {
+      "id": "D",
+      "text": "Lobo occipital."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide do lobo parietal o define como sensitivo e atras do sulco central.",
+  "sourceSlide": 23,
+  "sourceExcerpt": "Lobo Parietal | Sensitivo - atras do sulco central"
+}

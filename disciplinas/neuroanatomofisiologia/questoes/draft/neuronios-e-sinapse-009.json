@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:56:59.850Z",
+  "id": "neuronios-e-sinapse-009",
+  "materialId": "neuronios-e-sinapse",
+  "topicId": "glia",
+  "subtopicId": "microglia",
+  "type": "text",
+  "difficulty": "medium",
+  "prompt": "Qual celula age como macrofago, fazendo defesa imunitaria e fagocitando detritos?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Microglia."
+    },
+    {
+      "id": "B",
+      "text": "Astrocito."
+    },
+    {
+      "id": "C",
+      "text": "Oligodendrocito."
+    },
+    {
+      "id": "D",
+      "text": "Celula ependimaria."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide descreve microglia como celula que age como macrofago e realiza defesa imunitaria.",
+  "sourceSlide": 10,
+  "sourceExcerpt": "Microglia: Agem como macrofagos, realizando a defesa imunitaria"
+}

@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "estruturas-osseas-do-cranio-002",
+  "materialId": "estruturas-osseas-do-cranio",
+  "topicId": "fossas-cranianas",
+  "subtopicId": "divisao-das-fossas",
+  "type": "image",
+  "difficulty": "easy",
+  "prompt": "De acordo com o material, em quantas fossas a regiao das fossas cranianas e dividida?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Duas: superior e inferior."
+    },
+    {
+      "id": "B",
+      "text": "Tres: anterior, media e posterior."
+    },
+    {
+      "id": "C",
+      "text": "Quatro: frontal, parietal, temporal e occipital."
+    },
+    {
+      "id": "D",
+      "text": "Cinco: nasal, orbital, oral, craniana e vertebral."
+    }
+  ],
+  "correctOption": "B",
+  "explanation": "O slide informa que a divisao ocorre em tres fossas: anterior, media e posterior.",
+  "sourceSlide": 16,
+  "sourceExcerpt": "E dividida em 3 fossas: Fossa Anterior, Fossa Media e Fossa Posterior",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:57:02.331Z",
+  "imageUrl": "/neuroanatomofisiologia/estruturas-osseas-do-cranio-slide-16-image-1.jpeg"
+}

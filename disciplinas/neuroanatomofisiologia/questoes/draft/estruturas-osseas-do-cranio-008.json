@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.335Z",
+  "id": "estruturas-osseas-do-cranio-008",
+  "materialId": "estruturas-osseas-do-cranio",
+  "topicId": "suturas-cranianas",
+  "subtopicId": "sutura-escamosa",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "Qual sutura esta entre o parietal e o temporal no slide?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Sutura escamosa."
+    },
+    {
+      "id": "B",
+      "text": "Sutura sagital."
+    },
+    {
+      "id": "C",
+      "text": "Sutura coronal."
+    },
+    {
+      "id": "D",
+      "text": "Sutura lambdoide."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O material descreve a sutura escamosa como a sutura entre o parietal e o temporal.",
+  "sourceSlide": 17,
+  "sourceExcerpt": "Sutura Escamosa: entre o parietal e o temporal",
+  "imageUrl": "/neuroanatomofisiologia/estruturas-osseas-do-cranio-slide-17-image-1.jpeg"
+}

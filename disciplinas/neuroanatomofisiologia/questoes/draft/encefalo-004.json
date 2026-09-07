@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "encefalo-004",
+  "materialId": "encefalo",
+  "topicId": "giros-cerebrais",
+  "subtopicId": "giro-pre-central",
+  "type": "text",
+  "difficulty": "medium",
+  "prompt": "Qual funcao e associada ao giro pre-central no material?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Area motora."
+    },
+    {
+      "id": "B",
+      "text": "Area sensorial."
+    },
+    {
+      "id": "C",
+      "text": "Area visual."
+    },
+    {
+      "id": "D",
+      "text": "Area auditiva."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide sobre fissuras e giros informa que o giro pre-central corresponde a area motora.",
+  "sourceSlide": 14,
+  "sourceExcerpt": "Giro pre-central: area motora",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:25:05.178Z"
+}

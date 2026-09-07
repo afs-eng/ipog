@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.349Z",
+  "id": "medula-espinal-007",
+  "materialId": "medula-espinal",
+  "topicId": "medula-espinal",
+  "subtopicId": "filamento-terminal",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "Qual estrutura e citada no slide da vista posterior juntamente com cone medular e cauda equina?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Filamento terminal."
+    },
+    {
+      "id": "B",
+      "text": "Area de Broca."
+    },
+    {
+      "id": "C",
+      "text": "Sutura coronal."
+    },
+    {
+      "id": "D",
+      "text": "Plexos coroides."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide 23 lista filamento terminal entre as estruturas evidenciadas.",
+  "sourceSlide": 23,
+  "sourceExcerpt": "cone medular; cauda equina; filamento terminal",
+  "imageUrl": "/neuroanatomofisiologia/medula-espinal-slide-23-image-1.jpeg"
+}

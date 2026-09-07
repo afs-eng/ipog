@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.359Z",
+  "id": "meninges-e-ventriculos-010",
+  "materialId": "meninges-e-ventriculos",
+  "topicId": "cerebro",
+  "subtopicId": "hipocrates",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "Na citacao de Hipocrates, de qual orgao nascem prazeres, alegrias, tristezas e temores?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Do cerebro."
+    },
+    {
+      "id": "B",
+      "text": "Da medula espinhal."
+    },
+    {
+      "id": "C",
+      "text": "Do cerebelo."
+    },
+    {
+      "id": "D",
+      "text": "Dos ventriculos."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "A citacao apresentada no slide atribui essas experiencias ao cerebro.",
+  "sourceSlide": 20,
+  "sourceExcerpt": "do cerebro, e apenas do cerebro, nascem nossos prazeres... tristezas... temores",
+  "imageUrl": "/neuroanatomofisiologia/meninges-e-ventriculos-slide-20-image-1.jpeg"
+}

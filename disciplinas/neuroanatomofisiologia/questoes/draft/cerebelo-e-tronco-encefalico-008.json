@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:56:59.850Z",
+  "id": "cerebelo-e-tronco-encefalico-008",
+  "materialId": "cerebelo-e-tronco-encefalico",
+  "topicId": "ataxia-cerebelar",
+  "subtopicId": "nistagmo",
+  "type": "text",
+  "difficulty": "medium",
+  "prompt": "Qual manifestacao e descrita como movimentos oculares involuntarios?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Nistagmo."
+    },
+    {
+      "id": "B",
+      "text": "Dismetria."
+    },
+    {
+      "id": "C",
+      "text": "Disartria."
+    },
+    {
+      "id": "D",
+      "text": "Tremor de intencao."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide lista nistagmo como movimentos oculares involuntarios.",
+  "sourceSlide": 13,
+  "sourceExcerpt": "Nistagmo: Movimentos oculares involuntarios"
+}

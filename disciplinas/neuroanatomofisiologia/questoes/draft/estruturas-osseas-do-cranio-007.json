@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.334Z",
+  "id": "estruturas-osseas-do-cranio-007",
+  "materialId": "estruturas-osseas-do-cranio",
+  "topicId": "suturas-cranianas",
+  "subtopicId": "sutura-lambdoide",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "Qual sutura e descrita como situada entre os parietais e o occipital?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Sutura lambdoide."
+    },
+    {
+      "id": "B",
+      "text": "Sutura sagital."
+    },
+    {
+      "id": "C",
+      "text": "Sutura escamosa."
+    },
+    {
+      "id": "D",
+      "text": "Sutura coronal."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide informa que a sutura lambdoide fica entre os parietais e o occipital.",
+  "sourceSlide": 17,
+  "sourceExcerpt": "Sutura Lambdoide: entre os parietais e o occipital",
+  "imageUrl": "/neuroanatomofisiologia/estruturas-osseas-do-cranio-slide-17-image-1.jpeg"
+}

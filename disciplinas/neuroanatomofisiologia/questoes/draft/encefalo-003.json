@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "encefalo-003",
+  "materialId": "encefalo",
+  "topicId": "lobos-cerebrais",
+  "subtopicId": "sulco-central",
+  "type": "text",
+  "difficulty": "medium",
+  "prompt": "Qual relacao anatomica o slide atribui ao sulco central?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Separa o lobo frontal do lobo parietal."
+    },
+    {
+      "id": "B",
+      "text": "Separa o lobo frontal do lobo temporal."
+    },
+    {
+      "id": "C",
+      "text": "Separa o lobo parietal do lobo occipital."
+    },
+    {
+      "id": "D",
+      "text": "Separa os hemisferios direito e esquerdo."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide afirma que o sulco central separa lobo frontal e parietal.",
+  "sourceSlide": 8,
+  "sourceExcerpt": "Sulco central: separa lobo frontal e parietal",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:25:05.178Z"
+}

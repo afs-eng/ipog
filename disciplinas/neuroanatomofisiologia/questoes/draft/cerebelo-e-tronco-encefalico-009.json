@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.325Z",
+  "id": "cerebelo-e-tronco-encefalico-009",
+  "materialId": "cerebelo-e-tronco-encefalico",
+  "topicId": "tronco-encefalico",
+  "subtopicId": "mesencefalo",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "Qual funcao do mesencefalo aparece no slide?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Recepcao e coordenacao da contracao muscular e postura corporal."
+    },
+    {
+      "id": "B",
+      "text": "Controle dos batimentos cardiacos."
+    },
+    {
+      "id": "C",
+      "text": "Controle da degluticao."
+    },
+    {
+      "id": "D",
+      "text": "Todas as visceras toracicas e abdominais."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide 24 associa o mesencefalo a recepcao, coordenacao da contracao muscular e postura corporal.",
+  "sourceSlide": 24,
+  "sourceExcerpt": "Mesencefalo | Recepcao e coordenacao da contracao muscular | Postura corporal",
+  "imageUrl": "/neuroanatomofisiologia/cerebelo-e-tronco-encefalico-slide-24-image-1.gif"
+}

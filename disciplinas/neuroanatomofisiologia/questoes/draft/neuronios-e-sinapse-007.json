@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:56:59.850Z",
+  "id": "neuronios-e-sinapse-007",
+  "materialId": "neuronios-e-sinapse",
+  "topicId": "neuronios",
+  "subtopicId": "tipos-funcionais",
+  "type": "text",
+  "difficulty": "easy",
+  "prompt": "Qual tipo de neuronio e citado como relacionado ao controle de orgaos efetores?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Motor."
+    },
+    {
+      "id": "B",
+      "text": "Sensorial."
+    },
+    {
+      "id": "C",
+      "text": "Interneuronio."
+    },
+    {
+      "id": "D",
+      "text": "Ependimario."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide lista neuronio motor como controle de orgao efetores.",
+  "sourceSlide": 5,
+  "sourceExcerpt": "Motor: controle de orgao efetores"
+}

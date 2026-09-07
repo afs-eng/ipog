@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:56:59.850Z",
+  "id": "estruturas-osseas-do-cranio-005",
+  "materialId": "estruturas-osseas-do-cranio",
+  "topicId": "ossos-da-face",
+  "subtopicId": "ossos-faciais",
+  "type": "text",
+  "difficulty": "easy",
+  "prompt": "Qual conjunto contem ossos citados no slide como ossos da face?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Mandibula, vomer, maxilas e nasais."
+    },
+    {
+      "id": "B",
+      "text": "Frontal, parietais, temporais e occipital."
+    },
+    {
+      "id": "C",
+      "text": "Mesencefalo, ponte, bulbo e cerebelo."
+    },
+    {
+      "id": "D",
+      "text": "Dura-mater, aracnoide, pia-mater e liquor."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide separa ossos do cranio e ossos da face, incluindo mandibula, vomer, nasais e maxilas entre os da face.",
+  "sourceSlide": 3,
+  "sourceExcerpt": "OSSOS DA FACE: Mandibula, Vomer... Nasais... Maxilas"
+}

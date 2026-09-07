@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.351Z",
+  "id": "medula-espinal-010",
+  "materialId": "medula-espinal",
+  "topicId": "medula-espinal",
+  "subtopicId": "cauda-equina",
+  "type": "image",
+  "difficulty": "medium",
+  "prompt": "Qual estrutura do slide 23 esta diretamente nomeada junto ao cone medular?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Cauda equina."
+    },
+    {
+      "id": "B",
+      "text": "Sulco central."
+    },
+    {
+      "id": "C",
+      "text": "Area visual primaria."
+    },
+    {
+      "id": "D",
+      "text": "Nervo optico."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "A legenda cita cone medular e cauda equina como estruturas evidenciadas.",
+  "sourceSlide": 23,
+  "sourceExcerpt": "cone medular (1.9); cauda equina (1.10)",
+  "imageUrl": "/neuroanatomofisiologia/medula-espinal-slide-23-image-1.jpeg"
+}

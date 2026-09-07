@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "encefalo-005",
+  "materialId": "encefalo",
+  "topicId": "lobos-cerebrais",
+  "subtopicId": "lobo-frontal",
+  "type": "text",
+  "difficulty": "easy",
+  "prompt": "Qual lobo e descrito como motor e localizado a frente do sulco central?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Lobo frontal."
+    },
+    {
+      "id": "B",
+      "text": "Lobo parietal."
+    },
+    {
+      "id": "C",
+      "text": "Lobo temporal."
+    },
+    {
+      "id": "D",
+      "text": "Lobo occipital."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide do lobo frontal o descreve como motor e localizado a frente do sulco central.",
+  "sourceSlide": 21,
+  "sourceExcerpt": "Lobo Frontal | Motor - a frente do sulco central",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:25:05.178Z"
+}

@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "introducao-a-anatomia-002",
+  "materialId": "introducao-a-anatomia",
+  "topicId": "variacoes-e-anomalias",
+  "subtopicId": "variacao-anatomica",
+  "type": "image",
+  "difficulty": "easy",
+  "prompt": "Qual exemplo aparece no material como variacao anatomica?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Situs inversus."
+    },
+    {
+      "id": "B",
+      "text": "Fissura labiopalatina."
+    },
+    {
+      "id": "C",
+      "text": "Cranioestenose."
+    },
+    {
+      "id": "D",
+      "text": "Cauda equina."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide de variacao anatomica apresenta especificamente o exemplo Situs inversus.",
+  "sourceSlide": 8,
+  "sourceExcerpt": "Variacao Anatomica | Situs inversus",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:57:02.338Z",
+  "imageUrl": "/neuroanatomofisiologia/introducao-a-anatomia-slide-8-image-1.jpeg"
+}

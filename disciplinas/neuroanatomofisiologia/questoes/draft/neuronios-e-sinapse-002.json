@@ -1,0 +1,35 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "id": "neuronios-e-sinapse-002",
+  "materialId": "neuronios-e-sinapse",
+  "topicId": "glia",
+  "subtopicId": "oligodendrocitos",
+  "type": "text",
+  "difficulty": "medium",
+  "prompt": "Qual celula produz a bainha de mielina no sistema nervoso central?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Oligodendrocito."
+    },
+    {
+      "id": "B",
+      "text": "Celula de Schwann."
+    },
+    {
+      "id": "C",
+      "text": "Microglia."
+    },
+    {
+      "id": "D",
+      "text": "Celula ependimaria."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O material afirma que oligodendrocitos produzem a bainha de mielina no SNC.",
+  "sourceSlide": 10,
+  "sourceExcerpt": "Oligodendrocitos: Produzem a bainha de mielina no Sistema Nervoso Central (SNC)",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:25:05.178Z",
+  "updatedAt": "2026-09-06T16:25:05.178Z"
+}

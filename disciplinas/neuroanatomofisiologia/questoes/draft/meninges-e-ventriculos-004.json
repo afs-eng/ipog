@@ -1,0 +1,36 @@
+{
+  "subjectId": "neuroanatomofisiologia",
+  "status": "draft",
+  "createdAt": "2026-09-06T16:56:59.850Z",
+  "updatedAt": "2026-09-06T16:57:02.354Z",
+  "id": "meninges-e-ventriculos-004",
+  "materialId": "meninges-e-ventriculos",
+  "topicId": "meninges",
+  "subtopicId": "funcao-geral",
+  "type": "image",
+  "difficulty": "easy",
+  "prompt": "As meninges revestem e protegem qual parte do sistema nervoso?",
+  "options": [
+    {
+      "id": "A",
+      "text": "Sistema nervoso central."
+    },
+    {
+      "id": "B",
+      "text": "Sistema digestivo."
+    },
+    {
+      "id": "C",
+      "text": "Sistema nervoso periferico apenas."
+    },
+    {
+      "id": "D",
+      "text": "Sistema muscular."
+    }
+  ],
+  "correctOption": "A",
+  "explanation": "O slide afirma que as meninges revestem e protegem o SNC.",
+  "sourceSlide": 2,
+  "sourceExcerpt": "membranas que revestem e protegem o sistema nervoso central (SNC)",
+  "imageUrl": "/neuroanatomofisiologia/meninges-e-ventriculos-slide-2-image-1.gif"
+}
