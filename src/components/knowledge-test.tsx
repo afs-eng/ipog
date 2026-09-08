@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import type { StoredQuestion } from "@/lib/question-schema";
 
 type KnowledgeTestProps = {
-  questions: StoredQuestion[];
+  questions: TestQuestion[];
   title: string;
   backHref: string;
   imageItems?: ImageItem[];
@@ -23,6 +23,10 @@ type VisualOption = StoredQuestion["options"][number] & {
   imageUrl?: string;
 };
 
+type TestQuestion = StoredQuestion & {
+  correctOptions?: StoredQuestion["correctOption"][];
+};
+
 type Feedback = {
   status: "correct" | "incorrect";
   optionId: string;
@@ -35,6 +39,7 @@ export function KnowledgeTest({ questions, title, backHref, imageItems = [], ima
   const [currentIndex, setCurrentIndex] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState<Record<string, string>>({});
   const [wrongAnswers, setWrongAnswers] = useState<Record<string, string[]>>({});
+  const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string[]>>({});
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
@@ -90,7 +95,14 @@ export function KnowledgeTest({ questions, title, backHref, imageItems = [], ima
   const currentCorrectOption = layout === "text"
     ? currentQuestion.correctOption
     : getVisualCorrectOption(layout === "image-grid" ? visualImageOptions : visualTextOptions, visualItem);
-  const isQuestionCorrect = correctAnswers[currentQuestion.id] === currentCorrectOption;
+  const currentCorrectOptions = layout === "text" && currentQuestion.correctOptions?.length
+    ? currentQuestion.correctOptions
+    : [currentCorrectOption];
+  const currentSelectedAnswers = selectedAnswers[currentQuestion.id] ?? [];
+  const isMultiAnswer = currentCorrectOptions.length > 1;
+  const isQuestionCorrect = isMultiAnswer
+    ? currentCorrectOptions.every((optionId) => currentSelectedAnswers.includes(optionId))
+    : correctAnswers[currentQuestion.id] === currentCorrectOption;
   const mainImageUrl = visualItem?.imageUrl ?? currentQuestion.imageUrl ?? imageUrls[currentIndex % imageUrls.length];
   const headerQuestion = layout === "text"
     ? "Responda a questão abaixo."
@@ -137,6 +149,27 @@ export function KnowledgeTest({ questions, title, backHref, imageItems = [], ima
 
   function selectOption(optionId: StoredQuestion["correctOption"]) {
     if (isQuestionCorrect) {
+      return;
+    }
+
+    if (isMultiAnswer) {
+      if (!currentCorrectOptions.includes(optionId)) {
+        setWrongAnswers((current) => ({
+          ...current,
+          [currentQuestion.id]: Array.from(new Set([...(current[currentQuestion.id] ?? []), optionId])),
+        }));
+        setFeedback({ status: "incorrect", optionId });
+        return;
+      }
+
+      const nextSelectedAnswers = Array.from(new Set([...currentSelectedAnswers, optionId]));
+      setSelectedAnswers((current) => ({ ...current, [currentQuestion.id]: nextSelectedAnswers }));
+
+      if (currentCorrectOptions.every((correctOption) => nextSelectedAnswers.includes(correctOption))) {
+        setCorrectAnswers((current) => ({ ...current, [currentQuestion.id]: nextSelectedAnswers.join(",") }));
+        setFeedback({ status: "correct", optionId });
+      }
+
       return;
     }
 
@@ -190,10 +223,13 @@ export function KnowledgeTest({ questions, title, backHref, imageItems = [], ima
             </div>
             <TextOptions
               correctOption={currentCorrectOption}
+              correctOptions={currentCorrectOptions}
               currentWrongAnswers={currentWrongAnswers}
               isQuestionCorrect={isQuestionCorrect}
+              isMultiAnswer={isMultiAnswer}
               onSelect={selectOption}
               options={currentQuestion.options}
+              selectedOptions={currentSelectedAnswers}
             />
           </div>
         ) : null}
@@ -325,24 +361,33 @@ function TestHeader({
 
 function TextOptions({
   correctOption,
+  correctOptions = [correctOption],
   currentWrongAnswers,
   isQuestionCorrect,
+  isMultiAnswer,
   onSelect,
   options,
+  selectedOptions = [],
 }: {
   correctOption: StoredQuestion["correctOption"];
+  correctOptions?: StoredQuestion["correctOption"][];
   currentWrongAnswers: string[];
   isQuestionCorrect: boolean;
+  isMultiAnswer?: boolean;
   onSelect: (optionId: StoredQuestion["correctOption"]) => void;
   options: StoredQuestion["options"];
+  selectedOptions?: string[];
 }) {
   return (
     <div className="space-y-3">
       {options.map((option) => {
-        const isCorrect = option.id === correctOption;
+        const isCorrect = correctOptions.includes(option.id);
+        const isSelected = selectedOptions.includes(option.id);
         const isWrong = currentWrongAnswers.includes(option.id);
         const stateClass = isQuestionCorrect && isCorrect
           ? "bg-emerald-400 text-white"
+          : isMultiAnswer && isSelected
+            ? "bg-sky-100 text-sky-800 ring-2 ring-sky-200"
           : isWrong
             ? "bg-red-400 text-white ring-2 ring-red-200"
             : "bg-white text-slate-600 hover:text-[#aa0000]";
@@ -357,6 +402,7 @@ function TextOptions({
           >
             <span>{option.text}</span>
             {isQuestionCorrect && isCorrect ? <StatusBubble label="certo" /> : null}
+            {isMultiAnswer && isSelected && !isQuestionCorrect ? <StatusBubble label="certo" /> : null}
             {isWrong ? <StatusBubble label="errado" /> : null}
           </button>
         );
@@ -540,7 +586,7 @@ function getOptionId(index: number) {
   return ["A", "B", "C", "D"][index] as StoredQuestion["correctOption"];
 }
 
-function buildTimedQuestionDeck(items: StoredQuestion[]) {
+function buildTimedQuestionDeck(items: TestQuestion[]) {
   const deck = Array.from({ length: 8 }).flatMap((_, round) =>
     shuffleQuestions(items).map((question) => shuffleQuestionOptions({
       ...question,
@@ -551,18 +597,20 @@ function buildTimedQuestionDeck(items: StoredQuestion[]) {
   return deck.length > 0 ? deck : items;
 }
 
-function shuffleQuestions(items: StoredQuestion[]) {
+function shuffleQuestions(items: TestQuestion[]) {
   return [...items].sort(() => Math.random() - 0.5);
 }
 
-function shuffleQuestionOptions(question: StoredQuestion) {
+function shuffleQuestionOptions(question: TestQuestion): TestQuestion {
   const correctText = question.options.find((option) => option.id === question.correctOption)?.text;
+  const correctTexts = question.correctOptions?.map((optionId) => question.options.find((option) => option.id === optionId)?.text).filter(Boolean);
   const options = [...question.options].sort(() => Math.random() - 0.5);
 
   return {
     ...question,
     options,
     correctOption: options.find((option) => option.text === correctText)?.id ?? question.correctOption,
+    correctOptions: correctTexts?.map((text) => options.find((option) => option.text === text)?.id).filter((optionId): optionId is StoredQuestion["correctOption"] => Boolean(optionId)),
   };
 }
 

@@ -556,8 +556,8 @@ const cerebroTextQuestions: NeuroTextQuestion[] = [
   },
   {
     prompt: "Quais lobos fazem parte do cérebro (selecione todas as que se aplicam)?",
-    options: ["Frontal", "Temporal", "Parietal", "Occipital", "Insular", "Bulbo"],
-    correctAnswers: ["Frontal", "Temporal", "Parietal", "Occipital", "Insular"],
+    options: ["Frontal", "Temporal", "Parietal", "Bulbo"],
+    correctAnswers: ["Frontal", "Temporal", "Parietal"],
     explanation: "Os principais lobos cerebrais incluem frontal, temporal, parietal, occipital e insular; o lobo límbico também é descrito por alguns autores.",
   },
   {
