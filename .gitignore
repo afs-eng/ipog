@@ -25,6 +25,7 @@
 
 # large video files should be compressed or hosted outside GitHub
 /disciplinas/**/*.mp4
+/disciplinas/neuroanatomofisiologia/imagens/Cerebro/
 /public/conteudos/sistema-nervoso-central-introducao-ao-encefalo/video.mp4
 
 # misc

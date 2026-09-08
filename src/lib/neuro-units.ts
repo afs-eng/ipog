@@ -450,24 +450,25 @@ const snpTextQuestions: NeuroTextQuestion[] = [
 ];
 
 const cerebroImageBaseUrl = "/neuroanatomofisiologia";
+const cerebroAtlasImageBaseUrl = "/conteudos/cerebro/atlas";
 const cerebroAtlasItems = [
   {
     title: "Lobos do cérebro",
-    imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-5-image-1.png`,
+    imageUrl: `${cerebroAtlasImageBaseUrl}/estrutura-do-cerebro.png`,
     description:
-      "Representação dos lobos cerebrais e das principais relações anatômicas observadas em corte sagital.",
+      "Representação colorida dos lobos cerebrais e dos principais sulcos e giros identificáveis nas perspectivas lateral e medial.",
   },
   {
-    title: "Corte sagital do encéfalo",
-    imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-7-image-1.jpeg`,
+    title: "Áreas funcionais do córtex cerebral",
+    imageUrl: `${cerebroAtlasImageBaseUrl}/substancia-cinzenta-areas-funcionais.png`,
     description:
-      "Vista medial do encéfalo, útil para reconhecer córtex cerebral, corpo caloso, diencéfalo, tronco encefálico e cerebelo.",
+      "Principais áreas funcionais do córtex cerebral, incluindo áreas motoras, sensitivas primárias e áreas de associação.",
   },
   {
-    title: "Áreas motoras do córtex cerebral",
-    imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-39-image-1.png`,
+    title: "Substância branca cerebral",
+    imageUrl: `${cerebroAtlasImageBaseUrl}/substancia-branca-cerebral.png`,
     description:
-      "Áreas motoras relacionadas ao planejamento e à execução do movimento voluntário.",
+      "Feixes de substância branca cerebral, incluindo fibras comissurais, fibras de projeção e fibras de associação.",
   },
 ];
 const cerebroTestImageItems = cerebroAtlasItems.map((item) => ({
@@ -479,16 +480,16 @@ const cerebroAccordionSections = [
     title: "Estrutura do cérebro",
     items: [
       {
-        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-7-image-1.jpeg`,
-        label: "Hemisférios cerebrais",
+        imageUrl: `${cerebroAtlasImageBaseUrl}/estrutura-do-cerebro.png`,
+        label: "Lobos do cérebro",
         description:
-          "O cérebro é formado por dois hemisférios conectados pelo corpo caloso. Sua superfície apresenta giros e sulcos que aumentam a área cortical.",
+          "Representação dos lobos frontal, parietal, temporal, occipital, insular e límbico, com os principais sulcos e giros visíveis.",
       },
       {
-        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-5-image-1.png`,
-        label: "Lobos cerebrais",
+        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-7-image-1.jpeg`,
+        label: "Corte sagital do encéfalo",
         description:
-          "Cada hemisfério apresenta lobos frontal, parietal, temporal, occipital, insular e límbico. O lobo insular fica profundo ao sulco lateral e é coberto pelo opérculo.",
+          "Vista medial do encéfalo, útil para reconhecer córtex cerebral, corpo caloso, diencéfalo, tronco encefálico e cerebelo.",
       },
       {
         imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-4-image-1.jpeg`,
@@ -501,6 +502,12 @@ const cerebroAccordionSections = [
   {
     title: "Substância cinzenta cerebral: áreas funcionais",
     items: [
+      {
+        imageUrl: `${cerebroAtlasImageBaseUrl}/substancia-cinzenta-areas-funcionais.png`,
+        label: "Áreas funcionais do córtex cerebral",
+        description:
+          "Mapa das principais áreas motoras, sensitivas e de associação da substância cinzenta cortical.",
+      },
       {
         imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-39-image-1.png`,
         label: "Área motora primária",
@@ -525,16 +532,16 @@ const cerebroAccordionSections = [
     title: "Substância branca cerebral",
     items: [
       {
+        imageUrl: `${cerebroAtlasImageBaseUrl}/substancia-branca-cerebral.png`,
+        label: "Fibras da substância branca cerebral",
+        description:
+          "Imagem com fibras comissurais, fibras de projeção e fibras de associação, além de estruturas profundas relacionadas.",
+      },
+      {
         imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-7-image-2.jpeg`,
         label: "Substância branca profunda",
         description:
           "A substância branca cerebral fica profundamente ao córtex e é composta por axônios que conectam diferentes áreas do cérebro.",
-      },
-      {
-        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-38-image-1.png`,
-        label: "Tratos e conexões cerebrais",
-        description:
-          "As fibras nervosas podem formar feixes de associação, projeção e comissurais, permitindo a transferência de informações entre regiões corticais e subcorticais.",
       },
     ],
   },
