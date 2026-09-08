@@ -66,12 +66,12 @@ export function KnowledgeTest({ questions, title, backHref, imageItems = [], ima
     return (
       <main className="min-h-screen bg-slate-50 px-6 py-10 text-slate-800 sm:px-10">
         <section className="mx-auto max-w-3xl rounded-3xl border border-dashed border-slate-300 bg-white p-8 text-center shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-500">Teste</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#aa0000]">Teste</p>
           <h1 className="mt-3 text-3xl font-semibold text-slate-950">Nenhuma questão disponível</h1>
           <p className="mt-3 leading-7 text-slate-600">
             Esta unidade ainda não tem perguntas suficientes para montar o teste.
           </p>
-          <Link className="mt-6 inline-flex rounded-sm bg-sky-500 px-6 py-3 font-semibold text-white hover:bg-sky-600" href={backHref}>
+          <Link className="mt-6 inline-flex rounded-sm bg-[#aa0000] px-6 py-3 font-semibold text-white hover:bg-[#8b0000]" href={backHref}>
             Voltar para a aula
           </Link>
         </section>
@@ -108,24 +108,24 @@ export function KnowledgeTest({ questions, title, backHref, imageItems = [], ima
     return (
       <main className="min-h-screen bg-slate-50 px-6 py-10 text-slate-800 sm:px-10">
         <section className="mx-auto max-w-3xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-          <div className="bg-sky-500 p-8 text-white">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-sky-100">Resultado</p>
+          <div className="bg-[#aa0000] p-8 text-white">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-red-100">Resultado</p>
             <h1 className="mt-3 text-4xl font-semibold">{correctCount} acertos</h1>
-            <p className="mt-3 text-sky-50">Você concluiu o teste de {title}.</p>
+            <p className="mt-3 text-red-50">Você concluiu o teste de {title}.</p>
           </div>
           <div className="p-6 sm:p-8">
             <div className="h-3 rounded-full bg-slate-100">
-              <div className="h-3 rounded-full bg-sky-500" style={{ width: "100%" }} />
+              <div className="h-3 rounded-full bg-[#aa0000]" style={{ width: "100%" }} />
             </div>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <button
-                className="rounded-sm border border-slate-300 px-6 py-3 font-semibold text-slate-700 hover:border-sky-500 hover:text-sky-600"
+                className="rounded-sm border border-slate-300 px-6 py-3 font-semibold text-slate-700 hover:border-[#aa0000] hover:text-[#aa0000]"
                 onClick={() => window.location.reload()}
                 type="button"
               >
                 Refazer teste
               </button>
-              <Link className="rounded-sm bg-sky-500 px-6 py-3 text-center font-semibold text-white hover:bg-sky-600" href={backHref}>
+              <Link className="rounded-sm bg-[#aa0000] px-6 py-3 text-center font-semibold text-white hover:bg-[#8b0000]" href={backHref}>
                 Voltar para a aula
               </Link>
             </div>
@@ -177,7 +177,7 @@ export function KnowledgeTest({ questions, title, backHref, imageItems = [], ima
         progress={timeProgress}
       />
 
-      <div className="bg-white px-4 py-5 text-[17px] text-sky-600">
+      <div className="bg-white px-4 py-5 text-[17px] text-[#aa0000]">
         {headerQuestion}
         {layout !== "text" ? <span className="ml-2 text-sm font-semibold">Imagem</span> : null}
       </div>
@@ -185,7 +185,7 @@ export function KnowledgeTest({ questions, title, backHref, imageItems = [], ima
       <section className="mx-auto max-w-5xl px-4 py-8 sm:px-6">
         {layout === "text" ? (
           <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr]">
-            <div className="bg-white p-8 text-xl text-sky-600 sm:p-10">
+            <div className="bg-white p-8 text-xl text-[#aa0000] sm:p-10">
               {currentQuestion.prompt}
             </div>
             <TextOptions
@@ -279,7 +279,7 @@ function TestHeader({
         </button>
         <div className="px-4 sm:px-8">
           <div className="h-1.5 rounded-full bg-white">
-            <div className="h-1.5 rounded-full bg-sky-400 transition-all" style={{ width: `${progress}%` }} />
+            <div className="h-1.5 rounded-full bg-[#aa0000] transition-all" style={{ width: `${progress}%` }} />
           </div>
         </div>
         <div className="flex items-center gap-2 text-sm font-semibold tabular-nums">
@@ -344,8 +344,8 @@ function TextOptions({
         const stateClass = isQuestionCorrect && isCorrect
           ? "bg-emerald-400 text-white"
           : isWrong
-            ? "bg-red-400 text-white ring-2 ring-orange-300"
-            : "bg-white text-slate-600 hover:text-sky-600";
+            ? "bg-red-400 text-white ring-2 ring-red-200"
+            : "bg-white text-slate-600 hover:text-[#aa0000]";
 
         return (
           <button
@@ -403,7 +403,7 @@ function ImageOption({
     ? "border-emerald-400 ring-2 ring-emerald-300"
     : wasWrong
       ? "border-red-400 ring-2 ring-red-300"
-      : "border-white hover:border-sky-400";
+      : "border-white hover:border-red-400";
 
   return (
     <button
@@ -457,7 +457,7 @@ function FeedbackBar({
         <button className="text-sm font-semibold underline underline-offset-4" type="button">
           Mostrar mais
         </button>
-        <button className="bg-sky-500 px-8 py-3 text-sm font-bold uppercase text-white hover:bg-sky-600" onClick={onContinue} type="button">
+        <button className="bg-[#aa0000] px-8 py-3 text-sm font-bold uppercase text-white hover:bg-[#8b0000]" onClick={onContinue} type="button">
           {isQuestionCorrect ? "Continuar" : "Tentar novamente"}
         </button>
       </div>

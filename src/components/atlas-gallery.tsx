@@ -32,7 +32,7 @@ export function AtlasGallery({ description, items }: AtlasGalleryProps) {
       <div className={`relative border border-slate-300 bg-white ${description ? "mt-5" : "border-x-0 border-b-0"}`}>
         <button
           aria-label="Imagem anterior"
-          className="absolute -left-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-slate-300 bg-white text-xl text-slate-400 shadow-sm hover:text-sky-500"
+          className="absolute -left-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-slate-300 bg-white text-xl text-slate-400 shadow-sm hover:text-[#aa0000]"
           onClick={previousImage}
           type="button"
         >
@@ -40,7 +40,7 @@ export function AtlasGallery({ description, items }: AtlasGalleryProps) {
         </button>
         <button
           aria-label="Próxima imagem"
-          className="absolute -right-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-slate-300 bg-white text-xl text-slate-400 shadow-sm hover:text-sky-500"
+          className="absolute -right-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-slate-300 bg-white text-xl text-slate-400 shadow-sm hover:text-[#aa0000]"
           onClick={nextImage}
           type="button"
         >
@@ -49,7 +49,7 @@ export function AtlasGallery({ description, items }: AtlasGalleryProps) {
 
         <button
           aria-label="Ampliar imagem"
-          className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-slate-400 shadow-sm hover:text-sky-500"
+          className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-slate-400 shadow-sm hover:text-[#aa0000]"
           type="button"
         >
           +
@@ -70,18 +70,18 @@ export function AtlasGallery({ description, items }: AtlasGalleryProps) {
             <p>{currentItem.label}</p>
             {currentItem.subtitle ? <p className="text-slate-500">{currentItem.subtitle}</p> : null}
           </div>
-          <button className="border-l border-slate-300 px-3 text-2xl text-slate-400 hover:text-sky-500" onClick={previousImage} type="button">
+          <button className="border-l border-slate-300 px-3 text-2xl text-slate-400 hover:text-[#aa0000]" onClick={previousImage} type="button">
             ‹
           </button>
           <div className="flex items-center justify-center border-l border-slate-300 text-slate-500">
             {currentIndex + 1}/{items.length}
           </div>
-          <button className="border-l border-slate-300 px-3 text-2xl text-slate-400 hover:text-sky-500" onClick={nextImage} type="button">
+          <button className="border-l border-slate-300 px-3 text-2xl text-slate-400 hover:text-[#aa0000]" onClick={nextImage} type="button">
             ›
           </button>
           <button
             aria-label="Mostrar nomes das imagens"
-            className="border-l border-slate-300 px-3 text-lg text-slate-400 hover:text-sky-500"
+            className="border-l border-slate-300 px-3 text-lg text-slate-400 hover:text-[#aa0000]"
             onClick={() => setIsListOpen((current) => !current)}
             type="button"
           >
@@ -95,7 +95,7 @@ export function AtlasGallery({ description, items }: AtlasGalleryProps) {
               {items.map((item, index) => (
                 <li key={item.imageUrl}>
                   <button
-                    className={index === currentIndex ? "font-semibold text-sky-600" : "hover:text-sky-600"}
+                    className={index === currentIndex ? "font-semibold text-[#aa0000]" : "hover:text-[#aa0000]"}
                     onClick={() => setCurrentIndex(index)}
                     type="button"
                   >

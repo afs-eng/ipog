@@ -14,11 +14,11 @@ export default async function QuestionsPage() {
   return (
     <main className="mx-auto min-h-screen max-w-6xl px-6 py-8 sm:px-10 lg:px-12">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <Link className="text-sm font-semibold text-sky-700" href="/admin">
+        <Link className="text-sm font-semibold text-[#aa0000]" href="/admin">
           Voltar ao admin
         </Link>
         <Link
-          className="rounded-full bg-slate-950 px-5 py-3 text-center font-semibold text-white transition hover:bg-sky-700"
+          className="rounded-full bg-slate-950 px-5 py-3 text-center font-semibold text-white transition hover:bg-[#aa0000]"
           href="/admin/questoes/nova"
         >
           Nova questão
@@ -26,7 +26,7 @@ export default async function QuestionsPage() {
       </div>
 
       <section className="mt-10">
-        <p className="font-semibold text-sky-700">Questões</p>
+        <p className="font-semibold text-[#aa0000]">Questões</p>
         <h1 className="mt-3 text-4xl font-semibold tracking-tight text-slate-950">
           Rascunhos de Neuroanatomofisiologia
         </h1>
@@ -57,12 +57,12 @@ export default async function QuestionsPage() {
           <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" key={question.id}>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div>
-                <p className="text-sm font-semibold text-sky-700">
+                <p className="text-sm font-semibold text-[#aa0000]">
                   {question.materialId} • slide {question.sourceSlide ?? "não informado"}
                 </p>
                 <h2 className="mt-2 text-xl font-semibold text-slate-950">{question.prompt}</h2>
               </div>
-              <span className="w-fit rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">
+              <span className="w-fit rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-[#aa0000]">
                 draft
               </span>
             </div>

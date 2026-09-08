@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { SubjectCard } from "@/components/subject-card";
 import { subjects } from "@/lib/study-data";
@@ -35,8 +34,8 @@ export default function Home() {
             </nav>
           </header>
 
-          <div className="grid flex-1 gap-12 py-16 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:py-10">
-            <div>
+          <div className="flex flex-1 items-center py-16 lg:py-10">
+            <div className="max-w-5xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-rose-50 shadow-2xl shadow-red-950/20 backdrop-blur">
                 <span className="h-2 w-2 rounded-full bg-rose-200" />
                 Estudo guiado para Neuroanatomofisiologia
@@ -74,49 +73,6 @@ export default function Home() {
                     <p className="mt-2 text-xs leading-5 text-slate-300">{item.detail}</p>
                   </div>
                 ))}
-              </div>
-            </div>
-
-            <div className="relative mx-auto w-full max-w-xl lg:mr-0">
-              <div className="rounded-[2.5rem] border border-white/15 bg-white/10 p-3 shadow-2xl shadow-red-950/30 backdrop-blur">
-                <div className="overflow-hidden rounded-[2rem] bg-white text-slate-950">
-                  <div className="relative aspect-[4/3] bg-slate-100">
-                    <Image
-                      alt="Atlas visual de neuroanatomia"
-                      className="object-contain p-5"
-                      fill
-                      priority
-                      sizes="(max-width: 1024px) 100vw, 560px"
-                      src="/conteudos/sistema-nervoso-central-introducao-ao-encefalo/imgs/Cérebro.png"
-                    />
-                    <div className="absolute left-5 top-5 rounded-full bg-[#aa0000]/95 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white">
-                      Atlas interativo
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center justify-between gap-4">
-                      <div>
-                        <p className="text-sm font-semibold text-[#aa0000]">Treino com imagens</p>
-                        <h2 className="mt-1 text-2xl font-semibold tracking-tight">Identifique a estrutura destacada.</h2>
-                      </div>
-                      <div className="rounded-2xl bg-rose-100 px-3 py-2 text-sm font-bold text-[#aa0000]">+XP</div>
-                    </div>
-                    <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                      {["Cérebro", "Cerebelo", "Ponte", "Tálamo"].map((option, index) => (
-                        <div
-                          className={`rounded-2xl border p-4 text-sm font-semibold ${
-                            index === 0
-                              ? "border-rose-300 bg-rose-50 text-[#8b0000]"
-                              : "border-slate-200 bg-slate-50 text-slate-700"
-                          }`}
-                          key={option}
-                        >
-                          {option}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

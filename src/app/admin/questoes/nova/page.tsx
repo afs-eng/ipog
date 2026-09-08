@@ -12,11 +12,11 @@ export default function NewQuestionPage() {
 
   return (
     <main className="mx-auto min-h-screen max-w-5xl px-6 py-8 sm:px-10 lg:px-12">
-      <Link className="text-sm font-semibold text-sky-700" href="/admin">
+      <Link className="text-sm font-semibold text-[#aa0000]" href="/admin">
         Voltar ao admin
       </Link>
       <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
-        <p className="font-semibold text-sky-700">Nova questão</p>
+        <p className="font-semibold text-[#aa0000]">Nova questão</p>
         <h1 className="mt-3 text-4xl font-semibold tracking-tight text-slate-950">
           Cadastrar questão em draft
         </h1>

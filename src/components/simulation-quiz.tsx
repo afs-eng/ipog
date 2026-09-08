@@ -99,7 +99,7 @@ export function SimulationQuiz({ backHref, imageItems, textQuestions }: Simulati
   if (showResult) {
     return (
       <main className="min-h-screen bg-white p-4 text-slate-800">
-        <section className="mx-auto max-w-3xl rounded border border-amber-200 bg-amber-50 p-6 text-center">
+        <section className="mx-auto max-w-3xl rounded border border-red-200 bg-red-50 p-6 text-center">
           <button
             aria-label="Configurações do simulado"
             className="float-right text-slate-500"
@@ -110,12 +110,12 @@ export function SimulationQuiz({ backHref, imageItems, textQuestions }: Simulati
           <p className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-slate-200 text-slate-300">
             <TrophyIcon />
           </p>
-          <h1 className="mt-4 text-2xl font-normal text-amber-500">Resultado do simulado</h1>
+          <h1 className="mt-4 text-2xl font-normal text-[#aa0000]">Resultado do simulado</h1>
           <p className="mt-2 text-slate-600">Você acertou {correctCount}/{questions.length} questões.</p>
           <div className="mt-6 space-y-3 text-left">
             <ResultSummaryCard correctCount={correctCount} onDetailsClick={() => setShowDetails(true)} total={questions.length} />
           </div>
-          <Link className="mt-6 inline-flex rounded bg-amber-400 px-6 py-3 font-bold uppercase text-white hover:bg-amber-500" href={backHref}>
+          <Link className="mt-6 inline-flex rounded bg-[#aa0000] px-6 py-3 font-bold uppercase text-white hover:bg-[#8b0000]" href={backHref}>
             Voltar para a aula
           </Link>
         </section>
@@ -144,7 +144,7 @@ export function SimulationQuiz({ backHref, imageItems, textQuestions }: Simulati
           </Link>
           <div className="px-6 sm:px-10">
             <div className="h-1.5 rounded-full bg-white">
-              <div className="h-1.5 rounded-full bg-sky-400" style={{ width: `${progress}%` }} />
+              <div className="h-1.5 rounded-full bg-[#aa0000]" style={{ width: `${progress}%` }} />
             </div>
           </div>
           <span className="text-sm font-bold tabular-nums">
@@ -163,7 +163,7 @@ export function SimulationQuiz({ backHref, imageItems, textQuestions }: Simulati
       <section className="mx-auto max-w-5xl px-4 py-7 sm:px-6">
         {currentQuestion.type === "text" ? (
           <div className="grid gap-7 lg:grid-cols-[1.05fr_1fr]">
-            <div className="bg-white p-8 text-xl leading-8 text-sky-600">
+            <div className="bg-white p-8 text-xl leading-8 text-[#aa0000]">
               {currentQuestion.prompt}
             </div>
             <div className="space-y-3">
@@ -176,8 +176,8 @@ export function SimulationQuiz({ backHref, imageItems, textQuestions }: Simulati
                   : hasAnswered && isSelected
                     ? "bg-red-400 text-white"
                     : isSelected
-                      ? "border border-amber-400 bg-white text-slate-700"
-                      : "bg-white text-slate-700 hover:text-sky-600";
+                      ? "border border-red-400 bg-white text-slate-700"
+                      : "bg-white text-slate-700 hover:text-[#aa0000]";
 
                 return (
                   <button
@@ -215,7 +215,7 @@ export function SimulationQuiz({ backHref, imageItems, textQuestions }: Simulati
                     ? "border-emerald-400"
                     : hasCheckedImageAnswer
                       ? "border-red-400 shadow-[0_0_0_1px_#f87171]"
-                      : "border-sky-500 shadow-[0_0_0_1px_#0ea5e9]"
+                      : "border-[#aa0000] shadow-[0_0_0_1px_#aa0000]"
                 }`}
                 onChange={(event) => {
                   setAnswers((current) => ({ ...current, [currentQuestion.id]: event.target.value }));
@@ -258,23 +258,23 @@ export function SimulationQuiz({ backHref, imageItems, textQuestions }: Simulati
       <div className="fixed inset-x-0 bottom-0 z-20 flex justify-center border-t border-slate-300 bg-white/70 px-4 py-1">
         {currentQuestion.type === "image-input" ? (
           <button
-            className="flex w-full max-w-[630px] items-center justify-center gap-4 rounded-t-md bg-amber-400 px-6 py-4 text-sm font-semibold text-white hover:bg-amber-500 disabled:bg-slate-300"
+            className="flex w-full max-w-[630px] items-center justify-center gap-4 rounded-t-md bg-[#aa0000] px-6 py-4 text-sm font-semibold text-white hover:bg-[#8b0000] disabled:bg-slate-300"
             disabled={!currentAnswer.trim()}
             onClick={hasCheckedImageAnswer ? nextQuestion : checkImageAnswer}
             type="button"
           >
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-amber-500 text-white">OK</span>
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#8b0000] text-white">OK</span>
             {hasCheckedImageAnswer ? "Continuar" : "Verificar as minhas respostas"}
           </button>
         ) : (
           <div className="w-full max-w-[630px]">
             <button
-              className="flex w-full items-center justify-center gap-4 rounded-t-md bg-amber-400 px-6 py-4 text-sm font-semibold text-white hover:bg-amber-500 disabled:bg-slate-300"
+              className="flex w-full items-center justify-center gap-4 rounded-t-md bg-[#aa0000] px-6 py-4 text-sm font-semibold text-white hover:bg-[#8b0000] disabled:bg-slate-300"
               disabled={currentTextSelections.length === 0}
               onClick={hasCheckedTextAnswer ? nextQuestion : checkTextAnswer}
               type="button"
             >
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-amber-500 text-xs text-white">OK</span>
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#8b0000] text-xs text-white">OK</span>
               {hasCheckedTextAnswer ? "Continuar" : "Verificar as minhas respostas"}
             </button>
           </div>
@@ -333,7 +333,7 @@ function ResultSummaryCard({ correctCount, onDetailsClick, total }: { correctCou
             : "Você atingiu a pontuação mínima do simulado"}
         </p>
       </div>
-      <button aria-label="Detalhes do seu teste" className="text-slate-500 hover:text-sky-500" onClick={onDetailsClick} type="button">
+      <button aria-label="Detalhes do seu teste" className="text-slate-500 hover:text-[#aa0000]" onClick={onDetailsClick} type="button">
         <InfoIcon />
       </button>
     </div>
@@ -358,13 +358,13 @@ function SimulationDetailsModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-4">
       <section className="max-h-[92vh] w-full max-w-3xl overflow-auto rounded bg-white p-7 shadow-2xl">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-normal text-sky-500">Detalhes do seu teste</h2>
+          <h2 className="text-xl font-normal text-[#aa0000]">Detalhes do seu teste</h2>
           <button className="text-4xl font-light leading-none text-slate-300 hover:text-slate-500" onClick={onClose} type="button">
             x
           </button>
         </div>
         <div className="mt-4 flex flex-wrap gap-2 text-xs font-bold uppercase">
-          <span className="rounded-full bg-sky-500 px-4 py-2 text-white">Todas</span>
+          <span className="rounded-full bg-[#aa0000] px-4 py-2 text-white">Todas</span>
           <span className="rounded-full border border-emerald-400 px-4 py-2 text-emerald-500">{correctCount} corretas</span>
           <span className="rounded-full border border-red-400 px-4 py-2 text-red-400">{incorrectCount} incorretas</span>
           <span className="rounded-full border border-slate-400 px-4 py-2 text-slate-500">0 ignoradas</span>
@@ -388,7 +388,7 @@ function SimulationDetailsModal({
           })}
         </div>
         <div className="mt-8 flex justify-end">
-          <button className="rounded-sm bg-sky-500 px-6 py-3 text-sm font-bold uppercase text-white hover:bg-sky-600" onClick={onClose} type="button">
+          <button className="rounded-sm bg-[#aa0000] px-6 py-3 text-sm font-bold uppercase text-white hover:bg-[#8b0000]" onClick={onClose} type="button">
             Revisar questões selecionadas ({questions.length})
           </button>
         </div>
@@ -411,7 +411,7 @@ function FeedbackBar({ isCorrect, onContinue, question }: { isCorrect: boolean; 
         <button className="text-sm font-semibold underline underline-offset-4" type="button">
           Mostrar mais
         </button>
-        <button className="bg-sky-500 px-8 py-3 text-sm font-bold uppercase text-white hover:bg-sky-600" onClick={onContinue} type="button">
+        <button className="bg-[#aa0000] px-8 py-3 text-sm font-bold uppercase text-white hover:bg-[#8b0000]" onClick={onContinue} type="button">
           Continuar
         </button>
       </div>

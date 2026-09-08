@@ -26,14 +26,14 @@ export function NeuroCourseCard({ section, answeredCount = 0 }: NeuroCourseCardP
           />
         </div>
         <div className="p-5 sm:p-6">
-          <h2 className="text-2xl font-normal tracking-tight text-sky-500 sm:text-3xl">
+          <h2 className="text-2xl font-normal tracking-tight text-[#aa0000] sm:text-3xl">
             {section.title}
           </h2>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">{section.description}</p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
             <div className="h-2 flex-1 rounded bg-slate-100">
               <div
-                className="h-2 rounded bg-sky-500"
+                className="h-2 rounded bg-[#aa0000]"
                 style={{ width: `${Math.min(100, (answeredCount / section.lessons.length) * 100)}%` }}
               />
             </div>
@@ -42,7 +42,7 @@ export function NeuroCourseCard({ section, answeredCount = 0 }: NeuroCourseCardP
             </span>
             <Link
               className={`w-fit rounded-sm px-4 py-2 text-xs font-bold uppercase text-white ${
-                firstAvailableLesson ? "bg-sky-500 hover:bg-sky-600" : "pointer-events-none bg-slate-300"
+                firstAvailableLesson ? "bg-[#aa0000] hover:bg-[#8b0000]" : "pointer-events-none bg-slate-300"
               }`}
               href={courseHref}
             >
@@ -63,7 +63,7 @@ export function NeuroCourseCard({ section, answeredCount = 0 }: NeuroCourseCardP
             </div>
             <div>
               <Link
-                className={`text-sm font-semibold ${lesson.materialSlug ? "text-sky-600 hover:text-sky-800" : "text-slate-500"}`}
+                className={`text-sm font-semibold ${lesson.materialSlug ? "text-[#aa0000] hover:text-[#8b0000]" : "text-slate-500"}`}
                 href={lesson.materialSlug ? buildLessonHref(lesson.materialSlug, lesson.topicSlug) : "#"}
               >
                 {lesson.title} ▱
@@ -72,7 +72,7 @@ export function NeuroCourseCard({ section, answeredCount = 0 }: NeuroCourseCardP
             </div>
             <Link
               className={`rounded-sm px-4 py-2 text-xs font-bold uppercase text-white ${
-                lesson.materialSlug ? "bg-sky-500 hover:bg-sky-600" : "pointer-events-none bg-slate-300"
+                lesson.materialSlug ? "bg-[#aa0000] hover:bg-[#8b0000]" : "pointer-events-none bg-slate-300"
               }`}
               href={lesson.materialSlug ? buildLessonHref(lesson.materialSlug, lesson.topicSlug) : "#"}
             >

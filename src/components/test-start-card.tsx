@@ -29,10 +29,10 @@ export function TestStartCard({ href, imageUrl, title }: TestStartCardProps) {
             sizes="(max-width: 1024px) 100vw, 680px"
             src={imageUrl}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/35 to-sky-500/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/35 to-[#aa0000]/25" />
           <button
             aria-label="Abrir configurações do teste"
-            className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-slate-600 shadow-sm transition hover:bg-white hover:text-sky-600"
+            className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-slate-600 shadow-sm transition hover:bg-white hover:text-[#aa0000]"
             onClick={() => setIsSettingsOpen(true)}
             type="button"
           >
@@ -47,11 +47,11 @@ export function TestStartCard({ href, imageUrl, title }: TestStartCardProps) {
             </svg>
           </button>
           <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-            <span className="rounded bg-sky-500 px-3 py-1 text-xs font-bold">TESTE</span>
+            <span className="rounded bg-[#aa0000] px-3 py-1 text-xs font-bold">TESTE</span>
             <h3 className="mt-3 text-2xl font-semibold">{title}</h3>
           </div>
         </div>
-        <div className="bg-sky-500 p-4 text-white sm:flex sm:items-center sm:justify-between">
+        <div className="bg-[#aa0000] p-4 text-white sm:flex sm:items-center sm:justify-between">
           <Link className="font-semibold underline-offset-4 hover:underline" href={timedHref}>
             Começar o teste
           </Link>
@@ -63,7 +63,7 @@ export function TestStartCard({ href, imageUrl, title }: TestStartCardProps) {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-4">
           <div className="w-full max-w-[610px] rounded bg-white p-8 shadow-2xl">
             <div className="flex items-center justify-between border-b border-slate-200 pb-6">
-              <h2 className="text-xl font-normal text-sky-500">Configurações</h2>
+              <h2 className="text-xl font-normal text-[#aa0000]">Configurações</h2>
               <button
                 aria-label="Fechar configurações"
                 className="text-4xl font-light leading-none text-slate-300 hover:text-slate-500"
@@ -80,8 +80,8 @@ export function TestStartCard({ href, imageUrl, title }: TestStartCardProps) {
                   <button
                     className={`rounded-full border px-7 py-2 text-sm transition ${
                       selectedTime === time
-                        ? "border-sky-500 bg-sky-50 text-sky-600"
-                        : "border-slate-300 bg-white text-slate-600 hover:border-sky-300"
+                        ? "border-[#aa0000] bg-red-50 text-[#aa0000]"
+                        : "border-slate-300 bg-white text-slate-600 hover:border-red-300"
                     }`}
                     key={time}
                     onClick={() => setSelectedTime(time)}
@@ -95,7 +95,7 @@ export function TestStartCard({ href, imageUrl, title }: TestStartCardProps) {
                 Mais opções v
               </button>
               <Link
-                className="mt-8 flex w-full items-center justify-center rounded-sm bg-sky-500 px-5 py-4 text-sm font-bold uppercase text-white hover:bg-sky-600"
+                className="mt-8 flex w-full items-center justify-center rounded-sm bg-[#aa0000] px-5 py-4 text-sm font-bold uppercase text-white hover:bg-[#8b0000]"
                 href={timedHref}
               >
                 Começar a revisão &gt; {selectedTime} min

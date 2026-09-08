@@ -94,13 +94,13 @@ export default async function QuizPage({
       <header className="border-b border-slate-200 bg-slate-50">
         <div className="mx-auto flex max-w-5xl flex-col gap-4 px-6 py-4 sm:px-10 lg:flex-row lg:items-center lg:justify-between lg:px-12">
           <div className="flex flex-wrap items-center gap-2 text-sm text-slate-500">
-            <Link className="font-semibold text-sky-700" href="/disciplinas">
+            <Link className="font-semibold text-[#aa0000]" href="/disciplinas">
               Cursos
             </Link>
             <span>/</span>
             <span>Anatomia</span>
             <span>/</span>
-            <Link className="font-semibold text-sky-700" href="/disciplinas/neuroanatomofisiologia">
+            <Link className="font-semibold text-[#aa0000]" href="/disciplinas/neuroanatomofisiologia">
               Neuroanatomofisiologia
             </Link>
             <span>/</span>
@@ -117,18 +117,18 @@ export default async function QuizPage({
       <section className="mx-auto grid max-w-5xl gap-10 px-6 py-10 sm:px-10 lg:grid-cols-[170px_1fr] lg:px-12">
         <aside className="h-fit text-sm lg:sticky lg:top-8">
           <nav className="space-y-3 text-slate-600">
-            {hasVideoSection ? <a className="block text-sky-600" href="#videoaula">Assista à videoaula</a> : null}
-            {!hasVideoSection ? <a className="block text-sky-600" href="#atlas">Navegue pelo atlas</a> : null}
-            <a className="block hover:text-sky-600" href="#teste">Teste seus conhecimentos</a>
-            {hasVideoSection ? <a className="block hover:text-sky-600" href="#atlas">Navegue pelo atlas</a> : null}
-            <a className="block hover:text-sky-600" href="#resumo">Resumo</a>
+            {hasVideoSection ? <a className="block text-[#aa0000]" href="#videoaula">Assista à videoaula</a> : null}
+            {!hasVideoSection ? <a className="block text-[#aa0000]" href="#atlas">Navegue pelo atlas</a> : null}
+            <a className="block hover:text-[#aa0000]" href="#teste">Teste seus conhecimentos</a>
+            {hasVideoSection ? <a className="block hover:text-[#aa0000]" href="#atlas">Navegue pelo atlas</a> : null}
+            <a className="block hover:text-[#aa0000]" href="#resumo">Resumo</a>
           </nav>
         </aside>
 
         <div>
           <section className="mb-8">
             <div className="flex items-start justify-between gap-4">
-              <h1 className="text-3xl font-normal capitalize tracking-tight text-sky-500">
+              <h1 className="text-3xl font-normal capitalize tracking-tight text-[#aa0000]">
                 {pageTitle}
               </h1>
               <span className="rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold uppercase text-slate-400">
@@ -136,7 +136,7 @@ export default async function QuizPage({
               </span>
             </div>
 
-            <div className="mt-5 bg-sky-50 p-5 text-slate-700">
+            <div className="mt-5 bg-red-50 p-5 text-slate-700">
               <h2 className="font-semibold text-slate-800">Objetivos de aprendizagem</h2>
               <p className="mt-4">Após completar esta unidade de estudo, você será capaz de:</p>
               <ol className="mt-4 list-decimal space-y-1 pl-5 text-sm leading-7">
@@ -151,7 +151,7 @@ export default async function QuizPage({
             {hasVideoSection ? (
               <section className="relative border-l border-slate-200 pl-8" id="videoaula">
                 <StepNumber>1</StepNumber>
-                <h2 className="font-semibold text-sky-500">Assista à videoaula</h2>
+                <h2 className="font-semibold text-[#aa0000]">Assista à videoaula</h2>
                 <p className="mt-4 leading-7 text-slate-600">
                   {unit?.videoText.map((paragraph) => (
                     <span className="mb-3 block" key={paragraph}>{paragraph}</span>
@@ -183,7 +183,7 @@ export default async function QuizPage({
                       </div>
                     )}
                     <div className="border-t border-slate-200 bg-white p-4">
-                      <p className="font-semibold text-sky-600">{unit?.videoTitle ?? currentMaterial?.title}</p>
+                      <p className="font-semibold text-[#aa0000]">{unit?.videoTitle ?? currentMaterial?.title}</p>
                       <p className="mt-1 text-sm text-slate-600">
                         {hasVideo
                           ? isExternalVideo
@@ -202,7 +202,7 @@ export default async function QuizPage({
             {!hasVideoSection ? (
               <section className="relative border-l border-slate-200 pl-8" id="atlas">
                 <StepNumber>1</StepNumber>
-                <h2 className="font-semibold text-sky-500">Navegue pelo atlas</h2>
+                <h2 className="font-semibold text-[#aa0000]">Navegue pelo atlas</h2>
                 <AtlasGallery
                   description={unit?.atlasDescription ?? "Enquanto você estava estudando a imagem da visão geral, você aprendeu a relação entre cada parte do encéfalo. Agora examine cada uma delas separadamente na galeria do atlas."}
                   items={atlasGalleryItems}
@@ -213,7 +213,7 @@ export default async function QuizPage({
 
             <section className="relative border-l border-slate-200 pl-8" id="teste">
               <StepNumber>{hasVideoSection ? 2 : 2}</StepNumber>
-              <h2 className="font-semibold text-sky-500">Teste seus conhecimentos</h2>
+              <h2 className="font-semibold text-[#aa0000]">Teste seus conhecimentos</h2>
               <p className="mt-4 leading-7 text-slate-600">
                 {unit?.testDescription ?? "Complete o teste a seguir para avaliar seus conhecimentos sobre esta aula."}
               </p>
@@ -227,7 +227,7 @@ export default async function QuizPage({
             {hasVideoSection ? (
               <section className="relative border-l border-slate-200 pl-8" id="atlas">
                 <StepNumber>3</StepNumber>
-                <h2 className="font-semibold text-sky-500">Navegue pelo atlas</h2>
+                <h2 className="font-semibold text-[#aa0000]">Navegue pelo atlas</h2>
                 <AtlasGallery
                   description={unit?.atlasDescription ?? "Enquanto você estava estudando a imagem da visão geral, você aprendeu a relação entre cada parte do encéfalo. Agora examine cada uma delas separadamente na galeria do atlas."}
                   items={atlasGalleryItems}
@@ -238,7 +238,7 @@ export default async function QuizPage({
 
             <section className="relative border-l border-slate-200 pl-8" id="resumo">
               <StepNumber>{hasVideoSection ? 4 : 3}</StepNumber>
-              <h2 className="font-semibold text-sky-500">Resumo</h2>
+              <h2 className="font-semibold text-[#aa0000]">Resumo</h2>
               <div className="mt-5 overflow-hidden border border-slate-200">
                 <table className="w-full border-collapse text-sm">
                   <tbody>
@@ -257,10 +257,10 @@ export default async function QuizPage({
                 </table>
               </div>
 
-              <section className="relative mt-10 rounded-sm border border-amber-200 bg-amber-50 p-8 text-center">
+              <section className="relative mt-10 rounded-sm border border-red-200 bg-red-50 p-8 text-center">
                 <button
                   aria-label="Configurações do simulado"
-                  className="absolute right-5 top-5 text-slate-500 hover:text-amber-600"
+                  className="absolute right-5 top-5 text-slate-500 hover:text-[#aa0000]"
                   type="button"
                 >
                   <svg aria-hidden="true" className="h-5 w-5" fill="none" viewBox="0 0 24 24">
@@ -272,12 +272,12 @@ export default async function QuizPage({
                     <path d="M8 21h8v-2H8v2Zm4-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.8V17h8v-2.2c1.8-1.3 3-3.4 3-5.8 0-3.9-3.1-7-7-7Z" />
                   </svg>
                 </p>
-                <h2 className="mt-4 text-2xl font-normal text-amber-500">Pronto para testar seus conhecimentos?</h2>
+                <h2 className="mt-4 text-2xl font-normal text-[#aa0000]">Pronto para testar seus conhecimentos?</h2>
                 <p className="mx-auto mt-2 max-w-xl leading-7 text-slate-600">
                   Responda o teste para completar esta unidade de estudo.
                 </p>
                 <Link
-                  className="mt-6 flex w-full items-center justify-center rounded-sm bg-amber-400 px-6 py-3 text-sm font-bold uppercase text-white transition hover:bg-amber-500"
+                  className="mt-6 flex w-full items-center justify-center rounded-sm bg-[#aa0000] px-6 py-3 text-sm font-bold uppercase text-white transition hover:bg-[#8b0000]"
                   href={simulationHref}
                 >
                   Começar o simulado &gt; 20 questões
@@ -287,7 +287,7 @@ export default async function QuizPage({
 
             <div className="flex justify-center">
               <Link
-                className="rounded-sm border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-700 shadow-sm transition hover:border-sky-500 hover:text-sky-600"
+                className="rounded-sm border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-700 shadow-sm transition hover:border-[#aa0000] hover:text-[#aa0000]"
                 href="/disciplinas/neuroanatomofisiologia"
               >
                 Voltar para as aulas

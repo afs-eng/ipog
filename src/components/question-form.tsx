@@ -157,7 +157,7 @@ export function QuestionForm({ materials }: QuestionFormProps) {
       ) : null}
 
       <button
-        className="w-full rounded-full bg-slate-950 px-6 py-4 font-semibold text-white transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:bg-slate-400"
+        className="w-full rounded-full bg-slate-950 px-6 py-4 font-semibold text-white transition hover:bg-[#aa0000] disabled:cursor-not-allowed disabled:bg-slate-400"
         disabled={submitState.status === "loading"}
         type="submit"
       >

@@ -46,7 +46,7 @@ export function StudyQuiz({ questions }: StudyQuizProps) {
       ) : null}
 
       <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-        <p className="text-sm font-semibold text-sky-700">Modo treino</p>
+        <p className="text-sm font-semibold text-[#aa0000]">Modo treino</p>
         <h2 className="mt-2 text-2xl font-semibold text-slate-950">
           {correctAnswers} acertos de {Object.keys(answers).length} respondidas
         </h2>
@@ -60,7 +60,7 @@ export function StudyQuiz({ questions }: StudyQuizProps) {
           <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" key={question.id}>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div>
-                <p className="text-sm font-semibold text-sky-700">
+                <p className="text-sm font-semibold text-[#aa0000]">
                   Questão {index + 1} de {questions.length} • Slide {question.sourceSlide ?? "não informado"}
                 </p>
                 <h3 className="mt-3 text-xl font-semibold leading-8 text-slate-950">
@@ -74,7 +74,7 @@ export function StudyQuiz({ questions }: StudyQuizProps) {
 
             {question.imageUrl ? (
               <button
-                className="mt-6 block w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 text-left transition hover:border-sky-400"
+                className="mt-6 block w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 text-left transition hover:border-red-400"
                 onClick={() => setExpandedImage(question.imageUrl ?? null)}
                 type="button"
               >
@@ -103,7 +103,7 @@ export function StudyQuiz({ questions }: StudyQuizProps) {
                     : isSelected
                       ? "border-red-400 bg-red-50 text-red-950"
                       : "border-slate-200 bg-slate-50 text-slate-600"
-                  : "border-slate-200 bg-white text-slate-800 hover:border-sky-400 hover:bg-sky-50";
+                  : "border-slate-200 bg-white text-slate-800 hover:border-red-400 hover:bg-red-50";
 
                 return (
                   <button

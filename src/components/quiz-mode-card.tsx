@@ -22,7 +22,7 @@ export function QuizModeCard({ quizMode }: QuizModeCardProps) {
   return (
     <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
       <div className="flex flex-wrap gap-2">
-        <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-800">
+        <span className="rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-[#aa0000]">
           {modeLabels[quizMode.mode]}
         </span>
         <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
@@ -38,7 +38,7 @@ export function QuizModeCard({ quizMode }: QuizModeCardProps) {
         <p className="text-3xl font-semibold text-slate-950">{quizMode.questionCount}</p>
       </div>
       <Link
-        className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-5 py-3 font-semibold text-white transition hover:bg-sky-700"
+        className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-5 py-3 font-semibold text-white transition hover:bg-[#aa0000]"
         href={`/quiz/${quizMode.id}`}
       >
         {quizMode.isAvailable ? "Iniciar quiz" : "Ver organização"}

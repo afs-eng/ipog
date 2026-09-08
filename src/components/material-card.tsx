@@ -47,7 +47,7 @@ export function MaterialCard({ material, questionCount, topics }: MaterialCardPr
           <Link
             className={`mt-5 inline-flex w-full items-center justify-center rounded-full px-5 py-3 font-semibold transition sm:w-auto ${
               questionCount > 0
-                ? "bg-sky-600 text-white hover:bg-sky-700"
+                ? "bg-[#aa0000] text-white hover:bg-[#8b0000]"
                 : "pointer-events-none bg-slate-200 text-slate-500"
             }`}
             href={`/quiz/neuroanatomofisiologia-treino-textual?material=${material.slug}`}
@@ -67,7 +67,7 @@ export function MaterialCard({ material, questionCount, topics }: MaterialCardPr
                     </p>
                   </div>
                   <Link
-                    className="text-sm font-semibold text-sky-700 hover:text-sky-900"
+                    className="text-sm font-semibold text-[#aa0000] hover:text-[#8b0000]"
                     href={`/quiz/neuroanatomofisiologia-treino-textual?material=${material.slug}&topic=${topic.id}`}
                   >
                     Estudar

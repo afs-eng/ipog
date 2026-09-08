@@ -21,7 +21,7 @@ export function AtlasAccordion({ sections }: AtlasAccordionProps) {
         return (
           <div className="border-b border-slate-300 last:border-b-0" key={section.title}>
             <button
-              className="flex w-full items-center justify-between bg-slate-50 px-4 py-3 text-left text-sm font-semibold text-sky-600 hover:bg-slate-100"
+              className="flex w-full items-center justify-between bg-red-50 px-4 py-3 text-left text-sm font-semibold text-[#aa0000] hover:bg-red-100"
               onClick={() => setOpenSection(isOpen ? "" : section.title)}
               type="button"
             >

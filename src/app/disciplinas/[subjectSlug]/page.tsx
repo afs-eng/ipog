@@ -21,11 +21,11 @@ export default async function SubjectPage({
   if (subjectSlug !== "neuroanatomofisiologia") {
     return (
       <main className="mx-auto min-h-screen max-w-5xl px-6 py-8 sm:px-10 lg:px-12">
-        <Link className="text-sm font-semibold text-sky-700" href="/disciplinas">
+        <Link className="text-sm font-semibold text-[#aa0000]" href="/disciplinas">
           Voltar para disciplinas
         </Link>
         <section className="mt-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-          <p className="font-semibold text-sky-700">Disciplina</p>
+          <p className="font-semibold text-[#aa0000]">Disciplina</p>
           <h1 className="mt-3 text-4xl font-semibold tracking-tight text-slate-950">
             {subject.name}
           </h1>
@@ -43,7 +43,7 @@ export default async function SubjectPage({
       <header className="border-b border-slate-200 bg-slate-50">
         <div className="mx-auto flex max-w-5xl flex-col gap-4 px-6 py-4 sm:px-10 lg:flex-row lg:items-center lg:justify-between lg:px-12">
           <div className="flex flex-wrap items-center gap-2 text-sm text-slate-500">
-            <Link className="font-semibold text-sky-700" href="/disciplinas">
+            <Link className="font-semibold text-[#aa0000]" href="/disciplinas">
               Cursos
             </Link>
             <span>›</span>
@@ -68,7 +68,7 @@ export default async function SubjectPage({
         <aside className="h-fit lg:sticky lg:top-8">
           <nav className="space-y-3 text-[15px] leading-5 text-slate-700">
             {neuroCourseSections.map((section) => (
-              <a className="block hover:text-sky-600" href={`#${section.id}`} key={section.id}>
+              <a className="block hover:text-[#aa0000]" href={`#${section.id}`} key={section.id}>
                 {section.title}
               </a>
             ))}
@@ -76,7 +76,7 @@ export default async function SubjectPage({
         </aside>
 
         <div>
-          <h1 className="mb-8 text-3xl font-normal tracking-tight text-sky-500">Neuroanatomia</h1>
+          <h1 className="mb-8 text-3xl font-normal tracking-tight text-[#aa0000]">Neuroanatomia</h1>
           <div className="space-y-8">
             {neuroCourseSections.map((section) => (
               <NeuroCourseCard key={section.id} section={section} />
