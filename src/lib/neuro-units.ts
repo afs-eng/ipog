@@ -596,7 +596,79 @@ const vistaLateralReviewItems = [
   "Opérculo parietal",
   "Sulco temporal superior",
 ];
-const vistaLateralImageItems = estruturaCerebroItems.filter((item) => vistaLateralReviewItems.some((label) => label.toLocaleLowerCase("pt-BR") === item.label.toLocaleLowerCase("pt-BR")));
+const vistaLateralImageBaseUrl = `${cerebroContentImageBaseUrl}/Vista lateral do encéfalo/Vista lateral do cérebro`;
+const vistaLateralImageItems = [
+  "Giro angular.png",
+  "Opérculo temporal.jpg",
+  "Giro frontal inferior.png",
+  "Parte orbital do giro frontal inferior.jpg",
+  "Giro frontal médio.png",
+  "Parte triangular do giro frontal inferior.jpg",
+  "Giro frontal superior.png",
+  "Polo frontal.jpg",
+  "Giro pós-central.png",
+  "Polo occipital.jpg",
+  "Giro pré-central.png",
+  "Polo temporal.jpg",
+  "Giro supramarginal.jpg",
+  "Ramo anterior do sulco cerebral lateral.jpg",
+  "Giro temporal inferior.png",
+  "Ramo ascendente do sulco cerebral lateral.jpg",
+  "Giro temporal médio.png",
+  "Ramo posterior do sulco cerebral lateral.jpg",
+  "Giro temporal superior.png",
+  "Sulco central.png",
+  "Lobo frontal.png",
+  "Sulco frontal inferior.jpg",
+  "Lobo occipital.png",
+  "Sulco frontal superior.jpg",
+  "Lobo parietal.png",
+  "Sulco intraparietal﻿.jpg",
+  "Lobo temporal.png",
+  "Sulco parieto-occipital.jpg",
+  "Lóbulo parietal inferior.png",
+  "Sulco pós-central.jpg",
+  "Lóbulo parietal superior.png",
+  "Sulco pré-central.jpg",
+  "Opérculo frontal.jpg",
+  "Sulco temporal inferior.jpg",
+  "Opérculo parietal.jpg",
+  "Sulco temporal superior.jpg",
+].map((fileName) => ({
+  imageUrl: `${vistaLateralImageBaseUrl}/${fileName}`,
+  label: fileName.replace(/\.(png|jpg)$/i, "").replace(/﻿/g, ""),
+}));
+const vistaSuperiorImageBaseUrl = `${cerebroContentImageBaseUrl}/Vista lateral do encéfalo/Vista superior do cérebro`;
+const vistaSuperiorImageItems = [
+  "Fissura longitudinal do cérebro.jpg",
+  "Giro angular﻿.jpg",
+  "Giro frontal inferior﻿.jpg",
+  "Giro frontal médio﻿.jpg",
+  "Giro frontal superior﻿.jpg",
+  "Giro pós-central﻿.jpg",
+  "Giro pré-central﻿.jpg",
+  "Giro supramarginal﻿.jpg",
+  "Hemisfério cerebral direito﻿.jpg",
+  "Hemisfério cerebral esquerdo.jpg",
+  "Incisura pré-occipital﻿.jpg",
+  "Lobo central﻿.jpg",
+  "Lobo frontal﻿.jpg",
+  "Lobo occipital﻿.jpg",
+  "Lobo parietal﻿.jpg",
+  "Lóbulo parietal inferior﻿.jpg",
+  "Lóbulo parietal superior﻿.jpg",
+  "Sulco calcarino﻿.jpg",
+  "Sulco frontal inferior﻿.jpg",
+  "Sulco frontal superior.jpg",
+  "Sulco intraparietal﻿.jpg",
+  "Sulco lateral﻿.jpg",
+  "Sulco parieto-occipital﻿.jpg",
+  "Sulco pós-central﻿.jpg",
+  "Sulco pré-central﻿.jpg",
+].map((fileName) => ({
+  imageUrl: `${vistaSuperiorImageBaseUrl}/${fileName}`,
+  label: fileName.replace(/\.(png|jpg)$/i, "").replace(/﻿/g, ""),
+}));
 const vistaLateralAtlasItems = [
   {
     imageUrl: `${cerebroContentImageBaseUrl}/Estrutura do cérebro/Cérebro﻿.png`,
@@ -611,10 +683,16 @@ const vistaLateralAtlasItems = [
       "Vista superior do cérebro para revisar a organização dos hemisférios e a disposição dos principais giros e sulcos visíveis na superfície superolateral.",
   },
 ];
-const vistaLateralAccordionSections = vistaLateralAtlasItems.map((item) => ({
-  title: item.title,
-  items: [{ ...item, label: item.title }],
-}));
+const vistaLateralAccordionSections = [
+  {
+    title: "Vista lateral do cérebro",
+    items: vistaLateralImageItems,
+  },
+  {
+    title: "Vista superior do cérebro",
+    items: vistaSuperiorImageItems,
+  },
+];
 const vistaLateralTextQuestions: NeuroTextQuestion[] = [
   {
     prompt: "Quais superfícies são descritas no estudo do cérebro?",
@@ -915,8 +993,8 @@ export const neuroUnits: NeuroUnit[] = [
       "Assista à videoaula a seguir para aprender mais sobre a estrutura e as principais características dos lobos cerebrais observadas na superfície superolateral!",
     ],
     videoUrl: "https://drive.google.com/file/d/1HC_HY9i76Plooj96KwASRtt4chlKz9ai/preview",
-    posterUrl: `${cerebroContentImageBaseUrl}/Estrutura do cérebro/Cérebro﻿.png`,
-    testCardImageUrl: `${cerebroContentImageBaseUrl}/Estrutura do cérebro/Cérebro﻿.png`,
+    posterUrl: vistaLateralImageItems[0].imageUrl,
+    testCardImageUrl: vistaLateralImageItems[0].imageUrl,
     testImageItems: vistaLateralImageItems,
     testImageUrls: vistaLateralImageItems.map((item) => item.imageUrl),
     testTextQuestions: vistaLateralTextQuestions,
@@ -926,7 +1004,7 @@ export const neuroUnits: NeuroUnit[] = [
     worksheetText: "",
     atlasTitle: "Vista lateral do encéfalo",
     atlasDescription: "Navegue pelas imagens da vista lateral e superior do cérebro para revisar os principais lobos, giros e sulcos.",
-    atlasImageUrl: vistaLateralAtlasItems[0].imageUrl,
+    atlasImageUrl: vistaLateralImageItems[0].imageUrl,
     atlasItems: vistaLateralAtlasItems,
     atlasAccordionSections: vistaLateralAccordionSections,
     summaryTables: [
