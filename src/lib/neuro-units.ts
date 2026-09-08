@@ -449,6 +449,123 @@ const snpTextQuestions: NeuroTextQuestion[] = [
   },
 ];
 
+const cerebroImageBaseUrl = "/neuroanatomofisiologia";
+const cerebroAtlasItems = [
+  {
+    title: "Lobos do cérebro",
+    imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-5-image-1.png`,
+    description:
+      "Representação dos lobos cerebrais e das principais relações anatômicas observadas em corte sagital.",
+  },
+  {
+    title: "Corte sagital do encéfalo",
+    imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-7-image-1.jpeg`,
+    description:
+      "Vista medial do encéfalo, útil para reconhecer córtex cerebral, corpo caloso, diencéfalo, tronco encefálico e cerebelo.",
+  },
+  {
+    title: "Áreas motoras do córtex cerebral",
+    imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-39-image-1.png`,
+    description:
+      "Áreas motoras relacionadas ao planejamento e à execução do movimento voluntário.",
+  },
+];
+const cerebroTestImageItems = cerebroAtlasItems.map((item) => ({
+  imageUrl: item.imageUrl,
+  label: item.title,
+}));
+const cerebroAccordionSections = [
+  {
+    title: "Estrutura do cérebro",
+    items: [
+      {
+        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-7-image-1.jpeg`,
+        label: "Hemisférios cerebrais",
+        description:
+          "O cérebro é formado por dois hemisférios conectados pelo corpo caloso. Sua superfície apresenta giros e sulcos que aumentam a área cortical.",
+      },
+      {
+        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-5-image-1.png`,
+        label: "Lobos cerebrais",
+        description:
+          "Cada hemisfério apresenta lobos frontal, parietal, temporal, occipital, insular e límbico. O lobo insular fica profundo ao sulco lateral e é coberto pelo opérculo.",
+      },
+      {
+        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-4-image-1.jpeg`,
+        label: "Cérebro, diencéfalo, cerebelo e tronco encefálico",
+        description:
+          "Visão geral das principais partes do encéfalo e suas relações anatômicas.",
+      },
+    ],
+  },
+  {
+    title: "Substância cinzenta cerebral: áreas funcionais",
+    items: [
+      {
+        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-39-image-1.png`,
+        label: "Área motora primária",
+        description:
+          "Localizada no giro pré-central do lobo frontal, participa do planejamento e da execução do movimento voluntário.",
+      },
+      {
+        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-40-image-1.png`,
+        label: "Córtex motor",
+        description:
+          "Inclui córtex motor primário, área pré-motora e área motora suplementar.",
+      },
+      {
+        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-46-image-1.png`,
+        label: "Áreas de Brodmann",
+        description:
+          "Mapa funcional que relaciona regiões corticais a funções motoras, sensitivas, visuais, auditivas, de linguagem e associação.",
+      },
+    ],
+  },
+  {
+    title: "Substância branca cerebral",
+    items: [
+      {
+        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-7-image-2.jpeg`,
+        label: "Substância branca profunda",
+        description:
+          "A substância branca cerebral fica profundamente ao córtex e é composta por axônios que conectam diferentes áreas do cérebro.",
+      },
+      {
+        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-38-image-1.png`,
+        label: "Tratos e conexões cerebrais",
+        description:
+          "As fibras nervosas podem formar feixes de associação, projeção e comissurais, permitindo a transferência de informações entre regiões corticais e subcorticais.",
+      },
+    ],
+  },
+];
+const cerebroTextQuestions: NeuroTextQuestion[] = [
+  {
+    prompt: "Qual estrutura conecta os dois hemisférios cerebrais?",
+    options: ["Corpo caloso", "Ponte", "Bulbo", "Cerebelo"],
+    correctAnswer: "Corpo caloso",
+    explanation: "Os hemisférios cerebrais são conectados por um grande feixe de substância branca chamado corpo caloso.",
+  },
+  {
+    prompt: "Quais lobos fazem parte do cérebro (selecione todas as que se aplicam)?",
+    options: ["Frontal", "Temporal", "Parietal", "Occipital", "Insular", "Bulbo"],
+    correctAnswers: ["Frontal", "Temporal", "Parietal", "Occipital", "Insular"],
+    explanation: "Os principais lobos cerebrais incluem frontal, temporal, parietal, occipital e insular; o lobo límbico também é descrito por alguns autores.",
+  },
+  {
+    prompt: "O córtex cerebral é formado principalmente por qual tipo de substância?",
+    options: ["Substância cinzenta", "Substância branca", "Líquor", "Osso compacto"],
+    correctAnswer: "Substância cinzenta",
+    explanation: "O córtex cerebral forma a superfície externa de cada hemisfério e é formado por substância cinzenta.",
+  },
+  {
+    prompt: "Onde fica a área motora primária?",
+    options: ["Giro pré-central", "Giro pós-central", "Lobo occipital", "Hipocampo"],
+    correctAnswer: "Giro pré-central",
+    explanation: "A área motora primária fica no giro pré-central do lobo frontal e participa da execução do movimento voluntário.",
+  },
+];
+
 export const neuroUnits: NeuroUnit[] = [
   {
     slug: "sistema-nervoso-central-introducao-ao-encefalo",
@@ -514,6 +631,82 @@ export const neuroUnits: NeuroUnit[] = [
             label: "Funções básicas das partes do encéfalo",
             value:
               "Cérebro: funções corporais nobres, cognição, emoções, aprendizado e movimentos voluntários. Cerebelo: funções motoras como equilíbrio, coordenação e fala. Tronco encefálico: funções corporais básicas, como respiração e frequência cardíaca.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "telencefalo",
+    title: "Visão geral do cérebro",
+    status: "incomplete",
+    duration: "10 minutos",
+    objectives: [
+      "Entender a estrutura do cérebro.",
+      "Identificar os seis lobos do cérebro.",
+      "Conhecer o córtex cerebral e suas áreas.",
+      "Listar alguns tratos de substância branca do cérebro.",
+    ],
+    videoTitle: "Introdução ao cérebro",
+    videoDescription: "Introdução ao cérebro, a maior parte do encéfalo.",
+    videoText: [
+      "O encéfalo é composto por três partes principais: o cérebro, o cerebelo e o tronco cerebral. O córtex cerebral é organizado em dois hemisférios, conectados por um grande feixe de substância branca chamado corpo caloso. A superfície externa do cérebro exibe saliências elevadas chamadas giros, separadas por sulcos. Os giros e sulcos aumentam a área de superfície do cérebro e dão a ele sua aparência convolucionada.",
+      "Cada hemisfério cerebral contém seis lobos: frontal, temporal, parietal, occipital, insular e límbico. Alguns autores não consideram o lobo límbico como um lobo anatômico verdadeiro. O lobo insular está localizado internamente ao sulco lateral e é coberto por partes dos lobos parietal, temporal e frontal, chamadas coletivamente de opérculo.",
+      "O córtex cerebral forma a superfície externa de cada hemisfério e é composto por substância cinzenta. Funcionalmente, pode ser dividido em áreas motoras primárias, áreas sensoriais primárias e áreas de associação, que integram informações de várias estruturas e áreas.",
+      "Profundamente ao córtex cerebral está a substância branca cerebral, composta por axônios de neurônios que se estendem entre diferentes áreas do cérebro. A maioria dessas fibras é envolvida por bainha de mielina, o que dá à substância branca sua coloração característica e permite a transferência de informações.",
+    ],
+    videoUrl: "",
+    posterUrl: `${cerebroImageBaseUrl}/encefalo-slide-7-image-1.jpeg`,
+    testCardImageUrl: `${cerebroImageBaseUrl}/encefalo-slide-7-image-1.jpeg`,
+    testImageItems: cerebroTestImageItems,
+    testImageUrls: cerebroTestImageItems.map((item) => item.imageUrl),
+    testTextQuestions: cerebroTextQuestions,
+    testDescription:
+      "Complete o teste a seguir para avaliar seus conhecimentos sobre os lobos e principais sulcos e giros do cérebro. Você também pode revisar a localização das áreas funcionais do cérebro.",
+    worksheetText: "",
+    atlasTitle: "Visão geral do cérebro",
+    atlasDescription:
+      "Estude as estruturas do cérebro nas galerias abaixo. Comece pela visão geral dos lobos, depois expanda cada seção para revisar estrutura, substância cinzenta funcional e substância branca cerebral.",
+    atlasImageUrl: cerebroAtlasItems[0].imageUrl,
+    atlasItems: cerebroAtlasItems,
+    atlasAccordionSections: cerebroAccordionSections,
+    summaryTables: [
+      {
+        title: "Informações importantes sobre os lobos e áreas do cérebro",
+        rows: [
+          {
+            label: "Lobo frontal",
+            value:
+              "Anterior ao sulco central e superior ao sulco lateral. Relacionado ao movimento voluntário, atenção, memória de curto prazo, motivação, planejamento, fala e comportamento.",
+          },
+          {
+            label: "Lobo parietal",
+            value:
+              "Posterior ao sulco central. Participa do processamento de estímulos somatossensoriais, integração sensorial, percepção visuoespacial e linguagem.",
+          },
+          {
+            label: "Lobo temporal",
+            value:
+              "Inferior ao sulco lateral. Relacionado à audição, memória visual, compreensão da linguagem e decodificação de estímulos sensoriais.",
+          },
+          {
+            label: "Lobo occipital",
+            value: "Posterior aos lobos parietal e temporal. Principal centro cortical para processamento visual.",
+          },
+          {
+            label: "Lobo insular",
+            value:
+              "Profundo aos lobos temporal, parietal e frontal. Participa da gustação, sensibilidade visceral, funções vestibulares e integração sensorial.",
+          },
+          {
+            label: "Lobo límbico",
+            value:
+              "Localizado na superfície medial de cada hemisfério. Relacionado à modulação das emoções, funções viscerais e autonômicas, aprendizagem e memória.",
+          },
+          {
+            label: "Áreas funcionais",
+            value:
+              "Incluem áreas motoras, somatossensoriais, visuais, auditivas, olfatórias, gustativas, vestibulares, pré-motoras, de associação, área de Broca e área de Wernicke.",
           },
         ],
       },

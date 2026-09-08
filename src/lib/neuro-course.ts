@@ -38,7 +38,7 @@ export const neuroCourseSections: NeuroCourseSection[] = [
     id: "cerebro",
     title: "Cérebro",
     description: "Os hemisférios cerebrais formam a maior parte do cérebro. O córtex é responsável por funções motoras, sensoriais e cognitivas.",
-    imageUrl: "/neuroanatomofisiologia/encefalo-slide-4-image-1.jpeg",
+    imageUrl: "/neuroanatomofisiologia/encefalo-slide-7-image-1.jpeg",
     lessons: [
       { title: "Visão geral do cérebro", description: "Visão geral das substâncias branca e cinzenta do cérebro.", materialSlug: "encefalo", topicSlug: "telencefalo" },
       { title: "Vista lateral do encéfalo", description: "Estruturas observadas na vista lateral do encéfalo.", materialSlug: "encefalo", topicSlug: "lobos-cerebrais" },
