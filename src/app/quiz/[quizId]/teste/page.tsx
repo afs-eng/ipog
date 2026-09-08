@@ -13,7 +13,7 @@ export default async function KnowledgeTestPage({
   searchParams,
 }: PageProps<"/quiz/[quizId]/teste">) {
   const { quizId } = await params;
-  const { material, tempo, topic } = await searchParams;
+  const { material, remover, tempo, topic } = await searchParams;
   const quizMode = getQuizMode(quizId);
 
   if (!quizMode) {
@@ -21,6 +21,7 @@ export default async function KnowledgeTestPage({
   }
 
   const selectedMaterial = typeof material === "string" ? material : undefined;
+  const removedItems = typeof remover === "string" ? remover.split("|") : [];
   const selectedTopic = typeof topic === "string" ? topic : undefined;
   const unit = getNeuroUnit(selectedTopic);
   const subject = getSubject("neuroanatomofisiologia");
@@ -56,11 +57,13 @@ export default async function KnowledgeTestPage({
     createdAt: "2026-09-06T00:00:00.000Z",
     updatedAt: "2026-09-06T00:00:00.000Z",
   })) ?? [];
-  const visualQuestions = unit?.testImageItems?.map((item, index) => ({
+  const unitSlug = unit?.slug;
+  const testImageItems = unit?.testImageItems?.filter((item) => !removedItems.includes(item.label));
+  const visualQuestions = testImageItems?.map((item, index) => ({
     subjectId: "neuroanatomofisiologia" as const,
-    id: `${unit.slug}-imagem-${String(index + 1).padStart(3, "0")}`,
+    id: `${unitSlug}-imagem-${String(index + 1).padStart(3, "0")}`,
     materialId: selectedMaterial ?? "encefalo",
-    topicId: unit.slug,
+    topicId: unitSlug ?? "",
     type: "image" as const,
     difficulty: "easy" as const,
     prompt: `Identifique no atlas: ${item.label}.`,
@@ -88,8 +91,8 @@ export default async function KnowledgeTestPage({
   return (
     <KnowledgeTest
       backHref={backHref}
-      imageItems={unit?.testImageItems}
-      imageUrls={unit?.testImageUrls}
+      imageItems={testImageItems}
+      imageUrls={testImageItems?.map((item) => item.imageUrl)}
       questions={testQuestions}
       studyTimeMinutes={studyTimeMinutes}
       title={pageTitle}

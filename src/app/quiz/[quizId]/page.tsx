@@ -230,6 +230,7 @@ export default async function QuizPage({
               <TestStartCard
                 href={testHref}
                 imageUrl={testCardImageUrl}
+                reviewItems={unit?.testImageItems?.map((item) => item.label)}
                 title={unit?.videoTitle ?? currentMaterial?.title ?? pageTitle}
               />
             </section>

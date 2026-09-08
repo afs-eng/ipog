@@ -7,15 +7,19 @@ import { useState } from "react";
 type TestStartCardProps = {
   href: string;
   imageUrl: string;
+  reviewItems?: string[];
   title: string;
 };
 
 const studyTimes = [5, 10, 20, 30];
 
-export function TestStartCard({ href, imageUrl, title }: TestStartCardProps) {
+export function TestStartCard({ href, imageUrl, reviewItems = [], title }: TestStartCardProps) {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isContentOpen, setIsContentOpen] = useState(true);
+  const [removedItems, setRemovedItems] = useState<string[]>([]);
   const [selectedTime, setSelectedTime] = useState(10);
-  const timedHref = addStudyTime(href, selectedTime);
+  const visibleReviewItems = reviewItems.filter((item) => !removedItems.includes(item));
+  const timedHref = addRemovedItems(addStudyTime(href, selectedTime), removedItems);
 
   return (
     <>
@@ -100,6 +104,41 @@ export function TestStartCard({ href, imageUrl, title }: TestStartCardProps) {
               >
                 Começar a revisão &gt; {selectedTime} min
               </Link>
+              {reviewItems.length > 0 ? (
+                <section className="mt-4 overflow-hidden border border-slate-300 bg-slate-50 text-slate-700">
+                  <button
+                    className="flex w-full items-center justify-between border-b border-slate-300 bg-white px-5 py-3 text-left text-sm font-semibold"
+                    onClick={() => setIsContentOpen((current) => !current)}
+                    type="button"
+                  >
+                    <span className="flex items-center gap-2">
+                      <svg aria-hidden="true" className="h-4 w-4" fill="none" viewBox="0 0 24 24">
+                        <path d="M7 3h10v4h4v14H3V3h4Zm0 0v4h10" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+                      </svg>
+                      O que você vai aprender
+                    </span>
+                    <span className="text-xl leading-none">{isContentOpen ? "^" : "v"}</span>
+                  </button>
+                  {isContentOpen ? (
+                    <div className="px-5 py-4">
+                      <p className="text-sm">Clique para remover conteúdo da sessão de estudo:</p>
+                      <div className="mt-4 grid gap-x-12 gap-y-2 sm:grid-cols-2">
+                        {visibleReviewItems.map((item) => (
+                          <button
+                            className="w-fit rounded-full bg-white px-3 py-1 text-left text-sm text-slate-600 shadow-sm hover:bg-red-50 hover:text-[#aa0000]"
+                            key={item}
+                            onClick={() => setRemovedItems((current) => [...current, item])}
+                            type="button"
+                          >
+                            <span className="mr-1">⊙</span>
+                            {item}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+                </section>
+              ) : null}
             </div>
           </div>
         </div>
@@ -112,6 +151,19 @@ function addStudyTime(href: string, selectedTime: number) {
   const [pathname, currentQuery = ""] = href.split("?");
   const params = new URLSearchParams(currentQuery);
   params.set("tempo", String(selectedTime));
+
+  return `${pathname}?${params.toString()}`;
+}
+
+function addRemovedItems(href: string, removedItems: string[]) {
+  const [pathname, currentQuery = ""] = href.split("?");
+  const params = new URLSearchParams(currentQuery);
+
+  if (removedItems.length > 0) {
+    params.set("remover", removedItems.join("|"));
+  } else {
+    params.delete("remover");
+  }
 
   return `${pathname}?${params.toString()}`;
 }
