@@ -450,23 +450,79 @@ const snpTextQuestions: NeuroTextQuestion[] = [
 ];
 
 const cerebroImageBaseUrl = "/neuroanatomofisiologia";
-const cerebroAtlasImageBaseUrl = "/conteudos/cerebro/atlas";
+const cerebroContentImageBaseUrl = "/conteudos/cerebro";
+const estruturaCerebroItems = [
+  "Cérebro﻿.png",
+  "Cérebro﻿-vista-sagital.png",
+  "Lobo Frontal.png",
+  "Lobo Parietal.png",
+  "Lobo temporal.png",
+  "Lobo occipital.png",
+  "Lobo insular.png",
+  "Lobo límbico.png",
+  "Corpo caloso.png",
+  "Sulgo Central.png",
+  "Sulgo Lateral.png",
+  "Giro Frontal superior.png",
+  "Giro Frontal Médio.png",
+  "Giro Frontal Inferior.png",
+  "Giro Pré-central.png",
+  "Giro pós-central.png",
+  "Giro temporal superior.png",
+  "Giro temporal médio.png",
+  "Giro temporal inferior.png",
+  "Giro angular.png",
+  "Giro do cíngulo.png",
+  "Giro parahipocampal.png",
+  "Giro longo da insular.png",
+  "Lóbulo parietal superior.png",
+  "Lóbulo parietal inferior.png",
+].map((fileName) => ({
+  imageUrl: `${cerebroContentImageBaseUrl}/Estrutura do cérebro/${fileName}`,
+  label: fileName.replace(/\.png$/, "").replace(/﻿/g, ""),
+}));
+const substanciaCinzentaItems = [
+  "Areas sensitivas primaria.png",
+  "Córtex somatossensorial primário.png",
+  "Córtex motor primario.png",
+  "Córtex pré-motor﻿.png",
+  "Córtex auditivo primário.png",
+  "Córtex visual primário.png",
+  "Campo ocular frontal.png",
+  "Área de Broca.png",
+  "Área de Wernicke.png",
+  "Área de associação pré-frontal﻿.png",
+  "Área de associação somatossensorial﻿.png",
+  "Área de associação auditiva﻿.png",
+  "Área de associação visual.png",
+  "Área de associação límbica﻿.png",
+  "Área de associação parieto-temporo-occipital﻿.png",
+  "Áreas de associação unimodais.png",
+  "Áreas de associação de ordem superior﻿.png",
+].map((fileName) => ({
+  imageUrl: `${cerebroContentImageBaseUrl}/Substância cinzenta cerebral: áreas funcionais/${fileName}`,
+  label: fileName.replace(/\.png$/, "").replace(/﻿/g, ""),
+}));
+const substanciaBrancaItems = ["Fibras de associação.png", "Fibras comissurais.png", "Fibras de projeção.png"].map((fileName) => ({
+  imageUrl: `${cerebroContentImageBaseUrl}/Substância branca cerebral/${fileName}`,
+  label: fileName.replace(/\.png$/, ""),
+}));
 const cerebroAtlasItems = [
   {
-    title: "Lobos do cérebro",
-    imageUrl: `${cerebroAtlasImageBaseUrl}/estrutura-do-cerebro.png`,
+    title: "Estrutura do cérebro",
+    imageUrl: estruturaCerebroItems[0].imageUrl,
     description:
       "Representação colorida dos lobos cerebrais e dos principais sulcos e giros identificáveis nas perspectivas lateral e medial.",
   },
   {
-    title: "Áreas funcionais do córtex cerebral",
-    imageUrl: `${cerebroAtlasImageBaseUrl}/substancia-cinzenta-areas-funcionais.png`,
+    title: "Substância cinzenta cerebral: áreas funcionais",
+    imageUrl: substanciaCinzentaItems[0].imageUrl,
     description:
       "Principais áreas funcionais do córtex cerebral, incluindo áreas motoras, sensitivas primárias e áreas de associação.",
   },
   {
     title: "Substância branca cerebral",
-    imageUrl: `${cerebroAtlasImageBaseUrl}/substancia-branca-cerebral.png`,
+    imageUrl: substanciaBrancaItems[0].imageUrl,
     description:
       "Feixes de substância branca cerebral, incluindo fibras comissurais, fibras de projeção e fibras de associação.",
   },
@@ -478,72 +534,15 @@ const cerebroTestImageItems = cerebroAtlasItems.map((item) => ({
 const cerebroAccordionSections = [
   {
     title: "Estrutura do cérebro",
-    items: [
-      {
-        imageUrl: `${cerebroAtlasImageBaseUrl}/estrutura-do-cerebro.png`,
-        label: "Lobos do cérebro",
-        description:
-          "Representação dos lobos frontal, parietal, temporal, occipital, insular e límbico, com os principais sulcos e giros visíveis.",
-      },
-      {
-        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-7-image-1.jpeg`,
-        label: "Corte sagital do encéfalo",
-        description:
-          "Vista medial do encéfalo, útil para reconhecer córtex cerebral, corpo caloso, diencéfalo, tronco encefálico e cerebelo.",
-      },
-      {
-        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-4-image-1.jpeg`,
-        label: "Cérebro, diencéfalo, cerebelo e tronco encefálico",
-        description:
-          "Visão geral das principais partes do encéfalo e suas relações anatômicas.",
-      },
-    ],
+    items: estruturaCerebroItems,
   },
   {
     title: "Substância cinzenta cerebral: áreas funcionais",
-    items: [
-      {
-        imageUrl: `${cerebroAtlasImageBaseUrl}/substancia-cinzenta-areas-funcionais.png`,
-        label: "Áreas funcionais do córtex cerebral",
-        description:
-          "Mapa das principais áreas motoras, sensitivas e de associação da substância cinzenta cortical.",
-      },
-      {
-        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-39-image-1.png`,
-        label: "Área motora primária",
-        description:
-          "Localizada no giro pré-central do lobo frontal, participa do planejamento e da execução do movimento voluntário.",
-      },
-      {
-        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-40-image-1.png`,
-        label: "Córtex motor",
-        description:
-          "Inclui córtex motor primário, área pré-motora e área motora suplementar.",
-      },
-      {
-        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-46-image-1.png`,
-        label: "Áreas de Brodmann",
-        description:
-          "Mapa funcional que relaciona regiões corticais a funções motoras, sensitivas, visuais, auditivas, de linguagem e associação.",
-      },
-    ],
+    items: substanciaCinzentaItems,
   },
   {
     title: "Substância branca cerebral",
-    items: [
-      {
-        imageUrl: `${cerebroAtlasImageBaseUrl}/substancia-branca-cerebral.png`,
-        label: "Fibras da substância branca cerebral",
-        description:
-          "Imagem com fibras comissurais, fibras de projeção e fibras de associação, além de estruturas profundas relacionadas.",
-      },
-      {
-        imageUrl: `${cerebroImageBaseUrl}/encefalo-slide-7-image-2.jpeg`,
-        label: "Substância branca profunda",
-        description:
-          "A substância branca cerebral fica profundamente ao córtex e é composta por axônios que conectam diferentes áreas do cérebro.",
-      },
-    ],
+    items: substanciaBrancaItems,
   },
 ];
 const cerebroTextQuestions: NeuroTextQuestion[] = [
