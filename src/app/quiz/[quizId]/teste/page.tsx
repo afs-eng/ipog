@@ -53,7 +53,27 @@ export default async function KnowledgeTestPage({
     createdAt: "2026-09-06T00:00:00.000Z",
     updatedAt: "2026-09-06T00:00:00.000Z",
   })) ?? [];
-  const testQuestions = unit ? [...textQuestions, ...filteredQuestions] : filteredQuestions;
+  const visualQuestions = unit?.testImageItems?.map((item, index) => ({
+    subjectId: "neuroanatomofisiologia" as const,
+    id: `${unit.slug}-imagem-${String(index + 1).padStart(3, "0")}`,
+    materialId: selectedMaterial ?? "encefalo",
+    topicId: unit.slug,
+    type: "image" as const,
+    difficulty: "easy" as const,
+    prompt: `Identifique no atlas: ${item.label}.`,
+    imageUrl: item.imageUrl,
+    options: ["A", "B", "C", "D"].map((optionId) => ({
+      id: optionId as "A" | "B" | "C" | "D",
+      text: item.label,
+    })),
+    correctOption: "A" as const,
+    explanation: `Revise a imagem do atlas de cérebro: ${item.label}.`,
+    sourceExcerpt: "Questão visual de revisão sobre o atlas do cérebro.",
+    status: "draft" as const,
+    createdAt: "2026-09-06T00:00:00.000Z",
+    updatedAt: "2026-09-06T00:00:00.000Z",
+  })) ?? [];
+  const testQuestions = unit ? [...textQuestions, ...visualQuestions] : filteredQuestions;
   const pageTitle = unit
     ? unit.title
     : selectedTopic

@@ -556,9 +556,13 @@ function shuffleQuestions(items: StoredQuestion[]) {
 }
 
 function shuffleQuestionOptions(question: StoredQuestion) {
+  const correctText = question.options.find((option) => option.id === question.correctOption)?.text;
+  const options = [...question.options].sort(() => Math.random() - 0.5);
+
   return {
     ...question,
-    options: [...question.options].sort(() => Math.random() - 0.5),
+    options,
+    correctOption: options.find((option) => option.text === correctText)?.id ?? question.correctOption,
   };
 }
 

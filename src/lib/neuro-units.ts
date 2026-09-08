@@ -528,10 +528,11 @@ const cerebroAtlasItems = [
       "Feixes de substância branca cerebral, incluindo fibras comissurais, fibras de projeção e fibras de associação.",
   },
 ];
-const cerebroTestImageItems = cerebroAtlasItems.map((item) => ({
-  imageUrl: item.imageUrl,
-  label: item.title,
-}));
+const cerebroTestImageItems = [
+  ...estruturaCerebroItems,
+  ...substanciaCinzentaItems,
+  ...substanciaBrancaItems,
+];
 const cerebroAccordionSections = [
   {
     title: "Estrutura do cérebro",
