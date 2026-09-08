@@ -450,6 +450,7 @@ const snpTextQuestions: NeuroTextQuestion[] = [
 ];
 
 const cerebroImageBaseUrl = "/neuroanatomofisiologia";
+const cerebroAtlasImageBaseUrl = "/conteudos/cerebro/atlas";
 const cerebroContentImageBaseUrl = "/conteudos/cerebro";
 const estruturaCerebroItems = [
   "Cérebro﻿.png",
@@ -510,19 +511,19 @@ const substanciaBrancaItems = ["Fibras de associação.png", "Fibras comissurais
 const cerebroAtlasItems = [
   {
     title: "Estrutura do cérebro",
-    imageUrl: estruturaCerebroItems[0].imageUrl,
+    imageUrl: `${cerebroAtlasImageBaseUrl}/estrutura-do-cerebro.png`,
     description:
       "Representação colorida dos lobos cerebrais e dos principais sulcos e giros identificáveis nas perspectivas lateral e medial.",
   },
   {
     title: "Substância cinzenta cerebral: áreas funcionais",
-    imageUrl: substanciaCinzentaItems[0].imageUrl,
+    imageUrl: `${cerebroAtlasImageBaseUrl}/substancia-cinzenta-areas-funcionais.png`,
     description:
       "Principais áreas funcionais do córtex cerebral, incluindo áreas motoras, sensitivas primárias e áreas de associação.",
   },
   {
     title: "Substância branca cerebral",
-    imageUrl: substanciaBrancaItems[0].imageUrl,
+    imageUrl: `${cerebroAtlasImageBaseUrl}/substancia-branca-cerebral.png`,
     description:
       "Feixes de substância branca cerebral, incluindo fibras comissurais, fibras de projeção e fibras de associação.",
   },
