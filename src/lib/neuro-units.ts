@@ -26,6 +26,7 @@ export type NeuroUnit = {
   testImageItems?: { imageUrl: string; label: string }[];
   testImageUrls?: string[];
   testTextQuestions?: NeuroTextQuestion[];
+  reviewItems?: string[];
   testDescription: string;
   worksheetText: string;
   atlasTitle: string;
@@ -533,6 +534,107 @@ const cerebroTestImageItems = [
   ...substanciaCinzentaItems,
   ...substanciaBrancaItems,
 ];
+const cerebroReviewItems = [
+  "Corpo caloso",
+  "Lobo frontal",
+  "Giro angular",
+  "Lobo Insular",
+  "Giro frontal Inferior",
+  "Lobo Límbico",
+  "Giro frontal médio",
+  "Lobo occipital",
+  "Giro frontal superior",
+  "Lobo parietal",
+  "Giro pós-central",
+  "Lobo temporal",
+  "Giro pré-central",
+  "Lóbulo parietal Inferior",
+  "Giro temporal Inferior",
+  "Lóbulo parietal superior",
+  "Giro temporal médio",
+  "Sulco central",
+  "Giro temporal superior",
+  "Sulco lateral",
+  "Incisura pré-occipital",
+  "Sulco parieto-occipital",
+];
+const vistaLateralReviewItems = [
+  "Giro angular",
+  "Opérculo temporal",
+  "Giro frontal inferior",
+  "Parte orbital do giro frontal inferior",
+  "Giro frontal médio",
+  "Parte triangular do giro frontal inferior",
+  "Giro frontal superior",
+  "Polo frontal",
+  "Giro pós-central",
+  "Polo occipital",
+  "Giro pré-central",
+  "Polo temporal",
+  "Giro supramarginal",
+  "Ramo anterior do sulco cerebral lateral",
+  "Giro temporal inferior",
+  "Ramo ascendente do sulco cerebral lateral",
+  "Giro temporal médio",
+  "Ramo posterior do sulco cerebral lateral",
+  "Giro temporal superior",
+  "Sulco central",
+  "Lobo frontal",
+  "Sulco frontal inferior",
+  "Lobo occipital",
+  "Sulco frontal superior",
+  "Lobo parietal",
+  "Sulco intraparietal",
+  "Lobo temporal",
+  "Sulco parieto-occipital",
+  "Lóbulo parietal inferior",
+  "Sulco pós-central",
+  "Lóbulo parietal superior",
+  "Sulco pré-central",
+  "Opérculo frontal",
+  "Sulco temporal inferior",
+  "Opérculo parietal",
+  "Sulco temporal superior",
+];
+const vistaLateralImageItems = estruturaCerebroItems.filter((item) => vistaLateralReviewItems.some((label) => label.toLocaleLowerCase("pt-BR") === item.label.toLocaleLowerCase("pt-BR")));
+const vistaLateralAtlasItems = [
+  {
+    imageUrl: `${cerebroContentImageBaseUrl}/Estrutura do cérebro/Cérebro﻿.png`,
+    title: "Vista lateral do cérebro",
+    description:
+      "Observando o cérebro de uma perspectiva lateral, podemos ver os lobos frontal, temporal, parietal e occipital. Há vários giros e sulcos importantes nessa superfície, incluindo o sulco central, o sulco lateral, os giros frontais, o giro pré-central, o giro pós-central, os giros temporais e o giro angular.",
+  },
+  {
+    imageUrl: `${cerebroContentImageBaseUrl}/Estrutura do cérebro/Cérebro﻿-vista-sagital.png`,
+    title: "Vista superior do cérebro",
+    description:
+      "Vista superior do cérebro para revisar a organização dos hemisférios e a disposição dos principais giros e sulcos visíveis na superfície superolateral.",
+  },
+];
+const vistaLateralAccordionSections = vistaLateralAtlasItems.map((item) => ({
+  title: item.title,
+  items: [{ ...item, label: item.title }],
+}));
+const vistaLateralTextQuestions: NeuroTextQuestion[] = [
+  {
+    prompt: "Quais superfícies são descritas no estudo do cérebro?",
+    options: ["Superolateral, medial e inferior", "Anterior, posterior e basal", "Central, lateral e ventricular", "Cortical, medular e meníngea"],
+    correctAnswer: "Superolateral, medial e inferior",
+    explanation: "O cérebro apresenta uma superfície superolateral, uma medial e uma inferior.",
+  },
+  {
+    prompt: "Qual sulco separa o lobo frontal do lobo parietal?",
+    options: ["Sulco central", "Sulco lateral", "Sulco temporal superior", "Sulco intraparietal"],
+    correctAnswer: "Sulco central",
+    explanation: "O sulco central, também chamado fissura de Rolando, separa o lobo frontal do lobo parietal.",
+  },
+  {
+    prompt: "Qual sulco separa os lobos frontal e parietal do lobo temporal?",
+    options: ["Sulco lateral", "Sulco pós-central", "Sulco pré-central", "Sulco parieto-occipital"],
+    correctAnswer: "Sulco lateral",
+    explanation: "O sulco lateral, ou fissura de Sylvius, separa o lobo temporal dos lobos frontal e parietal.",
+  },
+];
 const cerebroAccordionSections = [
   {
     title: "Estrutura do cérebro",
@@ -671,6 +773,7 @@ export const neuroUnits: NeuroUnit[] = [
     testImageItems: cerebroTestImageItems,
     testImageUrls: cerebroTestImageItems.map((item) => item.imageUrl),
     testTextQuestions: cerebroTextQuestions,
+    reviewItems: cerebroReviewItems,
     testDescription:
       "Complete o teste a seguir para avaliar seus conhecimentos sobre os lobos e principais sulcos e giros do cérebro. Você também pode revisar a localização das áreas funcionais do cérebro.",
     worksheetText: "",
@@ -788,6 +891,63 @@ export const neuroUnits: NeuroUnit[] = [
             label: "Área de associação límbica",
             value:
               "Polo anterior do lobo temporal, parte ventral do lobo frontal, giro do cíngulo - processos de reconhecimento/associação, comportamento, emoções e motivação",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "vista-lateral-do-encefalo",
+    title: "Vista lateral do encéfalo",
+    status: "incomplete",
+    duration: "10 minutos",
+    objectives: [
+      "Identificar as 3 superfícies do cérebro e suas margens.",
+      "Nomear e demarcar os lobos temporais observados na superfície superolateral do cérebro.",
+      "Identificar os principais giros e sulcos observados na superfície superolateral do cérebro.",
+    ],
+    videoTitle: "Vista lateral do encéfalo",
+    videoDescription: "Estruturas observadas em uma perspectiva lateral do cérebro.",
+    videoText: [
+      "O encéfalo é o órgão mais complexo do corpo, sendo composto por três partes principais: cérebro, cerebelo e tronco encefálico. O cérebro é a maior dessas três partes. É uma estrutura complexa, organizada em pregas denominadas giros e fendas chamadas de sulcos, que dão a ele uma aparência enrugada.",
+      "O cérebro apresenta uma superfície superolateral, uma medial e uma inferior. Cada superfície contém giros e sulcos característicos.",
+      "A superfície superolateral do cérebro é convexa e contém os lobos frontal, temporal, parietal e occipital, localizados abaixo dos ossos do crânio correspondentes. O lobo frontal ocupa a maior parte da superfície superolateral, constituindo a porção mais anterior do cérebro. É separado do lobo parietal pelo sulco central (fissura de Rolando), enquanto os lobos frontal e parietal se separam do lobo temporal pelo sulco lateral (fissura de Sylvian).",
+      "Assista à videoaula a seguir para aprender mais sobre a estrutura e as principais características dos lobos cerebrais observadas na superfície superolateral!",
+    ],
+    videoUrl: "",
+    posterUrl: `${cerebroContentImageBaseUrl}/Estrutura do cérebro/Cérebro﻿.png`,
+    testCardImageUrl: `${cerebroContentImageBaseUrl}/Estrutura do cérebro/Cérebro﻿.png`,
+    testImageItems: vistaLateralImageItems,
+    testImageUrls: vistaLateralImageItems.map((item) => item.imageUrl),
+    testTextQuestions: vistaLateralTextQuestions,
+    reviewItems: vistaLateralReviewItems,
+    testDescription:
+      "Faça o teste a seguir para verificar o seu conhecimento atual sobre o cérebro, assim como para aprender ainda mais sobre o órgão observado por sua superfície superolateral!",
+    worksheetText: "",
+    atlasTitle: "Vista lateral do encéfalo",
+    atlasDescription: "Navegue pelas imagens da vista lateral e superior do cérebro para revisar os principais lobos, giros e sulcos.",
+    atlasImageUrl: vistaLateralAtlasItems[0].imageUrl,
+    atlasItems: vistaLateralAtlasItems,
+    atlasAccordionSections: vistaLateralAccordionSections,
+    summaryTables: [
+      {
+        title: "Informações importantes",
+        rows: [
+          {
+            label: "Lobo frontal",
+            value: "Giros: giro pré-central (córtex motor); giros frontais superior, médio e inferior (córtex pré-frontal)\nSulcos: sulco pré-central, sulco frontal superior, sulco frontal inferior",
+          },
+          {
+            label: "Lobo parietal",
+            value: "Giros: giro pós-central, lóbulo parietal superior, lóbulo parietal inferior (giro supramarginal, giro angular)\nSulcos: sulco pós-central, sulco intraparietal",
+          },
+          {
+            label: "Lobo temporal",
+            value: "Giros: giro temporal superior, giro temporal médio, giro temporal inferior\nSulcos: sulco temporal superior, sulco temporal inferior, incisura pré-occipital",
+          },
+          {
+            label: "Lobo occipital",
+            value: "Giros: giros occipitais superior e inferior\nSulcos: sulco parieto-occipital, incisura pré-occipital",
           },
         ],
       },

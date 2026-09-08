@@ -41,7 +41,7 @@ export const neuroCourseSections: NeuroCourseSection[] = [
     imageUrl: "/neuroanatomofisiologia/encefalo-slide-7-image-1.jpeg",
     lessons: [
       { title: "Visão geral do cérebro", description: "Visão geral das substâncias branca e cinzenta do cérebro.", materialSlug: "encefalo", topicSlug: "telencefalo" },
-      { title: "Vista lateral do encéfalo", description: "Estruturas observadas na vista lateral do encéfalo." },
+      { title: "Vista lateral do encéfalo", description: "Estruturas observadas na vista lateral do encéfalo.", materialSlug: "encefalo", topicSlug: "vista-lateral-do-encefalo" },
       { title: "Vista medial do encéfalo", description: "Estruturas observadas em vista medial de um corte sagital do encéfalo." },
       { title: "Vista inferior do encéfalo", description: "Estruturas observadas na vista inferior do encéfalo." },
       { title: "Áreas de Brodmann", description: "Visão geral das áreas de Brodmann do córtex cerebral." },
