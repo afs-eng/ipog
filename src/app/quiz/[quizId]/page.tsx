@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { AtlasAccordion } from "@/components/atlas-accordion";
 import { AtlasGallery } from "@/components/atlas-gallery";
+import { SummaryTables } from "@/components/summary-tables";
 import { TestStartCard } from "@/components/test-start-card";
 import { getLocalStudyQuestions } from "@/lib/question-files";
 import { getQuizMode, getSubject, quizModes } from "@/lib/study-data";
@@ -90,6 +91,13 @@ export default async function QuizPage({
     imageUrl: item.imageUrl,
     label: item.title,
   }));
+  const summaryTables = unit?.summaryTables ?? [{
+    title: "Informações importantes",
+    rows: filteredQuestions.slice(0, 6).map((question) => ({
+      label: question.topicId.replaceAll("-", " "),
+      value: question.explanation,
+    })),
+  }];
 
   return (
     <main className="min-h-screen bg-white text-slate-800">
@@ -241,23 +249,7 @@ export default async function QuizPage({
             <section className="relative border-l border-slate-200 pl-8" id="resumo">
               <StepNumber>{hasVideoSection ? 4 : 3}</StepNumber>
               <h2 className="font-semibold text-[#aa0000]">Resumo</h2>
-              <div className="mt-5 overflow-hidden border border-slate-200">
-                <table className="w-full border-collapse text-sm">
-                  <tbody>
-                    {(unit?.summaryTables[0]?.rows ?? filteredQuestions.slice(0, 6).map((question) => ({
-                      label: question.topicId.replaceAll("-", " "),
-                      value: question.explanation,
-                    }))).map((row) => (
-                      <tr className="border-b border-slate-200 last:border-b-0" key={row.label}>
-                        <th className="w-1/3 bg-slate-50 p-3 text-left align-top font-semibold capitalize text-slate-700">
-                          {row.label}
-                        </th>
-                        <td className="p-3 leading-6 text-slate-600">{row.value}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              <SummaryTables tables={summaryTables} />
 
               <section className="relative mt-10 rounded-sm border border-red-200 bg-red-50 p-8 text-center">
                 <button

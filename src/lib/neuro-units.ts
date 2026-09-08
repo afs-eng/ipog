@@ -686,36 +686,107 @@ export const neuroUnits: NeuroUnit[] = [
           {
             label: "Lobo frontal",
             value:
-              "Anterior ao sulco central e superior ao sulco lateral. Relacionado ao movimento voluntário, atenção, memória de curto prazo, motivação, planejamento, fala e comportamento.",
+              "Anterior ao sulco central, superior ao sulco lateral.\n\nPrincipais giros: giros pré-central e giros frontais superior, médio e inferior\n\nControle do movimento voluntário, envolvido na atenção, tarefas de memória de curto prazo, motivação, planejamento, fala",
           },
           {
             label: "Lobo parietal",
             value:
-              "Posterior ao sulco central. Participa do processamento de estímulos somatossensoriais, integração sensorial, percepção visuoespacial e linguagem.",
+              "Posterior ao sulco central.\n\nPrincipais giros/áreas: giro pós-central, lóbulo parietal superior, lóbulo parietal inferior (giros angular e supramarginal)\n\nProcessamento de estímulos somatossensoriais (toque, dor, pressão e temperatura), integração de outros estímulos sensoriais (paladar, audição, visão e olfato), mapeamento e atenção visuoespacial, processamento de linguagem e interpretação numérica",
           },
           {
             label: "Lobo temporal",
             value:
-              "Inferior ao sulco lateral. Relacionado à audição, memória visual, compreensão da linguagem e decodificação de estímulos sensoriais.",
+              "Superfície lateral do cérebro, inferior ao sulco lateral\n\nPrincipais giros: giros temporais superior, médio, inferior\n\nDecodificação de estímulos sensoriais (visuais e auditivos) em significados úteis para retenção de memória visual e compreensão da linguagem",
           },
           {
             label: "Lobo occipital",
-            value: "Posterior aos lobos parietal e temporal. Principal centro cortical para processamento visual.",
+            value: "Posterior aos lobos parietal e temporal.\n\nPrincipais giros: giros occipitais\n\nCentro para o processamento visual.",
           },
           {
             label: "Lobo insular",
             value:
-              "Profundo aos lobos temporal, parietal e frontal. Participa da gustação, sensibilidade visceral, funções vestibulares e integração sensorial.",
+              "Profundo aos lobos temporal, parietal e frontal.\n\nPrincipais giros: giros longos e curtos da ínsula\n\nProcessamento e integração da sensação do paladar, sensibilidade visceral e álgica e funções vestibulares",
           },
           {
             label: "Lobo límbico",
             value:
-              "Localizado na superfície medial de cada hemisfério. Relacionado à modulação das emoções, funções viscerais e autonômicas, aprendizagem e memória.",
+              "Superfície medial de cada hemisfério cerebral, envolvendo o corpo caloso\n\nPrincipais giros: giros paraterminal, do cíngulo e parahipocampal\n\nModulação das emoções, modulação das funções viscerais e autonômicas, aprendizagem, memória",
+          },
+        ],
+      },
+      {
+        title: "Informações importantes sobre as áreas motoras, sensoriais e de associação",
+        rows: [
+          {
+            label: "Área motora primária",
+            value: "Giro pré-central (lobo frontal) - planejamento e execução de movimento",
           },
           {
-            label: "Áreas funcionais",
+            label: "Área somatossensorial primária",
+            value: "Giro pós-central (lobo parietal) - processamento de estímulos sensoriais somáticos",
+          },
+          {
+            label: "Área visual primária",
+            value: "Lobo occipital - processamento de estímulos visuais",
+          },
+          {
+            label: "Área auditiva primária",
+            value: "Lóbulo parietal superior - processamento de estímulos auditivos",
+          },
+          {
+            label: "Área olfatória",
+            value: "Lobos temporal medial e límbico - processamento de estímulos olfatórios",
+          },
+          {
+            label: "Área gustativa",
+            value: "Lobos da ínsula e parietal - processamento de estímulos gustativos.",
+          },
+          {
+            label: "Áreas vestibulares",
+            value: "Lobos parietal e temporal - equilíbrio",
+          },
+          {
+            label: "Área pré-motora",
+            value: "Anterior ao córtex motor primário - movimentos complexos",
+          },
+          {
+            label: "Área de associação somatossensorial",
+            value: "Posterior ao córtex somatossensorial primário - integração de informações sensoriais somáticas",
+          },
+          {
+            label: "Área de associação visual",
             value:
-              "Incluem áreas motoras, somatossensoriais, visuais, auditivas, olfatórias, gustativas, vestibulares, pré-motoras, de associação, área de Broca e área de Wernicke.",
+              "Parte anterior do lobo occipital, partes posteriores dos lobos parietal e temporal - orientação espacial, percepção de profundidade, localização, movimento e velocidade dos objetos no espaço",
+          },
+          {
+            label: "Área de associação parieto-occipito-temporal",
+            value:
+              "Partes posteriores dos lobos parietal/occipital/temporal - interpretação de sinais das áreas somatossensoriais, visuais e auditivas adjacentes (por exemplo, consciência visuoespacial, linguagem visual (leitura), denominação de objetos), aprendizado de habilidades motoras finas",
+          },
+          {
+            label: "Área de Wernicke",
+            value: "Parte posterolateral do lobo temporal (geralmente à esquerda) - linguagem (compreensão)",
+          },
+          {
+            label: "Área de associação temporal",
+            value: "Polo anterior do lobo temporal / processos de reconhecimento/associação, comportamento, emoções e motivação",
+          },
+          {
+            label: "Área pré-frontal",
+            value: "Frontal anterior - funções mentais superiores, comportamento, personalidade",
+          },
+          {
+            label: "Campos oculares frontais",
+            value: "Anterior ao córtex pré-motor - movimentos oculares",
+          },
+          {
+            label: "Área de Broca",
+            value: "Lobo frontal infero-lateral (geralmente no hemisfério esquerdo) - linguagem (produção/formação de palavras)",
+          },
+          {
+            label: "Área de associação límbica",
+            value:
+              "Polo anterior do lobo temporal, parte ventral do lobo frontal, giro do cíngulo - processos de reconhecimento/associação, comportamento, emoções e motivação",
           },
         ],
       },
