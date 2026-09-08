@@ -52,8 +52,8 @@ export default async function SubjectPage({
             <span className="text-slate-700">Neuroanatomia</span>
           </div>
           <div className="flex items-center gap-5">
-            <button className="text-sm text-slate-700" type="button">
-              Filtro⌄
+            <button className="inline-flex items-center gap-1 text-sm text-slate-700" type="button">
+              Filtro <i aria-hidden="true" className="fi fi-br-angle-small-down text-xs leading-none" />
             </button>
             <input
               className="w-44 rounded-sm border border-slate-300 bg-white px-3 py-2 text-sm outline-none placeholder:text-slate-500"

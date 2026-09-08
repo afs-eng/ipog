@@ -26,14 +26,7 @@ export function AtlasAccordion({ sections }: AtlasAccordionProps) {
               type="button"
             >
               {section.title}
-              <svg
-                aria-hidden="true"
-                className={`h-3 w-3 transition-transform ${isOpen ? "rotate-180" : ""}`}
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 16 5 9h14l-7 7Z" />
-              </svg>
+              <i aria-hidden="true" className={`fi fi-br-angle-small-down text-sm leading-none transition-transform ${isOpen ? "rotate-180" : ""}`} />
             </button>
             {isOpen ? (
               <div className="bg-white p-0">

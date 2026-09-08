@@ -23,6 +23,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <link href="https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css" rel="stylesheet" />
+      </head>
       <body className="min-h-full bg-slate-50 text-slate-950">{children}</body>
     </html>
   );

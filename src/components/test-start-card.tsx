@@ -77,7 +77,7 @@ export function TestStartCard({ href, imageUrl, reviewItems = [], title }: TestS
               </svg>
               O que você vai aprender
             </span>
-            <span className="text-xl leading-none">{isContentOpen ? "^" : "v"}</span>
+            <i aria-hidden="true" className={`fi fi-br-angle-small-down text-sm leading-none transition-transform ${isContentOpen ? "rotate-180" : ""}`} />
           </button>
           {isContentOpen ? (
             <div className="px-5 py-4">
@@ -140,8 +140,8 @@ export function TestStartCard({ href, imageUrl, reviewItems = [], title }: TestS
                   </button>
                 ))}
               </div>
-              <button className="mt-8 text-sm font-semibold text-slate-400" type="button">
-                Mais opções v
+              <button className="mt-8 inline-flex items-center gap-1 text-sm font-semibold text-slate-400" type="button">
+                Mais opções <i aria-hidden="true" className="fi fi-br-angle-small-down text-xs leading-none" />
               </button>
               <Link
                 className="mt-8 flex w-full items-center justify-center rounded-sm bg-[#aa0000] px-5 py-4 text-sm font-bold uppercase text-white hover:bg-[#8b0000]"
