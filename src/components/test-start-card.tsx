@@ -18,7 +18,8 @@ export function TestStartCard({ href, imageUrl, reviewItems = [], title }: TestS
   const [isContentOpen, setIsContentOpen] = useState(true);
   const [removedItems, setRemovedItems] = useState<string[]>([]);
   const [selectedTime, setSelectedTime] = useState(10);
-  const visibleReviewItems = reviewItems.filter((item) => !removedItems.includes(item));
+  const activeReviewItems = reviewItems.filter((item) => !removedItems.includes(item));
+  const orderedReviewItems = [...activeReviewItems, ...removedItems.filter((item) => reviewItems.includes(item))];
   const timedHref = addRemovedItems(addStudyTime(href, selectedTime), removedItems);
 
   return (
@@ -82,17 +83,25 @@ export function TestStartCard({ href, imageUrl, reviewItems = [], title }: TestS
             <div className="px-5 py-4">
               <p className="text-sm">Clique para remover conteúdo da sessão de estudo:</p>
               <div className="mt-4 grid gap-x-12 gap-y-2 sm:grid-cols-2">
-                {visibleReviewItems.map((item) => (
-                  <button
-                    className="w-fit rounded-full bg-white px-3 py-1 text-left text-sm text-slate-600 shadow-sm hover:bg-red-50 hover:text-[#aa0000]"
-                    key={item}
-                    onClick={() => setRemovedItems((current) => [...current, item])}
-                    type="button"
-                  >
-                    <span className="mr-1">⊙</span>
-                    {item}
-                  </button>
-                ))}
+                {orderedReviewItems.map((item) => {
+                  const isRemoved = removedItems.includes(item);
+
+                  return (
+                    <button
+                      className={`w-fit rounded-full px-3 py-1 text-left text-sm shadow-sm transition ${
+                        isRemoved
+                          ? "bg-white/60 text-slate-400 opacity-70"
+                          : "bg-white text-slate-600 hover:bg-red-50 hover:text-[#aa0000]"
+                      }`}
+                      key={item}
+                      onClick={() => setRemovedItems((current) => isRemoved ? current.filter((removedItem) => removedItem !== item) : [...current, item])}
+                      type="button"
+                    >
+                      <span className="mr-1">{isRemoved ? "⊘" : "⊙"}</span>
+                      {item}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           ) : null}

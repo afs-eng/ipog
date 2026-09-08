@@ -98,6 +98,32 @@ export default async function QuizPage({
       value: question.explanation,
     })),
   }];
+  const reviewItems = unit?.slug === "sistema-nervoso-central-cerebro"
+    ? [
+        "Corpo caloso",
+        "Lobo frontal",
+        "Giro angular",
+        "Lobo Insular",
+        "Giro frontal Inferior",
+        "Lobo Límbico",
+        "Giro frontal médio",
+        "Lobo occipital",
+        "Giro frontal superior",
+        "Lobo parietal",
+        "Giro pós-central",
+        "Lobo temporal",
+        "Giro pré-central",
+        "Lóbulo parietal Inferior",
+        "Giro temporal Inferior",
+        "Lóbulo parietal superior",
+        "Giro temporal médio",
+        "Sulco central",
+        "Giro temporal superior",
+        "Sulco lateral",
+        "Incisura pré-occipital",
+        "Sulco parieto-occipital",
+      ]
+    : unit?.testImageItems?.map((item) => item.label);
 
   return (
     <main className="min-h-screen bg-white text-slate-800">
@@ -230,7 +256,7 @@ export default async function QuizPage({
               <TestStartCard
                 href={testHref}
                 imageUrl={testCardImageUrl}
-                reviewItems={unit?.testImageItems?.map((item) => item.label)}
+                reviewItems={reviewItems}
                 title={unit?.videoTitle ?? currentMaterial?.title ?? pageTitle}
               />
             </section>

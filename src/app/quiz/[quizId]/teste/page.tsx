@@ -22,6 +22,7 @@ export default async function KnowledgeTestPage({
 
   const selectedMaterial = typeof material === "string" ? material : undefined;
   const removedItems = typeof remover === "string" ? remover.split("|") : [];
+  const normalizedRemovedItems = removedItems.map(normalizeLabel);
   const selectedTopic = typeof topic === "string" ? topic : undefined;
   const unit = getNeuroUnit(selectedTopic);
   const subject = getSubject("neuroanatomofisiologia");
@@ -58,7 +59,7 @@ export default async function KnowledgeTestPage({
     updatedAt: "2026-09-06T00:00:00.000Z",
   })) ?? [];
   const unitSlug = unit?.slug;
-  const testImageItems = unit?.testImageItems?.filter((item) => !removedItems.includes(item.label));
+  const testImageItems = unit?.testImageItems?.filter((item) => !normalizedRemovedItems.includes(normalizeLabel(item.label)));
   const visualQuestions = testImageItems?.map((item, index) => ({
     subjectId: "neuroanatomofisiologia" as const,
     id: `${unitSlug}-imagem-${String(index + 1).padStart(3, "0")}`,
@@ -124,4 +125,8 @@ function getStudyTimeMinutes(value: string | string[] | undefined) {
   const parsedValue = Number(value);
 
   return [5, 10, 20, 30].includes(parsedValue) ? parsedValue : 10;
+}
+
+function normalizeLabel(value: string) {
+  return value.toLocaleLowerCase("pt-BR");
 }
