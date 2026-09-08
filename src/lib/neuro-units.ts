@@ -914,7 +914,7 @@ export const neuroUnits: NeuroUnit[] = [
       "A superfície superolateral do cérebro é convexa e contém os lobos frontal, temporal, parietal e occipital, localizados abaixo dos ossos do crânio correspondentes. O lobo frontal ocupa a maior parte da superfície superolateral, constituindo a porção mais anterior do cérebro. É separado do lobo parietal pelo sulco central (fissura de Rolando), enquanto os lobos frontal e parietal se separam do lobo temporal pelo sulco lateral (fissura de Sylvian).",
       "Assista à videoaula a seguir para aprender mais sobre a estrutura e as principais características dos lobos cerebrais observadas na superfície superolateral!",
     ],
-    videoUrl: "",
+    videoUrl: "https://drive.google.com/file/d/1HC_HY9i76Plooj96KwASRtt4chlKz9ai/preview",
     posterUrl: `${cerebroContentImageBaseUrl}/Estrutura do cérebro/Cérebro﻿.png`,
     testCardImageUrl: `${cerebroContentImageBaseUrl}/Estrutura do cérebro/Cérebro﻿.png`,
     testImageItems: vistaLateralImageItems,

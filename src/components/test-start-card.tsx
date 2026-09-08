@@ -82,13 +82,13 @@ export function TestStartCard({ href, imageUrl, reviewItems = [], title }: TestS
           {isContentOpen ? (
             <div className="px-5 py-4">
               <p className="text-sm">Clique para remover conteúdo da sessão de estudo:</p>
-              <div className="mt-4 grid gap-x-12 gap-y-2 sm:grid-cols-2">
+              <div className="mt-4 grid gap-x-12 gap-y-1.5 sm:grid-cols-2">
                 {orderedReviewItems.map((item) => {
                   const isRemoved = removedItems.includes(item);
 
                   return (
                     <button
-                      className={`w-fit rounded-full px-3 py-1 text-left text-sm shadow-sm transition ${
+                      className={`w-fit rounded-full px-2.5 py-0.5 text-left text-xs leading-5 shadow-sm transition ${
                         isRemoved
                           ? "bg-white/60 text-slate-400 opacity-70"
                           : "bg-white text-slate-600 hover:bg-red-50 hover:text-[#aa0000]"
