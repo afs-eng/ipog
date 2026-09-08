@@ -78,7 +78,9 @@ export default async function QuizPage({
     imageUrl: question.imageUrl ?? "/window.svg",
     description: question.topicId.replaceAll("-", " "),
   }));
-  const atlasGalleryItems = unit?.slug === "sistema-nervoso-periferico-nervos-ganglios-e-plexos"
+  const shouldUseAtlasItems = Boolean(unit?.atlasAccordionSections)
+    || unit?.slug === "sistema-nervoso-periferico-nervos-ganglios-e-plexos";
+  const atlasGalleryItems = shouldUseAtlasItems
     ? atlasItems.map((item) => ({
         imageUrl: item.imageUrl,
         label: item.title,
