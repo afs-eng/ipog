@@ -64,11 +64,11 @@ export default async function SubjectPage({
         </div>
       </header>
 
-      <section className="mx-auto grid max-w-5xl gap-8 px-6 py-10 sm:px-10 lg:grid-cols-[190px_1fr] lg:px-12">
+      <section className="mx-auto grid max-w-5xl gap-8 px-6 py-10 sm:px-10 lg:grid-cols-[230px_1fr] lg:px-12">
         <aside className="h-fit lg:sticky lg:top-8">
-          <nav className="space-y-3 text-[15px] leading-5 text-slate-700">
+          <nav className="space-y-2 pl-7 text-[16px] leading-6 text-slate-700">
             {neuroCourseSections.map((section) => (
-              <a className="block hover:text-[#aa0000]" href={`#${section.id}`} key={section.id}>
+              <a className={`block hover:text-sky-600 ${section.id === "cerebro" ? "text-sky-600" : ""}`} href={`#${section.id}`} key={section.id}>
                 {section.title}
               </a>
             ))}
