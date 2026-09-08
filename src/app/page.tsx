@@ -9,8 +9,6 @@ const highlights = [
   { value: "100%", label: "visual", detail: "com imagens anatômicas" },
 ];
 
-const studyFlow = ["Assistir", "Identificar", "Responder", "Revisar"];
-
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#fff1f1] text-slate-950">
@@ -80,17 +78,6 @@ export default function Home() {
             </div>
 
             <div className="relative mx-auto w-full max-w-xl lg:mr-0">
-              <div className="absolute -left-6 top-10 z-10 hidden rounded-3xl border border-white/15 bg-white/10 p-4 shadow-2xl shadow-red-950/30 backdrop-blur sm:block">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-50">Fluxo</p>
-                <div className="mt-3 flex gap-2">
-                  {studyFlow.map((item, index) => (
-                    <span className="rounded-full bg-white px-3 py-2 text-xs font-bold text-slate-900" key={item}>
-                      {index + 1}. {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
               <div className="rounded-[2.5rem] border border-white/15 bg-white/10 p-3 shadow-2xl shadow-red-950/30 backdrop-blur">
                 <div className="overflow-hidden rounded-[2rem] bg-white text-slate-950">
                   <div className="relative aspect-[4/3] bg-slate-100">
@@ -149,7 +136,7 @@ export default function Home() {
             A base já nasce preparada para expandir por matérias, materiais, aulas, questões textuais e identificação por imagem.
           </p>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid items-stretch gap-6 md:grid-cols-2 xl:grid-cols-4">
           {subjects.map((subject) => (
             <SubjectCard key={subject.slug} subject={subject} />
           ))}
