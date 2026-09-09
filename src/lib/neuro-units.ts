@@ -665,7 +665,7 @@ const vistaSuperiorImageItems = [
     synonyms: "Circunvolução frontal média",
   },
   { fileName: "Sulco frontal inferior.png" },
-  { fileName: "Sulco pós-central.png" },
+  { fileName: "Sulco pós central.png", label: "Sulco pós-central" },
   {
     fileName: "Giro frontal inferior.png",
     synonyms: "Circunvolução frontal inferior",
@@ -675,7 +675,8 @@ const vistaSuperiorImageItems = [
     synonyms: "Circunvolução pré-central, Gyrus praecentralis",
   },
   {
-    fileName: "Sulco pré-central.png",
+    fileName: "Sulco pré central.png",
+    label: "Sulco pré-central",
     synonyms: "Sulcus praecentralis",
   },
   { fileName: "Sulco intraparietal.png" },
@@ -709,9 +710,9 @@ const vistaSuperiorImageItems = [
     fileName: "Sulco calcarino.png",
     synonyms: "Fissura calcarinus",
   },
-].map(({ fileName, synonyms }) => ({
+].map(({ fileName, label, synonyms }) => ({
   imageUrl: `${vistaSuperiorImageBaseUrl}/${fileName}`,
-  label: fileName.replace(/\.(png|jpg)$/i, "").replace(/﻿/g, ""),
+  label: label ?? fileName.replace(/\.(png|jpg)$/i, "").replace(/﻿/g, ""),
   synonyms,
 }));
 const vistaLateralAtlasItems = [
