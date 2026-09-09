@@ -89,7 +89,7 @@ export function KnowledgeTest({ questions, title, backHref, imageItems = [], ima
   const correctCount = Object.keys(correctAnswers).length;
   const timeProgress = Math.min(100, (elapsedSeconds / (studyTimeMinutes * 60)) * 100);
   const layout = getQuestionLayout(currentIndex, currentQuestion, imageItems, imageUrls);
-  const visualItem = imageItems[currentIndex % imageItems.length];
+  const visualItem = getVisualItem(currentQuestion, imageItems, currentIndex);
   const visualTextOptions = buildVisualTextOptions(visualItem, imageItems, currentQuestion.id, currentIndex);
   const visualImageOptions = buildVisualImageOptions(visualItem, imageItems, currentQuestion.id, currentIndex);
   const currentCorrectOption = layout === "text"
@@ -533,6 +533,16 @@ function getQuestionLayout(index: number, question: StoredQuestion, imageItems: 
   }
 
   return index % 2 === 0 ? "single-image" : "image-grid";
+}
+
+function getVisualItem(question: StoredQuestion, imageItems: ImageItem[], index: number) {
+  if (imageItems.length === 0) {
+    return undefined;
+  }
+
+  return imageItems.find((item) => item.imageUrl === question.imageUrl)
+    ?? imageItems.find((item) => question.prompt.includes(item.label))
+    ?? imageItems[index % imageItems.length];
 }
 
 function buildVisualTextOptions(currentItem: ImageItem | undefined, imageItems: ImageItem[], questionId: string, index: number): VisualOption[] {

@@ -297,7 +297,7 @@ function buildSimulationQuestions(textQuestions: NeuroTextQuestion[], imageItems
     id: `simulado-texto-${index}`,
     type: "text",
     prompt: question.prompt,
-    options: shuffle(question.options).slice(0, 6),
+    options: buildTextOptions(question),
     correctAnswers: question.correctAnswers ?? (question.correctAnswer ? [question.correctAnswer] : []),
     explanation: question.explanation,
   }));
@@ -307,14 +307,21 @@ function buildSimulationQuestions(textQuestions: NeuroTextQuestion[], imageItems
     item,
   }));
   const mixedQuestions = Array.from({ length: questionCount }, (_, index) => {
-    if (index % 4 === 1 && imageDeck.length > 0) {
-      return imageDeck[index % imageDeck.length];
-    }
+    const question = index % 4 === 1 && imageDeck.length > 0
+      ? imageDeck[index % imageDeck.length]
+      : textDeck[index % textDeck.length];
 
-    return textDeck[index % textDeck.length];
+    return { ...question, id: `${question.id}-questao-${index + 1}` };
   });
 
   return mixedQuestions;
+}
+
+function buildTextOptions(question: NeuroTextQuestion) {
+  const correctAnswers = question.correctAnswers ?? (question.correctAnswer ? [question.correctAnswer] : []);
+  const incorrectOptions = question.options.filter((option) => !correctAnswers.includes(option));
+
+  return shuffle([...correctAnswers, ...shuffle(incorrectOptions).slice(0, Math.max(0, 6 - correctAnswers.length))]);
 }
 
 function ResultSummaryCard({ correctCount, onDetailsClick, total }: { correctCount: number; onDetailsClick: () => void; total: number }) {

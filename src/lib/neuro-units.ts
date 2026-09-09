@@ -638,7 +638,7 @@ const vistaLateralImageItems = [
   const fileName = typeof item === "string" ? item : item.fileName;
 
   return {
-  imageUrl: `${vistaLateralImageBaseUrl}/${fileName}`,
+    imageUrl: `${vistaLateralImageBaseUrl}/${fileName}`,
     label: typeof item === "string" ? fileName.replace(/\.(png|jpg)$/i, "").replace(/﻿/g, "") : item.label,
   };
 });
