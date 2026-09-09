@@ -723,12 +723,14 @@ const vistaLateralAtlasItems = [
   {
     imageUrl: `${cerebroContentImageBaseUrl}/Vista lateral do encéfalo/atlas/vista lateral do cerebro.png`,
     title: "Vista lateral do cérebro",
-    description: "Imagem auxiliar para revisar a superfície lateral do cérebro e suas principais referências anatômicas.",
+    description:
+      "Observando o cérebro de uma perspectiva lateral (primeira imagem) e de uma perspectiva superior (segunda imagem), podemos ver os lobos frontal, temporal, parietal e occipital. Há vários giros e sulcos importantes observados desta perspectiva. O sulco central separa o lobo frontal do parietal (e também o giro pré-central do giro pós-central). Na região anterior, podemos ver os giros frontais superior, médio e inferior. Da mesma forma, no lobo temporal, vemos os giros temporais superior, médio e inferior. No lobo parietal encontramos dois lóbulos (superior e inferior) com os giros angular e supramarginal. Finalmente, na região posterior do cérebro, podemos ver a face lateral do lobo occipital. O lobo occipital está separado do lobo parietal pelo sulco parieto-occipital e pela incisura pré-occipital, vista de uma perspectiva superior.",
   },
   {
-    imageUrl: `${cerebroContentImageBaseUrl}/Vista lateral do encéfalo/atlas/vista lateral do cerebro - 1.png`,
-    title: "Vista lateral do cérebro - imagem auxiliar",
-    description: "Imagem auxiliar complementar da vista lateral do cérebro para navegação no atlas.",
+    imageUrl: `${cerebroContentImageBaseUrl}/Vista lateral do encéfalo/atlas/vista superior do cerebro.png`,
+    title: "Vista superior do cérebro",
+    description:
+      "Observando o cérebro de uma perspectiva lateral (primeira imagem) e de uma perspectiva superior (segunda imagem), podemos ver os lobos frontal, temporal, parietal e occipital. Há vários giros e sulcos importantes observados desta perspectiva. O sulco central separa o lobo frontal do parietal (e também o giro pré-central do giro pós-central). Na região anterior, podemos ver os giros frontais superior, médio e inferior. Da mesma forma, no lobo temporal, vemos os giros temporais superior, médio e inferior. No lobo parietal encontramos dois lóbulos (superior e inferior) com os giros angular e supramarginal. Finalmente, na região posterior do cérebro, podemos ver a face lateral do lobo occipital. O lobo occipital está separado do lobo parietal pelo sulco parieto-occipital e pela incisura pré-occipital, vista de uma perspectiva superior.",
   },
 ];
 const vistaLateralAccordionSections = [
