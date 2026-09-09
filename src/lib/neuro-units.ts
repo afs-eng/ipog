@@ -730,18 +730,6 @@ const vistaLateralAtlasItems = [
     title: "Vista lateral do cérebro - imagem auxiliar",
     description: "Imagem auxiliar complementar da vista lateral do cérebro para navegação no atlas.",
   },
-  {
-    imageUrl: `${cerebroContentImageBaseUrl}/Estrutura do cérebro/Cérebro﻿.png`,
-    title: "Vista lateral do cérebro",
-    description:
-      "Observando o cérebro de uma perspectiva lateral, podemos ver os lobos frontal, temporal, parietal e occipital. Há vários giros e sulcos importantes nessa superfície, incluindo o sulco central, o sulco lateral, os giros frontais, o giro pré-central, o giro pós-central, os giros temporais e o giro angular.",
-  },
-  {
-    imageUrl: `${cerebroContentImageBaseUrl}/Estrutura do cérebro/Cérebro﻿-vista-sagital.png`,
-    title: "Vista superior do cérebro",
-    description:
-      "Vista superior do cérebro para revisar a organização dos hemisférios e a disposição dos principais giros e sulcos visíveis na superfície superolateral.",
-  },
 ];
 const vistaLateralAccordionSections = [
   {
