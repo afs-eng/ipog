@@ -721,6 +721,16 @@ const vistaSuperiorImageItems = [
 }));
 const vistaLateralAtlasItems = [
   {
+    imageUrl: `${cerebroContentImageBaseUrl}/Vista lateral do encéfalo/atlas/vista lateral do cerebro.png`,
+    title: "Vista lateral do cérebro",
+    description: "Imagem auxiliar para revisar a superfície lateral do cérebro e suas principais referências anatômicas.",
+  },
+  {
+    imageUrl: `${cerebroContentImageBaseUrl}/Vista lateral do encéfalo/atlas/vista lateral do cerebro - 1.png`,
+    title: "Vista lateral do cérebro - imagem auxiliar",
+    description: "Imagem auxiliar complementar da vista lateral do cérebro para navegação no atlas.",
+  },
+  {
     imageUrl: `${cerebroContentImageBaseUrl}/Estrutura do cérebro/Cérebro﻿.png`,
     title: "Vista lateral do cérebro",
     description:
