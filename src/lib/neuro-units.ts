@@ -640,34 +640,79 @@ const vistaLateralImageItems = [
 }));
 const vistaSuperiorImageBaseUrl = `${cerebroContentImageBaseUrl}/Vista lateral do encéfalo/Vista superior do cérebro`;
 const vistaSuperiorImageItems = [
-  "Hemisfério cerebral esquerdo.png",
-  "Hemisfério cerebral direito.png",
-  "Fissura longitudinal do cérebro.png",
-  "Sulco frontal superior.png",
-  "Lobo frontal.png",
-  "Lobo central.png",
-  "Giro frontal superior.png",
-  "Giro frontal médio.png",
-  "Sulco frontal inferior.png",
-  "Sulco pós-central.png",
-  "Giro frontal inferior.png",
-  "Giro pré-central.png",
-  "Sulco pré-central.png",
-  "Sulco intraparietal.png",
-  "Lobo parietal.png",
-  "Giro pós-central.png",
-  "Lóbulo parietal inferior.png",
-  "Giro supramarginal.png",
-  "Giro angular.png",
-  "Lóbulo parietal superior.png",
-  "Lobo occipital.png",
-  "Incisura pré-occipital.png",
-  "Sulco parieto-occipital.png",
-  "Sulco lateral.png",
-  "Sulco calcarino.png",
-].map((fileName) => ({
+  {
+    fileName: "Hemisfério cerebral esquerdo.png",
+    synonyms: "Hemisphaerium cerebrale sinistrum",
+  },
+  {
+    fileName: "Hemisfério cerebral direito.png",
+    synonyms: "Hemisphaerium cerebrale dextrum",
+  },
+  {
+    fileName: "Fissura longitudinal do cérebro.png",
+    synonyms:
+      "Fissura longitudinal mediana, Fissura cerebral longitudinal, Fissura longitudinalis cerebralis, Fissura mediana cerebri, Fissura interhemispherica cerebri",
+  },
+  { fileName: "Sulco frontal superior.png" },
+  { fileName: "Lobo frontal.png" },
+  { fileName: "Lobo central.png" },
+  {
+    fileName: "Giro frontal superior.png",
+    synonyms: "Circunvolução frontal superior",
+  },
+  {
+    fileName: "Giro frontal médio.png",
+    synonyms: "Circunvolução frontal média",
+  },
+  { fileName: "Sulco frontal inferior.png" },
+  { fileName: "Sulco pós-central.png" },
+  {
+    fileName: "Giro frontal inferior.png",
+    synonyms: "Circunvolução frontal inferior",
+  },
+  {
+    fileName: "Giro pré-central.png",
+    synonyms: "Circunvolução pré-central, Gyrus praecentralis",
+  },
+  {
+    fileName: "Sulco pré-central.png",
+    synonyms: "Sulcus praecentralis",
+  },
+  { fileName: "Sulco intraparietal.png" },
+  { fileName: "Lobo parietal.png" },
+  {
+    fileName: "Giro pós-central.png",
+    synonyms:
+      "Circunvolução pós-central, Córtex somatossensorial primário, Área somatossensorial primária, Area somatosensoria primaria, Cortex somatosensorius primarius",
+  },
+  { fileName: "Lóbulo parietal inferior.png" },
+  {
+    fileName: "Giro supramarginal.png",
+    synonyms: "Circunvolução supramarginal",
+  },
+  {
+    fileName: "Giro angular.png",
+    synonyms: "Circunvolução angular",
+  },
+  { fileName: "Lóbulo parietal superior.png" },
+  { fileName: "Lobo occipital.png" },
+  {
+    fileName: "Incisura pré-occipital.png",
+    synonyms: "Incisura praeoccipitalis",
+  },
+  { fileName: "Sulco parieto-occipital.png" },
+  {
+    fileName: "Sulco lateral.png",
+    synonyms: "Fissura de Sylvius, Fissura Sylvii",
+  },
+  {
+    fileName: "Sulco calcarino.png",
+    synonyms: "Fissura calcarinus",
+  },
+].map(({ fileName, synonyms }) => ({
   imageUrl: `${vistaSuperiorImageBaseUrl}/${fileName}`,
   label: fileName.replace(/\.(png|jpg)$/i, "").replace(/﻿/g, ""),
+  synonyms,
 }));
 const vistaLateralAtlasItems = [
   {
