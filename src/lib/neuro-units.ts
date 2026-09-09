@@ -599,45 +599,49 @@ const vistaLateralReviewItems = [
 const vistaLateralImageBaseUrl = `${cerebroContentImageBaseUrl}/Vista lateral do encéfalo/Vista lateral do cérebro`;
 const vistaLateralImageItems = [
   "Giro angular.png",
-  "Opérculo temporal.jpg",
+  "Opérculo temporal.png",
   "Giro frontal inferior.png",
-  "Parte orbital do giro frontal inferior.jpg",
+  { fileName: "Parte orbital do giro fontal inferior.png", label: "Parte orbital do giro frontal inferior" },
   "Giro frontal médio.png",
-  "Parte triangular do giro frontal inferior.jpg",
+  "Parte triangular do giro frontal inferior.png",
   "Giro frontal superior.png",
-  "Polo frontal.jpg",
+  "Polo frontal.png",
   "Giro pós-central.png",
-  "Polo occipital.jpg",
+  "Polo occipital.png",
   "Giro pré-central.png",
-  "Polo temporal.jpg",
-  "Giro supramarginal.jpg",
-  "Ramo anterior do sulco cerebral lateral.jpg",
+  "Polo temporal.png",
+  "Giro supramarginal.png",
+  "Ramo anterior do sulco cerebral lateral.png",
   "Giro temporal inferior.png",
-  "Ramo ascendente do sulco cerebral lateral.jpg",
+  "Ramo ascendente do sulco cerebral lateral.png",
   "Giro temporal médio.png",
-  "Ramo posterior do sulco cerebral lateral.jpg",
+  "Ramo posterior do sulco cerebral lateral.png",
   "Giro temporal superior.png",
   "Sulco central.png",
   "Lobo frontal.png",
-  "Sulco frontal inferior.jpg",
+  "Sulco frontal inferior.png",
   "Lobo occipital.png",
-  "Sulco frontal superior.jpg",
+  "Sulco frontal superior.png",
   "Lobo parietal.png",
-  "Sulco intraparietal﻿.jpg",
+  "Sulco intraparietal.png",
   "Lobo temporal.png",
-  "Sulco parieto-occipital.jpg",
+  "Sulco parieto-occipital.png",
   "Lóbulo parietal inferior.png",
-  "Sulco pós-central.jpg",
+  "Sulco pós-central.png",
   "Lóbulo parietal superior.png",
-  "Sulco pré-central.jpg",
-  "Opérculo frontal.jpg",
-  "Sulco temporal inferior.jpg",
-  "Opérculo parietal.jpg",
-  "Sulco temporal superior.jpg",
-].map((fileName) => ({
+  "Sulco pré-central.png",
+  "Opérculo frontal.png",
+  "Sulco temporal inferior.png",
+  "Opérculo parietal.png",
+  "Sulco temporal superior.png",
+].map((item) => {
+  const fileName = typeof item === "string" ? item : item.fileName;
+
+  return {
   imageUrl: `${vistaLateralImageBaseUrl}/${fileName}`,
-  label: fileName.replace(/\.(png|jpg)$/i, "").replace(/﻿/g, ""),
-}));
+    label: typeof item === "string" ? fileName.replace(/\.(png|jpg)$/i, "").replace(/﻿/g, "") : item.label,
+  };
+});
 const vistaSuperiorImageBaseUrl = `${cerebroContentImageBaseUrl}/Vista lateral do encéfalo/Vista superior do cérebro`;
 const vistaSuperiorImageItems = [
   {
