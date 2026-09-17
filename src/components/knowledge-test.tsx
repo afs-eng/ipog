@@ -99,13 +99,14 @@ export function KnowledgeTest({ questions, title, backHref, imageItems = [], ima
     ? currentQuestion.correctOptions
     : [currentCorrectOption];
   const currentSelectedAnswers = selectedAnswers[currentQuestion.id] ?? [];
+  const isTrueFalse = layout === "text" && isTrueFalseOptions(currentQuestion.options);
   const isMultiAnswer = currentCorrectOptions.length > 1;
   const isQuestionCorrect = isMultiAnswer
     ? currentCorrectOptions.every((optionId) => currentSelectedAnswers.includes(optionId))
     : correctAnswers[currentQuestion.id] === currentCorrectOption;
   const mainImageUrl = visualItem?.imageUrl ?? currentQuestion.imageUrl ?? imageUrls[currentIndex % imageUrls.length];
   const headerQuestion = layout === "text"
-    ? "Responda a questão abaixo."
+    ? isTrueFalse ? "Verdadeiro ou falso" : "Responda a questão abaixo."
     : layout === "image-grid"
       ? `Qual imagem mostra ${visualItem?.label ?? "o item destacado"}?`
       : "O que é isto?";
@@ -230,6 +231,7 @@ export function KnowledgeTest({ questions, title, backHref, imageItems = [], ima
               onSelect={selectOption}
               options={currentQuestion.options}
               selectedOptions={currentSelectedAnswers}
+              isTrueFalse={isTrueFalse}
             />
           </div>
         ) : null}
@@ -368,6 +370,7 @@ function TextOptions({
   onSelect,
   options,
   selectedOptions = [],
+  isTrueFalse = false,
 }: {
   correctOption: StoredQuestion["correctOption"];
   correctOptions?: StoredQuestion["correctOption"][];
@@ -377,9 +380,10 @@ function TextOptions({
   onSelect: (optionId: StoredQuestion["correctOption"]) => void;
   options: StoredQuestion["options"];
   selectedOptions?: string[];
+  isTrueFalse?: boolean;
 }) {
   return (
-    <div className="space-y-3">
+    <div className={isTrueFalse ? "grid gap-3 sm:grid-cols-2" : "space-y-3"}>
       {options.map((option) => {
         const isCorrect = correctOptions.includes(option.id);
         const isSelected = selectedOptions.includes(option.id);
@@ -396,6 +400,7 @@ function TextOptions({
           <button
             className={`flex min-h-[62px] w-full items-center justify-between px-4 text-left text-[17px] transition ${stateClass}`}
             disabled={isQuestionCorrect}
+            aria-pressed={isTrueFalse ? isSelected || (isQuestionCorrect && isCorrect) : undefined}
             key={option.id}
             onClick={() => onSelect(option.id)}
             type="button"
@@ -409,6 +414,10 @@ function TextOptions({
       })}
     </div>
   );
+}
+
+function isTrueFalseOptions(options: StoredQuestion["options"]) {
+  return options.length === 2 && options.every((option) => option.text === "Verdadeiro" || option.text === "Falso");
 }
 
 function ImagePanel({ imageUrl, title }: { imageUrl?: string; title: string }) {

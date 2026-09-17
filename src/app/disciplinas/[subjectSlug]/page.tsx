@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { NeuroCourseCard } from "@/components/neuro-course-card";
+import { CourseCard } from "@/components/course-card";
 import { neuroCourseSections } from "@/lib/neuro-course";
+import { developmentCourseSections } from "@/lib/development-course";
 import { getSubject, subjects } from "@/lib/study-data";
 
 export function generateStaticParams() {
@@ -18,7 +20,7 @@ export default async function SubjectPage({
     notFound();
   }
 
-  if (subjectSlug !== "neuroanatomofisiologia") {
+  if (subjectSlug !== "neuroanatomofisiologia" && subjectSlug !== "desenvolvimento-anos-iniciais-escolares") {
     return (
       <main className="mx-auto min-h-screen max-w-5xl px-6 py-8 sm:px-10 lg:px-12">
         <Link className="text-sm font-semibold text-[#aa0000]" href="/disciplinas">
@@ -38,6 +40,9 @@ export default async function SubjectPage({
     );
   }
 
+  const isDevelopment = subjectSlug === "desenvolvimento-anos-iniciais-escolares";
+  const sections = isDevelopment ? developmentCourseSections : neuroCourseSections;
+
   return (
     <main className="min-h-screen bg-white text-slate-800">
       <header className="border-b border-slate-200 bg-slate-50">
@@ -47,9 +52,9 @@ export default async function SubjectPage({
               Cursos
             </Link>
             <span>›</span>
-            <span>Anatomia</span>
+            <span>{isDevelopment ? "Desenvolvimento" : "Anatomia"}</span>
             <span>›</span>
-            <span className="text-slate-700">Neuroanatomia</span>
+            <span className="text-slate-700">{isDevelopment ? subject.name : "Neuroanatomia"}</span>
           </div>
           <div className="flex items-center gap-5">
             <button className="inline-flex items-center gap-1 text-sm text-slate-700" type="button">
@@ -67,8 +72,8 @@ export default async function SubjectPage({
       <section className="mx-auto grid max-w-5xl gap-8 px-6 py-10 sm:px-10 lg:grid-cols-[230px_1fr] lg:px-12">
         <aside className="h-fit lg:sticky lg:top-8">
           <nav className="space-y-2 pl-7 text-[16px] leading-6 text-slate-700">
-            {neuroCourseSections.map((section) => (
-              <a className={`block hover:text-sky-600 ${section.id === "cerebro" ? "text-sky-600" : ""}`} href={`#${section.id}`} key={section.id}>
+            {sections.map((section) => (
+              <a className={`block hover:text-sky-600 ${section.id === (isDevelopment ? "unidade-1" : "cerebro") ? "text-sky-600" : ""}`} href={`#${section.id}`} key={section.id}>
                 {section.title}
               </a>
             ))}
@@ -76,10 +81,10 @@ export default async function SubjectPage({
         </aside>
 
         <div>
-          <h1 className="mb-8 text-3xl font-normal tracking-tight text-[#aa0000]">Neuroanatomia</h1>
+          <h1 className="mb-8 text-3xl font-normal tracking-tight text-[#aa0000]">{subject.name}</h1>
           <div className="space-y-8">
-            {neuroCourseSections.map((section) => (
-              <NeuroCourseCard key={section.id} section={section} />
+            {sections.map((section) => (
+              isDevelopment ? <CourseCard key={section.id} quizId="desenvolvimento-anos-iniciais-escolares-treino-textual" section={section} topicOnlyAvailable /> : <NeuroCourseCard key={section.id} section={section} />
             ))}
           </div>
         </div>

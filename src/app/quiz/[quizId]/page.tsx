@@ -8,9 +8,11 @@ import { AtlasAccordion } from "@/components/atlas-accordion";
 import { AtlasGallery } from "@/components/atlas-gallery";
 import { SummaryTables } from "@/components/summary-tables";
 import { TestStartCard } from "@/components/test-start-card";
+import { StudyGuide } from "@/components/study-guide";
 import { getLocalStudyQuestions } from "@/lib/question-files";
 import { getQuizMode, getSubject, quizModes } from "@/lib/study-data";
 import { getNeuroUnit } from "@/lib/neuro-units";
+import { getDevelopmentUnit } from "@/lib/development-units";
 
 export function generateStaticParams() {
   return quizModes.map((quizMode) => ({ quizId: quizMode.id }));
@@ -30,8 +32,10 @@ export default async function QuizPage({
 
   const selectedMaterial = typeof material === "string" ? material : undefined;
   const selectedTopic = typeof topic === "string" ? topic : undefined;
-  const unit = getNeuroUnit(selectedTopic);
-  const subject = getSubject("neuroanatomofisiologia");
+  const subjectSlug = quizId.startsWith("desenvolvimento-") ? "desenvolvimento-anos-iniciais-escolares" : "neuroanatomofisiologia";
+  const isDevelopment = subjectSlug === "desenvolvimento-anos-iniciais-escolares";
+  const unit = subjectSlug === "desenvolvimento-anos-iniciais-escolares" ? getDevelopmentUnit(selectedTopic) : getNeuroUnit(selectedTopic);
+  const subject = getSubject(subjectSlug);
   const currentMaterial = subject?.materials.find((item) => item.slug === selectedMaterial);
   const questions = await getLocalStudyQuestions();
   const materialQuestions = selectedMaterial
@@ -56,7 +60,7 @@ export default async function QuizPage({
     : currentMaterial?.title ?? quizMode.title;
   const testHref = buildTestHref(quizId, selectedMaterial, selectedTopic);
   const simulationHref = buildSimulationHref(quizId, selectedMaterial, selectedTopic);
-  const videoUrl = unit?.videoUrl ?? (currentMaterial ? `/videos/${currentMaterial.slug}.mp4` : undefined);
+  const videoUrl = normalizeVideoUrl(unit?.videoUrl) ?? (currentMaterial ? `/videos/${currentMaterial.slug}.mp4` : undefined);
   const isExternalVideo = videoUrl ? /^https?:\/\//.test(videoUrl) : false;
   const hasVideo = videoUrl
     ? isExternalVideo || existsSync(path.join(process.cwd(), "public", videoUrl.replace(/^\//, "")))
@@ -68,7 +72,7 @@ export default async function QuizPage({
     "Revisar explicações com fonte no material da disciplina.",
   ];
   const posterUrl = getExistingPublicAsset(unit?.posterUrl, currentMaterial?.coverImage ?? "/window.svg");
-  const testCardImageUrl = getExistingPublicAsset(unit?.testCardImageUrl, posterUrl);
+  const testCardImageUrl = isDevelopment ? undefined : getExistingPublicAsset(unit?.testCardImageUrl, posterUrl);
   const atlasImageUrl = getExistingPublicAsset(unit?.atlasImageUrl, atlasImages[0]?.imageUrl ?? currentMaterial?.coverImage ?? "/window.svg");
   const hasVideoSection = Boolean(unit?.videoText.length || currentMaterial) && Boolean(!unit || unit.videoText.length > 0);
   const atlasItems = unit?.atlasItems.map((item) => ({
@@ -99,6 +103,7 @@ export default async function QuizPage({
     })),
   }];
   const reviewItems = unit?.reviewItems ?? unit?.testImageItems?.map((item) => item.label);
+  const studyGuide = isDevelopment ? (unit as typeof unit & { studyGuide?: StudyGuideData })?.studyGuide : undefined;
 
   return (
     <main className="min-h-screen bg-white text-slate-800">
@@ -128,11 +133,13 @@ export default async function QuizPage({
       <section className="mx-auto grid max-w-5xl gap-10 px-6 py-10 sm:px-10 lg:grid-cols-[170px_1fr] lg:px-12">
         <aside className="h-fit text-sm lg:sticky lg:top-8">
           <nav className="space-y-3 text-slate-600">
-            {hasVideoSection ? <a className="block text-[#aa0000]" href="#videoaula">Assista à videoaula</a> : null}
-            {!hasVideoSection ? <a className="block text-[#aa0000]" href="#atlas">Navegue pelo atlas</a> : null}
+            {isDevelopment ? <><a className="block text-[#aa0000]" href="#videoaula">Assista à videoaula</a><a className="block hover:text-[#aa0000]" href="#roteiro">Estude os tópicos</a></> : null}
+            {!isDevelopment && hasVideoSection ? <a className="block text-[#aa0000]" href="#videoaula">Assista à videoaula</a> : null}
+            {isDevelopment ? <a className="block text-[#aa0000]" href="#roteiro">Estude os tópicos</a> : null}
+            {!isDevelopment && !hasVideoSection ? <a className="block text-[#aa0000]" href="#atlas">Navegue pelo atlas</a> : null}
             <a className="block hover:text-[#aa0000]" href="#teste">Teste seus conhecimentos</a>
-            {hasVideoSection ? <a className="block hover:text-[#aa0000]" href="#atlas">Navegue pelo atlas</a> : null}
-            <a className="block hover:text-[#aa0000]" href="#resumo">Resumo</a>
+            {!isDevelopment && hasVideoSection ? <a className="block hover:text-[#aa0000]" href="#atlas">Navegue pelo atlas</a> : null}
+            <a className="block hover:text-[#aa0000]" href="#resumo">{isDevelopment ? "Resumo da unidade" : "Resumo"}</a>
           </nav>
         </aside>
 
@@ -147,6 +154,7 @@ export default async function QuizPage({
               </span>
             </div>
 
+            {isDevelopment ? <Link className="mt-5 inline-flex rounded-sm border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-[#aa0000] hover:text-[#aa0000]" href="/disciplinas/desenvolvimento-anos-iniciais-escolares">Voltar às unidades</Link> : null}
             <div className="mt-5 bg-red-50 p-5 text-slate-700">
               <h2 className="font-semibold text-slate-800">Objetivos de aprendizagem</h2>
               <p className="mt-4">Após completar esta unidade de estudo, você será capaz de:</p>
@@ -182,6 +190,8 @@ export default async function QuizPage({
                       <video className="aspect-video w-full bg-black" controls poster={posterUrl}>
                         <source src={videoUrl} type="video/mp4" />
                       </video>
+                    ) : unit && !videoUrl ? (
+                      <div className="flex aspect-video w-full items-center justify-center bg-slate-100 p-6 text-center"><div><p className="font-semibold text-slate-700">Videoaula indisponível no momento</p><p className="mt-2 text-sm text-slate-500">O material textual desta unidade continua disponível para revisão.</p></div></div>
                     ) : (
                       <div className="relative aspect-video w-full">
                         <Image
@@ -201,7 +211,7 @@ export default async function QuizPage({
                             ? "Videoaula carregada pelo Google Drive."
                             : "Videoaula carregada para esta unidade."
                           : unit
-                            ? "Para adicionar vídeo, coloque o arquivo em public/conteudos/sistema-nervoso-central-introducao-ao-encefalo/video.mp4."
+                            ? "A videoaula ainda não está disponível para esta unidade."
                             : `Para adicionar vídeo, coloque o arquivo em public/videos/${currentMaterial?.slug}.mp4.`}
                       </p>
                     </div>
@@ -210,7 +220,7 @@ export default async function QuizPage({
               </section>
             ) : null}
 
-            {!hasVideoSection ? (
+            {!isDevelopment && !hasVideoSection ? (
               <section className="relative border-l border-slate-200 pl-8" id="atlas">
                 <StepNumber>1</StepNumber>
                 <h2 className="font-semibold text-[#aa0000]">Navegue pelo atlas</h2>
@@ -222,11 +232,19 @@ export default async function QuizPage({
               </section>
             ) : null}
 
+            {isDevelopment ? (
+              <section className="relative border-l border-slate-200 pl-8" id="roteiro">
+                <StepNumber>{hasVideoSection ? 2 : 1}</StepNumber>
+                <h2 className="font-semibold text-[#aa0000]">Estude os tópicos</h2>
+                {studyGuide ? <StudyGuide guide={studyGuide} /> : <p className="mt-5 leading-7 text-slate-600">Revise os objetivos e o conteúdo apresentado antes de iniciar o teste.</p>}
+              </section>
+            ) : null}
+
             <section className="relative border-l border-slate-200 pl-8" id="teste">
-              <StepNumber>{hasVideoSection ? 2 : 2}</StepNumber>
+              <StepNumber>{isDevelopment ? 3 : 2}</StepNumber>
               <h2 className="font-semibold text-[#aa0000]">Teste seus conhecimentos</h2>
               <p className="mt-4 leading-7 text-slate-600">
-                {unit?.testDescription ?? "Complete o teste a seguir para avaliar seus conhecimentos sobre esta aula."}
+                {isDevelopment ? "Depois de estudar os tópicos acima, avance para o quiz e verifique sua compreensão." : unit?.testDescription ?? "Complete o teste a seguir para avaliar seus conhecimentos sobre esta aula."}
               </p>
               <TestStartCard
                 href={testHref}
@@ -236,7 +254,7 @@ export default async function QuizPage({
               />
             </section>
 
-            {hasVideoSection ? (
+            {!isDevelopment && hasVideoSection ? (
               <section className="relative border-l border-slate-200 pl-8" id="atlas">
                 <StepNumber>3</StepNumber>
                 <h2 className="font-semibold text-[#aa0000]">Navegue pelo atlas</h2>
@@ -250,7 +268,7 @@ export default async function QuizPage({
 
             <section className="relative border-l border-slate-200 pl-8" id="resumo">
               <StepNumber>{hasVideoSection ? 4 : 3}</StepNumber>
-              <h2 className="font-semibold text-[#aa0000]">Resumo</h2>
+              <h2 className="font-semibold text-[#aa0000]">{isDevelopment ? "Resumo da unidade" : "Resumo"}</h2>
               <SummaryTables tables={summaryTables} />
 
               <section className="relative mt-10 rounded-sm border border-red-200 bg-red-50 p-8 text-center">
@@ -270,7 +288,7 @@ export default async function QuizPage({
                 </p>
                 <h2 className="mt-4 text-2xl font-normal text-[#aa0000]">Pronto para testar seus conhecimentos?</h2>
                 <p className="mx-auto mt-2 max-w-xl leading-7 text-slate-600">
-                  Responda o teste para completar esta unidade de estudo.
+                  {isDevelopment ? "Depois da revisão, você pode fazer o quiz para verificar sua compreensão." : "Responda o teste para completar esta unidade de estudo."}
                 </p>
                 <Link
                   className="mt-6 flex w-full items-center justify-center rounded-sm bg-[#aa0000] px-6 py-3 text-sm font-bold uppercase text-white transition hover:bg-[#8b0000]"
@@ -312,6 +330,33 @@ function getExistingPublicAsset(assetUrl: string | undefined, fallbackUrl: strin
   const assetPath = path.join(process.cwd(), "public", decodeURIComponent(assetUrl.replace(/^\//, "")));
 
   return existsSync(assetPath) ? assetUrl : fallbackUrl;
+}
+
+function normalizeVideoUrl(videoUrl: string | undefined) {
+  if (!videoUrl) return undefined;
+  try {
+    const url = new URL(videoUrl);
+    if (url.hostname === "youtube.com" || url.hostname === "www.youtube.com") {
+      const id = url.searchParams.get("v");
+      return id ? `https://www.youtube.com/embed/${id}${url.searchParams.has("t") ? `?start=${parseStart(url.searchParams.get("t"))}` : ""}` : videoUrl;
+    }
+    if (url.hostname === "youtu.be") return `https://www.youtube.com/embed${url.pathname}`;
+  } catch {
+    return videoUrl;
+  }
+  return videoUrl;
+}
+
+type StudyGuideData = {
+  title: string;
+  description: string;
+  sections: { title: string; content: string; keyPoints: string[]; studyPrompt?: string }[];
+};
+
+function parseStart(value: string | null) {
+  if (!value) return 0;
+  const match = value.match(/^(\d+)s?$/);
+  return match ? Number(match[1]) : 0;
 }
 
 function buildTestHref(quizId: string, materialSlug?: string, topicSlug?: string) {

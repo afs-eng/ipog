@@ -157,7 +157,7 @@ export function SimulationQuiz({ backHref, imageItems, textQuestions }: Simulati
       </header>
 
       <div className="bg-white px-4 py-5 text-sm text-slate-600">
-        {currentQuestion.type === "text" ? "Responda à questão abaixo." : "O que é isto?"}
+        {currentQuestion.type === "text" ? isTrueFalseOptions(currentQuestion.options) ? "Verdadeiro ou falso" : "Responda à questão abaixo." : "O que é isto?"}
       </div>
 
       <section className="mx-auto max-w-5xl px-4 py-7 sm:px-6">
@@ -166,7 +166,7 @@ export function SimulationQuiz({ backHref, imageItems, textQuestions }: Simulati
             <div className="bg-white p-8 text-xl leading-8 text-[#aa0000]">
               {currentQuestion.prompt}
             </div>
-            <div className="space-y-3">
+            <div className={isTrueFalseOptions(currentQuestion.options) ? "grid gap-3 sm:grid-cols-2" : "space-y-3"}>
               {currentQuestion.options.map((option) => {
                 const hasAnswered = hasCheckedTextAnswer;
                 const isOptionCorrect = currentQuestion.correctAnswers.includes(option);
@@ -182,6 +182,7 @@ export function SimulationQuiz({ backHref, imageItems, textQuestions }: Simulati
                 return (
                   <button
                     className={`flex min-h-14 w-full items-center justify-between px-4 text-left transition ${stateClass}`}
+                    aria-pressed={isSelected}
                     disabled={hasAnswered}
                     key={option}
                     onClick={() => selectOption(option)}
@@ -322,6 +323,10 @@ function buildTextOptions(question: NeuroTextQuestion) {
   const incorrectOptions = question.options.filter((option) => !correctAnswers.includes(option));
 
   return shuffle([...correctAnswers, ...shuffle(incorrectOptions).slice(0, Math.max(0, 6 - correctAnswers.length))]);
+}
+
+function isTrueFalseOptions(options: string[]) {
+  return options.length === 2 && options.every((option) => option === "Verdadeiro" || option === "Falso");
 }
 
 function ResultSummaryCard({ correctCount, onDetailsClick, total }: { correctCount: number; onDetailsClick: () => void; total: number }) {

@@ -6,7 +6,7 @@ import { useState } from "react";
 
 type TestStartCardProps = {
   href: string;
-  imageUrl: string;
+  imageUrl?: string;
   reviewItems?: string[];
   title: string;
 };
@@ -26,14 +26,7 @@ export function TestStartCard({ href, imageUrl, reviewItems = [], title }: TestS
     <>
       <div className="mt-5 overflow-hidden border border-slate-200 bg-white">
         <div className="relative aspect-[16/7] bg-slate-100">
-          <Image
-            alt={`Teste de ${title}`}
-            className="object-cover"
-            fill
-            loading="eager"
-            sizes="(max-width: 1024px) 100vw, 680px"
-            src={imageUrl}
-          />
+          {imageUrl ? <Image alt={`Teste de ${title}`} className="object-cover" fill loading="eager" sizes="(max-width: 1024px) 100vw, 680px" src={imageUrl} /> : null}
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/35 to-[#aa0000]/25" />
           <button
             aria-label="Abrir configurações do teste"

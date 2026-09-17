@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { SimulationQuiz } from "@/components/simulation-quiz";
 import { getNeuroUnit } from "@/lib/neuro-units";
+import { getDevelopmentUnit } from "@/lib/development-units";
 import { getQuizMode, quizModes } from "@/lib/study-data";
 
 export function generateStaticParams() {
@@ -21,7 +22,7 @@ export default async function SimulationPage({
 
   const selectedMaterial = typeof material === "string" ? material : undefined;
   const selectedTopic = typeof topic === "string" ? topic : undefined;
-  const unit = getNeuroUnit(selectedTopic);
+  const unit = quizId.startsWith("desenvolvimento-") ? getDevelopmentUnit(selectedTopic) : getNeuroUnit(selectedTopic);
 
   if (!unit?.testTextQuestions?.length) {
     notFound();

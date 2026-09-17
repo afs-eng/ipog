@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { KnowledgeTest } from "@/components/knowledge-test";
 import { getNeuroUnit } from "@/lib/neuro-units";
+import { getDevelopmentUnit } from "@/lib/development-units";
 import { getLocalStudyQuestions } from "@/lib/question-files";
 import { getQuizMode, getSubject, quizModes } from "@/lib/study-data";
 
@@ -24,8 +25,9 @@ export default async function KnowledgeTestPage({
   const removedItems = typeof remover === "string" ? remover.split("|") : [];
   const normalizedRemovedItems = removedItems.map(normalizeLabel);
   const selectedTopic = typeof topic === "string" ? topic : undefined;
-  const unit = getNeuroUnit(selectedTopic);
-  const subject = getSubject("neuroanatomofisiologia");
+  const subjectSlug = quizId.startsWith("desenvolvimento-") ? "desenvolvimento-anos-iniciais-escolares" : "neuroanatomofisiologia";
+  const unit = subjectSlug === "desenvolvimento-anos-iniciais-escolares" ? getDevelopmentUnit(selectedTopic) : getNeuroUnit(selectedTopic);
+  const subject = getSubject(subjectSlug);
   const currentMaterial = subject?.materials.find((item) => item.slug === selectedMaterial);
   const questions = await getLocalStudyQuestions();
   const materialQuestions = selectedMaterial

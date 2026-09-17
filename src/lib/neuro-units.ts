@@ -3,6 +3,17 @@ export type SummaryTable = {
   rows: { label: string; value: string }[];
 };
 
+export type StudyGuide = {
+  title: string;
+  description: string;
+  sections: {
+    title: string;
+    content: string;
+    keyPoints: string[];
+    studyPrompt?: string;
+  }[];
+};
+
 export type NeuroTextQuestion = {
   prompt: string;
   options: string[];
@@ -38,6 +49,7 @@ export type NeuroUnit = {
     items: { imageUrl: string; label: string; subtitle?: string; description?: string; synonyms?: string }[];
   }[];
   summaryTables: SummaryTable[];
+  studyGuide?: StudyGuide;
 };
 
 const introEncefaloImageBaseUrl = "/conteudos/sistema-nervoso-central-introducao-ao-encefalo/imgs";
