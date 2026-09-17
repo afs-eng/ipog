@@ -38,8 +38,6 @@ type SimulationQuizProps = {
   textQuestions: (NeuroTextQuestion & SourceReference)[];
 };
 
-const questionCount = 20;
-
 export function SimulationQuiz({ backHref, imageItems, textQuestions }: SimulationQuizProps) {
   const [questions] = useState(() => buildSimulationQuestions(textQuestions, imageItems));
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -316,15 +314,11 @@ function buildSimulationQuestions(textQuestions: (NeuroTextQuestion & SourceRefe
     type: "image-input",
     item,
   }));
-  const mixedQuestions = Array.from({ length: questionCount }, (_, index) => {
-    const question = index % 4 === 1 && imageDeck.length > 0
-      ? imageDeck[index % imageDeck.length]
-      : textDeck[index % textDeck.length];
 
-    return { ...question, id: `${question.id}-questao-${index + 1}` };
-  });
-
-  return mixedQuestions;
+  return shuffle([...textDeck, ...imageDeck]).map((question, index) => ({
+    ...question,
+    id: `${question.id}-questao-${index + 1}`,
+  }));
 }
 
 function buildTextOptions(question: NeuroTextQuestion) {

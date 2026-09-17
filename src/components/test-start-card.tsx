@@ -11,16 +11,16 @@ type TestStartCardProps = {
   title: string;
 };
 
-const studyTimes = [5, 10, 20, 30];
+const questionCounts = [10, 20, 30];
 
 export function TestStartCard({ href, imageUrl, reviewItems = [], title }: TestStartCardProps) {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isContentOpen, setIsContentOpen] = useState(true);
   const [removedItems, setRemovedItems] = useState<string[]>([]);
-  const [selectedTime, setSelectedTime] = useState(10);
+  const [selectedQuestionCount, setSelectedQuestionCount] = useState(10);
   const activeReviewItems = reviewItems.filter((item) => !removedItems.includes(item));
   const orderedReviewItems = [...activeReviewItems, ...removedItems.filter((item) => reviewItems.includes(item))];
-  const timedHref = addRemovedItems(addStudyTime(href, selectedTime), removedItems);
+  const questionsHref = addRemovedItems(addQuestionCount(href, selectedQuestionCount), removedItems);
 
   return (
     <>
@@ -50,10 +50,10 @@ export function TestStartCard({ href, imageUrl, reviewItems = [], title }: TestS
           </div>
         </div>
         <div className="bg-[#aa0000] p-4 text-white sm:flex sm:items-center sm:justify-between">
-          <Link className="font-semibold underline-offset-4 hover:underline" href={timedHref}>
+          <Link className="font-semibold underline-offset-4 hover:underline" href={questionsHref}>
             Começar o teste
           </Link>
-          <span className="mt-2 block text-sm sm:mt-0">{selectedTime} min</span>
+          <span className="mt-2 block text-sm sm:mt-0">{selectedQuestionCount} questões</span>
         </div>
       </div>
 
@@ -116,20 +116,20 @@ export function TestStartCard({ href, imageUrl, reviewItems = [], title }: TestS
               </button>
             </div>
             <div className="pt-7">
-              <p className="text-sm font-semibold text-slate-600">Por quanto tempo você quer estudar?</p>
+              <p className="text-sm font-semibold text-slate-600">Quantas questões você quer responder?</p>
               <div className="mt-3 flex flex-wrap gap-2">
-                {studyTimes.map((time) => (
+                {questionCounts.map((count) => (
                   <button
                     className={`rounded-full border px-7 py-2 text-sm transition ${
-                      selectedTime === time
+                      selectedQuestionCount === count
                         ? "border-[#aa0000] bg-red-50 text-[#aa0000]"
                         : "border-slate-300 bg-white text-slate-600 hover:border-red-300"
                     }`}
-                    key={time}
-                    onClick={() => setSelectedTime(time)}
+                    key={count}
+                    onClick={() => setSelectedQuestionCount(count)}
                     type="button"
                   >
-                    {time} min
+                    {count} questões
                   </button>
                 ))}
               </div>
@@ -138,9 +138,9 @@ export function TestStartCard({ href, imageUrl, reviewItems = [], title }: TestS
               </button>
               <Link
                 className="mt-8 flex w-full items-center justify-center rounded-sm bg-[#aa0000] px-5 py-4 text-sm font-bold uppercase text-white hover:bg-[#8b0000]"
-                href={timedHref}
+                href={questionsHref}
               >
-                Começar a revisão &gt; {selectedTime} min
+                Começar a revisão &gt; {selectedQuestionCount} questões
               </Link>
             </div>
           </div>
@@ -150,10 +150,10 @@ export function TestStartCard({ href, imageUrl, reviewItems = [], title }: TestS
   );
 }
 
-function addStudyTime(href: string, selectedTime: number) {
+function addQuestionCount(href: string, selectedQuestionCount: number) {
   const [pathname, currentQuery = ""] = href.split("?");
   const params = new URLSearchParams(currentQuery);
-  params.set("tempo", String(selectedTime));
+  params.set("perguntas", String(selectedQuestionCount));
 
   return `${pathname}?${params.toString()}`;
 }

@@ -305,7 +305,7 @@ export default async function QuizPage({
                   className="mt-6 flex w-full items-center justify-center rounded-sm bg-[#aa0000] px-6 py-3 text-sm font-bold uppercase text-white transition hover:bg-[#8b0000]"
                   href={simulationHref}
                 >
-                  Começar o simulado &gt; 20 questões
+                  Começar o simulado &gt; 30 questões
                 </Link>
               </section>
             </section>
@@ -380,6 +380,8 @@ function buildTestHref(quizId: string, materialSlug?: string, topicSlug?: string
   if (topicSlug) {
     params.set("topic", topicSlug);
   }
+
+  params.set("perguntas", "30");
 
   const query = params.toString();
 

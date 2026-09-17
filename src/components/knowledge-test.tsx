@@ -631,14 +631,7 @@ function getOptionId(index: number) {
 }
 
 function buildTimedQuestionDeck(items: TestQuestion[]) {
-  const deck = Array.from({ length: 8 }).flatMap((_, round) =>
-    shuffleQuestions(items).map((question) => shuffleQuestionOptions({
-      ...question,
-      id: `${question.id}__${round}`,
-    })),
-  );
-
-  return deck.length > 0 ? deck : items;
+  return shuffleQuestions(items).map(shuffleQuestionOptions);
 }
 
 function shuffleQuestions(items: TestQuestion[]) {
