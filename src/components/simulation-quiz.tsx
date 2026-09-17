@@ -10,6 +10,11 @@ type SimulationImageItem = {
   label: string;
 };
 
+type SourceReference = {
+  sourceExcerpt?: string;
+  sourceUrl?: string;
+};
+
 type SimulationQuestion =
   | {
       id: string;
@@ -18,6 +23,8 @@ type SimulationQuestion =
       options: string[];
       correctAnswers: string[];
       explanation: string;
+      sourceExcerpt?: string;
+      sourceUrl?: string;
     }
   | {
       id: string;
@@ -28,7 +35,7 @@ type SimulationQuestion =
 type SimulationQuizProps = {
   backHref: string;
   imageItems: SimulationImageItem[];
-  textQuestions: NeuroTextQuestion[];
+  textQuestions: (NeuroTextQuestion & SourceReference)[];
 };
 
 const questionCount = 20;
@@ -293,7 +300,7 @@ export function SimulationQuiz({ backHref, imageItems, textQuestions }: Simulati
   );
 }
 
-function buildSimulationQuestions(textQuestions: NeuroTextQuestion[], imageItems: SimulationImageItem[]) {
+function buildSimulationQuestions(textQuestions: (NeuroTextQuestion & SourceReference)[], imageItems: SimulationImageItem[]) {
   const textDeck: SimulationQuestion[] = shuffle(textQuestions).map((question, index) => ({
     id: `simulado-texto-${index}`,
     type: "text",
@@ -301,6 +308,8 @@ function buildSimulationQuestions(textQuestions: NeuroTextQuestion[], imageItems
     options: buildTextOptions(question),
     correctAnswers: question.correctAnswers ?? (question.correctAnswer ? [question.correctAnswer] : []),
     explanation: question.explanation,
+    sourceExcerpt: question.sourceExcerpt,
+    sourceUrl: question.sourceUrl,
   }));
   const imageDeck: SimulationQuestion[] = shuffle(imageItems).map((item, index) => ({
     id: `simulado-imagem-${index}`,
@@ -419,6 +428,7 @@ function FeedbackBar({ isCorrect, onContinue, question }: { isCorrect: boolean; 
         <div>
           <p className="font-bold">{isCorrect ? "Correto" : "Incorreto"}</p>
           <p className="mt-1 max-w-md text-sm font-semibold leading-5">{question.explanation}</p>
+          <QuestionReference excerpt={question.sourceExcerpt} url={question.sourceUrl} />
         </div>
         <button className="text-sm font-semibold underline underline-offset-4" type="button">
           Mostrar mais
@@ -429,6 +439,28 @@ function FeedbackBar({ isCorrect, onContinue, question }: { isCorrect: boolean; 
       </div>
     </div>
   );
+}
+
+function QuestionReference({ excerpt, url }: { excerpt?: string; url?: string }) {
+  if (!excerpt && !isSafeExternalUrl(url)) {
+    return null;
+  }
+
+  return (
+    <div className="mt-3 border-t border-white/20 pt-3 text-xs leading-5 text-slate-200">
+      <p className="font-semibold text-white">Referência da pergunta</p>
+      {excerpt ? <p>{excerpt}</p> : null}
+      {isSafeExternalUrl(url) ? (
+        <a className="mt-1 inline-block underline underline-offset-2 hover:text-white" href={url} rel="noreferrer" target="_blank">
+          Abrir fonte externa
+        </a>
+      ) : null}
+    </div>
+  );
+}
+
+function isSafeExternalUrl(url?: string): url is string {
+  return Boolean(url && /^https?:\/\//i.test(url));
 }
 
 function getQuestionPreview(question: SimulationQuestion) {

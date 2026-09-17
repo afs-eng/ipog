@@ -9,10 +9,12 @@ import { AtlasGallery } from "@/components/atlas-gallery";
 import { SummaryTables } from "@/components/summary-tables";
 import { TestStartCard } from "@/components/test-start-card";
 import { StudyGuide } from "@/components/study-guide";
+import { DevelopmentMindMap } from "@/components/development-mind-map";
 import { getLocalStudyQuestions } from "@/lib/question-files";
 import { getQuizMode, getSubject, quizModes } from "@/lib/study-data";
 import { getNeuroUnit } from "@/lib/neuro-units";
 import { getDevelopmentUnit } from "@/lib/development-units";
+import type { DevelopmentUnit } from "@/lib/development-units";
 
 export function generateStaticParams() {
   return quizModes.map((quizMode) => ({ quizId: quizMode.id }));
@@ -104,6 +106,7 @@ export default async function QuizPage({
   }];
   const reviewItems = unit?.reviewItems ?? unit?.testImageItems?.map((item) => item.label);
   const studyGuide = isDevelopment ? (unit as typeof unit & { studyGuide?: StudyGuideData })?.studyGuide : undefined;
+  const mentalMap = isDevelopment ? (unit as DevelopmentUnit | undefined)?.mentalMap : undefined;
 
   return (
     <main className="min-h-screen bg-white text-slate-800">
@@ -133,9 +136,8 @@ export default async function QuizPage({
       <section className="mx-auto grid max-w-5xl gap-10 px-6 py-10 sm:px-10 lg:grid-cols-[170px_1fr] lg:px-12">
         <aside className="h-fit text-sm lg:sticky lg:top-8">
           <nav className="space-y-3 text-slate-600">
-            {isDevelopment ? <><a className="block text-[#aa0000]" href="#videoaula">Assista à videoaula</a><a className="block hover:text-[#aa0000]" href="#roteiro">Estude os tópicos</a></> : null}
+            {isDevelopment ? <><a className="block text-[#aa0000]" href="#videoaula">Assista à videoaula</a>{mentalMap ? <a className="block hover:text-[#aa0000]" href="#mapa-conceitual">Mapa conceitual da unidade</a> : null}<a className="block hover:text-[#aa0000]" href="#roteiro">Estude os tópicos</a></> : null}
             {!isDevelopment && hasVideoSection ? <a className="block text-[#aa0000]" href="#videoaula">Assista à videoaula</a> : null}
-            {isDevelopment ? <a className="block text-[#aa0000]" href="#roteiro">Estude os tópicos</a> : null}
             {!isDevelopment && !hasVideoSection ? <a className="block text-[#aa0000]" href="#atlas">Navegue pelo atlas</a> : null}
             <a className="block hover:text-[#aa0000]" href="#teste">Teste seus conhecimentos</a>
             {!isDevelopment && hasVideoSection ? <a className="block hover:text-[#aa0000]" href="#atlas">Navegue pelo atlas</a> : null}
@@ -232,16 +234,25 @@ export default async function QuizPage({
               </section>
             ) : null}
 
+            {isDevelopment && mentalMap ? (
+              <section className="relative border-l border-slate-200 pl-8" id="mapa-conceitual">
+                <StepNumber>{hasVideoSection ? 2 : 1}</StepNumber>
+                <h2 className="font-semibold text-[#aa0000]">Mapa conceitual da unidade</h2>
+                <p className="mt-4 leading-7 text-slate-600">Uma visão de conjunto das três perspectivas teóricas e de suas possibilidades para o ensino.</p>
+                <DevelopmentMindMap map={mentalMap} />
+              </section>
+            ) : null}
+
             {isDevelopment ? (
               <section className="relative border-l border-slate-200 pl-8" id="roteiro">
-                <StepNumber>{hasVideoSection ? 2 : 1}</StepNumber>
+                <StepNumber>{hasVideoSection ? 3 : 2}</StepNumber>
                 <h2 className="font-semibold text-[#aa0000]">Estude os tópicos</h2>
                 {studyGuide ? <StudyGuide guide={studyGuide} /> : <p className="mt-5 leading-7 text-slate-600">Revise os objetivos e o conteúdo apresentado antes de iniciar o teste.</p>}
               </section>
             ) : null}
 
             <section className="relative border-l border-slate-200 pl-8" id="teste">
-              <StepNumber>{isDevelopment ? 3 : 2}</StepNumber>
+              <StepNumber>{isDevelopment ? (hasVideoSection ? 4 : 3) : 2}</StepNumber>
               <h2 className="font-semibold text-[#aa0000]">Teste seus conhecimentos</h2>
               <p className="mt-4 leading-7 text-slate-600">
                 {isDevelopment ? "Depois de estudar os tópicos acima, avance para o quiz e verifique sua compreensão." : unit?.testDescription ?? "Complete o teste a seguir para avaliar seus conhecimentos sobre esta aula."}
@@ -267,7 +278,7 @@ export default async function QuizPage({
             ) : null}
 
             <section className="relative border-l border-slate-200 pl-8" id="resumo">
-              <StepNumber>{hasVideoSection ? 4 : 3}</StepNumber>
+              <StepNumber>{isDevelopment ? (hasVideoSection ? 5 : 4) : hasVideoSection ? 4 : 3}</StepNumber>
               <h2 className="font-semibold text-[#aa0000]">{isDevelopment ? "Resumo da unidade" : "Resumo"}</h2>
               <SummaryTables tables={summaryTables} />
 

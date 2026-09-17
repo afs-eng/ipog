@@ -1,11 +1,99 @@
 import type { NeuroTextQuestion, NeuroUnit, StudyGuide, SummaryTable } from "./neuro-units";
 
 export type DevelopmentTextQuestion = NeuroTextQuestion;
-export type DevelopmentUnit = NeuroUnit;
+export type MindMapItem = { title: string; explanation: string };
+export type ConceptMapBlock = { title: string; relation: string; items: MindMapItem[] };
+export type DevelopmentMindMap = {
+  centralNode: string;
+  blocks: ConceptMapBlock[];
+  application: string;
+};
+export type DevelopmentUnit = NeuroUnit & { mentalMap?: DevelopmentMindMap };
 export type { SummaryTable };
 
 const fallbackImageUrl = "/window.svg";
 const developmentVideoUrl = "https://www.youtube.com/embed/MwKEO2pkLP8?start=13";
+
+function createPiagetConceptMap(
+  centralNode: string,
+  blocks: ConceptMapBlock[],
+  application: string,
+): DevelopmentMindMap {
+  return {
+    centralNode,
+    blocks,
+    application,
+  };
+}
+
+const unidade1MindMap = createPiagetConceptMap(
+  "Desenvolvimento infantil em Piaget",
+  [
+    { title: "Ação e construção inicial", relation: "leva a", items: [
+      { title: "Sensório-motor", explanation: "A inteligência inicial se organiza pelos sentidos e pelas ações sobre o mundo." },
+      { title: "Reflexos → ações voluntárias", explanation: "Reflexos são progressivamente coordenados em ações intencionais." },
+      { title: "Permanência do objeto", explanation: "O objeto continua existindo mesmo quando não está visível." },
+    ] },
+    { title: "Representação", relation: "organiza", items: [
+      { title: "Linguagem inicial", explanation: "Arrulhos, balbucios, gestos e palavras ampliam a comunicação." },
+      { title: "Função simbólica", explanation: "A criança representa objetos e ações ausentes por símbolos." },
+      { title: "Egocentrismo", explanation: "A criança tende a interpretar situações a partir do próprio ponto de vista." },
+      { title: "Centração", explanation: "O pensamento se concentra em um único aspecto perceptivo da situação." },
+    ] },
+    { title: "Avanço da lógica", relation: "permite compreender", items: [
+      { title: "Desenvolvimento motor", explanation: "Habilidades motoras gerais e finas avançam com a exploração." },
+      { title: "Plasticidade e experiência", explanation: "O cérebro muda em resposta às experiências vividas." },
+      { title: "Transição ao pensamento operatório-concreto", explanation: "A criança passa a coordenar perspectivas, reversibilidade e conservação." },
+    ] },
+  ],
+  "Planejar exploração, linguagem, jogos simbólicos e situações concretas adequadas ao nível de desenvolvimento.",
+);
+
+const unidade2MindMap = createPiagetConceptMap(
+  "Epistemologia genética de Piaget",
+  [
+    { title: "Problema e teorias", relation: "leva a", items: [
+      { title: "Pergunta epistemológica", explanation: "Investiga como o conhecimento é construído e como se estrutura." },
+      { title: "Inatismo", explanation: "Explica a inteligência como dom biológico que amadurece." },
+      { title: "Empirismo", explanation: "Entende a inteligência como adquirida pela experiência." },
+      { title: "Construtivismo", explanation: "Compreende o conhecimento como construção progressiva do sujeito." },
+    ] },
+    { title: "Estruturas e adaptação", relation: "organiza", items: [
+      { title: "Sujeito–objeto", explanation: "A relação dinâmica entre ambos sustenta a construção do conhecimento." },
+      { title: "Esquema", explanation: "Estrutura básica que organiza a realidade, o pensamento e a ação." },
+      { title: "Assimilação", explanation: "Integra uma informação nova aos esquemas já existentes." },
+      { title: "Acomodação", explanation: "Modifica ou cria esquemas para atender às características do objeto." },
+    ] },
+    { title: "Equilíbrio e desenvolvimento", relation: "avança para", items: [
+      { title: "Equilibração", explanation: "Busca equilíbrio contínuo entre assimilação e acomodação." },
+      { title: "Estágios", explanation: "Organizam uma progressão ordenada na complexidade da inteligência." },
+    ] },
+  ],
+  "Propor situações-problema que desafiem esquemas, favoreçam interação sujeito–objeto e explicitem avanços.",
+);
+
+const unidade3MindMap = createPiagetConceptMap(
+  "Estágios e aprendizagem em Piaget",
+  [
+    { title: "Operações concretas", relation: "leva a", items: [
+      { title: "Reversibilidade", explanation: "A transformação pode ser mentalmente percorrida em sentidos inversos." },
+      { title: "Conservação", explanation: "Quantidade, peso ou número permanecem apesar da mudança de aparência." },
+      { title: "Descentração", explanation: "O pensamento coordena vários aspectos e múltiplas variáveis." },
+    ] },
+    { title: "Organização e inferência", relation: "organiza", items: [
+      { title: "Classificação", explanation: "Agrupa objetos por características comuns e relações de inclusão." },
+      { title: "Seriação", explanation: "Ordena elementos segundo uma dimensão, como tamanho ou peso." },
+      { title: "Lógica indutiva", explanation: "Parte de experiências particulares para formular princípios gerais." },
+    ] },
+    { title: "Avanço e ensino", relation: "permite compreender", items: [
+      { title: "Operatório formal", explanation: "Permite operar com proposições, abstrações e possibilidades." },
+      { title: "Raciocínio hipotético-dedutivo", explanation: "Formula hipóteses e deduz consequências para testá-las." },
+      { title: "Jogos por estágio", explanation: "Exercício, simbólico, construção e regras acompanham a progressão cognitiva." },
+      { title: "Participação ativa e cooperação", explanation: "Aprender envolve ação, debate, colaboração e autonomia progressiva." },
+    ] },
+  ],
+  "Usar jogos, problemas e debates cooperativos para formular, testar e reformular ideias ativamente.",
+);
 
 const unidade1StudyGuide: StudyGuide = {
   title: "Roteiro de estudo: desenvolvimento de 0 a 11 anos",
@@ -171,7 +259,41 @@ const unidade3StudyGuide: StudyGuide = {
   ],
 };
 
-const unidade1Questions: DevelopmentTextQuestion[] = [
+type DevelopmentQuestionSource = Pick<NeuroTextQuestion, "sourceExcerpt" | "sourceUrl">;
+
+const developmentQuestionSources = {
+  book: {
+    sourceExcerpt: "Livro — Piaget, Vigotski, Wallon: Teorias psicogenéticas em discussão (capítulos de Piaget).",
+  },
+  unidade1Slides: {
+    sourceExcerpt: "Slides — Desenvolvimento infantil.",
+    sourceUrl: "https://etienemacedo.com.br/aulas/anos-iniciais-e-escolares/2026-08-08-desenvolvimento-infantil/",
+  },
+  unidade2Slides: {
+    sourceExcerpt: "Slides — Piaget.",
+    sourceUrl: "https://etienemacedo.com.br/aulas/anos-iniciais-e-escolares/2026-08-19-piaget/slides-2026-08-19-piaget.pdf",
+  },
+  unidade3Slides: {
+    sourceExcerpt: "Slides — Piaget: estágios.",
+    sourceUrl: "https://etienemacedo.com.br/aulas/anos-iniciais-e-escolares/2026-09-12-piaget-estagios/slides-2026-09-12-piaget-estagios.pdf",
+  },
+  unidade3Slides2: {
+    sourceExcerpt: "Slides — Piaget: estágios 2.",
+    sourceUrl: "https://etienemacedo.com.br/aulas/anos-iniciais-e-escolares/2026-09-12-piaget-estagios-2/slides-2026-09-12-piaget-estagios-2.pdf",
+  },
+} satisfies Record<string, DevelopmentQuestionSource>;
+
+function applyQuestionSources(
+  questions: DevelopmentTextQuestion[],
+  sources: readonly DevelopmentQuestionSource[],
+): DevelopmentTextQuestion[] {
+  return questions.map((question, index) => ({
+    ...question,
+    ...sources[index % sources.length],
+  }));
+}
+
+const unidade1Questions: DevelopmentTextQuestion[] = applyQuestionSources([
   {
     prompt: "Considerando o desenvolvimento pré-natal, os primeiros 2 anos formam o período de maior desenvolvimento físico.",
     options: ["Verdadeiro", "Falso"],
@@ -257,9 +379,9 @@ const unidade1Questions: DevelopmentTextQuestion[] = [
     correctAnswer: "Metas claras, boa comunicação, apoio e incentivo",
     explanation: "O material destaca escolarização e estimulação com metas claras, boa comunicação, apoio e incentivo.",
   },
-];
+], [developmentQuestionSources.book, developmentQuestionSources.unidade1Slides]);
 
-const unidade2Questions: DevelopmentTextQuestion[] = [
+const unidade2Questions: DevelopmentTextQuestion[] = applyQuestionSources([
   {
     prompt: "Qual formulação corresponde ao inatismo apresentado no estudo da inteligência?",
     options: [
@@ -345,9 +467,9 @@ const unidade2Questions: DevelopmentTextQuestion[] = [
     correctAnswer: "Verdadeiro",
     explanation: "O material descreve a equilibração como a busca contínua desse equilíbrio na adaptação cognitiva.",
   },
-];
+], [developmentQuestionSources.book, developmentQuestionSources.unidade2Slides]);
 
-const unidade3Questions: DevelopmentTextQuestion[] = [
+const unidade3Questions: DevelopmentTextQuestion[] = applyQuestionSources([
   {
     prompt: "A inteligência é apresentada como um processo de adaptação que envolve as funções cognitivas e tende ao equilíbrio.",
     options: ["Verdadeiro", "Falso"],
@@ -443,7 +565,11 @@ const unidade3Questions: DevelopmentTextQuestion[] = [
     correctAnswer: "Verdadeiro",
     explanation: "A revisão valoriza o que o aluno já sabe, atividades desafiadoras e participação ativa no ensino.",
   },
-];
+], [
+  developmentQuestionSources.book,
+  developmentQuestionSources.unidade3Slides,
+  developmentQuestionSources.unidade3Slides2,
+]);
 
 export const developmentUnits: DevelopmentUnit[] = [
   {
@@ -465,6 +591,7 @@ export const developmentUnits: DevelopmentUnit[] = [
       "Dos 7 aos 11 anos, Piaget descreve o estágio operatório-concreto. A criança passa a coordenar diferentes pontos de vista, compreende conservação de quantidade e reversibilidade e resolve problemas lógicos quando relacionados a situações concretas.",
       "Esses estágios ajudam a planejar experiências de aprendizagem adequadas a cada faixa etária: exploração e ação nos primeiros anos, jogos simbólicos na educação infantil e atividades com regras, classificação, seriação e resolução de problemas na idade escolar.",
     ],
+    mentalMap: unidade1MindMap,
     studyGuide: unidade1StudyGuide,
     videoUrl: developmentVideoUrl,
     posterUrl: "/conteudos/desenvolvimento-anos-iniciais-escolares/unidade-1-desenvolvimento-motor.jpg",
@@ -532,6 +659,7 @@ export const developmentUnits: DevelopmentUnit[] = [
       "O esquema é uma base do pensamento e ajuda a organizar a experiência. A assimilação integra novas informações a estruturas existentes; a acomodação modifica essas estruturas para incorporar o novo. A equilibração busca o equilíbrio entre esses processos.",
       "A teoria organiza o desenvolvimento em estágios sensório-motor, pré-operatório, operatório-concreto e operatório-formal. Cada estágio expressa uma progressão na complexidade da inteligência e na resolução de problemas, articulando fatores biológicos e ambientais.",
     ],
+    mentalMap: unidade2MindMap,
     studyGuide: unidade2StudyGuide,
     videoUrl: developmentVideoUrl,
     posterUrl: "/conteudos/desenvolvimento-anos-iniciais-escolares/unidade-2-inteligencia-construtivismo.png",
@@ -602,6 +730,7 @@ export const developmentUnits: DevelopmentUnit[] = [
       "O estágio operatório-formal, apresentado a partir de 12 anos, envolve pensamento abstrato, raciocínio lógico e consideração de situações hipotéticas. A progressão dos estágios acompanha a complexidade da inteligência e da resolução de problemas.",
       "Os jogos acompanham essa progressão: jogo sensório-motor para bebês, jogo simbólico para pré-escolares e jogo baseado em regras para crianças mais velhas. Pedagogicamente, os resumos valorizam participação ativa, pensamento crítico, experiências e equilíbrio entre maturação, experiência e transmissão social.",
     ],
+    mentalMap: unidade3MindMap,
     studyGuide: unidade3StudyGuide,
     videoUrl: developmentVideoUrl,
     posterUrl: "/conteudos/desenvolvimento-anos-iniciais-escolares/unidade-3-conservacao.jpg",

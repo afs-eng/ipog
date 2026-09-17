@@ -20,7 +20,8 @@ export const questionDraftSchema = z.object({
   correctOption: z.enum(["A", "B", "C", "D"]),
   explanation: z.string().trim().min(10, "Informe uma explicação para a resposta."),
   sourceSlide: z.coerce.number().int().positive().optional(),
-  sourceExcerpt: z.string().trim().min(5, "Informe um trecho ou referência da fonte."),
+  sourceExcerpt: z.string().trim().min(5, "Informe um trecho ou referência da fonte.").optional(),
+  sourceUrl: z.string().url("Informe uma URL válida para a fonte.").optional(),
 });
 
 export type QuestionDraftInput = z.infer<typeof questionDraftSchema>;

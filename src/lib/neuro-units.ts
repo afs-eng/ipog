@@ -20,6 +20,8 @@ export type NeuroTextQuestion = {
   correctAnswer?: string;
   correctAnswers?: string[];
   explanation: string;
+  sourceExcerpt?: string;
+  sourceUrl?: string;
 };
 
 export type NeuroUnit = {

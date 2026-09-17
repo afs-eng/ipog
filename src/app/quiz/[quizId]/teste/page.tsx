@@ -55,7 +55,8 @@ export default async function KnowledgeTestPage({
       ?.map((answer) => ["A", "B", "C", "D"][question.options.indexOf(answer)] as "A" | "B" | "C" | "D" | undefined)
       .filter((optionId): optionId is "A" | "B" | "C" | "D" => Boolean(optionId)),
     explanation: question.explanation,
-    sourceExcerpt: "Pergunta conceitual de revisão sobre introdução ao encéfalo.",
+    sourceExcerpt: question.sourceExcerpt,
+    sourceUrl: question.sourceUrl,
     status: "draft" as const,
     createdAt: "2026-09-06T00:00:00.000Z",
     updatedAt: "2026-09-06T00:00:00.000Z",

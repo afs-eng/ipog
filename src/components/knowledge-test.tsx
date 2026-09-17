@@ -25,6 +25,8 @@ type VisualOption = StoredQuestion["options"][number] & {
 
 type TestQuestion = StoredQuestion & {
   correctOptions?: StoredQuestion["correctOption"][];
+  sourceExcerpt?: string;
+  sourceUrl?: string;
 };
 
 type Feedback = {
@@ -495,7 +497,7 @@ function FeedbackBar({
   isQuestionCorrect: boolean;
   onContinue: () => void;
   onHide: () => void;
-  question: StoredQuestion;
+  question: TestQuestion;
 }) {
   return (
     <div className="fixed inset-x-0 bottom-0 z-30 mx-auto max-w-[700px] rounded-t-md bg-[#33495a] px-8 py-5 text-white shadow-2xl">
@@ -508,6 +510,7 @@ function FeedbackBar({
           <p className="mt-1 max-w-md text-sm font-semibold leading-5">
             {question.explanation}
           </p>
+          <QuestionReference excerpt={question.sourceExcerpt} url={question.sourceUrl} />
         </div>
         <button className="text-sm font-semibold underline underline-offset-4" type="button">
           Mostrar mais
@@ -518,6 +521,28 @@ function FeedbackBar({
       </div>
     </div>
   );
+}
+
+function QuestionReference({ excerpt, url }: { excerpt?: string; url?: string }) {
+  if (!excerpt && !isSafeExternalUrl(url)) {
+    return null;
+  }
+
+  return (
+    <div className="mt-3 border-t border-white/20 pt-3 text-xs leading-5 text-slate-200">
+      <p className="font-semibold text-white">Referência da pergunta</p>
+      {excerpt ? <p>{excerpt}</p> : null}
+      {isSafeExternalUrl(url) ? (
+        <a className="mt-1 inline-block underline underline-offset-2 hover:text-white" href={url} rel="noreferrer" target="_blank">
+          Abrir fonte externa
+        </a>
+      ) : null}
+    </div>
+  );
+}
+
+function isSafeExternalUrl(url?: string): url is string {
+  return Boolean(url && /^https?:\/\//i.test(url));
 }
 
 function StatusBubble({ label }: { label: string }) {
