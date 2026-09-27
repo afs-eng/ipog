@@ -25,18 +25,34 @@ const deepLessons: Record<string, DeepLesson> = {
       {
         title: "Linguagem como sistema",
         explanation: "A partir de Saussure, a língua pode ser entendida como um sistema social de signos. Isso significa que as palavras não valem isoladamente: elas ganham sentido pelas relações que estabelecem com outras palavras, com regras compartilhadas e com usos culturais.",
+        examples: [
+          "A palavra 'crise' pode indicar um episódio emocional, uma crise econômica ou um momento de ruptura. O sentido depende do campo em que aparece.",
+          "Em Psicologia, 'resistência' não deve ser usada como rótulo automático; o termo precisa fazer sentido dentro de um acompanhamento e de uma hipótese sustentada.",
+        ],
       },
       {
         title: "Langue e parole",
         explanation: "Langue é o sistema comum da língua, aquilo que uma comunidade reconhece como possível. Parole é o uso concreto que um sujeito faz desse sistema quando fala, escreve, hesita, escolhe uma palavra ou organiza uma narrativa.",
+        examples: [
+          "Langue: as regras e convenções que permitem formar frases em português.",
+          "Parole: a forma singular como uma paciente diz 'eu estou bem' após uma pausa longa e com voz baixa.",
+        ],
       },
       {
         title: "Lente interna",
         explanation: "Os slides destacam que não vemos as coisas simplesmente como são: interpretamos a partir de experiências, afetos, medos, expectativas e repertórios. Por isso, a interpretação precisa voltar ao texto para separar pista observável de impressão subjetiva.",
+        examples: [
+          "Impressão: 'ele foi frio'. Dado observável: 'ele respondeu com frases curtas e sem contato visual frequente'.",
+          "A primeira leitura pode ser útil como hipótese, mas precisa ser conferida no enunciado, no contexto e na sequência da fala.",
+        ],
       },
       {
         title: "Condições de produção",
         explanation: "Todo enunciado é produzido em uma situação: alguém fala, de um lugar social, para alguém, com certa finalidade, em um momento histórico. Essas condições limitam e orientam os sentidos possíveis.",
+        examples: [
+          "A frase 'você precisa melhorar' tem efeitos diferentes dita por professor, terapeuta, familiar ou chefe.",
+          "Uma resposta em avaliação psicológica pode ser afetada pela instituição, pelo medo de julgamento e pelo objetivo da entrevista.",
+        ],
       },
     ],
     sections: [
@@ -70,22 +86,42 @@ const deepLessons: Record<string, DeepLesson> = {
       {
         title: "Análise do Discurso",
         explanation: "A AD investiga como os sentidos são produzidos nas relações sociais. Ela não trata a fala como um espelho transparente da intenção individual; observa como história, instituições, ideologia, memória discursiva e posições de sujeito atravessam o que pode ser dito.",
+        examples: [
+          "Em vez de perguntar apenas 'o que a pessoa quis dizer?', pergunte também 'em que contexto isso pôde ser dito dessa forma?'.",
+          "A frase 'eu tenho que dar conta de tudo' pode carregar discursos sociais sobre produtividade, família, gênero e sucesso.",
+        ],
       },
       {
         title: "Formação discursiva",
         explanation: "É o conjunto de regras, muitas vezes invisíveis, que define o que soa aceitável, possível ou legítimo em determinado contexto. Em uma instituição, por exemplo, certos modos de falar sobre sofrimento podem ser autorizados, enquanto outros são silenciados.",
+        examples: [
+          "Em um ambiente escolar, o aluno pode aprender que dizer 'não entendi' é sinal de fraqueza, dependendo da cultura da turma.",
+          "Em uma empresa, sofrimento pode aparecer como 'cansaço' ou 'baixa performance', porque esse vocabulário é mais aceito naquele espaço.",
+        ],
       },
       {
         title: "Ideologia em Marx",
         explanation: "Nos slides, Marx orienta a leitura de que o sujeito não aparece fora da sociedade. Família, mídia, instituições, classe social e normas culturais participam da construção de identidades e da naturalização de certas formas de sofrimento.",
+        examples: [
+          "Quando alguém diz 'se eu falhei, é porque não me esforcei o suficiente', pode estar reproduzindo um discurso individualizante sobre sucesso.",
+          "A análise pergunta quais condições sociais estão sendo apagadas quando tudo vira responsabilidade individual.",
+        ],
       },
       {
         title: "Inconsciente em Freud",
         explanation: "Freud contribui para pensar que a fala não é totalmente racional ou controlada. Lapsos, contradições, metáforas, silêncios e escolhas de palavras podem abrir pistas interpretativas, mas não funcionam como prova automática de diagnóstico.",
+        examples: [
+          "Um lapso pode ser anotado como dado de escuta, mas não deve virar conclusão isolada.",
+          "Se uma pessoa muda de assunto sempre que fala da família, isso pode orientar uma pergunta clínica, não uma sentença pronta.",
+        ],
       },
       {
         title: "Interdiscurso e memória discursiva",
         explanation: "Pêcheux ajuda a compreender que todo discurso carrega vozes anteriores. Quando alguém fala, mobiliza sentidos já circulantes na cultura, na família, na escola, na clínica e na mídia.",
+        examples: [
+          "Frases como 'homem não chora' ou 'mãe boa aguenta tudo' podem aparecer na fala individual como vozes sociais antigas.",
+          "A escuta observa que o sujeito fala com palavras próprias, mas também com discursos que recebeu e repetiu ao longo da vida.",
+        ],
       },
     ],
     sections: [
@@ -123,22 +159,42 @@ const deepLessons: Record<string, DeepLesson> = {
       {
         title: "Tema",
         explanation: "Tema é o assunto sobre o qual o texto fala. Ele pode ser amplo, como 'escuta clínica', 'linguagem' ou 'saúde mental'. O tema sozinho ainda não mostra a posição do autor.",
+        examples: [
+          "Tema: precisão linguística em registros clínicos.",
+          "Tema: o papel da escuta na formação em Psicologia.",
+        ],
       },
       {
         title: "Tese",
         explanation: "Tese é a posição central defendida. Ela precisa ser discutível e orientar todo o texto. Uma tese fraca apenas anuncia o assunto; uma tese forte apresenta um ponto de vista que será sustentado.",
+        examples: [
+          "Fraca: 'Este texto fala sobre escuta clínica.'",
+          "Forte: 'A escuta clínica exige precisão linguística porque diferencia observação, hipótese e interpretação.'",
+        ],
       },
       {
         title: "Argumento",
         explanation: "Argumento é a razão que sustenta a tese. Pode envolver explicação conceitual, exemplo, dado, relação causal, comparação ou referência teórica. Ele precisa estar conectado à tese e não apenas enfeitar o parágrafo.",
+        examples: [
+          "Argumento: registros vagos podem produzir interpretações indevidas sobre o paciente.",
+          "Exemplo integrado: ao escrever 'resistente', sem descrever o comportamento observado, o profissional pode transformar uma hipótese em característica do sujeito.",
+        ],
       },
       {
         title: "Tópico frasal",
         explanation: "É a frase que apresenta a ideia central do parágrafo. Ela funciona como uma promessa: o restante do parágrafo deve explicar, justificar ou exemplificar essa ideia.",
+        examples: [
+          "Bom tópico: 'A precisão vocabular protege o registro clínico de conclusões precipitadas.'",
+          "Depois dele, o parágrafo deve explicar como isso acontece e trazer exemplo ou justificativa.",
+        ],
       },
       {
         title: "Progressão argumentativa",
         explanation: "Um bom texto não repete a tese com outras palavras em todos os parágrafos. Ele avança: apresenta uma razão, aprofunda, mostra consequência, discute limite e fecha o percurso.",
+        examples: [
+          "Parágrafo 1: define o problema. Parágrafo 2: mostra consequência. Parágrafo 3: propõe cuidado ou encaminhamento.",
+          "Sem progressão: repetir 'a linguagem é importante' em todos os parágrafos sem acrescentar razões novas.",
+        ],
       },
     ],
     sections: [
@@ -310,8 +366,8 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
   }
 
   return (
-    <main className="min-h-screen bg-[#fff7f7] text-slate-900">
-      <header className="bg-[#7f0000] text-white">
+    <main className="min-h-screen bg-[#261010] text-slate-900">
+      <header className="border-b border-white/10 bg-[#160707] text-white">
         <div className="mx-auto flex min-h-20 max-w-6xl items-center gap-4 px-6 sm:px-10 lg:px-12">
           <div className="grid h-10 w-10 place-items-center rounded-xl bg-rose-100 text-lg font-black text-[#7f0000]">T</div>
           <div>
@@ -322,45 +378,45 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
         </div>
       </header>
 
-      <section className="mx-auto max-w-6xl px-6 py-9 sm:px-10 lg:px-12">
-        <Link className="text-sm font-semibold text-[#aa0000]" href="/disciplinas">
+      <section className="mx-auto max-w-6xl px-6 py-10 text-white sm:px-10 lg:px-12">
+        <Link className="text-sm font-semibold text-rose-200" href="/disciplinas">
           Voltar para disciplinas
         </Link>
-        <p className="mt-8 text-xs font-black uppercase tracking-[0.18em] text-[#aa0000]">Produção e interpretação</p>
-        <h1 className="mt-2 max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-          Estude uma aula por vez.
+        <p className="mt-8 text-xs font-black uppercase tracking-[0.18em] text-rose-200">Produção e interpretação</p>
+        <h1 className="mt-2 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-6xl">
+          Aulas autorais, não cópia dos slides.
         </h1>
-        <p className="mt-4 max-w-3xl leading-8 text-slate-600">
-          {subjectDescription} Escolha um tema, acompanhe a explicação, revise os slides únicos e pratique no seu ritmo.
+        <p className="mt-5 max-w-3xl text-lg leading-8 text-rose-50/80">
+          {subjectDescription} Cada tema foi reescrito como aula própria, com conceitos, exemplos, aplicação e treino. Os slides ficam no fim apenas como referência visual.
         </p>
       </section>
 
       <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-16 sm:px-10 lg:grid-cols-[260px_1fr] lg:px-12">
         <aside className="h-fit lg:sticky lg:top-6">
-          <h2 className="mb-3 text-xs font-black uppercase tracking-[0.16em] text-slate-500">Temas</h2>
+          <h2 className="mb-3 text-xs font-black uppercase tracking-[0.16em] text-rose-100/70">Caderno de temas</h2>
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1" role="tablist" aria-label="Temas de estudo">
             {textsUnits.map((item, index) => (
               <button
                 aria-controls="study-panel"
                 aria-selected={index === activeIndex}
-                className={`rounded-2xl border bg-white p-4 text-left shadow-sm transition ${index === activeIndex ? "border-[#aa0000] bg-red-50 shadow-red-950/10" : "border-red-100 hover:border-[#aa0000]/50"}`}
+                className={`rounded-2xl border p-4 text-left shadow-sm transition ${index === activeIndex ? "border-rose-200 bg-white text-slate-950 shadow-red-950/30" : "border-white/10 bg-white/5 text-rose-50 hover:border-rose-200/50"}`}
                 id={`tab-${item.slug}`}
                 key={item.slug}
                 onClick={() => changeUnit(index)}
                 role="tab"
                 type="button"
               >
-                <span className="text-[11px] font-black uppercase tracking-[0.12em] text-[#aa0000]">{String(index + 1).padStart(2, "0")} / Tema</span>
-                <strong className="mt-1 block leading-snug text-slate-900">{item.title}</strong>
-                <span className="mt-2 block text-xs text-slate-500">{item.testTextQuestions?.length ?? 0} questões</span>
+                <span className={`text-[11px] font-black uppercase tracking-[0.12em] ${index === activeIndex ? "text-[#aa0000]" : "text-rose-200"}`}>{String(index + 1).padStart(2, "0")} / Aula</span>
+                <strong className="mt-1 block leading-snug">{item.title}</strong>
+                <span className={`mt-2 block text-xs ${index === activeIndex ? "text-slate-500" : "text-rose-100/70"}`}>{item.testTextQuestions?.length ?? 0} questões</span>
               </button>
             ))}
           </div>
-          <p className="mt-4 text-sm leading-6 text-slate-500">As respostas aparecem após sua escolha. Fotos repetidas dos slides foram unificadas.</p>
+          <p className="mt-4 text-sm leading-6 text-rose-50/70">As aulas foram escritas a partir dos temas. Os slides repetidos aparecem apenas como apoio no final.</p>
         </aside>
 
-        <article aria-labelledby={`tab-${unit.slug}`} className="overflow-hidden rounded-[28px] border border-red-100 bg-white shadow-xl shadow-red-950/5" id="study-panel" role="tabpanel">
-          <div className="border-b border-red-100 bg-gradient-to-br from-red-50 to-white p-6 sm:p-8">
+        <article aria-labelledby={`tab-${unit.slug}`} className="overflow-hidden rounded-[34px] border border-white/10 bg-[#fffaf7] shadow-2xl shadow-black/30" id="study-panel" role="tabpanel">
+          <div className="border-b border-red-100 bg-[radial-gradient(circle_at_top_left,#fee2e2,transparent_34%),linear-gradient(135deg,#fff7ed,#fff)] p-6 sm:p-8">
             <span className="text-xs font-black uppercase tracking-[0.16em] text-[#aa0000]">Tema {activeIndex + 1} de {textsUnits.length}</span>
             <h2 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950">{unit.title}</h2>
             <p className="mt-3 max-w-3xl leading-7 text-slate-600">{unit.videoDescription}</p>
@@ -368,34 +424,39 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
 
           <div className="space-y-8 p-6 sm:p-8">
             <section>
-              <span className="text-xs font-black uppercase tracking-[0.14em] text-[#aa0000]">Aula {activeIndex + 1} · leitura guiada</span>
-              <h3 className="mt-2 text-xl font-semibold text-slate-950">O que você vai aprender</h3>
-              <p className="mt-3 max-w-3xl leading-7 text-slate-600">{lesson.goal}</p>
-              <div className="mt-5 grid gap-3 md:grid-cols-2">
-                {lesson.concepts.map((concept) => (
-                  <div className="rounded-2xl border border-red-100 bg-red-50/60 px-5 py-4" key={concept.title}>
-                    <h4 className="font-semibold text-slate-900">{concept.title}</h4>
+              <div className="rounded-[28px] bg-[#2a0d0d] p-6 text-white sm:p-8">
+                <span className="text-xs font-black uppercase tracking-[0.14em] text-rose-200">Aula {activeIndex + 1} · feita por tema</span>
+                <h3 className="mt-2 text-2xl font-semibold tracking-tight">O que você vai aprender</h3>
+                <p className="mt-3 max-w-3xl leading-8 text-rose-50/85">{lesson.goal}</p>
+              </div>
+              <div className="mt-5 grid gap-4">
+                {lesson.concepts.map((concept, index) => (
+                  <div className="grid gap-4 rounded-[24px] border border-red-100 bg-white p-5 shadow-sm md:grid-cols-[88px_1fr]" key={concept.title}>
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#aa0000] text-2xl font-black text-white">{String(index + 1).padStart(2, "0")}</div>
+                    <div>
+                    <h4 className="text-lg font-semibold text-slate-900">{concept.title}</h4>
                     <p className="mt-2 text-sm leading-6 text-slate-600">{concept.explanation}</p>
                     {concept.examples?.length ? (
-                      <div className="mt-4 rounded-xl bg-white p-4">
+                      <div className="mt-4 rounded-2xl bg-red-50 p-4">
                         <p className="text-xs font-black uppercase tracking-[0.12em] text-[#aa0000]">Exemplos</p>
-                        <ul className="mt-2 space-y-2 text-sm leading-6 text-slate-700">
+                        <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
                           {concept.examples.map((example) => (
                             <li key={example}>{example}</li>
                           ))}
                         </ul>
                       </div>
                     ) : null}
+                    </div>
                   </div>
                 ))}
               </div>
             </section>
 
-            <section className="rounded-2xl bg-rose-50 p-5">
+            <section className="rounded-[28px] bg-[#fff0f0] p-5 sm:p-6">
               <span className="text-xs font-black uppercase tracking-[0.14em] text-[#aa0000]">Explicação guiada</span>
               <div className="mt-4 grid gap-4">
                 {lesson.sections.map((section) => (
-                  <article className="rounded-2xl bg-white p-5" key={section.title}>
+                  <article className="rounded-2xl border border-red-100 bg-white p-5" key={section.title}>
                     <h4 className="font-semibold text-slate-950">{section.title}</h4>
                     <p className="mt-2 leading-7 text-slate-700">{section.body}</p>
                   </article>
@@ -420,29 +481,6 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
                     <summary className="cursor-pointer font-semibold text-slate-900">{index + 1}. {item.question}</summary>
                     <p className="mt-2 text-sm leading-6 text-slate-600">{item.answer}</p>
                   </details>
-                ))}
-              </div>
-            </section>
-
-            <section>
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <span className="text-xs font-black uppercase tracking-[0.14em] text-[#aa0000]">Slides da aula</span>
-                  <h3 className="mt-2 text-xl font-semibold text-slate-950">Material visual revisado</h3>
-                </div>
-                <span className="text-sm text-slate-500">{unit.atlasItems.length} slide{unit.atlasItems.length === 1 ? "" : "s"} único{unit.atlasItems.length === 1 ? "" : "s"}</span>
-              </div>
-              <div className="mt-4 grid gap-4 md:grid-cols-2">
-                {unit.atlasItems.map((slide) => (
-                  <figure className="overflow-hidden rounded-2xl border border-red-100 bg-white" key={slide.title}>
-                    <div className="relative aspect-video bg-red-50">
-                      <Image alt={slide.title} className="object-contain" fill sizes="(max-width: 768px) 100vw, 420px" src={slide.imageUrl} />
-                    </div>
-                    <figcaption className="border-t border-red-100 p-4">
-                      <strong className="text-slate-900">{slide.title}</strong>
-                      <p className="mt-1 text-sm leading-6 text-slate-600">{slide.description}</p>
-                    </figcaption>
-                  </figure>
                 ))}
               </div>
             </section>
@@ -503,6 +541,29 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
                 ) : null}
               </section>
             ) : null}
+
+            <section className="rounded-[24px] border border-dashed border-red-200 bg-white/70 p-5">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <span className="text-xs font-black uppercase tracking-[0.14em] text-[#aa0000]">Anexo visual</span>
+                  <h3 className="mt-1 text-lg font-semibold text-slate-950">Slides conferidos, sem repetição</h3>
+                </div>
+                <span className="text-sm text-slate-500">{unit.atlasItems.length} referência{unit.atlasItems.length === 1 ? "" : "s"}</span>
+              </div>
+              <p className="mt-2 text-sm leading-6 text-slate-600">Use estas imagens apenas para reconhecer o material original. A aula acima já reescreve e organiza os conceitos.</p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {unit.atlasItems.map((slide) => (
+                  <figure className="overflow-hidden rounded-2xl border border-red-100 bg-white" key={slide.title}>
+                    <div className="relative aspect-video bg-red-50">
+                      <Image alt={slide.title} className="object-contain" fill sizes="(max-width: 768px) 100vw, 260px" src={slide.imageUrl} />
+                    </div>
+                    <figcaption className="border-t border-red-100 p-3">
+                      <strong className="text-sm text-slate-900">{slide.title}</strong>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </section>
 
             <div className="flex flex-col gap-3 border-t border-red-100 pt-6 sm:flex-row">
               <Link className="rounded-full bg-[#aa0000] px-6 py-3 text-center text-sm font-bold uppercase text-white hover:bg-[#8b0000]" href={`/quiz/producao-interpretacao-textos-treino-textual/teste?material=${unit.slug}&topic=${unit.slug}&perguntas=${Math.min(10, questions.length)}`}>
