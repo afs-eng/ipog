@@ -611,7 +611,7 @@ function shuffleQuestions(items: TestQuestion[]) {
 function shuffleQuestionOptions(question: TestQuestion): TestQuestion {
   const correctText = question.options.find((option) => option.id === question.correctOption)?.text;
   const correctTexts = question.correctOptions?.map((optionId) => question.options.find((option) => option.id === optionId)?.text).filter(Boolean);
-  const options = [...question.options].sort(() => Math.random() - 0.5);
+  const options = uniqueQuestionOptions(question.options).sort(() => Math.random() - 0.5);
 
   return {
     ...question,
@@ -619,6 +619,21 @@ function shuffleQuestionOptions(question: TestQuestion): TestQuestion {
     correctOption: options.find((option) => option.text === correctText)?.id ?? question.correctOption,
     correctOptions: correctTexts?.map((text) => options.find((option) => option.text === text)?.id).filter((optionId): optionId is StoredQuestion["correctOption"] => Boolean(optionId)),
   };
+}
+
+function uniqueQuestionOptions(options: TestQuestion["options"]) {
+  const seen = new Set<string>();
+
+  return options.filter((option) => {
+    const normalizedOption = option.text.normalize("NFC").replace(/\s+/g, " ").trim().toLocaleLowerCase("pt-BR");
+
+    if (seen.has(normalizedOption)) {
+      return false;
+    }
+
+    seen.add(normalizedOption);
+    return true;
+  });
 }
 
 function getStableOffset(value: string, length: number) {

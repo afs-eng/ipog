@@ -323,9 +323,29 @@ function buildSimulationQuestions(textQuestions: (NeuroTextQuestion & SourceRefe
 
 function buildTextOptions(question: NeuroTextQuestion) {
   const correctAnswers = question.correctAnswers ?? (question.correctAnswer ? [question.correctAnswer] : []);
-  const incorrectOptions = question.options.filter((option) => !correctAnswers.includes(option));
+  const normalizedCorrectAnswers = new Set(correctAnswers.map(normalizeOptionText));
+  const incorrectOptions = uniqueOptions(question.options).filter((option) => !normalizedCorrectAnswers.has(normalizeOptionText(option)));
 
   return shuffle([...correctAnswers, ...shuffle(incorrectOptions).slice(0, Math.max(0, 6 - correctAnswers.length))]);
+}
+
+function uniqueOptions(options: string[]) {
+  const seen = new Set<string>();
+
+  return options.filter((option) => {
+    const normalizedOption = normalizeOptionText(option);
+
+    if (seen.has(normalizedOption)) {
+      return false;
+    }
+
+    seen.add(normalizedOption);
+    return true;
+  });
+}
+
+function normalizeOptionText(option: string) {
+  return option.normalize("NFC").replace(/\s+/g, " ").trim().toLocaleLowerCase("pt-BR");
 }
 
 function isTrueFalseOptions(options: string[]) {

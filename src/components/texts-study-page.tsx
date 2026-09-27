@@ -12,7 +12,7 @@ type TextsStudyPageProps = {
 
 type DeepLesson = {
   goal: string;
-  concepts: { title: string; explanation: string }[];
+  concepts: { title: string; explanation: string; examples?: string[] }[];
   sections: { title: string; body: string }[];
   worked: { title: string; source: string; analysis: string };
   recall: { question: string; answer: string }[];
@@ -175,23 +175,56 @@ const deepLessons: Record<string, DeepLesson> = {
     concepts: [
       {
         title: "Precisão clínica",
-        explanation: "Em prontuários, relatórios e laudos, a linguagem precisa evita ambiguidades e interpretações abusivas. O ideal é diferenciar dado observado, fala relatada, hipótese e análise.",
+        explanation: "Precisão clínica é a capacidade de escrever de modo claro, observável e responsável. Em prontuários, relatórios e laudos, uma palavra vaga pode transformar hipótese em conclusão, impressão em fato ou julgamento em registro técnico. O ideal é separar quatro camadas: dado observado, fala relatada, hipótese interpretativa e análise sustentada.",
+        examples: [
+          "Vago: 'O paciente estava muito mal.' Melhor: 'O paciente relatou insônia em três noites da última semana e chorou durante parte da entrevista.'",
+          "Inferência indevida: 'O silêncio comprovou resistência.' Melhor: 'Houve silêncio por cerca de dez segundos antes da resposta; o sentido clínico do episódio será investigado.'",
+          "Julgamento: 'A mãe é negligente.' Melhor: 'A mãe não compareceu às duas entrevistas agendadas e não respondeu ao contato telefônico até esta data.'",
+        ],
       },
       {
         title: "Por que, porque, por quê e o porquê",
-        explanation: "'Por que' aparece em perguntas ou com sentido de motivo; 'porque' introduz causa ou explicação; 'por quê' vem antes de pontuação no fim da pergunta; 'o porquê' funciona como substantivo, significando o motivo.",
+        explanation: "Os quatro porquês têm funções diferentes. 'Por que' separado e sem acento aparece em perguntas diretas ou indiretas e pode significar 'por qual motivo'. 'Porque' junto e sem acento apresenta causa, explicação ou resposta. 'Por quê' separado e com acento aparece no fim da pergunta, imediatamente antes de pontuação. 'O porquê' junto e com acento é substantivo: equivale a 'o motivo' ou 'a razão' e costuma vir com artigo ou determinante.",
+        examples: [
+          "Por que: 'Por que o participante interrompeu a entrevista?' Também: 'A equipe investigou por que a entrevista foi interrompida.'",
+          "Porque: 'A entrevista foi interrompida porque o participante precisou sair.' Aqui há explicação/causa.",
+          "Por quê: 'O participante saiu por quê?' Usa-se no fim da pergunta, antes do ponto de interrogação.",
+          "O porquê: 'A equipe investigou o porquê da interrupção.' Aqui 'porquê' é um nome, equivalente a 'motivo'.",
+          "Atenção clínica: 'Por que o paciente silenciou?' é pergunta investigativa. 'O paciente silenciou porque estava resistente' só deve ser escrito se houver sustentação clínica para essa causa.",
+        ],
       },
       {
         title: "Mas, mais e houve",
-        explanation: "'Mas' marca oposição; 'mais' indica quantidade ou intensidade. 'Houve', no sentido de ocorrer ou existir, fica no singular: houve sessões, houve relatos, houve dificuldades.",
+        explanation: "'Mas' é conjunção adversativa: marca contraste, oposição ou quebra de expectativa. 'Mais' indica quantidade, intensidade ou acréscimo. Já 'houve', quando vem do verbo haver com sentido de existir, ocorrer ou acontecer, é impessoal e fica no singular, mesmo quando o complemento está no plural.",
+        examples: [
+          "Mas: 'Apresentou dificuldade inicial, mas concluiu a atividade.' Há oposição entre dificuldade e conclusão.",
+          "Mais: 'Relatou mais episódios de ansiedade na última semana.' Indica quantidade maior.",
+          "Erro comum: 'Relatou mas episódios, mais não soube datá-los.' Correto: 'Relatou mais episódios, mas não soube datá-los.'",
+          "Houve: 'Houve três sessões no mês.' Não use 'houveram três sessões' nesse sentido.",
+          "Também correto: 'Houve relatos de insônia.' O verbo continua no singular porque significa 'existiram/ocorreram'.",
+        ],
       },
       {
         title: "Onde e aonde",
-        explanation: "'Onde' indica lugar fixo; 'aonde' indica movimento ou destino. A pergunta 'onde ocorreu a sessão?' difere de 'aonde essa ideia leva?'.",
+        explanation: "'Onde' indica localização, lugar fixo ou situação em que algo ocorre. 'Aonde' junta a preposição 'a' com 'onde' e deve ser usada com ideia de movimento, direção ou destino. A diferença depende do verbo: ocorrer, estar e permanecer pedem localização; ir, levar, chegar e dirigir-se podem pedir destino.",
+        examples: [
+          "Onde: 'Onde ocorreu a sessão?' A sessão ocorreu em um lugar fixo.",
+          "Onde: 'Onde o paciente estava durante a crise?' Pergunta por localização.",
+          "Aonde: 'Aonde você vai após o atendimento?' Há ideia de destino.",
+          "Aonde: 'Aonde essa interpretação nos leva?' Há movimento metafórico para uma conclusão.",
+          "Erro comum: 'Aonde ocorreu a sessão?' Melhor: 'Onde ocorreu a sessão?'",
+        ],
       },
       {
         title: "Pronomes e retomada",
-        explanation: "'Esse' geralmente retoma algo já mencionado ou próximo do interlocutor; 'este' aponta para o que será apresentado ou está próximo de quem fala. Evite 'o mesmo' como pronome pessoal: prefira 'ele', 'ela' ou reescreva.",
+        explanation: "Pronomes organizam a retomada das ideias e evitam repetição, mas podem gerar ambiguidade. 'Esse/essa' costuma retomar algo já mencionado ou próximo de quem ouve. 'Este/esta' aponta para algo que será apresentado, para o tempo presente ou para algo próximo de quem fala/escreve. Em textos técnicos, também é importante evitar 'o mesmo/a mesma' como substituto de pessoa, porque isso deixa a frase artificial e, às vezes, ambígua.",
+        examples: [
+          "Esse retomando algo já dito: 'O paciente relatou ansiedade. Essa dificuldade apareceu antes das provas.'",
+          "Este anunciando algo: 'Este relatório apresenta observações realizadas em três encontros.'",
+          "Este como tempo presente: 'Nesta sessão, foram retomados os combinados iniciais.'",
+          "Evite: 'O paciente saiu; falei com o mesmo.' Melhor: 'O paciente saiu; falei com ele.'",
+          "Evite ambiguidade: em vez de 'A mãe falou com a filha quando ela chorou', escreva 'A mãe falou com a filha quando a filha chorou' se for necessário deixar claro quem chorou.",
+        ],
       },
     ],
     sections: [
@@ -343,6 +376,16 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
                   <div className="rounded-2xl border border-red-100 bg-red-50/60 px-5 py-4" key={concept.title}>
                     <h4 className="font-semibold text-slate-900">{concept.title}</h4>
                     <p className="mt-2 text-sm leading-6 text-slate-600">{concept.explanation}</p>
+                    {concept.examples?.length ? (
+                      <div className="mt-4 rounded-xl bg-white p-4">
+                        <p className="text-xs font-black uppercase tracking-[0.12em] text-[#aa0000]">Exemplos</p>
+                        <ul className="mt-2 space-y-2 text-sm leading-6 text-slate-700">
+                          {concept.examples.map((example) => (
+                            <li key={example}>{example}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
                   </div>
                 ))}
               </div>

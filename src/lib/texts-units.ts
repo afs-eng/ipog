@@ -166,11 +166,20 @@ export function getTextsUnit(slug?: string) {
 }
 
 function toTextQuestion(question: TextsQuestion): NeuroTextQuestion {
+  const alternativas = question.id === "pit-025"
+    ? [
+        "Relatou mas episódios, mais não soube datá-los.",
+        "Relatou mais episódios, mas não soube datá-los.",
+        "Relatou mais episódios, mais não soube datá-los.",
+        "Relatou mas episódios, mas não soube datá-los.",
+      ]
+    : question.alternativas;
+
   return {
     id: question.id,
     prompt: question.enunciado,
-    options: question.alternativas,
-    correctAnswer: question.alternativas[question.correta],
+    options: alternativas,
+    correctAnswer: alternativas[question.correta],
     explanation: question.explicacao,
     sourceExcerpt: "Banco curado de Produção e Interpretação de Textos.",
   };
