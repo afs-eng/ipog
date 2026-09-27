@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { NeuroCourseCard } from "@/components/neuro-course-card";
 import { CourseCard } from "@/components/course-card";
+import { TextsStudyPage } from "@/components/texts-study-page";
 import { neuroCourseSections } from "@/lib/neuro-course";
 import { developmentCourseSections } from "@/lib/development-course";
 import { textsCourseSections } from "@/lib/texts-course";
@@ -45,6 +46,10 @@ export default async function SubjectPage({
   const isTexts = subjectSlug === "producao-interpretacao-textos";
   const sections = isTexts ? textsCourseSections : isDevelopment ? developmentCourseSections : neuroCourseSections;
   const quizId = isTexts ? "producao-interpretacao-textos-treino-textual" : "desenvolvimento-anos-iniciais-escolares-treino-textual";
+
+  if (isTexts) {
+    return <TextsStudyPage subjectDescription={subject.description} subjectName={subject.name} />;
+  }
 
   return (
     <main className="min-h-screen bg-white text-slate-800">
