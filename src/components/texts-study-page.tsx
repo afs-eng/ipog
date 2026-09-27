@@ -240,12 +240,14 @@ const deepLessons: Record<string, DeepLesson> = {
       },
       {
         title: "Por que, porque, por quê e o porquê",
-        explanation: "Os quatro porquês têm funções diferentes. 'Por que' separado e sem acento aparece em perguntas diretas ou indiretas e pode significar 'por qual motivo'. 'Porque' junto e sem acento apresenta causa, explicação ou resposta. 'Por quê' separado e com acento aparece no fim da pergunta, imediatamente antes de pontuação. 'O porquê' junto e com acento é substantivo: equivale a 'o motivo' ou 'a razão' e costuma vir com artigo ou determinante.",
+        explanation: "Os quatro porquês têm funções diferentes. 'Por que' separado e sem acento é usado em perguntas diretas e indiretas (sentido de 'por qual motivo') e também como pronome relativo, substituível por 'por qual' ou 'pelo qual'. 'Porque' junto e sem acento é conjunção de causa ou explicação: introduz resposta e pode ser substituído por 'pois' ou 'uma vez que'. 'Por quê' separado e com acento circunflexo aparece sempre no fim da frase, antes de ponto de interrogação, exclamação ou ponto final. 'Porquê' junto e com acento é substantivo: significa 'motivo' ou 'razão' e costuma vir precedido de artigo, pronome, adjetivo ou numeral.",
         examples: [
-          "Por que: 'Por que o participante interrompeu a entrevista?' Também: 'A equipe investigou por que a entrevista foi interrompida.'",
-          "Porque: 'A entrevista foi interrompida porque o participante precisou sair.' Aqui há explicação/causa.",
-          "Por quê: 'O participante saiu por quê?' Usa-se no fim da pergunta, antes do ponto de interrogação.",
-          "O porquê: 'A equipe investigou o porquê da interrupção.' Aqui 'porquê' é um nome, equivalente a 'motivo'.",
+          "Por que (pergunta direta): 'Por que o participante interrompeu a entrevista?'",
+          "Por que (pergunta indireta): 'A equipe investigou por que a entrevista foi interrompida.' Não se acentua porque a pergunta está no meio da frase.",
+          "Por que (pronome relativo): 'A razão por que o relato mudou de tom não está clara.' Substitui-se por 'pela qual': 'A razão pela qual o relato mudou...'",
+          "Porque (causa): 'A entrevista foi interrompida porque o participante precisou sair.' Pode virar 'pois o participante precisou sair'.",
+          "Por quê (fim da frase): 'O participante saiu por quê?' Também antes de ponto final ou exclamação: 'Não sei por quê.' e 'Ele desistiu, por quê!'",
+          "O porquê (substantivo): 'A equipe investigou o porquê da interrupção.' Equivale a 'o motivo' e por isso pede determinante: 'o porquê', 'seu porquê', 'este porquê'.",
           "Atenção clínica: 'Por que o paciente silenciou?' é pergunta investigativa. 'O paciente silenciou porque estava resistente' só deve ser escrito se houver sustentação clínica para essa causa.",
         ],
       },
@@ -307,7 +309,7 @@ const deepLessons: Record<string, DeepLesson> = {
       analysis: "Versão mais precisa: 'O paciente relatou mal-estar antes da sessão e deixou o atendimento após vinte minutos. A relação entre o mal-estar e a saída deve ser investigada nas próximas entrevistas.' A revisão reduz generalização e separa fato de hipótese.",
     },
     recall: [
-      { question: "Quando usar 'porque'?", answer: "Quando a palavra introduz causa ou explicação: 'faltou porque estava doente'." },
+      { question: "Como decidir entre por que, porque, por quê e porquê?", answer: "Pergunta no início/meio: 'por que'. Causa ou resposta: 'porque'. No fim da frase, antes da pontuação: 'por quê'. Substantivo, com sentido de motivo: 'o porquê'." },
       { question: "Por que evitar 'o mesmo' como pronome pessoal?", answer: "Porque soa burocrático e pode prejudicar clareza; 'ele' ou 'ela' retomam melhor a pessoa." },
       { question: "Como tornar um relato mais preciso?", answer: "Delimitando fonte, período, frequência e comportamento observável." },
     ],
