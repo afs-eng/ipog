@@ -300,7 +300,7 @@ export function SimulationQuiz({ backHref, imageItems, textQuestions }: Simulati
 
 function buildSimulationQuestions(textQuestions: (NeuroTextQuestion & SourceReference)[], imageItems: SimulationImageItem[]) {
   const textDeck: SimulationQuestion[] = shuffle(textQuestions).map((question, index) => ({
-    id: `simulado-texto-${index}`,
+    id: question.id ?? `simulado-texto-${index}`,
     type: "text",
     prompt: question.prompt,
     options: buildTextOptions(question),

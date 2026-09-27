@@ -14,6 +14,7 @@ import { getLocalStudyQuestions } from "@/lib/question-files";
 import { getQuizMode, getSubject, quizModes } from "@/lib/study-data";
 import { getNeuroUnit } from "@/lib/neuro-units";
 import { getDevelopmentUnit } from "@/lib/development-units";
+import { getTextsUnit } from "@/lib/texts-units";
 import type { DevelopmentUnit } from "@/lib/development-units";
 
 export function generateStaticParams() {
@@ -34,9 +35,10 @@ export default async function QuizPage({
 
   const selectedMaterial = typeof material === "string" ? material : undefined;
   const selectedTopic = typeof topic === "string" ? topic : undefined;
-  const subjectSlug = quizId.startsWith("desenvolvimento-") ? "desenvolvimento-anos-iniciais-escolares" : "neuroanatomofisiologia";
+  const subjectSlug = quizMode.subjectSlug;
   const isDevelopment = subjectSlug === "desenvolvimento-anos-iniciais-escolares";
-  const unit = subjectSlug === "desenvolvimento-anos-iniciais-escolares" ? getDevelopmentUnit(selectedTopic) : getNeuroUnit(selectedTopic);
+  const isTexts = subjectSlug === "producao-interpretacao-textos";
+  const unit = isTexts ? getTextsUnit(selectedTopic) : isDevelopment ? getDevelopmentUnit(selectedTopic) : getNeuroUnit(selectedTopic);
   const subject = getSubject(subjectSlug);
   const currentMaterial = subject?.materials.find((item) => item.slug === selectedMaterial);
   const questions = await getLocalStudyQuestions();
@@ -61,7 +63,6 @@ export default async function QuizPage({
       ? selectedTopic.replaceAll("-", " ")
     : currentMaterial?.title ?? quizMode.title;
   const testHref = buildTestHref(quizId, selectedMaterial, selectedTopic);
-  const simulationHref = buildSimulationHref(quizId, selectedMaterial, selectedTopic);
   const videoUrl = normalizeVideoUrl(unit?.videoUrl) ?? (currentMaterial ? `/videos/${currentMaterial.slug}.mp4` : undefined);
   const isExternalVideo = videoUrl ? /^https?:\/\//.test(videoUrl) : false;
   const hasVideo = videoUrl
@@ -74,7 +75,7 @@ export default async function QuizPage({
     "Revisar explicações com fonte no material da disciplina.",
   ];
   const posterUrl = getExistingPublicAsset(unit?.posterUrl, currentMaterial?.coverImage ?? "/window.svg");
-  const testCardImageUrl = isDevelopment ? undefined : getExistingPublicAsset(unit?.testCardImageUrl, posterUrl);
+  const testCardImageUrl = isDevelopment || isTexts ? undefined : getExistingPublicAsset(unit?.testCardImageUrl, posterUrl);
   const atlasImageUrl = getExistingPublicAsset(unit?.atlasImageUrl, atlasImages[0]?.imageUrl ?? currentMaterial?.coverImage ?? "/window.svg");
   const hasVideoSection = Boolean(unit?.videoText.length || currentMaterial) && Boolean(!unit || unit.videoText.length > 0);
   const atlasItems = unit?.atlasItems.map((item) => ({
@@ -105,8 +106,9 @@ export default async function QuizPage({
     })),
   }];
   const reviewItems = unit?.reviewItems ?? unit?.testImageItems?.map((item) => item.label);
-  const studyGuide = isDevelopment ? (unit as typeof unit & { studyGuide?: StudyGuideData })?.studyGuide : undefined;
+  const studyGuide = isDevelopment || isTexts ? (unit as typeof unit & { studyGuide?: StudyGuideData })?.studyGuide : undefined;
   const mentalMap = isDevelopment ? (unit as DevelopmentUnit | undefined)?.mentalMap : undefined;
+  const simulationQuestionCount = isTexts && !selectedTopic ? 36 : Math.min(30, unit?.testTextQuestions?.length ?? quizMode.questionCount);
 
   return (
     <main className="min-h-screen bg-white text-slate-800">
@@ -117,10 +119,10 @@ export default async function QuizPage({
               Cursos
             </Link>
             <span>/</span>
-            <span>Anatomia</span>
+            <span>{isTexts ? "Textos" : isDevelopment ? "Desenvolvimento" : "Anatomia"}</span>
             <span>/</span>
-            <Link className="font-semibold text-[#aa0000]" href="/disciplinas/neuroanatomofisiologia">
-              Neuroanatomofisiologia
+            <Link className="font-semibold text-[#aa0000]" href={`/disciplinas/${subjectSlug}`}>
+              {subject?.name ?? "Disciplina"}
             </Link>
             <span>/</span>
             <span className="text-slate-700">{pageTitle}</span>
@@ -136,7 +138,7 @@ export default async function QuizPage({
       <section className="mx-auto grid max-w-5xl gap-10 px-6 py-10 sm:px-10 lg:grid-cols-[170px_1fr] lg:px-12">
         <aside className="h-fit text-sm lg:sticky lg:top-8">
           <nav className="space-y-3 text-slate-600">
-            {isDevelopment ? <><a className="block text-[#aa0000]" href="#videoaula">Assista à videoaula</a>{mentalMap ? <a className="block hover:text-[#aa0000]" href="#mapa-conceitual">Mapa conceitual da unidade</a> : null}<a className="block hover:text-[#aa0000]" href="#roteiro">Estude os tópicos</a></> : null}
+            {isDevelopment || isTexts ? <><a className="block text-[#aa0000]" href="#videoaula">{isTexts ? "Revise o conteúdo" : "Assista à videoaula"}</a>{mentalMap ? <a className="block hover:text-[#aa0000]" href="#mapa-conceitual">Mapa conceitual da unidade</a> : null}<a className="block hover:text-[#aa0000]" href="#roteiro">Estude os tópicos</a></> : null}
             {!isDevelopment && hasVideoSection ? <a className="block text-[#aa0000]" href="#videoaula">Assista à videoaula</a> : null}
             {!isDevelopment && !hasVideoSection ? <a className="block text-[#aa0000]" href="#atlas">Navegue pelo atlas</a> : null}
             <a className="block hover:text-[#aa0000]" href="#teste">Teste seus conhecimentos</a>
@@ -156,7 +158,7 @@ export default async function QuizPage({
               </span>
             </div>
 
-            {isDevelopment ? <Link className="mt-5 inline-flex rounded-sm border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-[#aa0000] hover:text-[#aa0000]" href="/disciplinas/desenvolvimento-anos-iniciais-escolares">Voltar às unidades</Link> : null}
+            {isDevelopment || isTexts ? <Link className="mt-5 inline-flex rounded-sm border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-[#aa0000] hover:text-[#aa0000]" href={`/disciplinas/${subjectSlug}`}>Voltar às unidades</Link> : null}
             <div className="mt-5 bg-red-50 p-5 text-slate-700">
               <h2 className="font-semibold text-slate-800">Objetivos de aprendizagem</h2>
               <p className="mt-4">Após completar esta unidade de estudo, você será capaz de:</p>
@@ -172,7 +174,7 @@ export default async function QuizPage({
             {hasVideoSection ? (
               <section className="relative border-l border-slate-200 pl-8" id="videoaula">
                 <StepNumber>1</StepNumber>
-                <h2 className="font-semibold text-[#aa0000]">Assista à videoaula</h2>
+                <h2 className="font-semibold text-[#aa0000]">{isTexts ? "Revise o conteúdo" : "Assista à videoaula"}</h2>
                 <p className="mt-4 leading-7 text-slate-600">
                   {unit?.videoText.map((paragraph) => (
                     <span className="mb-3 block" key={paragraph}>{paragraph}</span>
@@ -213,7 +215,7 @@ export default async function QuizPage({
                             ? "Videoaula carregada pelo Google Drive."
                             : "Videoaula carregada para esta unidade."
                           : unit
-                            ? "A videoaula ainda não está disponível para esta unidade."
+                            ? isTexts ? "Módulo textual de revisão." : "A videoaula ainda não está disponível para esta unidade."
                             : `Para adicionar vídeo, coloque o arquivo em public/videos/${currentMaterial?.slug}.mp4.`}
                       </p>
                     </div>
@@ -243,7 +245,7 @@ export default async function QuizPage({
               </section>
             ) : null}
 
-            {isDevelopment ? (
+            {isDevelopment || isTexts ? (
               <section className="relative border-l border-slate-200 pl-8" id="roteiro">
                 <StepNumber>{hasVideoSection ? 3 : 2}</StepNumber>
                 <h2 className="font-semibold text-[#aa0000]">Estude os tópicos</h2>
@@ -255,7 +257,7 @@ export default async function QuizPage({
               <StepNumber>{isDevelopment ? (hasVideoSection ? 4 : 3) : 2}</StepNumber>
               <h2 className="font-semibold text-[#aa0000]">Teste seus conhecimentos</h2>
               <p className="mt-4 leading-7 text-slate-600">
-                {isDevelopment ? "Depois de estudar os tópicos acima, avance para o quiz e verifique sua compreensão." : unit?.testDescription ?? "Complete o teste a seguir para avaliar seus conhecimentos sobre esta aula."}
+                {isDevelopment || isTexts ? "Depois de estudar os tópicos acima, avance para o quiz e verifique sua compreensão." : unit?.testDescription ?? "Complete o teste a seguir para avaliar seus conhecimentos sobre esta aula."}
               </p>
               <TestStartCard
                 href={testHref}
@@ -278,8 +280,8 @@ export default async function QuizPage({
             ) : null}
 
             <section className="relative border-l border-slate-200 pl-8" id="resumo">
-              <StepNumber>{isDevelopment ? (hasVideoSection ? 5 : 4) : hasVideoSection ? 4 : 3}</StepNumber>
-              <h2 className="font-semibold text-[#aa0000]">{isDevelopment ? "Resumo da unidade" : "Resumo"}</h2>
+              <StepNumber>{isDevelopment || isTexts ? (hasVideoSection ? 5 : 4) : hasVideoSection ? 4 : 3}</StepNumber>
+              <h2 className="font-semibold text-[#aa0000]">{isDevelopment || isTexts ? "Resumo da unidade" : "Resumo"}</h2>
               <SummaryTables tables={summaryTables} />
 
               <section className="relative mt-10 rounded-sm border border-red-200 bg-red-50 p-8 text-center">
@@ -299,13 +301,13 @@ export default async function QuizPage({
                 </p>
                 <h2 className="mt-4 text-2xl font-normal text-[#aa0000]">Pronto para testar seus conhecimentos?</h2>
                 <p className="mx-auto mt-2 max-w-xl leading-7 text-slate-600">
-                  {isDevelopment ? "Depois da revisão, você pode fazer o quiz para verificar sua compreensão." : "Responda o teste para completar esta unidade de estudo."}
+                  {isDevelopment || isTexts ? "Depois da revisão, você pode fazer o quiz para verificar sua compreensão." : "Responda o teste para completar esta unidade de estudo."}
                 </p>
                 <Link
                   className="mt-6 flex w-full items-center justify-center rounded-sm bg-[#aa0000] px-6 py-3 text-sm font-bold uppercase text-white transition hover:bg-[#8b0000]"
-                  href={simulationHref}
+                  href={buildSimulationHref(quizId, selectedMaterial, selectedTopic, simulationQuestionCount)}
                 >
-                  Começar o simulado &gt; 30 questões
+                  Começar o simulado &gt; {simulationQuestionCount} questões
                 </Link>
               </section>
             </section>
@@ -313,7 +315,7 @@ export default async function QuizPage({
             <div className="flex justify-center">
               <Link
                 className="rounded-sm border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-700 shadow-sm transition hover:border-[#aa0000] hover:text-[#aa0000]"
-                href="/disciplinas/neuroanatomofisiologia"
+                href={`/disciplinas/${subjectSlug}`}
               >
                 Voltar para as aulas
               </Link>
@@ -388,7 +390,7 @@ function buildTestHref(quizId: string, materialSlug?: string, topicSlug?: string
   return `/quiz/${quizId}/teste${query ? `?${query}` : ""}`;
 }
 
-function buildSimulationHref(quizId: string, materialSlug?: string, topicSlug?: string) {
+function buildSimulationHref(quizId: string, materialSlug?: string, topicSlug?: string, questionCount?: number) {
   const params = new URLSearchParams();
 
   if (materialSlug) {
@@ -397,6 +399,10 @@ function buildSimulationHref(quizId: string, materialSlug?: string, topicSlug?: 
 
   if (topicSlug) {
     params.set("topic", topicSlug);
+  }
+
+  if (questionCount) {
+    params.set("perguntas", String(questionCount));
   }
 
   const query = params.toString();

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { StoredQuestion } from "@/lib/question-schema";
 
 type KnowledgeTestProps = {
@@ -11,7 +11,6 @@ type KnowledgeTestProps = {
   backHref: string;
   imageItems?: ImageItem[];
   imageUrls?: string[];
-  studyTimeMinutes?: number;
 };
 
 type ImageItem = {
@@ -36,7 +35,7 @@ type Feedback = {
 
 type QuestionLayout = "text" | "single-image" | "image-grid";
 
-export function KnowledgeTest({ questions, title, backHref, imageItems = [], imageUrls = [], studyTimeMinutes = 10 }: KnowledgeTestProps) {
+export function KnowledgeTest({ questions, title, backHref, imageItems = [], imageUrls = [] }: KnowledgeTestProps) {
   const [orderedQuestions] = useState(() => buildTimedQuestionDeck(questions));
   const [currentIndex, setCurrentIndex] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState<Record<string, string>>({});
@@ -44,30 +43,8 @@ export function KnowledgeTest({ questions, title, backHref, imageItems = [], ima
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string[]>>({});
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [showResult, setShowResult] = useState(false);
-  const [elapsedSeconds, setElapsedSeconds] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
-
-  useEffect(() => {
-    if (isPaused || showResult) {
-      return;
-    }
-
-    const interval = window.setInterval(() => {
-      setElapsedSeconds((seconds) => {
-        const nextSeconds = seconds + 1;
-
-        if (nextSeconds >= studyTimeMinutes * 60) {
-          setShowResult(true);
-        }
-
-        return nextSeconds;
-      });
-    }, 1000);
-
-    return () => window.clearInterval(interval);
-  }, [isPaused, showResult, studyTimeMinutes]);
 
   if (orderedQuestions.length === 0) {
     return (
@@ -89,7 +66,7 @@ export function KnowledgeTest({ questions, title, backHref, imageItems = [], ima
   const currentQuestion = orderedQuestions[currentIndex];
   const currentWrongAnswers = wrongAnswers[currentQuestion.id] ?? [];
   const correctCount = Object.keys(correctAnswers).length;
-  const timeProgress = Math.min(100, (elapsedSeconds / (studyTimeMinutes * 60)) * 100);
+  const questionProgress = ((currentIndex + 1) / orderedQuestions.length) * 100;
   const layout = getQuestionLayout(currentIndex, currentQuestion, imageItems, imageUrls);
   const visualItem = getVisualItem(currentQuestion, imageItems, currentIndex);
   const visualTextOptions = buildVisualTextOptions(visualItem, imageItems, currentQuestion.id, currentIndex);
@@ -195,7 +172,11 @@ export function KnowledgeTest({ questions, title, backHref, imageItems = [], ima
       return;
     }
 
-    setCurrentIndex((index) => (index + 1) % orderedQuestions.length);
+    if (currentIndex === orderedQuestions.length - 1) {
+      setShowResult(true);
+    } else {
+      setCurrentIndex((index) => index + 1);
+    }
     setFeedback(null);
   }
 
@@ -203,14 +184,13 @@ export function KnowledgeTest({ questions, title, backHref, imageItems = [], ima
     <main className="min-h-screen bg-[#f2f2f2] pb-36 text-slate-800">
       <TestHeader
         backHref={backHref}
-        elapsedSeconds={elapsedSeconds}
         isMenuOpen={isMenuOpen}
         isMuted={isMuted}
-        isPaused={isPaused}
         onMenuToggle={() => setIsMenuOpen((current) => !current)}
         onMuteToggle={() => setIsMuted((current) => !current)}
-        onPauseToggle={() => setIsPaused((current) => !current)}
-        progress={timeProgress}
+        progress={questionProgress}
+        questionNumber={currentIndex + 1}
+        totalQuestions={orderedQuestions.length}
       />
 
       <div className="bg-white px-4 py-5 text-[17px] text-[#aa0000]">
@@ -283,24 +263,22 @@ export function KnowledgeTest({ questions, title, backHref, imageItems = [], ima
 
 function TestHeader({
   backHref,
-  elapsedSeconds,
   isMenuOpen,
   isMuted,
-  isPaused,
   onMenuToggle,
   onMuteToggle,
-  onPauseToggle,
   progress,
+  questionNumber,
+  totalQuestions,
 }: {
   backHref: string;
-  elapsedSeconds: number;
   isMenuOpen: boolean;
   isMuted: boolean;
-  isPaused: boolean;
   onMenuToggle: () => void;
   onMuteToggle: () => void;
-  onPauseToggle: () => void;
   progress: number;
+  questionNumber: number;
+  totalQuestions: number;
 }) {
   return (
     <header className="bg-[#33495a] text-white">
@@ -322,17 +300,9 @@ function TestHeader({
             <div className="h-1.5 rounded-full bg-[#aa0000] transition-all" style={{ width: `${progress}%` }} />
           </div>
         </div>
-        <div className="flex items-center gap-2 text-sm font-semibold tabular-nums">
-          <span>{formatTime(elapsedSeconds)}</span>
-          <button
-            aria-label={isPaused ? "Continuar teste" : "Pausar teste"}
-            className="text-base font-bold leading-none"
-            onClick={onPauseToggle}
-            type="button"
-          >
-            {isPaused ? <PlayIcon /> : <PauseIcon />}
-          </button>
-        </div>
+        <span className="px-2 text-right text-sm font-semibold tabular-nums" aria-label={`Questão ${questionNumber} de ${totalQuestions}`}>
+          {questionNumber} de {totalQuestions}
+        </span>
 
         {isMenuOpen ? (
           <div className="absolute left-0 top-[62px] z-40 w-[250px] bg-[#33495a] text-white shadow-xl">
@@ -657,30 +627,6 @@ function getStableOffset(value: string, length: number) {
   }
 
   return Array.from(value).reduce((sum, character) => sum + character.charCodeAt(0), 0) % length;
-}
-
-function formatTime(totalSeconds: number) {
-  const minutes = Math.floor(totalSeconds / 60).toString().padStart(2, "0");
-  const seconds = (totalSeconds % 60).toString().padStart(2, "0");
-
-  return `${minutes}:${seconds}`;
-}
-
-function PauseIcon() {
-  return (
-    <svg aria-hidden="true" className="h-4 w-4" fill="currentColor" viewBox="0 0 16 16">
-      <rect height="12" rx="1" width="4" x="3" y="2" />
-      <rect height="12" rx="1" width="4" x="9" y="2" />
-    </svg>
-  );
-}
-
-function PlayIcon() {
-  return (
-    <svg aria-hidden="true" className="h-4 w-4" fill="currentColor" viewBox="0 0 16 16">
-      <path d="M4 2.8v10.4c0 .8.9 1.3 1.6.9l8-5.2c.6-.4.6-1.4 0-1.8l-8-5.2C4.9 1.5 4 2 4 2.8Z" />
-    </svg>
-  );
 }
 
 function SoundOffIcon() {

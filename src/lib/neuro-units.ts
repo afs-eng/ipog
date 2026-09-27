@@ -15,6 +15,7 @@ export type StudyGuide = {
 };
 
 export type NeuroTextQuestion = {
+  id?: string;
   prompt: string;
   options: string[];
   correctAnswer?: string;

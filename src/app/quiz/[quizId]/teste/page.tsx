@@ -2,7 +2,9 @@ import { notFound } from "next/navigation";
 import { KnowledgeTest } from "@/components/knowledge-test";
 import { getNeuroUnit } from "@/lib/neuro-units";
 import { getDevelopmentUnit } from "@/lib/development-units";
+import { allTextsQuestions, getTextsUnit } from "@/lib/texts-units";
 import { getLocalStudyQuestions } from "@/lib/question-files";
+import type { StoredQuestion } from "@/lib/question-schema";
 import { getQuizMode, getSubject, quizModes } from "@/lib/study-data";
 
 export function generateStaticParams() {
@@ -14,7 +16,7 @@ export default async function KnowledgeTestPage({
   searchParams,
 }: PageProps<"/quiz/[quizId]/teste">) {
   const { quizId } = await params;
-  const { material, remover, tempo, topic } = await searchParams;
+  const { material, remover, perguntas, topic } = await searchParams;
   const quizMode = getQuizMode(quizId);
 
   if (!quizMode) {
@@ -25,8 +27,9 @@ export default async function KnowledgeTestPage({
   const removedItems = typeof remover === "string" ? remover.split("|") : [];
   const normalizedRemovedItems = removedItems.map(normalizeLabel);
   const selectedTopic = typeof topic === "string" ? topic : undefined;
-  const subjectSlug = quizId.startsWith("desenvolvimento-") ? "desenvolvimento-anos-iniciais-escolares" : "neuroanatomofisiologia";
-  const unit = subjectSlug === "desenvolvimento-anos-iniciais-escolares" ? getDevelopmentUnit(selectedTopic) : getNeuroUnit(selectedTopic);
+  const subjectSlug = quizMode.subjectSlug as StoredQuestion["subjectId"];
+  const isTexts = subjectSlug === "producao-interpretacao-textos";
+  const unit = isTexts ? getTextsUnit(selectedTopic) : subjectSlug === "desenvolvimento-anos-iniciais-escolares" ? getDevelopmentUnit(selectedTopic) : getNeuroUnit(selectedTopic);
   const subject = getSubject(subjectSlug);
   const currentMaterial = subject?.materials.find((item) => item.slug === selectedMaterial);
   const questions = await getLocalStudyQuestions();
@@ -38,11 +41,12 @@ export default async function KnowledgeTestPage({
     : selectedTopic
       ? materialQuestions.filter((question) => question.topicId === selectedTopic)
       : materialQuestions;
-  const textQuestions = unit?.testTextQuestions?.map((question, index) => ({
-    subjectId: "neuroanatomofisiologia" as const,
-    id: `${unit.slug}-texto-${String(index + 1).padStart(3, "0")}`,
-    materialId: selectedMaterial ?? "encefalo",
-    topicId: unit.slug,
+  const sourceTextQuestions = unit?.testTextQuestions ?? (isTexts ? allTextsQuestions : []);
+  const textQuestions = sourceTextQuestions.map((question, index) => ({
+    subjectId: subjectSlug,
+    id: question.id ?? `${unit?.slug ?? subjectSlug}-texto-${String(index + 1).padStart(3, "0")}`,
+    materialId: selectedMaterial ?? (isTexts ? unit?.slug ?? subjectSlug : "encefalo"),
+    topicId: unit?.slug ?? selectedTopic ?? subjectSlug,
     type: "text" as const,
     difficulty: "easy" as const,
     prompt: question.prompt,
@@ -60,7 +64,7 @@ export default async function KnowledgeTestPage({
     status: "draft" as const,
     createdAt: "2026-09-06T00:00:00.000Z",
     updatedAt: "2026-09-06T00:00:00.000Z",
-  })) ?? [];
+  }));
   const unitSlug = unit?.slug;
   const testImageItems = unit?.testImageItems?.filter((item) => !normalizedRemovedItems.includes(normalizeLabel(item.label)));
   const visualQuestions = testImageItems?.map((item, index) => ({
@@ -83,14 +87,15 @@ export default async function KnowledgeTestPage({
     createdAt: "2026-09-06T00:00:00.000Z",
     updatedAt: "2026-09-06T00:00:00.000Z",
   })) ?? [];
-  const testQuestions = unit ? [...textQuestions, ...visualQuestions] : filteredQuestions;
+  const requestedQuestionCount = getQuestionCount(perguntas, isTexts && !unit ? 36 : 10);
+  const availableQuestions = unit || isTexts ? [...textQuestions, ...visualQuestions] : filteredQuestions;
+  const testQuestions = shuffleQuestions(availableQuestions).slice(0, requestedQuestionCount);
   const pageTitle = unit
     ? unit.title
     : selectedTopic
       ? selectedTopic.replaceAll("-", " ")
       : currentMaterial?.title ?? quizMode.title;
-  const backHref = buildQuizHref(quizId, selectedMaterial, selectedTopic);
-  const studyTimeMinutes = getStudyTimeMinutes(tempo);
+  const backHref = buildQuizHref(quizId, selectedMaterial, selectedTopic, typeof remover === "string" ? remover : undefined);
 
   return (
     <KnowledgeTest
@@ -98,13 +103,12 @@ export default async function KnowledgeTestPage({
       imageItems={testImageItems}
       imageUrls={testImageItems?.map((item) => item.imageUrl)}
       questions={testQuestions}
-      studyTimeMinutes={studyTimeMinutes}
       title={pageTitle}
     />
   );
 }
 
-function buildQuizHref(quizId: string, materialSlug?: string, topicSlug?: string) {
+function buildQuizHref(quizId: string, materialSlug?: string, topicSlug?: string, removedItems?: string) {
   const params = new URLSearchParams();
 
   if (materialSlug) {
@@ -115,19 +119,23 @@ function buildQuizHref(quizId: string, materialSlug?: string, topicSlug?: string
     params.set("topic", topicSlug);
   }
 
+  if (removedItems) {
+    params.set("remover", removedItems);
+  }
+
   const query = params.toString();
 
   return `/quiz/${quizId}${query ? `?${query}` : ""}`;
 }
 
-function getStudyTimeMinutes(value: string | string[] | undefined) {
-  if (typeof value !== "string") {
-    return 10;
-  }
+function getQuestionCount(value: string | string[] | undefined, fallback: 10 | 30 | 36) {
+  const parsedValue = typeof value === "string" ? Number(value) : Number.NaN;
 
-  const parsedValue = Number(value);
+  return [10, 20, 30, 36].includes(parsedValue) ? parsedValue : fallback;
+}
 
-  return [5, 10, 20, 30].includes(parsedValue) ? parsedValue : 10;
+function shuffleQuestions<T>(items: T[]) {
+  return [...items].sort(() => Math.random() - 0.5);
 }
 
 function normalizeLabel(value: string) {

@@ -4,6 +4,7 @@ import { NeuroCourseCard } from "@/components/neuro-course-card";
 import { CourseCard } from "@/components/course-card";
 import { neuroCourseSections } from "@/lib/neuro-course";
 import { developmentCourseSections } from "@/lib/development-course";
+import { textsCourseSections } from "@/lib/texts-course";
 import { getSubject, subjects } from "@/lib/study-data";
 
 export function generateStaticParams() {
@@ -20,7 +21,7 @@ export default async function SubjectPage({
     notFound();
   }
 
-  if (subjectSlug !== "neuroanatomofisiologia" && subjectSlug !== "desenvolvimento-anos-iniciais-escolares") {
+  if (subjectSlug !== "neuroanatomofisiologia" && subjectSlug !== "desenvolvimento-anos-iniciais-escolares" && subjectSlug !== "producao-interpretacao-textos") {
     return (
       <main className="mx-auto min-h-screen max-w-5xl px-6 py-8 sm:px-10 lg:px-12">
         <Link className="text-sm font-semibold text-[#aa0000]" href="/disciplinas">
@@ -41,7 +42,9 @@ export default async function SubjectPage({
   }
 
   const isDevelopment = subjectSlug === "desenvolvimento-anos-iniciais-escolares";
-  const sections = isDevelopment ? developmentCourseSections : neuroCourseSections;
+  const isTexts = subjectSlug === "producao-interpretacao-textos";
+  const sections = isTexts ? textsCourseSections : isDevelopment ? developmentCourseSections : neuroCourseSections;
+  const quizId = isTexts ? "producao-interpretacao-textos-treino-textual" : "desenvolvimento-anos-iniciais-escolares-treino-textual";
 
   return (
     <main className="min-h-screen bg-white text-slate-800">
@@ -52,9 +55,9 @@ export default async function SubjectPage({
               Cursos
             </Link>
             <span>›</span>
-            <span>{isDevelopment ? "Desenvolvimento" : "Anatomia"}</span>
+            <span>{isTexts ? "Textos" : isDevelopment ? "Desenvolvimento" : "Anatomia"}</span>
             <span>›</span>
-            <span className="text-slate-700">{isDevelopment ? subject.name : "Neuroanatomia"}</span>
+            <span className="text-slate-700">{isTexts || isDevelopment ? subject.name : "Neuroanatomia"}</span>
           </div>
           <div className="flex items-center gap-5">
             <button className="inline-flex items-center gap-1 text-sm text-slate-700" type="button">
@@ -84,7 +87,7 @@ export default async function SubjectPage({
           <h1 className="mb-8 text-3xl font-normal tracking-tight text-[#aa0000]">{subject.name}</h1>
           <div className="space-y-8">
             {sections.map((section) => (
-              isDevelopment ? <CourseCard key={section.id} quizId="desenvolvimento-anos-iniciais-escolares-treino-textual" section={section} topicOnlyAvailable /> : <NeuroCourseCard key={section.id} section={section} />
+              isDevelopment || isTexts ? <CourseCard key={section.id} quizId={quizId} section={section} topicOnlyAvailable /> : <NeuroCourseCard key={section.id} section={section} />
             ))}
           </div>
         </div>

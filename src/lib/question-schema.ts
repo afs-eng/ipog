@@ -6,7 +6,11 @@ export const questionOptionSchema = z.object({
 });
 
 export const questionDraftSchema = z.object({
-  subjectId: z.literal("neuroanatomofisiologia"),
+  subjectId: z.enum([
+    "neuroanatomofisiologia",
+    "desenvolvimento-anos-iniciais-escolares",
+    "producao-interpretacao-textos",
+  ]),
   materialId: z.string().trim().min(1, "Selecione o material."),
   topicId: z.string().trim().min(2, "Informe o tópico."),
   subtopicId: z.string().trim().optional(),

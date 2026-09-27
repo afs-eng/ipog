@@ -479,15 +479,15 @@ const unidade1Questions: DevelopmentTextQuestion[] = applyQuestionSources([
     explanation: "O roteiro reúne corpo caloso e lateralidade, córtex frontal e funções executivas, hipocampo e memória de longo prazo, além da visão periférica.",
   },
   {
-    prompt: "Qual sequência gráfica é apresentada para os desenhos entre 2 e 7 anos?",
+    prompt: "O que a progressão dos desenhos e das tarefas motoras entre 2 e 7 anos expressa?",
     options: [
-      "Rabisco, formas, esboços e figuras",
-      "Figuras, esboços, formas e rabisco",
-      "Formas, figuras, rabisco e esboços",
-      "Esboços, figuras, rabisco e formas",
+      "Aumento gradual do controle corporal e da complexidade das habilidades",
+      "Desaparecimento das habilidades motoras finas após os primeiros anos",
+      "Desenvolvimento completo da lógica formal antes da escolarização",
+      "Manutenção do mesmo nível de controle, sem mudanças nos desenhos",
     ],
-    correctAnswer: "Rabisco, formas, esboços e figuras",
-    explanation: "A sequência do material vai de rabiscos a formas, esboços e figuras, acompanhando o aumento do controle corporal.",
+    correctAnswer: "Aumento gradual do controle corporal e da complexidade das habilidades",
+    explanation: "O material relaciona a progressão dos desenhos e das tarefas motoras ao aumento gradual do controle corporal.",
   },
   {
     prompt: "A função simbólica permite à criança representar objetos ou ações ausentes.",
@@ -1194,12 +1194,6 @@ const unidade3Questions: DevelopmentTextQuestion[] = applyQuestionSources([
     ],
     correctAnswer: "Partir do que o aluno sabe e propor desafios, debates e perguntas",
     explanation: "Os resumos valorizam o conhecimento prévio, a participação, os debates, as perguntas e as atividades desafiadoras.",
-  },
-  {
-    prompt: "A formulação, o teste e a reformulação de hipóteses favorecem uma aprendizagem ativa e o pensamento crítico.",
-    options: ["Verdadeiro", "Falso"],
-    correctAnswer: "Verdadeiro",
-    explanation: "Essa estratégia aparece entre as implicações pedagógicas destacadas para atividades desafiadoras e colaborativas.",
   },
 ], [
   developmentQuestionSources.book,

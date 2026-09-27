@@ -1,0 +1,14 @@
+interface:
+  display_name: Implementar disciplina de textos
+  short_description: Integra revisão e quiz de textos ao sistema.
+  default_prompt: Implemente a disciplina Produção e Interpretação de Textos no sistema
+    de estudos existente, usando o banco da skill.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
