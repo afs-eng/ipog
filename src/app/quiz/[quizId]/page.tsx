@@ -139,10 +139,11 @@ export default async function QuizPage({
         <aside className="h-fit text-sm lg:sticky lg:top-8">
           <nav className="space-y-3 text-slate-600">
             {isDevelopment || isTexts ? <><a className="block text-[#aa0000]" href="#videoaula">{isTexts ? "Revise o conteúdo" : "Assista à videoaula"}</a>{mentalMap ? <a className="block hover:text-[#aa0000]" href="#mapa-conceitual">Mapa conceitual da unidade</a> : null}<a className="block hover:text-[#aa0000]" href="#roteiro">Estude os tópicos</a></> : null}
-            {!isDevelopment && hasVideoSection ? <a className="block text-[#aa0000]" href="#videoaula">Assista à videoaula</a> : null}
-            {!isDevelopment && !hasVideoSection ? <a className="block text-[#aa0000]" href="#atlas">Navegue pelo atlas</a> : null}
+            {!isDevelopment && !isTexts && hasVideoSection ? <a className="block text-[#aa0000]" href="#videoaula">Assista à videoaula</a> : null}
+            {!isDevelopment && !isTexts && !hasVideoSection ? <a className="block text-[#aa0000]" href="#atlas">Navegue pelo atlas</a> : null}
+            {isTexts ? <a className="block hover:text-[#aa0000]" href="#slides">Slides da aula</a> : null}
             <a className="block hover:text-[#aa0000]" href="#teste">Teste seus conhecimentos</a>
-            {!isDevelopment && hasVideoSection ? <a className="block hover:text-[#aa0000]" href="#atlas">Navegue pelo atlas</a> : null}
+            {!isDevelopment && !isTexts && hasVideoSection ? <a className="block hover:text-[#aa0000]" href="#atlas">Navegue pelo atlas</a> : null}
             <a className="block hover:text-[#aa0000]" href="#resumo">{isDevelopment ? "Resumo da unidade" : "Resumo"}</a>
           </nav>
         </aside>
@@ -154,7 +155,7 @@ export default async function QuizPage({
                 {pageTitle}
               </h1>
               <span className="rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold uppercase text-slate-400">
-                Incompleta
+                {unit?.status === "complete" ? "Completa" : "Incompleta"}
               </span>
             </div>
 
@@ -224,7 +225,7 @@ export default async function QuizPage({
               </section>
             ) : null}
 
-            {!isDevelopment && !hasVideoSection ? (
+            {!isDevelopment && !isTexts && !hasVideoSection ? (
               <section className="relative border-l border-slate-200 pl-8" id="atlas">
                 <StepNumber>1</StepNumber>
                 <h2 className="font-semibold text-[#aa0000]">Navegue pelo atlas</h2>
@@ -247,14 +248,25 @@ export default async function QuizPage({
 
             {isDevelopment || isTexts ? (
               <section className="relative border-l border-slate-200 pl-8" id="roteiro">
-                <StepNumber>{hasVideoSection ? 3 : 2}</StepNumber>
+                <StepNumber>{isTexts ? 2 : hasVideoSection ? 3 : 2}</StepNumber>
                 <h2 className="font-semibold text-[#aa0000]">Estude os tópicos</h2>
                 {studyGuide ? <StudyGuide guide={studyGuide} /> : <p className="mt-5 leading-7 text-slate-600">Revise os objetivos e o conteúdo apresentado antes de iniciar o teste.</p>}
               </section>
             ) : null}
 
+            {isTexts ? (
+              <section className="relative border-l border-slate-200 pl-8" id="slides">
+                <StepNumber>3</StepNumber>
+                <h2 className="font-semibold text-[#aa0000]">Slides da aula</h2>
+                <AtlasGallery
+                  description={unit?.atlasDescription ?? "Fotos únicas dos slides de aula, com repetições desconsideradas."}
+                  items={atlasGalleryItems}
+                />
+              </section>
+            ) : null}
+
             <section className="relative border-l border-slate-200 pl-8" id="teste">
-              <StepNumber>{isDevelopment ? (hasVideoSection ? 4 : 3) : 2}</StepNumber>
+              <StepNumber>{isDevelopment || isTexts ? (hasVideoSection ? 4 : 3) : 2}</StepNumber>
               <h2 className="font-semibold text-[#aa0000]">Teste seus conhecimentos</h2>
               <p className="mt-4 leading-7 text-slate-600">
                 {isDevelopment || isTexts ? "Depois de estudar os tópicos acima, avance para o quiz e verifique sua compreensão." : unit?.testDescription ?? "Complete o teste a seguir para avaliar seus conhecimentos sobre esta aula."}
@@ -267,7 +279,7 @@ export default async function QuizPage({
               />
             </section>
 
-            {!isDevelopment && hasVideoSection ? (
+            {!isDevelopment && !isTexts && hasVideoSection ? (
               <section className="relative border-l border-slate-200 pl-8" id="atlas">
                 <StepNumber>3</StepNumber>
                 <h2 className="font-semibold text-[#aa0000]">Navegue pelo atlas</h2>
