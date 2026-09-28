@@ -578,25 +578,55 @@ const studyTips: Record<string, string> = {
 };
 
 const focusConcepts: Record<string, { term: string; meaning: string }[]> = {
+  "producao-interpretacao-textos-leitura": [
+    { term: "Tema", meaning: "Assunto central tratado pelo texto ou pela fala." },
+    { term: "Inferência", meaning: "Conclusão sustentada por pistas, sem inventar causa." },
+    { term: "Contexto", meaning: "Quem fala, para quem, onde, quando e com qual finalidade." },
+  ],
   "producao-interpretacao-textos-linguagem": [
     { term: "Tema", meaning: "Assunto central tratado pelo texto ou pela fala." },
     { term: "Inferência", meaning: "Conclusão sustentada por pistas, sem inventar causa." },
     { term: "Contexto", meaning: "Quem fala, para quem, onde, quando e com qual finalidade." },
+  ],
+  "producao-interpretacao-textos-escuta": [
+    { term: "Dito", meaning: "Formulação observável: palavras, pausas descritas e sequência." },
+    { term: "Não dito", meaning: "Silêncios, lacunas e pressupostos que abrem hipóteses." },
+    { term: "Hipótese", meaning: "Leitura possível que precisa ser testada no contexto." },
   ],
   "producao-interpretacao-textos-discurso": [
     { term: "Língua", meaning: "Sistema compartilhado de signos e regras." },
     { term: "Fala", meaning: "Uso concreto da língua por uma pessoa em situação real." },
     { term: "Discurso", meaning: "Sentido produzido em condições históricas, sociais e institucionais." },
   ],
+  "producao-interpretacao-textos-estrutura-redacao": [
+    { term: "Introdução", meaning: "Apresenta o tema, delimita o problema e anuncia a tese." },
+    { term: "Desenvolvimento", meaning: "Sustenta a tese com razões, evidências e explicação." },
+    { term: "Conclusão", meaning: "Fecha o percurso e propõe intervenção quando solicitado." },
+  ],
   "producao-interpretacao-textos-redacao": [
     { term: "Tese", meaning: "Posição defendida pelo texto, não apenas o assunto." },
     { term: "Argumento", meaning: "Razão que sustenta a tese com explicação e evidência." },
     { term: "Progressão", meaning: "Avanço lógico entre parágrafos, sem repetição mecânica." },
   ],
+  "producao-interpretacao-textos-argumentos": [
+    { term: "Tese", meaning: "Posição que será defendida no texto." },
+    { term: "Argumento", meaning: "Razão que sustenta a tese e organiza o parágrafo." },
+    { term: "Repertório", meaning: "Referência usada com explicação, não como enfeite." },
+  ],
+  "producao-interpretacao-textos-portugues": [
+    { term: "Porquês", meaning: "Cada forma muda conforme a função na frase." },
+    { term: "Mas / mais", meaning: "Oposição e quantidade não podem ser confundidas." },
+    { term: "Retomada", meaning: "Pronomes precisam ter referente claro." },
+  ],
   "producao-interpretacao-textos-revisao": [
     { term: "Precisão", meaning: "Separar fato observado, fala relatada, hipótese e análise." },
     { term: "Função", meaning: "Escolher a forma correta pelo papel da palavra na frase." },
     { term: "Retomada", meaning: "Usar pronomes e referentes sem criar ambiguidade." },
+  ],
+  "producao-interpretacao-textos-simulado": [
+    { term: "Rodada mista", meaning: "Questões de leitura, discurso, redação e revisão." },
+    { term: "Sem repetição", meaning: "Cada pergunta aparece uma única vez na rodada." },
+    { term: "Correção ativa", meaning: "Leia a explicação e registre o critério que falhou." },
   ],
   "producao-interpretacao-textos-avaliacao": [
     { term: "Critério", meaning: "Base observável usada para avaliar uma resposta." },
@@ -605,151 +635,135 @@ const focusConcepts: Record<string, { term: string; meaning: string }[]> = {
   ],
 };
 
-const avaliacaoQuestions: NeuroTextQuestion[] = [
-  {
-    id: "pit-aval-001",
-    prompt: "O que distingue um critério de avaliação de uma preferência pessoal?",
-    options: [
-      "O critério é declarado antes da leitura e pode ser conferido por outro leitor.",
-      "A preferência é mais honesta porque parte de quem avalia.",
-      "O critério serve apenas para textos longos.",
-      "A preferência vale quando quem avalia é experiente.",
-    ],
-    correctAnswer: "O critério é declarado antes da leitura e pode ser conferido por outro leitor.",
-    explanation: "Critério é específico, declarado e verificável; preferência expressa gosto e não pode ser conferida por outra pessoa.",
+const simuladoLesson: DeepLesson = {
+  goal: "Fazer uma rodada mista de revisão com dez questões, treinando leitura cuidadosa, eliminação de alternativas e correção ativa dos erros.",
+  concepts: [
+    {
+      title: "Rodada mista",
+      explanation: "O simulado reúne perguntas de leitura, linguagem, discurso, redação, argumentação e revisão de português. A ideia é treinar a prova como um todo, sem saber previamente qual conteúdo aparecerá em cada item.",
+    },
+    {
+      title: "Sem repetição",
+      explanation: "Dentro da rodada, cada questão aparece apenas uma vez. Ao concluir as dez perguntas, você recebe o resultado e pode iniciar uma nova rodada com outra ordem.",
+    },
+    {
+      title: "Correção ativa",
+      explanation: "Depois de responder, leia a explicação e registre o motivo do erro: falta de evidência textual, confusão conceitual, extrapolação, regra gramatical ou leitura apressada.",
+    },
+  ],
+  sections: [
+    {
+      title: "1. Leia o comando antes das alternativas",
+      body: "Identifique o que a questão pede: sentido literal, inferência, conceito, correção gramatical ou estrutura de redação. O comando orienta o critério de resposta.",
+    },
+    {
+      title: "2. Localize a evidência",
+      body: "Antes de marcar, encontre a palavra, expressão ou regra que sustenta a alternativa. Se você não consegue apontar a evidência, ainda está escolhendo por impressão.",
+    },
+    {
+      title: "3. Elimine extrapolações",
+      body: "Descarte alternativas que acrescentam intenção, diagnóstico, causa ou generalização que o enunciado não autoriza. A resposta correta mantém o alcance do texto.",
+    },
+    {
+      title: "4. Corrija por critério",
+      body: "Ao errar, não registre apenas a nota. Escreva qual critério falhou: interpretação sem pista, tese vaga, argumento sem evidência, pronome ambíguo ou regra gramatical mal aplicada.",
+    },
+  ],
+  worked: {
+    title: "Como usar o resultado do simulado",
+    source: "Exemplo: acertou 7 de 10, mas errou duas questões por inferência sem pista e uma por confundir mas/mais.",
+    analysis: "O plano de estudo não deve ser 'estudar tudo de novo'. O foco passa a ser: localizar evidência antes de marcar e revisar relações de sentido em frases. A nota mostra o resultado; o padrão de erro mostra o próximo passo.",
   },
-  {
-    id: "pit-aval-002",
-    prompt: "Em uma revisão de texto, qual é a ordem de trabalho mais eficiente?",
-    options: [
-      "Corrigir pontuação, depois conferir se a tarefa foi cumprida.",
-      "Adequação, progressão e argumentação e, por fim, correção gramatical.",
-      "Reescrever o texto inteiro e depois ler a proposta.",
-      "Contar palavras, revisar conectivos e conferir a tese.",
-    ],
-    correctAnswer: "Adequação, progressão e argumentação e, por fim, correção gramatical.",
-    explanation: "Corrigir a forma antes de saber se o texto cumpre a tarefa é trabalho perdido: primeiro adequação, depois organização, depois língua.",
-  },
-  {
-    id: "pit-aval-003",
-    prompt: "Qual frase funciona como feedback descritivo?",
-    options: [
-      "Texto confuso, precisa estudar mais.",
-      "Você ainda não sabe argumentar.",
-      "O segundo parágrafo repete a tese sem acrescentar razão; dê a ele uma função própria.",
-      "Nota baixa, mas o tema é interessante.",
-    ],
-    correctAnswer: "O segundo parágrafo repete a tese sem acrescentar razão; dê a ele uma função própria.",
-    explanation: "Feedback descritivo cita o observado, seu efeito e um encaminhamento concreto, sem rotular a pessoa.",
-  },
-  {
-    id: "pit-aval-004",
-    prompt: "Ao responder uma questão de múltipla escolha, qual deve ser o primeiro passo?",
-    options: [
-      "Ler todas as alternativas e escolher a mais familiar.",
-      "Sublinhar no enunciado o que a pergunta pede e localizar a expressão decisiva no texto.",
-      "Descartar a alternativa mais longa.",
-      "Marcar a alternativa que melhor desenvolve o assunto.",
-    ],
-    correctAnswer: "Sublinhar no enunciado o que a pergunta pede e localizar a expressão decisiva no texto.",
-    explanation: "Sem localizar o trecho decisivo, a escolha passa a ser impressão. A alternativa correta mantém o mesmo alcance do texto.",
-  },
-  {
-    id: "pit-aval-005",
-    prompt: "Uma autoavaliação registrada deve conter, no mínimo:",
-    options: [
-      "A nota obtida e a sensação geral sobre o desempenho.",
-      "O critério usado, o que foi observado e o ajuste que será feito.",
-      "A quantidade de questões respondidas e o tempo gasto.",
-      "O número de palavras escritas e os conectivos utilizados.",
-    ],
-    correctAnswer: "O critério usado, o que foi observado e o ajuste que será feito.",
-    explanation: "Sem critério, observação e ajuste, a autoavaliação não indica o que mudar na próxima produção.",
-  },
-  {
-    id: "pit-aval-006",
-    prompt: "Em uma rubrica de avaliação, o que os níveis de desempenho devem indicar?",
-    options: [
-      "Preferências pessoais do corretor sobre o estilo do aluno.",
-      "Descrições claras do que caracteriza cada grau de domínio do critério.",
-      "A quantidade obrigatória de linhas em cada parágrafo.",
-      "Uma lista de palavras difíceis que precisam aparecer no texto.",
-    ],
-    correctAnswer: "Descrições claras do que caracteriza cada grau de domínio do critério.",
-    explanation: "A rubrica transforma o critério em níveis observáveis, permitindo entender o que falta para avançar.",
-  },
-  {
-    id: "pit-aval-007",
-    prompt: "Qual situação mostra avaliação baseada em evidência textual?",
-    options: [
-      "A redação parece boa porque usa palavras formais.",
-      "O texto merece nota alta porque o tema é importante.",
-      "A tese está clara porque aparece na introdução e é retomada nos parágrafos.",
-      "A conclusão é boa porque ocupa muitas linhas.",
-    ],
-    correctAnswer: "A tese está clara porque aparece na introdução e é retomada nos parágrafos.",
-    explanation: "A avaliação é sustentada por algo verificável no texto: presença da tese e retomada ao longo da argumentação.",
-  },
-  {
-    id: "pit-aval-008",
-    prompt: "Ao avaliar uma redação, qual pergunta verifica a adequação à proposta?",
-    options: [
-      "O texto responde exatamente ao que foi pedido no comando?",
-      "O texto tem palavras raras em todos os parágrafos?",
-      "O autor concorda com a opinião do corretor?",
-      "A redação usa sempre frases longas?",
-    ],
-    correctAnswer: "O texto responde exatamente ao que foi pedido no comando?",
-    explanation: "Adequação verifica se o texto cumpre a tarefa, respeita o gênero e responde ao comando da proposta.",
-  },
-  {
-    id: "pit-aval-009",
-    prompt: "Qual erro prejudica a avaliação da progressão argumentativa?",
-    options: [
-      "Usar um tópico frasal para abrir o parágrafo.",
-      "Retomar a tese na conclusão.",
-      "Repetir a mesma ideia em vários parágrafos sem acrescentar razão nova.",
-      "Explicar como um exemplo se relaciona com a tese.",
-    ],
-    correctAnswer: "Repetir a mesma ideia em vários parágrafos sem acrescentar razão nova.",
-    explanation: "Progressão exige avanço do raciocínio; repetir a tese com sinônimos não desenvolve a argumentação.",
-  },
-  {
-    id: "pit-aval-010",
-    prompt: "Depois de errar uma questão de interpretação, qual registro de estudo é mais útil?",
-    options: [
-      "Errei porque a questão era difícil.",
-      "Errei porque marquei sem localizar o trecho que sustentava a alternativa.",
-      "Errei porque a alternativa correta parecia curta demais.",
-      "Errei porque não gostei do tema do texto.",
-    ],
-    correctAnswer: "Errei porque marquei sem localizar o trecho que sustentava a alternativa.",
-    explanation: "O registro identifica o critério que falhou e permite criar uma regra de estudo: localizar a evidência antes de marcar.",
-  },
-];
+  method: [
+    "Leia o comando e diga qual conteúdo está sendo cobrado.",
+    "Sublinhe mentalmente a evidência antes de marcar.",
+    "Depois da correção, registre o tipo de erro e refaça a questão.",
+  ],
+  recall: [
+    { question: "Por que o simulado é misto?", answer: "Para treinar a mudança de assunto como acontece em prova, sem saber previamente qual conteúdo será cobrado." },
+    { question: "O que significa não repetir questões?", answer: "Cada pergunta aparece uma única vez dentro da mesma rodada de dez itens." },
+    { question: "Como usar um erro de simulado?", answer: "Identificando o critério que falhou e transformando a explicação em uma regra de estudo." },
+  ],
+};
+
+const simuladoActivity: StudyActivity = {
+  prompt: "Depois de uma rodada de dez questões, escreva dois erros recorrentes e uma ação concreta para corrigir cada um.",
+  model: "Erro 1: marquei sem localizar evidência textual. Ação: sublinhar mentalmente a palavra decisiva antes de escolher. Erro 2: confundi relação de oposição e quantidade. Ação: revisar mas/mais e montar três exemplos próprios.",
+  trap: "Olhar apenas a nota final e não identificar o padrão de erro.",
+};
 
 function buildTopics(): StudyTopic[] {
-  const unitTopics: StudyTopic[] = textsUnits.map((unit) => ({
-    slug: unit.slug,
-    title: unit.title,
-    description: unit.videoDescription,
-    questions: unit.testTextQuestions ?? [],
-    lesson: deepLessons[unit.slug],
-    activity: writingActivities[unit.slug],
-    tip: studyTips[unit.slug],
-  }));
+  const bySlug = Object.fromEntries(textsUnits.map((unit) => [unit.slug, unit]));
+  const linguagem = bySlug["producao-interpretacao-textos-linguagem"];
+  const discurso = bySlug["producao-interpretacao-textos-discurso"];
+  const redacao = bySlug["producao-interpretacao-textos-redacao"];
+  const revisao = bySlug["producao-interpretacao-textos-revisao"];
+  const redacaoQuestions = redacao?.testTextQuestions ?? [];
+  const allQuestions = textsUnits.flatMap((unit) => unit.testTextQuestions ?? []);
 
   return [
-    ...unitTopics,
     {
-      slug: "producao-interpretacao-textos-avaliacao",
-      title: "Avaliação",
-      description:
-        "Critérios para avaliar um texto, responder questões com segurança e transformar resultado em plano de estudo.",
-      questions: avaliacaoQuestions,
-      lesson: deepLessons["producao-interpretacao-textos-avaliacao"],
-      activity: writingActivities["producao-interpretacao-textos-avaliacao"],
-      tip: studyTips["producao-interpretacao-textos-avaliacao"],
+      slug: "producao-interpretacao-textos-leitura",
+      title: "Leitura e inferência",
+      description: "Distinguir o que está escrito daquilo que você conclui a partir de pistas do texto.",
+      questions: linguagem?.testTextQuestions ?? [],
+      lesson: deepLessons["producao-interpretacao-textos-linguagem"],
+      activity: writingActivities["producao-interpretacao-textos-linguagem"],
+      tip: studyTips["producao-interpretacao-textos-linguagem"],
+    },
+    {
+      slug: "producao-interpretacao-textos-linguagem",
+      title: "Linguagem e discurso",
+      description: "Compreender a fala em relação às estruturas da língua, à sociedade e à subjetividade.",
+      questions: discurso?.testTextQuestions ?? [],
+      lesson: deepLessons["producao-interpretacao-textos-discurso"],
+      activity: writingActivities["producao-interpretacao-textos-discurso"],
+      tip: studyTips["producao-interpretacao-textos-discurso"],
+    },
+    {
+      slug: "producao-interpretacao-textos-escuta",
+      title: "Dito e não dito",
+      description: "Ler palavras, pausas e omissões com atenção, sem transformar pistas em certezas.",
+      questions: discurso?.testTextQuestions ?? [],
+      lesson: deepLessons["producao-interpretacao-textos-discurso"],
+      activity: writingActivities["producao-interpretacao-textos-discurso"],
+      tip: "Diferencie descrição observável, pressuposto e hipótese antes de concluir.",
+    },
+    {
+      slug: "producao-interpretacao-textos-estrutura-redacao",
+      title: "Estrutura da redação",
+      description: "Planejar tese, parágrafos de desenvolvimento e conclusão em uma sequência lógica.",
+      questions: redacaoQuestions.slice(0, 6),
+      lesson: deepLessons["producao-interpretacao-textos-redacao"],
+      activity: writingActivities["producao-interpretacao-textos-redacao"],
+      tip: studyTips["producao-interpretacao-textos-redacao"],
+    },
+    {
+      slug: "producao-interpretacao-textos-argumentos",
+      title: "Argumentos e repertório",
+      description: "Selecionar razões, exemplos e referências que realmente sustentem a tese.",
+      questions: redacaoQuestions.slice(6),
+      lesson: deepLessons["producao-interpretacao-textos-redacao"],
+      activity: writingActivities["producao-interpretacao-textos-redacao"],
+      tip: "Não use repertório como enfeite: explique o que ele demonstra e como sustenta a tese.",
+    },
+    {
+      slug: "producao-interpretacao-textos-portugues",
+      title: "Revisão de português",
+      description: "Corrigir escolhas de palavra e construção que prejudicam a clareza do texto.",
+      questions: revisao?.testTextQuestions ?? [],
+      lesson: deepLessons["producao-interpretacao-textos-revisao"],
+      activity: writingActivities["producao-interpretacao-textos-revisao"],
+      tip: studyTips["producao-interpretacao-textos-revisao"],
+    },
+    {
+      slug: "producao-interpretacao-textos-simulado",
+      title: "Simulado 10 questões",
+      description: "Rodada mista com dez questões sorteadas dos temas de leitura, discurso, redação e revisão.",
+      questions: allQuestions.slice(0, 10),
+      lesson: simuladoLesson,
+      activity: simuladoActivity,
+      tip: "Trate cada erro como dado de estudo: registre o critério que falhou antes de seguir.",
     },
   ];
 }
