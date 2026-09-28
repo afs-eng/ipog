@@ -666,6 +666,66 @@ const avaliacaoQuestions: NeuroTextQuestion[] = [
     correctAnswer: "O critério usado, o que foi observado e o ajuste que será feito.",
     explanation: "Sem critério, observação e ajuste, a autoavaliação não indica o que mudar na próxima produção.",
   },
+  {
+    id: "pit-aval-006",
+    prompt: "Em uma rubrica de avaliação, o que os níveis de desempenho devem indicar?",
+    options: [
+      "Preferências pessoais do corretor sobre o estilo do aluno.",
+      "Descrições claras do que caracteriza cada grau de domínio do critério.",
+      "A quantidade obrigatória de linhas em cada parágrafo.",
+      "Uma lista de palavras difíceis que precisam aparecer no texto.",
+    ],
+    correctAnswer: "Descrições claras do que caracteriza cada grau de domínio do critério.",
+    explanation: "A rubrica transforma o critério em níveis observáveis, permitindo entender o que falta para avançar.",
+  },
+  {
+    id: "pit-aval-007",
+    prompt: "Qual situação mostra avaliação baseada em evidência textual?",
+    options: [
+      "A redação parece boa porque usa palavras formais.",
+      "O texto merece nota alta porque o tema é importante.",
+      "A tese está clara porque aparece na introdução e é retomada nos parágrafos.",
+      "A conclusão é boa porque ocupa muitas linhas.",
+    ],
+    correctAnswer: "A tese está clara porque aparece na introdução e é retomada nos parágrafos.",
+    explanation: "A avaliação é sustentada por algo verificável no texto: presença da tese e retomada ao longo da argumentação.",
+  },
+  {
+    id: "pit-aval-008",
+    prompt: "Ao avaliar uma redação, qual pergunta verifica a adequação à proposta?",
+    options: [
+      "O texto responde exatamente ao que foi pedido no comando?",
+      "O texto tem palavras raras em todos os parágrafos?",
+      "O autor concorda com a opinião do corretor?",
+      "A redação usa sempre frases longas?",
+    ],
+    correctAnswer: "O texto responde exatamente ao que foi pedido no comando?",
+    explanation: "Adequação verifica se o texto cumpre a tarefa, respeita o gênero e responde ao comando da proposta.",
+  },
+  {
+    id: "pit-aval-009",
+    prompt: "Qual erro prejudica a avaliação da progressão argumentativa?",
+    options: [
+      "Usar um tópico frasal para abrir o parágrafo.",
+      "Retomar a tese na conclusão.",
+      "Repetir a mesma ideia em vários parágrafos sem acrescentar razão nova.",
+      "Explicar como um exemplo se relaciona com a tese.",
+    ],
+    correctAnswer: "Repetir a mesma ideia em vários parágrafos sem acrescentar razão nova.",
+    explanation: "Progressão exige avanço do raciocínio; repetir a tese com sinônimos não desenvolve a argumentação.",
+  },
+  {
+    id: "pit-aval-010",
+    prompt: "Depois de errar uma questão de interpretação, qual registro de estudo é mais útil?",
+    options: [
+      "Errei porque a questão era difícil.",
+      "Errei porque marquei sem localizar o trecho que sustentava a alternativa.",
+      "Errei porque a alternativa correta parecia curta demais.",
+      "Errei porque não gostei do tema do texto.",
+    ],
+    correctAnswer: "Errei porque marquei sem localizar o trecho que sustentava a alternativa.",
+    explanation: "O registro identifica o critério que falhou e permite criar uma regra de estudo: localizar a evidência antes de marcar.",
+  },
 ];
 
 function buildTopics(): StudyTopic[] {
@@ -683,7 +743,7 @@ function buildTopics(): StudyTopic[] {
     ...unitTopics,
     {
       slug: "producao-interpretacao-textos-avaliacao",
-      title: "Avaliação e autoavaliação",
+      title: "Avaliação",
       description:
         "Critérios para avaliar um texto, responder questões com segurança e transformar resultado em plano de estudo.",
       questions: avaliacaoQuestions,
