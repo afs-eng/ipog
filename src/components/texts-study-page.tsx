@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRef, useState, useSyncExternalStore } from "react";
 import type { NeuroTextQuestion } from "@/lib/neuro-units";
 import { textsUnits } from "@/lib/texts-units";
@@ -578,6 +577,34 @@ const studyTips: Record<string, string> = {
   "producao-interpretacao-textos-avaliacao": "Antes de se cobrar uma nota, diga qual critério falhou; sem critério, não há plano de estudo.",
 };
 
+const focusConcepts: Record<string, { term: string; meaning: string }[]> = {
+  "producao-interpretacao-textos-linguagem": [
+    { term: "Tema", meaning: "Assunto central tratado pelo texto ou pela fala." },
+    { term: "Inferência", meaning: "Conclusão sustentada por pistas, sem inventar causa." },
+    { term: "Contexto", meaning: "Quem fala, para quem, onde, quando e com qual finalidade." },
+  ],
+  "producao-interpretacao-textos-discurso": [
+    { term: "Língua", meaning: "Sistema compartilhado de signos e regras." },
+    { term: "Fala", meaning: "Uso concreto da língua por uma pessoa em situação real." },
+    { term: "Discurso", meaning: "Sentido produzido em condições históricas, sociais e institucionais." },
+  ],
+  "producao-interpretacao-textos-redacao": [
+    { term: "Tese", meaning: "Posição defendida pelo texto, não apenas o assunto." },
+    { term: "Argumento", meaning: "Razão que sustenta a tese com explicação e evidência." },
+    { term: "Progressão", meaning: "Avanço lógico entre parágrafos, sem repetição mecânica." },
+  ],
+  "producao-interpretacao-textos-revisao": [
+    { term: "Precisão", meaning: "Separar fato observado, fala relatada, hipótese e análise." },
+    { term: "Função", meaning: "Escolher a forma correta pelo papel da palavra na frase." },
+    { term: "Retomada", meaning: "Usar pronomes e referentes sem criar ambiguidade." },
+  ],
+  "producao-interpretacao-textos-avaliacao": [
+    { term: "Critério", meaning: "Base observável usada para avaliar uma resposta." },
+    { term: "Rubrica", meaning: "Escala que descreve níveis de desempenho por critério." },
+    { term: "Feedback", meaning: "Observação, efeito e encaminhamento concreto de melhoria." },
+  ],
+};
+
 const avaliacaoQuestions: NeuroTextQuestion[] = [
   {
     id: "pit-aval-001",
@@ -790,12 +817,9 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
 
       <div className="mx-auto max-w-[1210px] px-[26px] max-[560px]:px-[15px]">
         <section className="pb-[25px] pt-[39px] max-[810px]:pt-[27px]">
-          <Link className="mb-4 block text-sm font-semibold text-rose-200" href="/disciplinas">
-            Voltar para disciplinas
-          </Link>
           <span className="block text-[.82rem] font-bold uppercase tracking-[.1em] text-rose-200">Produção e interpretação</span>
           <h1 className="mb-[9px] mt-1.5 max-w-[760px] text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.13] tracking-[-.035em] text-white">
-            Aulas autorais, com método próprio de estudo.
+            Estude uma aula por vez.
           </h1>
           <p className="max-w-[700px] text-justify text-[1.05rem] leading-relaxed text-rose-50/75">
             {subjectDescription} {studyTopics.length} aulas aprofundadas a partir dos materiais, com conceitos aprofundados, exemplos resolvidos, revisão ativa, questões sorteadas e atividades de escrita. Escolha um tema, acompanhe a explicação e pratique no seu ritmo.
@@ -866,18 +890,11 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
 
                 <section className="mb-5" aria-label="Conceitos centrais">
                   <h3 className="mb-2.5 text-[1.05rem] font-semibold text-slate-950">Conceitos em foco</h3>
-                  <div className="grid items-start gap-[9px] sm:grid-cols-2">
-                    {topic.lesson.concepts.map((concept) => (
-                      <div className="rounded-[10px] border border-red-100 bg-white p-[14px]" key={concept.title}>
-                        <strong className="mb-1 block text-[#aa0000]">{concept.title}</strong>
-                        <span className="block text-justify text-[.94rem] leading-relaxed text-slate-600">{concept.explanation}</span>
-                        {concept.examples?.length ? (
-                          <ul className="mt-3 list-disc space-y-2 pl-5 text-justify text-[.9rem] leading-relaxed text-slate-700">
-                            {concept.examples.map((example) => (
-                              <li key={example}>{example}</li>
-                            ))}
-                          </ul>
-                        ) : null}
+                  <div className="grid gap-[9px] min-[651px]:grid-cols-3 max-[650px]:grid-cols-1">
+                    {(focusConcepts[topic.slug] ?? topic.lesson.concepts.slice(0, 3).map((concept) => ({ term: concept.title, meaning: concept.explanation }))).map((concept) => (
+                      <div className="rounded-[10px] border border-red-100 bg-white p-[12px_14px]" key={concept.term}>
+                        <strong className="mb-[3px] block text-[#aa0000]">{concept.term}</strong>
+                        <span className="block text-[.94rem] leading-relaxed text-slate-600">{concept.meaning}</span>
                       </div>
                     ))}
                   </div>
