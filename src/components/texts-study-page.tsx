@@ -2,7 +2,6 @@
 
 import { useRef, useState, useSyncExternalStore } from "react";
 import type { NeuroTextQuestion } from "@/lib/neuro-units";
-import { textsUnits } from "@/lib/texts-units";
 
 type TextsStudyPageProps = {
   subjectName: string;
@@ -635,6 +634,802 @@ const focusConcepts: Record<string, { term: string; meaning: string }[]> = {
   ],
 };
 
+
+const topicQuestions: Record<string, NeuroTextQuestion[]> = {
+  "producao-interpretacao-textos-leitura": [
+    {
+      id: "pit-leitura-01",
+      prompt: "Um texto informa que uma pessoa fez uma pausa antes de responder. O que se pode afirmar com segurança?",
+      options: [
+        "Ela mentiu.",
+        "Ela fez uma pausa antes de responder.",
+        "Ela tentou esconder um trauma.",
+        "Ela não entendeu a pergunta."
+      ],
+      correctAnswer: "Ela fez uma pausa antes de responder.",
+      explanation: "A pausa é explícita; as causas propostas nas demais opções não foram demonstradas.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-leitura-02",
+      prompt: "Qual opção descreve uma inferência bem fundamentada?",
+      options: [
+        "Uma conclusão apoiada em pistas do texto.",
+        "Uma opinião sem relação com o enunciado.",
+        "Uma informação inventada para completar a história.",
+        "A repetição literal do título."
+      ],
+      correctAnswer: "Uma conclusão apoiada em pistas do texto.",
+      explanation: "Inferir é articular pistas e contexto, sem acrescentar fatos arbitrários.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-leitura-03",
+      prompt: "Em um artigo que defende a leitura na escola, “leitura na escola” é o tema. O que seria a tese?",
+      options: [
+        "O número de parágrafos.",
+        "A posição específica defendida sobre a leitura na escola.",
+        "A fonte usada no título.",
+        "Qualquer dado citado no final."
+      ],
+      correctAnswer: "A posição específica defendida sobre a leitura na escola.",
+      explanation: "A tese é a ideia central que os argumentos procuram sustentar.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-leitura-04",
+      prompt: "Por que considerar o contexto de uma fala?",
+      options: [
+        "Porque ele substitui as palavras.",
+        "Porque torna toda interpretação igualmente válida.",
+        "Porque ajuda a compreender como o sentido é produzido.",
+        "Porque dispensa a leitura do enunciado."
+      ],
+      correctAnswer: "Porque ajuda a compreender como o sentido é produzido.",
+      explanation: "As condições de fala influenciam o sentido, sem dispensar o exame do próprio texto.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-leitura-05",
+      prompt: "Qual pergunta ajuda a conferir uma resposta interpretativa?",
+      options: [
+        "“Qual alternativa parece mais bonita?”",
+        "“Que trecho sustenta essa conclusão?”",
+        "“Como adivinhar a intenção secreta?”",
+        "“Qual resposta é mais longa?”"
+      ],
+      correctAnswer: "“Que trecho sustenta essa conclusão?”",
+      explanation: "Uma interpretação forte pode apontar indícios textuais.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-leitura-06",
+      prompt: "Trecho: “Embora estivesse cansada, a estudante revisou o texto.” Que relação “embora” estabelece?",
+      options: [
+        "Conclusão.",
+        "Concessão: o cansaço não impediu a revisão.",
+        "Causa: ela revisou por estar cansada.",
+        "Adição de duas ações sem contraste."
+      ],
+      correctAnswer: "Concessão: o cansaço não impediu a revisão.",
+      explanation: "“Embora” introduz um obstáculo ou contraste que não impede a ação principal.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-leitura-07",
+      prompt: "“A sala estava vazia quando Ana chegou. Por isso, aguardou no corredor.” A que “por isso” se refere?",
+      options: [
+        "Ao fato de a sala estar vazia.",
+        "À profissão de Ana.",
+        "À causa de a sala estar vazia.",
+        "A uma ordem dada por outra pessoa."
+      ],
+      correctAnswer: "Ao fato de a sala estar vazia.",
+      explanation: "O conector retoma a informação anterior; o motivo de a sala estar vazia não é informado.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-leitura-08",
+      prompt: "O texto diz: “Alguns participantes relataram dificuldade.” Qual alternativa respeita esse alcance?",
+      options: [
+        "Todos tiveram dificuldade.",
+        "Nenhum teve dificuldade.",
+        "Parte dos participantes relatou dificuldade.",
+        "A dificuldade foi comprovada por um teste."
+      ],
+      correctAnswer: "Parte dos participantes relatou dificuldade.",
+      explanation: "“Alguns” delimita o grupo e “relataram” indica a fonte da informação.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-leitura-09",
+      prompt: "Em “O autor critica a pressa na leitura”, qual evidência melhor sustentaria essa interpretação?",
+      options: [
+        "O tamanho da fonte.",
+        "Um trecho em que ele mostra erros causados pela leitura apressada.",
+        "O nome da editora.",
+        "A opinião do leitor sobre provas."
+      ],
+      correctAnswer: "Um trecho em que ele mostra erros causados pela leitura apressada.",
+      explanation: "A interpretação precisa de uma passagem pertinente ao argumento atribuído ao autor.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-leitura-10",
+      prompt: "Uma alternativa parece plausível, mas afirma a intenção secreta de uma personagem. Como agir?",
+      options: [
+        "Marcar porque parece psicológica.",
+        "Procurar no texto pistas suficientes para essa intenção.",
+        "Supor que toda pausa revela intenção.",
+        "Ignorar o enunciado e confiar na intuição."
+      ],
+      correctAnswer: "Procurar no texto pistas suficientes para essa intenção.",
+      explanation: "Uma hipótese só pode virar resposta quando as pistas textuais a sustentam.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    }
+  ],
+  "producao-interpretacao-textos-linguagem": [
+    {
+      id: "pit-discurso-01",
+      prompt: "Nos slides, langue designa:",
+      options: [
+        "O uso individual da fala.",
+        "O sistema compartilhado de convenções da língua.",
+        "Uma pausa clínica.",
+        "Uma proposta de intervenção."
+      ],
+      correctAnswer: "O sistema compartilhado de convenções da língua.",
+      explanation: "Langue é o sistema social; parole é o uso individual.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-discurso-02",
+      prompt: "O que são condições de produção?",
+      options: [
+        "Apenas a ortografia.",
+        "Somente a intenção consciente do autor.",
+        "Circunstâncias históricas, sociais e situacionais da fala.",
+        "A quantidade de páginas."
+      ],
+      correctAnswer: "Circunstâncias históricas, sociais e situacionais da fala.",
+      explanation: "A análise do discurso considera a situação em que a fala ocorre.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-discurso-03",
+      prompt: "Qual perspectiva dos slides destaca ideologia e relações sociais?",
+      options: [
+        "Marx.",
+        "Saussure.",
+        "Freud.",
+        "Apenas a gramática normativa."
+      ],
+      correctAnswer: "Marx.",
+      explanation: "Marx orienta a reflexão sobre estrutura social e ideologia.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-discurso-04",
+      prompt: "Um lapso de fala, na leitura freudiana apresentada, deve ser tratado como:",
+      options: [
+        "Diagnóstico comprovado.",
+        "Mentira intencional.",
+        "Possível pista para investigação contextual.",
+        "Erro sem possibilidade de interesse."
+      ],
+      correctAnswer: "Possível pista para investigação contextual.",
+      explanation: "O lapso pode suscitar uma pergunta, sem oferecer conclusão automática.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-discurso-05",
+      prompt: "Qual frase expressa melhor a análise do discurso?",
+      options: [
+        "Palavras têm sempre um sentido único.",
+        "O sentido depende também de quem fala e das condições de produção.",
+        "O contexto deve ser ignorado.",
+        "A fala individual não se relaciona com a sociedade."
+      ],
+      correctAnswer: "O sentido depende também de quem fala e das condições de produção.",
+      explanation: "O sentido é produzido em práticas e situações sociais.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-discurso-06",
+      prompt: "A frase “Pode fechar a porta?” funciona como pedido em uma reunião. O que explica esse sentido?",
+      options: [
+        "Apenas o sinal de interrogação.",
+        "A situação e a relação entre interlocutores.",
+        "Uma regra de que perguntas sempre são ordens.",
+        "O número de palavras."
+      ],
+      correctAnswer: "A situação e a relação entre interlocutores.",
+      explanation: "A forma interrogativa ganha valor de pedido nas condições concretas da fala.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-discurso-07",
+      prompt: "Duas pessoas dizem “estou bem” em situações distintas. Qual leitura combina com a análise do discurso?",
+      options: [
+        "A frase terá sempre sentido idêntico.",
+        "O contexto, a posição dos sujeitos e o tom podem alterar o efeito de sentido.",
+        "Uma pessoa certamente mente.",
+        "O dicionário determina a intenção de ambas."
+      ],
+      correctAnswer: "O contexto, a posição dos sujeitos e o tom podem alterar o efeito de sentido.",
+      explanation: "O sentido não se esgota na sequência de palavras.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-discurso-08",
+      prompt: "Qual enunciado distingue língua de fala na abordagem apresentada?",
+      options: [
+        "Língua é uso individual; fala é sistema coletivo.",
+        "Língua é sistema compartilhado; fala é realização concreta.",
+        "Língua e fala são apenas sinônimos.",
+        "Fala existe sem língua."
+      ],
+      correctAnswer: "Língua é sistema compartilhado; fala é realização concreta.",
+      explanation: "A distinção saussuriana apresentada separa o sistema social e sua realização.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-discurso-09",
+      prompt: "Em um laudo, o termo “resistente” é usado para uma pessoa que fez uma pergunta. Qual análise é pertinente?",
+      options: [
+        "Aceitar o rótulo como dado neutro.",
+        "Examinar a escolha da palavra, as evidências e a posição de quem escreve.",
+        "Concluir que a pessoa tem um transtorno.",
+        "Retirar qualquer contexto da frase."
+      ],
+      correctAnswer: "Examinar a escolha da palavra, as evidências e a posição de quem escreve.",
+      explanation: "A nomeação produz efeitos e deve ser relacionada à situação e ao que foi observado.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-discurso-10",
+      prompt: "Qual afirmação usa com cuidado as referências a Marx e Freud dos slides?",
+      options: [
+        "Ideologia e inconsciente são explicações automáticas para cada frase.",
+        "As perspectivas convidam a analisar determinações sociais e processos não conscientes, sem dispensar evidências.",
+        "Toda fala revela um diagnóstico.",
+        "Só a intenção declarada importa."
+      ],
+      correctAnswer: "As perspectivas convidam a analisar determinações sociais e processos não conscientes, sem dispensar evidências.",
+      explanation: "Essas perspectivas ampliam perguntas analíticas; não autorizam atribuições arbitrárias.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    }
+  ],
+  "producao-interpretacao-textos-escuta": [
+    {
+      id: "pit-escuta-01",
+      prompt: "O que é o dito?",
+      options: [
+        "A fala expressa na narrativa.",
+        "Tudo que a pessoa nunca pensou.",
+        "Uma hipótese do leitor.",
+        "Apenas a pontuação da frase."
+      ],
+      correctAnswer: "A fala expressa na narrativa.",
+      explanation: "O dito é o conteúdo verbalizado.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-escuta-02",
+      prompt: "Uma pessoa fica em silêncio. Qual conduta interpretativa é mais cuidadosa?",
+      options: [
+        "Concluir imediatamente que mente.",
+        "Registrar o silêncio e explorar seu sentido no contexto.",
+        "Ignorar a pausa em todos os casos.",
+        "Afirmar que houve trauma reprimido."
+      ],
+      correctAnswer: "Registrar o silêncio e explorar seu sentido no contexto.",
+      explanation: "O silêncio pode ter sentidos distintos; sua causa precisa ser investigada.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-escuta-03",
+      prompt: "Qual frase registra observação sem atribuir causa?",
+      options: [
+        "O paciente resistiu porque ocultava fatos.",
+        "A paciente hesitou antes de responder.",
+        "O silêncio provou um conflito inconsciente.",
+        "A pausa confirmou o diagnóstico."
+      ],
+      correctAnswer: "A paciente hesitou antes de responder.",
+      explanation: "A segunda frase descreve o que foi observado.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-escuta-04",
+      prompt: "Na leitura literária, uma interpretação das entrelinhas deve:",
+      options: [
+        "Inventar acontecimentos sem suporte.",
+        "Dispensar a leitura da obra.",
+        "Apontar elementos da narrativa que apoiam a hipótese.",
+        "Tratar personagens como pacientes reais."
+      ],
+      correctAnswer: "Apontar elementos da narrativa que apoiam a hipótese.",
+      explanation: "O texto e seu contexto sustentam uma interpretação responsável.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-escuta-05",
+      prompt: "Qual é a diferença central entre dado e hipótese?",
+      options: [
+        "Não existe diferença.",
+        "Dado é observado ou relatado; hipótese é uma explicação a verificar.",
+        "Hipótese é sempre mais confiável.",
+        "Dado é uma opinião estética."
+      ],
+      correctAnswer: "Dado é observado ou relatado; hipótese é uma explicação a verificar.",
+      explanation: "Separar os dois níveis dá clareza à interpretação e ao registro.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-escuta-06",
+      prompt: "Na frase “Ela voltou a participar”, qual informação é pressuposta por “voltou”?",
+      options: [
+        "Ela nunca participou.",
+        "Houve participação anterior.",
+        "Ela participou todos os dias.",
+        "Ela foi obrigada a participar."
+      ],
+      correctAnswer: "Houve participação anterior.",
+      explanation: "“Voltou” pressupõe uma ocorrência anterior, sem informar frequência ou motivo.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-escuta-07",
+      prompt: "Um relato registra: “Ele olhou para o chão antes de responder.” Qual versão preserva a diferença entre dado e hipótese?",
+      options: [
+        "Ele olhou para o chão; isso prova culpa.",
+        "Ele olhou para o chão; a razão do gesto não foi estabelecida.",
+        "Ele olhou para o chão porque mentiu.",
+        "Ele tem trauma, como mostra seu olhar."
+      ],
+      correctAnswer: "Ele olhou para o chão; a razão do gesto não foi estabelecida.",
+      explanation: "O gesto é observável; sua causa requer mais contexto.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-escuta-08",
+      prompt: "Qual pergunta ajuda a explorar um silêncio sem impor um significado?",
+      options: [
+        "“Você ficou em silêncio porque sente culpa, certo?”",
+        "“O que passou pela sua cabeça naquele momento, se quiser comentar?”",
+        "“Seu silêncio confirma minha hipótese?”",
+        "“Por que você está escondendo a verdade?”"
+      ],
+      correctAnswer: "“O que passou pela sua cabeça naquele momento, se quiser comentar?”",
+      explanation: "A pergunta aberta permite que a pessoa atribua sentido à própria experiência.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-escuta-09",
+      prompt: "Uma personagem diz “não importa”, mas retorna várias vezes ao assunto. O que é uma leitura prudente?",
+      options: [
+        "O assunto pode ter relevância para ela, hipótese a examinar no contexto.",
+        "Ela necessariamente mente.",
+        "Ela apresenta um diagnóstico específico.",
+        "As repetições anulam suas palavras."
+      ],
+      correctAnswer: "O assunto pode ter relevância para ela, hipótese a examinar no contexto.",
+      explanation: "A repetição é pista interpretativa, mas não prova uma causa única.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-escuta-10",
+      prompt: "Ao interpretar uma obra literária como “espelho de traumas”, qual cuidado é necessário?",
+      options: [
+        "Diagnosticar o autor pelos personagens.",
+        "Relacionar passagens, narrador e contexto sem converter ficção em prontuário.",
+        "Ignorar a construção da narrativa.",
+        "Tratar metáforas como relatos literais."
+      ],
+      correctAnswer: "Relacionar passagens, narrador e contexto sem converter ficção em prontuário.",
+      explanation: "A leitura pode investigar temas de sofrimento e ideologia sem confundir obra e diagnóstico.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    }
+  ],
+  "producao-interpretacao-textos-estrutura-redacao": [
+    {
+      id: "pit-redacao-01",
+      prompt: "Qual sequência organiza um texto dissertativo-argumentativo?",
+      options: [
+        "Conclusão, título e exemplo.",
+        "Introdução, desenvolvimento e conclusão.",
+        "Citação, opinião e bibliografia.",
+        "Argumento, título e pergunta."
+      ],
+      correctAnswer: "Introdução, desenvolvimento e conclusão.",
+      explanation: "A introdução apresenta a tese, o desenvolvimento a sustenta e a conclusão fecha o raciocínio.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-redacao-02",
+      prompt: "A função da introdução é:",
+      options: [
+        "Acumular todos os exemplos sem tese.",
+        "Apresentar tema, recorte e posição defendida.",
+        "Repetir a conclusão integralmente.",
+        "Introduzir apenas dados sem contexto."
+      ],
+      correctAnswer: "Apresentar tema, recorte e posição defendida.",
+      explanation: "A abertura orienta o leitor sobre o problema e a tese.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-redacao-03",
+      prompt: "O tópico frasal ajuda a:",
+      options: [
+        "Dar unidade ao parágrafo, apresentando sua ideia principal.",
+        "Substituir as evidências.",
+        "Mudar de assunto.",
+        "Evitar a relação com a tese."
+      ],
+      correctAnswer: "Dar unidade ao parágrafo, apresentando sua ideia principal.",
+      explanation: "Ele anuncia a ideia que o restante do parágrafo desenvolverá.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-redacao-04",
+      prompt: "O desenvolvimento de um parágrafo argumentativo deve:",
+      options: [
+        "Repetir a mesma frase.",
+        "Explicar a ideia e relacioná-la a razões ou evidências.",
+        "Usar uma citação sem comentário.",
+        "Apresentar um tema sem relação com a tese."
+      ],
+      correctAnswer: "Explicar a ideia e relacioná-la a razões ou evidências.",
+      explanation: "A progressão depende de explicação e ligação com a tese.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-redacao-05",
+      prompt: "Quando o enunciado exige uma proposta de intervenção, qual é mais concreta?",
+      options: [
+        "É preciso melhorar.",
+        "Todos devem se conscientizar.",
+        "A coordenação deve realizar oficinas mensais de revisão de registros com exemplos anônimos.",
+        "Algo deve ser feito urgentemente."
+      ],
+      correctAnswer: "A coordenação deve realizar oficinas mensais de revisão de registros com exemplos anônimos.",
+      explanation: "A proposta indica responsável, ação, periodicidade e modo de execução.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-redacao-06",
+      prompt: "Tema: “leitura crítica na formação”. Qual tese é mais defensável?",
+      options: [
+        "Leitura crítica.",
+        "É um tema importante.",
+        "A leitura crítica deve ser ensinada com comparação de fontes e justificativa textual.",
+        "Todo mundo deveria ler mais."
+      ],
+      correctAnswer: "A leitura crítica deve ser ensinada com comparação de fontes e justificativa textual.",
+      explanation: "A tese apresenta uma posição específica que pode orientar argumentos.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-redacao-07",
+      prompt: "Qual tópico frasal abre melhor um parágrafo sobre revisão de textos?",
+      options: [
+        "Também há outras coisas.",
+        "A revisão das relações entre ideias melhora a clareza do argumento.",
+        "Concluindo, o tema é relevante.",
+        "Segundo um autor famoso."
+      ],
+      correctAnswer: "A revisão das relações entre ideias melhora a clareza do argumento.",
+      explanation: "O tópico frasal anuncia a ideia que o parágrafo vai desenvolver.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-redacao-08",
+      prompt: "Após apresentar um exemplo, o que fortalece o desenvolvimento?",
+      options: [
+        "Repetir o exemplo sem explicação.",
+        "Explicar como ele demonstra a razão ligada à tese.",
+        "Mudar de assunto.",
+        "Adicionar uma citação sem referência."
+      ],
+      correctAnswer: "Explicar como ele demonstra a razão ligada à tese.",
+      explanation: "O comentário analítico liga a evidência à posição defendida.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-redacao-09",
+      prompt: "Qual conclusão respeita a progressão do texto?",
+      options: [
+        "Introduz uma causa inédita e não discutida.",
+        "Retoma a tese e sintetiza as razões discutidas.",
+        "Repete integralmente a introdução.",
+        "Termina apenas com “é isso”."
+      ],
+      correctAnswer: "Retoma a tese e sintetiza as razões discutidas.",
+      explanation: "A conclusão fecha o raciocínio construído ao longo do texto.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-redacao-10",
+      prompt: "Em uma proposta de intervenção, qual item esclarece o modo de execução?",
+      options: [
+        "O agente.",
+        "O meio ou procedimento usado para realizar a ação.",
+        "O título do texto.",
+        "A repetição do problema."
+      ],
+      correctAnswer: "O meio ou procedimento usado para realizar a ação.",
+      explanation: "O meio descreve como a ação proposta será posta em prática.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    }
+  ],
+  "producao-interpretacao-textos-argumentos": [
+    {
+      id: "pit-argumentos-01",
+      prompt: "Qual frase é uma tese mais delimitada?",
+      options: [
+        "Tudo é importante.",
+        "A clareza nos prontuários favorece a comunicação entre profissionais.",
+        "Todos sabem que escrever é bom.",
+        "Hoje em dia as coisas mudam."
+      ],
+      correctAnswer: "A clareza nos prontuários favorece a comunicação entre profissionais.",
+      explanation: "Ela afirma uma posição específica que pode ser defendida.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-argumentos-02",
+      prompt: "O que caracteriza um argumento de autoridade bem empregado?",
+      options: [
+        "Nome famoso sem relação com o tema.",
+        "Citação pertinente com fonte identificada e ligação à tese.",
+        "Qualquer frase entre aspas.",
+        "Substituir toda análise por citações."
+      ],
+      correctAnswer: "Citação pertinente com fonte identificada e ligação à tese.",
+      explanation: "A referência precisa ser relevante, verificável e explicada.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-argumentos-03",
+      prompt: "Um dado estatístico usado em redação deve:",
+      options: [
+        "Ser inventado se parecer plausível.",
+        "Ter origem confiável e relação com o argumento.",
+        "Dispensar interpretação.",
+        "Ser repetido em todos os parágrafos."
+      ],
+      correctAnswer: "Ter origem confiável e relação com o argumento.",
+      explanation: "Dados ganham força quando são confiáveis e ajudam a sustentar uma razão.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-argumentos-04",
+      prompt: "Qual alternativa evita generalização indevida?",
+      options: [
+        "Todos os alunos jamais compreendem textos.",
+        "Em uma turma observada, parte dos alunos relatou dificuldade de leitura.",
+        "Ninguém lê atentamente.",
+        "Sempre há uma única causa para o erro."
+      ],
+      correctAnswer: "Em uma turma observada, parte dos alunos relatou dificuldade de leitura.",
+      explanation: "A frase delimita o grupo e a observação, sem extrapolar para todos.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-argumentos-05",
+      prompt: "Repertório sociocultural funciona melhor quando:",
+      options: [
+        "É citado apenas para impressionar.",
+        "É pertinente e ajuda a explicar o argumento.",
+        "Substitui a tese.",
+        "Aparece sem relação com o problema."
+      ],
+      correctAnswer: "É pertinente e ajuda a explicar o argumento.",
+      explanation: "A referência deve participar do raciocínio.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-argumentos-06",
+      prompt: "Tese: “A leitura orientada favorece a interpretação.” Qual razão realmente a sustenta?",
+      options: [
+        "A leitura é muito bonita.",
+        "A mediação ensina a localizar pistas e comparar hipóteses com o trecho.",
+        "A escola tem paredes.",
+        "Todos concordam com a tese."
+      ],
+      correctAnswer: "A mediação ensina a localizar pistas e comparar hipóteses com o trecho.",
+      explanation: "A razão mostra um mecanismo concreto de melhoria da interpretação.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-argumentos-07",
+      prompt: "Uma redação cita um percentual sem fonte. Qual é o melhor ajuste?",
+      options: [
+        "Manter o número porque parece convincente.",
+        "Buscar fonte verificável ou trocar por exemplo delimitado e correto.",
+        "Aumentar o percentual.",
+        "Esconder o dado entre aspas."
+      ],
+      correctAnswer: "Buscar fonte verificável ou trocar por exemplo delimitado e correto.",
+      explanation: "Dados não verificados fragilizam o argumento.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-argumentos-08",
+      prompt: "“Um aluno melhorou após uma atividade; logo, todos melhorarão.” Qual problema há?",
+      options: [
+        "Contraste bem construído.",
+        "Generalização de um caso para todos.",
+        "Argumento de autoridade.",
+        "Definição precisa do universo."
+      ],
+      correctAnswer: "Generalização de um caso para todos.",
+      explanation: "Um caso isolado não autoriza conclusão universal.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-argumentos-09",
+      prompt: "Qual frase integra melhor uma referência ao argumento?",
+      options: [
+        "“Freud”, e pronto.",
+        "Uma ideia da referência é explicada e relacionada à tese e ao exemplo do parágrafo.",
+        "Um nome é colocado entre parênteses sem contexto.",
+        "A citação substitui todas as razões."
+      ],
+      correctAnswer: "Uma ideia da referência é explicada e relacionada à tese e ao exemplo do parágrafo.",
+      explanation: "O repertório deve desempenhar função no raciocínio.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-argumentos-10",
+      prompt: "Qual pergunta testa a força de um argumento antes de escrever?",
+      options: [
+        "Parece sofisticado?",
+        "Esta evidência é pertinente, confiável e suficiente para a conclusão que proponho?",
+        "Tem palavras difíceis?",
+        "Ocupa muitas linhas?"
+      ],
+      correctAnswer: "Esta evidência é pertinente, confiável e suficiente para a conclusão que proponho?",
+      explanation: "Pertinência, confiabilidade e alcance são critérios úteis de revisão.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    }
+  ],
+  "producao-interpretacao-textos-portugues": [
+    {
+      id: "pit-gramatica-01",
+      prompt: "Complete: “___ o participante interrompeu a entrevista?”",
+      options: [
+        "Porque",
+        "Por quê",
+        "Por que",
+        "O porquê"
+      ],
+      correctAnswer: "Por que",
+      explanation: "No início de pergunta direta, usa-se “por que”.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-gramatica-02",
+      prompt: "Complete: “A entrevista foi interrompida ___ houve uma emergência.”",
+      options: [
+        "por que",
+        "porque",
+        "por quê",
+        "o porquê"
+      ],
+      correctAnswer: "porque",
+      explanation: "“Porque” introduz explicação ou causa.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-gramatica-03",
+      prompt: "Complete: “O participante saiu ___?”",
+      options: [
+        "por que",
+        "porque",
+        "por quê",
+        "o porquê"
+      ],
+      correctAnswer: "por quê",
+      explanation: "No fim da pergunta, antes da pontuação, usa-se “por quê”.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-gramatica-04",
+      prompt: "Complete: “O relatório investiga ___ da mudança.”",
+      options: [
+        "por que",
+        "porque",
+        "por quê",
+        "o porquê"
+      ],
+      correctAnswer: "o porquê",
+      explanation: "Com artigo, “o porquê” funciona como substantivo: o motivo.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-gramatica-05",
+      prompt: "Qual frase usa corretamente mas e mais?",
+      options: [
+        "Relatou mas episódios, mais não os datou.",
+        "Relatou mais episódios, mas não os datou.",
+        "Relatou mais episódios, mais não os datou.",
+        "Relatou mas episódios, mas não os datou."
+      ],
+      correctAnswer: "Relatou mais episódios, mas não os datou.",
+      explanation: "“Mais” indica quantidade; “mas” marca oposição.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-gramatica-06",
+      prompt: "Qual frase está correta no sentido de ocorrência?",
+      options: [
+        "Houveram duas sessões.",
+        "Houve duas sessões.",
+        "Haviam duas sessões.",
+        "Houveram uma sessão."
+      ],
+      correctAnswer: "Houve duas sessões.",
+      explanation: "“Haver” no sentido de ocorrer é impessoal e fica no singular.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-gramatica-07",
+      prompt: "Qual frase está correta para tempo decorrido?",
+      options: [
+        "Fazem três meses.",
+        "Faz três meses.",
+        "Fizeram três meses.",
+        "Fazem três mês."
+      ],
+      correctAnswer: "Faz três meses.",
+      explanation: "“Fazer” indicando tempo decorrido é impessoal.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-gramatica-08",
+      prompt: "Qual par está adequado?",
+      options: [
+        "Aonde foi a sessão? Onde você vai?",
+        "Onde foi a sessão? Aonde você vai?",
+        "Aonde você está? Onde você vai?",
+        "Aonde foi a sessão? Aonde você está?"
+      ],
+      correctAnswer: "Onde foi a sessão? Aonde você vai?",
+      explanation: "“Onde” localiza; “aonde” indica destino com verbo que pede a preposição “a”.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-gramatica-09",
+      prompt: "Qual retomada é mais clara em um relato?",
+      options: [
+        "O paciente saiu; falei com o mesmo.",
+        "O paciente saiu; falei com ele.",
+        "O paciente saiu; falei com esse mesmo.",
+        "O paciente saiu; falei com o próprio mesmo."
+      ],
+      correctAnswer: "O paciente saiu; falei com ele.",
+      explanation: "O pronome pessoal retoma a pessoa com clareza.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    },
+    {
+      id: "pit-gramatica-10",
+      prompt: "Em uma conversa, qual frase aponta para algo próximo de quem fala?",
+      options: [
+        "Esse consultório é onde estou agora.",
+        "Este consultório é onde estou agora.",
+        "Nesse consultório é onde estou agora.",
+        "Aquele consultório é onde estou agora."
+      ],
+      correctAnswer: "Este consultório é onde estou agora.",
+      explanation: "Este indica proximidade de quem fala; esse costuma apontar para o interlocutor ou retomar algo mencionado.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
+    }
+  ]
+};
+
 const simuladoLesson: DeepLesson = {
   goal: "Fazer uma rodada mista de revisão com dez questões, treinando leitura cuidadosa, eliminação de alternativas e correção ativa dos erros.",
   concepts: [
@@ -693,20 +1488,21 @@ const simuladoActivity: StudyActivity = {
 };
 
 function buildTopics(): StudyTopic[] {
-  const bySlug = Object.fromEntries(textsUnits.map((unit) => [unit.slug, unit]));
-  const linguagem = bySlug["producao-interpretacao-textos-linguagem"];
-  const discurso = bySlug["producao-interpretacao-textos-discurso"];
-  const redacao = bySlug["producao-interpretacao-textos-redacao"];
-  const revisao = bySlug["producao-interpretacao-textos-revisao"];
-  const redacaoQuestions = redacao?.testTextQuestions ?? [];
-  const allQuestions = textsUnits.flatMap((unit) => unit.testTextQuestions ?? []);
+  const simuladoQuestions = [
+    ...topicQuestions["producao-interpretacao-textos-leitura"].slice(0, 2),
+    ...topicQuestions["producao-interpretacao-textos-linguagem"].slice(0, 2),
+    ...topicQuestions["producao-interpretacao-textos-escuta"].slice(0, 2),
+    ...topicQuestions["producao-interpretacao-textos-estrutura-redacao"].slice(0, 1),
+    ...topicQuestions["producao-interpretacao-textos-argumentos"].slice(0, 1),
+    ...topicQuestions["producao-interpretacao-textos-portugues"].slice(0, 2),
+  ];
 
   return [
     {
       slug: "producao-interpretacao-textos-leitura",
       title: "Leitura e inferência",
       description: "Distinguir o que está escrito daquilo que você conclui a partir de pistas do texto.",
-      questions: linguagem?.testTextQuestions ?? [],
+      questions: topicQuestions["producao-interpretacao-textos-leitura"],
       lesson: deepLessons["producao-interpretacao-textos-linguagem"],
       activity: writingActivities["producao-interpretacao-textos-linguagem"],
       tip: studyTips["producao-interpretacao-textos-linguagem"],
@@ -715,7 +1511,7 @@ function buildTopics(): StudyTopic[] {
       slug: "producao-interpretacao-textos-linguagem",
       title: "Linguagem e discurso",
       description: "Compreender a fala em relação às estruturas da língua, à sociedade e à subjetividade.",
-      questions: discurso?.testTextQuestions ?? [],
+      questions: topicQuestions["producao-interpretacao-textos-linguagem"],
       lesson: deepLessons["producao-interpretacao-textos-discurso"],
       activity: writingActivities["producao-interpretacao-textos-discurso"],
       tip: studyTips["producao-interpretacao-textos-discurso"],
@@ -724,7 +1520,7 @@ function buildTopics(): StudyTopic[] {
       slug: "producao-interpretacao-textos-escuta",
       title: "Dito e não dito",
       description: "Ler palavras, pausas e omissões com atenção, sem transformar pistas em certezas.",
-      questions: discurso?.testTextQuestions ?? [],
+      questions: topicQuestions["producao-interpretacao-textos-escuta"],
       lesson: deepLessons["producao-interpretacao-textos-discurso"],
       activity: writingActivities["producao-interpretacao-textos-discurso"],
       tip: "Diferencie descrição observável, pressuposto e hipótese antes de concluir.",
@@ -733,7 +1529,7 @@ function buildTopics(): StudyTopic[] {
       slug: "producao-interpretacao-textos-estrutura-redacao",
       title: "Estrutura da redação",
       description: "Planejar tese, parágrafos de desenvolvimento e conclusão em uma sequência lógica.",
-      questions: redacaoQuestions.slice(0, 6),
+      questions: topicQuestions["producao-interpretacao-textos-estrutura-redacao"],
       lesson: deepLessons["producao-interpretacao-textos-redacao"],
       activity: writingActivities["producao-interpretacao-textos-redacao"],
       tip: studyTips["producao-interpretacao-textos-redacao"],
@@ -742,7 +1538,7 @@ function buildTopics(): StudyTopic[] {
       slug: "producao-interpretacao-textos-argumentos",
       title: "Argumentos e repertório",
       description: "Selecionar razões, exemplos e referências que realmente sustentem a tese.",
-      questions: redacaoQuestions.slice(6),
+      questions: topicQuestions["producao-interpretacao-textos-argumentos"],
       lesson: deepLessons["producao-interpretacao-textos-redacao"],
       activity: writingActivities["producao-interpretacao-textos-redacao"],
       tip: "Não use repertório como enfeite: explique o que ele demonstra e como sustenta a tese.",
@@ -751,7 +1547,7 @@ function buildTopics(): StudyTopic[] {
       slug: "producao-interpretacao-textos-portugues",
       title: "Revisão de português",
       description: "Corrigir escolhas de palavra e construção que prejudicam a clareza do texto.",
-      questions: revisao?.testTextQuestions ?? [],
+      questions: topicQuestions["producao-interpretacao-textos-portugues"],
       lesson: deepLessons["producao-interpretacao-textos-revisao"],
       activity: writingActivities["producao-interpretacao-textos-revisao"],
       tip: studyTips["producao-interpretacao-textos-revisao"],
@@ -760,7 +1556,7 @@ function buildTopics(): StudyTopic[] {
       slug: "producao-interpretacao-textos-simulado",
       title: "Simulado 10 questões",
       description: "Rodada mista com dez questões sorteadas dos temas de leitura, discurso, redação e revisão.",
-      questions: allQuestions.slice(0, 10),
+      questions: simuladoQuestions,
       lesson: simuladoLesson,
       activity: simuladoActivity,
       tip: "Trate cada erro como dado de estudo: registre o critério que falhou antes de seguir.",
