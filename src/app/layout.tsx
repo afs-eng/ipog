@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -26,7 +27,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <link href="https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css" rel="stylesheet" />
       </head>
-      <body className="min-h-full bg-slate-50 text-slate-950">{children}</body>
+      <body className="min-h-full bg-slate-50 text-slate-950">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
