@@ -538,6 +538,90 @@ const deepLessons: Record<string, DeepLesson> = {
       { question: "O que torna um feedback acionável?", answer: "Descrever o observado, o efeito e um encaminhamento concreto, sem rotular a pessoa." },
     ],
   },
+  "producao-interpretacao-textos-porques-pronomes": {
+    goal: "Dominar os quatro porquês e usar corretamente este/esse, neste/nesse e outras retomadas demonstrativas para evitar ambiguidades.",
+    concepts: [
+      {
+        title: "Por que",
+        explanation: "Use 'por que' separado e sem acento em perguntas diretas ou indiretas, com sentido de 'por qual motivo' ou 'por qual razão'. Também pode aparecer em construções equivalentes a 'pelo qual', 'pela qual', 'pelos quais' ou 'pelas quais'. O teste mais simples é substituir por 'por qual motivo'. Se couber, geralmente será separado e sem acento.",
+        examples: [
+          "Pergunta direta: 'Por que você faltou à aula?'",
+          "Pergunta indireta: 'Não entendi por que você faltou.'",
+          "Valor de 'pelo qual': 'A razão por que ela saiu ainda não foi explicada.'",
+        ],
+      },
+      {
+        title: "Por quê",
+        explanation: "Use 'por quê' separado e com acento quando a expressão vier no fim da frase ou antes de ponto final, ponto de interrogação ou ponto de exclamação. O sentido continua sendo 'por qual motivo', mas o acento aparece porque o termo fica em posição final, mais forte na pronúncia.",
+        examples: [
+          "'Você saiu por quê?'",
+          "'Ela não respondeu, e ninguém sabe por quê.'",
+          "'Ele desistiu, por quê!'",
+        ],
+      },
+      {
+        title: "Porque",
+        explanation: "Use 'porque' junto e sem acento para explicar causa, motivo ou justificativa. Ele normalmente pode ser substituído por 'pois', 'uma vez que' ou 'visto que'. É o porquê mais usado no meio das respostas e explicações. Atenção: em 'Ela é linda porque cuida do cabelo', o correto é junto e sem acento, pois há explicação de causa.",
+        examples: [
+          "'Eu gosto da Marina porque ela é gentil.'",
+          "'Não fui à aula porque estava doente.'",
+          "'O registro precisa ser claro porque será lido por outros profissionais.'",
+        ],
+      },
+      {
+        title: "O porquê",
+        explanation: "Use 'porquê' junto e com acento quando a palavra funcionar como substantivo, com sentido de 'o motivo' ou 'a razão'. Por isso, ela costuma vir acompanhada de artigo, pronome, numeral ou adjetivo: 'o porquê', 'um porquê', 'esse porquê', 'seus porquês'. Se você puder trocar por 'o motivo', provavelmente será junto e com acento.",
+        examples: [
+          "'Ainda não sabemos o porquê da ausência.'",
+          "'Explique o porquê da mudança no relatório.'",
+          "'Ela apresentou dois porquês para a decisão.'",
+        ],
+      },
+      {
+        title: "Este, esse, neste e nesse",
+        explanation: "'Este/esta/isto' costuma indicar proximidade de quem fala, tempo presente ou algo que ainda será apresentado. 'Esse/essa/isso' costuma retomar algo já mencionado ou indicar proximidade de quem ouve. 'Neste' e 'nesse' são contrações de 'em + este' e 'em + esse'. Na escrita acadêmica, a regra mais importante é a retomada: use 'esse' para olhar para trás e retomar uma ideia; use 'este' para anunciar o que vem depois.",
+        examples: [
+          "Anúncio: 'Este é o ponto central: a tese precisa ser discutível.'",
+          "Retomada: 'A tese ficou vaga. Esse problema enfraquece o texto.'",
+          "Tempo presente: 'Nesta aula, vamos revisar os porquês.'",
+          "Retomada de situação anterior: 'Nesse caso, o pronome evita repetição.'",
+        ],
+      },
+    ],
+    sections: [
+      {
+        title: "1. Primeiro descubra a função",
+        body: "Antes de escolher a grafia, pergunte o que a expressão faz na frase. Ela pergunta o motivo? Está no fim da frase? Explica uma causa? Funciona como substantivo? A função vem antes da memorização.",
+      },
+      {
+        title: "2. Use os testes de substituição",
+        body: "Troque mentalmente por 'por qual motivo', 'pois' ou 'o motivo'. Se couber 'por qual motivo', use por que ou por quê; se couber 'pois', use porque; se couber 'o motivo', use o porquê.",
+      },
+      {
+        title: "3. Diferencie anunciar de retomar",
+        body: "Na escolha entre este e esse, observe a direção do texto. 'Este' aponta para o que ainda será dito; 'esse' retoma o que já apareceu. Em textos acadêmicos, essa diferença melhora a coesão e evita ambiguidade.",
+      },
+      {
+        title: "4. Revise neste e nesse pelo contexto",
+        body: "'Neste' indica proximidade com o momento da fala ou algo que será apresentado: 'neste capítulo, veremos...'. 'Nesse' retoma situação anterior: 'o aluno não citou fonte; nesse caso, o argumento perde força'.",
+      },
+    ],
+    worked: {
+      title: "Corrigindo por função",
+      source: "Rascunho: 'Ela saiu porquê estava cansada, mas ninguém sabe porque. Nesse trabalho, apresento este ponto já mencionado.'",
+      analysis: "Correção: 'Ela saiu porque estava cansada, mas ninguém sabe por quê. Neste trabalho, apresento esse ponto já mencionado.' O primeiro 'porque' explica causa; 'por quê' aparece antes do ponto; 'neste trabalho' indica o texto atual; 'esse ponto' retoma algo já mencionado.",
+    },
+    method: [
+      "Pergunte qual função a expressão exerce na frase.",
+      "Use os testes: por qual motivo, pois, o motivo.",
+      "Em este/esse, veja se a palavra anuncia ou retoma uma ideia.",
+    ],
+    recall: [
+      { question: "Quando usar 'porque'?", answer: "Quando houver explicação ou causa, com sentido de 'pois' ou 'uma vez que'." },
+      { question: "Quando usar 'por quê'?", answer: "No fim da frase ou antes de pontuação, mantendo sentido de 'por qual motivo'." },
+      { question: "Qual é a diferença principal entre este e esse no texto?", answer: "'Este' geralmente anuncia ou aproxima; 'esse' geralmente retoma algo já mencionado." },
+    ],
+  },
 };
 
 const writingActivities: Record<string, StudyActivity> = {
@@ -561,6 +645,11 @@ const writingActivities: Record<string, StudyActivity> = {
     model: "Em vez de 'o paciente sempre fica muito mal', escreva: 'o paciente relatou insônia em três noites da última semana e associou o episódio a preocupações acadêmicas'.",
     trap: "Usar generalizações como sempre, nunca e todo mundo sem delimitação.",
   },
+  "producao-interpretacao-textos-porques-pronomes": {
+    prompt: "Corrija a frase: 'Não sei porque ele saiu, mas nesse texto explicarei este motivo já citado.'",
+    model: "Não sei por que ele saiu, mas neste texto explicarei esse motivo já citado. Usa-se 'por que' em pergunta indireta, 'neste' para o texto atual e 'esse' para retomar o motivo já mencionado.",
+    trap: "Decorar as formas sem identificar a função que exercem na frase.",
+  },
   "producao-interpretacao-textos-avaliacao": {
     prompt: "Escreva um feedback descritivo para a frase 'A linguagem é muito importante na Psicologia', indicando o que foi observado, o efeito no leitor e um ajuste concreto.",
     model: "Observação: o parágrafo repete a mesma ideia com sinônimos e não apresenta uma relação de causa. Efeito: o leitor não encontra o que será demonstrado nem por que isso importa. Ajuste: formule uma tese com relação causal e sustente-a com uma razão e um exemplo verificável.",
@@ -573,6 +662,7 @@ const studyTips: Record<string, string> = {
   "producao-interpretacao-textos-discurso": "Pergunte sempre quem fala, para quem, em que situação e com que finalidade — a resposta costuma estar nesses dados.",
   "producao-interpretacao-textos-redacao": "Anote a tese e duas razões distintas antes de escrever; confira depois se cada parágrafo serve à tese.",
   "producao-interpretacao-textos-revisao": "Leia a frase inteira antes de decidir: função, concordância e referente vêm antes da regra decorada.",
+  "producao-interpretacao-textos-porques-pronomes": "Antes de marcar, troque por 'por qual motivo', 'pois' ou 'o motivo' e confira se este/esse anuncia ou retoma.",
   "producao-interpretacao-textos-avaliacao": "Antes de se cobrar uma nota, diga qual critério falhou; sem critério, não há plano de estudo.",
 };
 
@@ -616,6 +706,11 @@ const focusConcepts: Record<string, { term: string; meaning: string }[]> = {
     { term: "Porquês", meaning: "Cada forma muda conforme a função na frase." },
     { term: "Mas / mais", meaning: "Oposição e quantidade não podem ser confundidas." },
     { term: "Retomada", meaning: "Pronomes precisam ter referente claro." },
+  ],
+  "producao-interpretacao-textos-porques-pronomes": [
+    { term: "Por que / por quê", meaning: "Pergunta de motivo; com acento quando vem no fim." },
+    { term: "Porque / porquê", meaning: "Causa ou explicação; substantivo quando significa o motivo." },
+    { term: "Este / esse", meaning: "Este anuncia ou aproxima; esse retoma algo já dito." },
   ],
   "producao-interpretacao-textos-revisao": [
     { term: "Precisão", meaning: "Separar fato observado, fala relatada, hipótese e análise." },
@@ -1296,6 +1391,128 @@ const topicQuestions: Record<string, NeuroTextQuestion[]> = {
       sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos."
     }
   ],
+  "producao-interpretacao-textos-porques-pronomes": [
+    {
+      id: "pit-porques-01",
+      prompt: "Complete corretamente: '___ você não respondeu à mensagem?'",
+      options: ["Porque", "Por que", "Por quê", "O porquê"],
+      correctAnswer: "Por que",
+      explanation: "No início de pergunta direta, com sentido de 'por qual motivo', usa-se 'por que' separado e sem acento.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos.",
+    },
+    {
+      id: "pit-porques-02",
+      prompt: "Qual frase usa corretamente 'por quê'?",
+      options: [
+        "Ela saiu por quê estava cansada.",
+        "Você não veio por quê?",
+        "Por quê você chegou tarde?",
+        "Não entendi por quê ela faltou à prova.",
+      ],
+      correctAnswer: "Você não veio por quê?",
+      explanation: "'Por quê' separado e com acento aparece no fim da frase ou antes da pontuação.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos.",
+    },
+    {
+      id: "pit-porques-03",
+      prompt: "Em qual alternativa 'porque' equivale a 'pois'?",
+      options: [
+        "Não sei o porque da saída.",
+        "Ela explicou porque saiu mais cedo.",
+        "Ela saiu porque estava cansada.",
+        "Porquê você voltou?",
+      ],
+      correctAnswer: "Ela saiu porque estava cansada.",
+      explanation: "'Porque' junto e sem acento introduz causa ou explicação, podendo ser substituído por 'pois'.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos.",
+    },
+    {
+      id: "pit-porques-04",
+      prompt: "Qual frase usa corretamente 'o porquê'?",
+      options: [
+        "Não sabemos o porquê da mudança.",
+        "O aluno faltou porquê estava doente.",
+        "Porquê você anotou isso?",
+        "Ele explicou porquê, mas ninguém entendeu.",
+      ],
+      correctAnswer: "Não sabemos o porquê da mudança.",
+      explanation: "'Porquê' junto e com acento funciona como substantivo e significa 'o motivo' ou 'a razão'.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos.",
+    },
+    {
+      id: "pit-porques-05",
+      prompt: "Assinale a correção adequada: 'Ela só é linda porquê vive no cabeleireiro.'",
+      options: [
+        "Ela só é linda porque vive no cabeleireiro.",
+        "Ela só é linda por quê vive no cabeleireiro.",
+        "Ela só é linda por que vive no cabeleireiro.",
+        "Ela só é linda o porquê vive no cabeleireiro.",
+      ],
+      correctAnswer: "Ela só é linda porque vive no cabeleireiro.",
+      explanation: "Há explicação de causa; por isso, usa-se 'porque' junto e sem acento, não 'porquê'.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos.",
+    },
+    {
+      id: "pit-porques-06",
+      prompt: "Qual uso de 'este' está correto?",
+      options: [
+        "A tese ficou vaga. Este problema já foi citado no parágrafo anterior.",
+        "Este é o ponto que será desenvolvido a seguir: a tese precisa ser discutível.",
+        "O aluno faltou ontem. Neste dia, ele estava em casa.",
+        "A autora usou um exemplo. Neste exemplo, que já apareceu antes, há falha.",
+      ],
+      correctAnswer: "Este é o ponto que será desenvolvido a seguir: a tese precisa ser discutível.",
+      explanation: "'Este' costuma anunciar algo que vem depois ou indicar proximidade de quem fala/escreve.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos.",
+    },
+    {
+      id: "pit-porques-07",
+      prompt: "Qual frase usa 'esse' para retomar corretamente uma ideia já mencionada?",
+      options: [
+        "Este relatório apresenta esse ponto a seguir.",
+        "A tese ficou vaga. Esse problema enfraquece o texto.",
+        "Esse capítulo que começo agora terá três partes.",
+        "Nesse momento presente, escrevo a introdução.",
+      ],
+      correctAnswer: "A tese ficou vaga. Esse problema enfraquece o texto.",
+      explanation: "'Esse' retoma algo já mencionado: a tese vaga.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos.",
+    },
+    {
+      id: "pit-porques-08",
+      prompt: "Complete corretamente: '___ aula, vamos revisar os quatro porquês.'",
+      options: ["Nessa", "Nesta", "Nisso", "Nesse"],
+      correctAnswer: "Nesta",
+      explanation: "Quando o texto se refere à aula atual, próxima de quem fala/escreve, usa-se 'nesta' com o substantivo feminino 'aula'.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos.",
+    },
+    {
+      id: "pit-porques-09",
+      prompt: "Qual alternativa corrige melhor a frase: 'Nesse trabalho, apresentarei três regras que ainda serão explicadas.'?",
+      options: [
+        "Neste trabalho, apresentarei três regras que ainda serão explicadas.",
+        "Esse trabalho, apresentarei três regras que ainda serão explicadas.",
+        "Nisso trabalho, apresentarei três regras que ainda serão explicadas.",
+        "Nesse trabalho mesmo, apresentarei três regras que ainda serão explicadas.",
+      ],
+      correctAnswer: "Neste trabalho, apresentarei três regras que ainda serão explicadas.",
+      explanation: "Como o texto se refere ao próprio trabalho que está sendo apresentado, usa-se 'neste'.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos.",
+    },
+    {
+      id: "pit-porques-10",
+      prompt: "Qual frase está totalmente correta?",
+      options: [
+        "Por que ela saiu? Ninguém sabe por quê.",
+        "Porque ela saiu? Ninguém sabe por que.",
+        "Por quê ela saiu? Ninguém sabe porque.",
+        "Porquê ela saiu? Ninguém sabe o por que.",
+      ],
+      correctAnswer: "Por que ela saiu? Ninguém sabe por quê.",
+      explanation: "No início da pergunta, usa-se 'por que'; no fim da frase, antes do ponto, usa-se 'por quê'.",
+      sourceExcerpt: "Banco de revisão de Produção e Interpretação de Textos.",
+    },
+  ],
   "producao-interpretacao-textos-portugues": [
     {
       id: "pit-gramatica-01",
@@ -1494,7 +1711,8 @@ function buildTopics(): StudyTopic[] {
     ...topicQuestions["producao-interpretacao-textos-escuta"].slice(0, 2),
     ...topicQuestions["producao-interpretacao-textos-estrutura-redacao"].slice(0, 1),
     ...topicQuestions["producao-interpretacao-textos-argumentos"].slice(0, 1),
-    ...topicQuestions["producao-interpretacao-textos-portugues"].slice(0, 2),
+    ...topicQuestions["producao-interpretacao-textos-porques-pronomes"].slice(0, 2),
+    ...topicQuestions["producao-interpretacao-textos-portugues"].slice(0, 1),
   ];
 
   return [
@@ -1542,6 +1760,15 @@ function buildTopics(): StudyTopic[] {
       lesson: deepLessons["producao-interpretacao-textos-redacao"],
       activity: writingActivities["producao-interpretacao-textos-redacao"],
       tip: "Não use repertório como enfeite: explique o que ele demonstra e como sustenta a tese.",
+    },
+    {
+      slug: "producao-interpretacao-textos-porques-pronomes",
+      title: "Porquês e pronomes",
+      description: "Aprender os quatro porquês e o uso de este/esse, neste/nesse e retomadas demonstrativas.",
+      questions: topicQuestions["producao-interpretacao-textos-porques-pronomes"],
+      lesson: deepLessons["producao-interpretacao-textos-porques-pronomes"],
+      activity: writingActivities["producao-interpretacao-textos-porques-pronomes"],
+      tip: studyTips["producao-interpretacao-textos-porques-pronomes"],
     },
     {
       slug: "producao-interpretacao-textos-portugues",
