@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRef, useState, useSyncExternalStore } from "react";
 import type { NeuroTextQuestion } from "@/lib/neuro-units";
 
@@ -1914,6 +1915,9 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
 
       <div className="mx-auto max-w-[1210px] px-[26px] max-[560px]:px-[15px]">
         <section className="pb-[25px] pt-[39px] max-[810px]:pt-[27px]">
+          <Link className="mb-4 inline-block text-sm font-semibold text-rose-200 underline-offset-4 hover:underline" href="/">
+            Voltar para página inicial
+          </Link>
           <span className="block text-[.82rem] font-bold uppercase tracking-[.1em] text-rose-200">Produção e interpretação</span>
           <h1 className="mb-[9px] mt-1.5 max-w-[760px] text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.13] tracking-[-.035em] text-white">
             Estude uma aula por vez.
