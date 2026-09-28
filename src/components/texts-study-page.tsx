@@ -24,34 +24,46 @@ const deepLessons: Record<string, DeepLesson> = {
     concepts: [
       {
         title: "Linguagem como sistema",
-        explanation: "A partir de Saussure, a língua pode ser entendida como um sistema social de signos. Isso significa que as palavras não valem isoladamente: elas ganham sentido pelas relações que estabelecem com outras palavras, com regras compartilhadas e com usos culturais.",
+        explanation: "A partir de Saussure, a língua pode ser entendida como um sistema social de signos: um conjunto organizado em que cada palavra recebe sentido não por uma ligação natural com a coisa nomeada, mas pela relação que mantém com as demais palavras, com as regras gramaticais compartilhadas e com os usos consolidados em uma comunidade. Daí decorrem três consequências práticas para a leitura e para a escrita. Primeira: nenhum termo tem valor isolado; seu significado é delimitado pelo campo em que aparece, de modo que 'crise' significa coisa diferente em um relato emocional, em uma notícia econômica e em uma narrativa de ruptura familiar. Segunda: como a significação é convenção coletiva, ela muda com o tempo, com o grupo e com a instituição — o mesmo termo pode ter peso técnico em um serviço e peso coloquial fora dele. Terceira: escrever com precisão significa escolher o signo certo para o contexto, não o signo mais eloquente. Para a escuta psicológica, isso implica cautela com rótulos: termos técnicos como 'resistência', 'dependência' ou 'transtorno' só cumprem sua função quando situados em uma hipótese sustentada por dados e por acompanhamento, e não quando aplicados como atalho descritivo.",
         examples: [
           "A palavra 'crise' pode indicar um episódio emocional, uma crise econômica ou um momento de ruptura. O sentido depende do campo em que aparece.",
           "Em Psicologia, 'resistência' não deve ser usada como rótulo automático; o termo precisa fazer sentido dentro de um acompanhamento e de uma hipótese sustentada.",
+          "Mesma palavra, valores opostos: 'paciente colaborativo' em uma ficha de comparecimento significa presença; em uma avaliação clínica, exige descrição do que foi observado.",
+          "Erro de registro: escrever 'agressivo' sem dizer que o paciente levantou a voz duas vezes e bateu a porta — o signo sobrescreve o fato.",
+          "Consequência para a prova: quando o enunciado pergunta o sentido de um termo, verifique o campo semântico e as relações do texto, e não apenas o significado de dicionário.",
         ],
       },
       {
         title: "Langue e parole",
-        explanation: "Langue é o sistema comum da língua, aquilo que uma comunidade reconhece como possível. Parole é o uso concreto que um sujeito faz desse sistema quando fala, escreve, hesita, escolhe uma palavra ou organiza uma narrativa.",
+        explanation: "Langue é a língua enquanto sistema: o acervo de regras, formas e convenções que uma comunidade reconhece como legítimo e que permite que qualquer falante seja compreendido. Ela existe como potencial coletivo e não pode ser observada diretamente — só se manifesta nos usos. Parole é o ato singular pelo qual um sujeito, em uma situação determinada, mobiliza esse sistema: escolhe palavras, combina tempos, hesita, interrompe, insiste, gagueja, escreve ou cala. A distinção importa porque separa o que é partilhado do que é singular, e porque mostra que a fala nunca é cópia do sistema: sempre o atravessa e o desloca. Para a interpretação de textos e para a escuta clínica, a consequência é metodológica — descrever a langue ajuda a dizer o que era esperado naquele enunciado, enquanto descrever a parole ajuda a dizer o que de fato aconteceu naquele caso. Um registro clínico que só aponta a norma ('a paciente negou sintomas') perde a fala concreta; um registro que só relata a fala, sem situá-la no sistema, perde o critério de comparação.",
         examples: [
-          "Langue: as regras e convenções que permitem formar frases em português.",
+          "Langue: as regras e convenções que permitem formar frases em português e ser compreendido por quem escuta.",
           "Parole: a forma singular como uma paciente diz 'eu estou bem' após uma pausa longa e com voz baixa.",
+          "Langue: o uso do pretérito perfeito para indicar ação concluída. Parole: o paciente relatar a perda no passado usando o pretérito imperfeito ('eu estava chegando') e deixar a ação em aberto.",
+          "Efeito clínico: a mesma frase 'estou bem' pode funcionar no sistema como afirmação neutra e, na parole concreta, como encerramento da conversa.",
+          "Leitura de enunciado: quando a prova destaca uma irregularidade, pergunte se ela viola a langue ou é uma escolha de parole — a resposta muda a interpretação.",
         ],
       },
       {
         title: "Lente interna",
-        explanation: "Os slides destacam que não vemos as coisas simplesmente como são: interpretamos a partir de experiências, afetos, medos, expectativas e repertórios. Por isso, a interpretação precisa voltar ao texto para separar pista observável de impressão subjetiva.",
+        explanation: "Não enxergamos o texto como se ele fosse um objeto transparente: toda leitura acontece por meio de uma 'lente interna' formada por experiências prévias, afetos, medos, expectativas, profissão, formação e repertório cultural. Essa lente não é um defeito a eliminar — é a condição que torna a leitura possível, porque só compreendemos o que temos alguma base para compreender. O problema surge quando a lente é tomada pelo objeto: quando a impressão pessoal ('ele foi frio', 'isso é óbvio') é registrada como se fosse propriedade do texto. O método corretivo é sempre o mesmo: separar três camadas — dado observável (o que está literalmente no enunciado), inferência (o que se deduz a partir dele) e valoração (o juízo que se faz sobre isso) — e exigir, para cada camada, o tipo de sustentação correspondente. O dado é conferido no texto; a inferência é testada contra outras leituras possíveis; a valoração precisa de um critério declarado. Na prática de estudo, isso significa que a primeira leitura útil é a hipótese, e a leitura responsável é a revisão da hipótese contra as pistas.",
         examples: [
           "Impressão: 'ele foi frio'. Dado observável: 'ele respondeu com frases curtas e sem contato visual frequente'.",
           "A primeira leitura pode ser útil como hipótese, mas precisa ser conferida no enunciado, no contexto e na sequência da fala.",
+          "Três camadas numa frase: dado ('pausou dez segundos') → inferência ('evitou o tema') → valoração ('fou desonesto'). Só a primeira é verificável no texto.",
+          "Erro de prova: atribuir a intenção do autor a partir de uma palavra isolada, sem considerar o parágrafo e o gênero textual.",
+          "Bom hábito de estudo: antes de responder, sublinhar a pista que autoriza a conclusão; se não houver sublinhado, não há base.",
         ],
       },
       {
         title: "Condições de produção",
-        explanation: "Todo enunciado é produzido em uma situação: alguém fala, de um lugar social, para alguém, com certa finalidade, em um momento histórico. Essas condições limitam e orientam os sentidos possíveis.",
+        explanation: "Nenhum enunciado surge no vácuo: todo texto é produzido por alguém, em um lugar social, para um destinatário determinado, com uma finalidade específica, em um momento histórico e dentro de uma instituição que autoriza certos modos de dizer. Essas condições de produção não são pano de fundo — elas entram na composição do sentido e, por isso mesmo, precisam ser consideradas na interpretação. Mudar qualquer um dos elementos altera o efeito da mesma frase: a mesma formulação dita por professor, terapeuta, familiar ou chefe produz relações de poder diferentes; a mesma pergunta respondida em uma entrevista de seleção e em um atendimento clínico tem pesos diferentes. Para a escuta psicológica, há ainda uma dimensão de efeitos: o interlocutor também age sobre o enunciado, e a pessoa que fala antecipa o julgamento do outro, o que pode gerar eufemismo, omissão ou reformulação. Conclui-se que interpretar é sempre situar: antes de dizer o que a frase 'quer dizer', pergunte quem falou, para quem, onde, quando e com qual finalidade.",
         examples: [
           "A frase 'você precisa melhorar' tem efeitos diferentes dita por professor, terapeuta, familiar ou chefe.",
           "Uma resposta em avaliação psicológica pode ser afetada pela instituição, pelo medo de julgamento e pelo objetivo da entrevista.",
+          "Mesmo trecho, contextos opostos: 'não sei o que dizer' pode ser recusa de quem tem medo de errar ou abertura de quem está buscando palavras.",
+          "Instituição que autoriza dizer: em um relatório oficial espera-se impessoalidade; em um grupo de escuta espera-se primeira pessoa.",
+          "Na prova: quando o enunciado traz data, suporte ou interlocutor, esses dados quase sempre sustentam a resposta correta.",
         ],
       },
     ],
@@ -85,42 +97,57 @@ const deepLessons: Record<string, DeepLesson> = {
     concepts: [
       {
         title: "Análise do Discurso",
-        explanation: "A AD investiga como os sentidos são produzidos nas relações sociais. Ela não trata a fala como um espelho transparente da intenção individual; observa como história, instituições, ideologia, memória discursiva e posições de sujeito atravessam o que pode ser dito.",
+        explanation: "A Análise do Discurso investiga como os sentidos são produzidos nas relações sociais, e não como eles residem dentro da cabeça de um falante. Seu ponto de partida é uma inversão: em vez de tratar a fala como transparência da intenção individual, ela pergunta que condições históricas, materiais e institucionais tornaram aquele sentido possível, aceitável e circulante. Para isso, a AD articula três referentes clássicos — a linguística, que descreve o funcionamento da língua; a materialidade histórica, que descreve as formações sociais em que o texto aparece; e a teoria da subjetividade, que descreve como um sujeito se posiciona dentro dessas formações. O objeto de análise deixa de ser o texto isolado e passa a ser o acontecimento discursivo: o momento em que uma palavra é dita, por alguém, em condições determinadas, produzindo efeitos sobre quem escuta. Isso tem consequências para a leitura de enunciados clínicos: a pergunta deixa de ser apenas 'o que o paciente quis dizer?' e passa a incluir 'em que contexto isso pôde ser dito assim, e não de outro modo?'.",
         examples: [
           "Em vez de perguntar apenas 'o que a pessoa quis dizer?', pergunte também 'em que contexto isso pôde ser dito dessa forma?'.",
           "A frase 'eu tenho que dar conta de tudo' pode carregar discursos sociais sobre produtividade, família, gênero e sucesso.",
+          "O mesmo pedido de ajuda soa como fraqueza em uma instituição meritocrática e como cuidado adequado em um serviço de saúde.",
+          "Efeito sobre o registro: anotar 'paciente negou tudo' pode apagar as condições em que a negação foi produzida.",
+          "Prova: a AD não busca a intenção verdadeira atrás da fala; ela busca as regras que organizam o que ali pôde ser dito.",
         ],
       },
       {
         title: "Formação discursiva",
-        explanation: "É o conjunto de regras, muitas vezes invisíveis, que define o que soa aceitável, possível ou legítimo em determinado contexto. Em uma instituição, por exemplo, certos modos de falar sobre sofrimento podem ser autorizados, enquanto outros são silenciados.",
+        explanation: "Formação discursiva é o conjunto de regras, em geral invisíveis, que determina o que pode e o que deve ser dito em determinado contexto histórico-institucional. Não se trata de proibições escritas, mas de uma espécie de regime de sentido: dentro de uma formação, certas combinações de palavras soam naturais e legitimadas, enquanto outras soam descabidas, excessivas ou inaudíveis. O conceito é central porque explica por que o sofrimento aparece sempre mediatizado por um vocabulário disponível — a pessoa fala com as palavras que o meio lhe oferece. Daí a distinção entre formação discursiva (o regime de sentido vigente), formação ideológica (o conjunto de posições antagonistas que disputam esse sentido) e formação social (as relações concretas de poder em que a disputa ocorre). Para a escuta clínica, a utilidade é imediata: quando um paciente diz 'estou só cansado', é preciso considerar que 'cansaço' pode ser o único nome socialmente aceito para um sofrimento que não tem outra denominação autorizada naquele meio.",
         examples: [
           "Em um ambiente escolar, o aluno pode aprender que dizer 'não entendi' é sinal de fraqueza, dependendo da cultura da turma.",
           "Em uma empresa, sofrimento pode aparecer como 'cansaço' ou 'baixa performance', porque esse vocabulário é mais aceito naquele espaço.",
+          "Em um serviço de saúde, o sofrimento psíquico só 'existe' quando traduzido para queixa médica codificável.",
+          "Na família, o luto pode ser nomeado como 'falta de força' em vez de perda, conforme o repertório do grupo.",
+          "Leitura de texto: quando um termo reaparece sempre no mesmo lugar do enunciado, desconfie de uma formação discursiva atuando.",
         ],
       },
       {
         title: "Ideologia em Marx",
-        explanation: "Nos slides, Marx orienta a leitura de que o sujeito não aparece fora da sociedade. Família, mídia, instituições, classe social e normas culturais participam da construção de identidades e da naturalização de certas formas de sofrimento.",
+        explanation: "A contribuição de Marx à leitura do discurso vem da ideia de que as representações não são independentes das condições materiais de existência: as formas como as pessoas se narram, se avaliam e explicam seus fracassos são atravessadas pelas relações sociais em que estão inseridas. Em termos de análise, isso significa que o sujeito nunca fala a partir de um lugar neutro — fala a partir de uma posição social determinada, e o discurso circula por instituições (família, escola, empresa, mídia, Estado) que selecionam e difundem certas explicações sobre o mundo. O efeito mais importante é a naturalização: quando uma explicação historicamente construída passa a parecer simplesmente 'o jeito das coisas', ela deixa de ser discutida e passa a ser cumprida. Assim, um fracasso individual pode ser lido como prova de deficiência pessoal, apagando as condições que o produziram. Para a escuta, a pergunta diagnóstica é: quais relações sociais estão sendo apagadas quando tudo se resolve como responsabilidade da própria pessoa?",
         examples: [
           "Quando alguém diz 'se eu falhei, é porque não me esforcei o suficiente', pode estar reproduzindo um discurso individualizante sobre sucesso.",
           "A análise pergunta quais condições sociais estão sendo apagadas quando tudo vira responsabilidade individual.",
+          "Narrativa de 'basta querer' aplicada a dificuldades materiais: o discurso converte desigualdade em falha de caráter.",
+          "Em registro clínico: atribuir abandono de tratamento apenas à 'falta de motivação', sem registrar barreiras de acesso, horário e custo.",
+          "Prova: a leitura marxista não nega a agência do sujeito; ela recoloca a fala dentro das relações que a tornaram possível.",
         ],
       },
       {
         title: "Inconsciente em Freud",
-        explanation: "Freud contribui para pensar que a fala não é totalmente racional ou controlada. Lapsos, contradições, metáforas, silêncios e escolhas de palavras podem abrir pistas interpretativas, mas não funcionam como prova automática de diagnóstico.",
+        explanation: "Freud desloca a ideia de que a fala é um instrumento inteiramente controlado pelo falante. Se a enunciação fosse plenamente racional, lapsos, gafes, esquecimentos, contradições, mudanças de tema, silêncios prolongados e escolhas inusitadas de palavras seriam apenas ruído estatístico; a psicanálise os trata como formações do inconsciente, isto é, como produções que têm uma lógica própria, ainda que não seja a lógica declarada do enunciado. A consequência hermenêutica é dupla e deve ser mantida em equilíbrio. De um lado, amplia-se o campo de escuta: o que não foi dito, o que foi dito de outra forma e o que se repetiu inesperadamente passam a ter valor. De outro, mantém-se a prudência: uma pista não é uma prova, e a interpretação só se torna responsável quando acompanha recorrência, contexto, reação do falante e efeitos práticos do que foi dizer. Por isso, o lugar correto de um lapso no registro clínico é a observação com data e contexto — nunca a conclusão diagnóstica.",
         examples: [
           "Um lapso pode ser anotado como dado de escuta, mas não deve virar conclusão isolada.",
           "Se uma pessoa muda de assunto sempre que fala da família, isso pode orientar uma pergunta clínica, não uma sentença pronta.",
+          "Metáfora reveladora: 'a casa toda desmoronando' dita por alguém que relata apenas cansaço cotidiano pode merecer uma pergunta, não uma tradução imediata.",
+          "Silêncio prolongado seguido de 'não é nada': registrar a sequência completa, não apenas a frase final.",
+          "Erro comum: transformar um único equívoco em evidência de conflito — a hipótese precisa de recorrência e sustentação.",
         ],
       },
       {
         title: "Interdiscurso e memória discursiva",
-        explanation: "Pêcheux ajuda a compreender que todo discurso carrega vozes anteriores. Quando alguém fala, mobiliza sentidos já circulantes na cultura, na família, na escola, na clínica e na mídia.",
+        explanation: "Pêcheux introduz a noção de que a fala nunca parte do zero: todo discurso é atravessado por outros discursos que já circulavam antes dele — o que ele chama de interdiscurso e memória discursiva. A memória discursiva não é a lembrança pessoal do falante, mas o acervo de formulações, esquemas e lugares-comuns que uma sociedade mantém disponíveis e que reaparecem mesmo quando ninguém os cita explicitamente. Isso explica a frequência com que frases prontas emergem na fala individual como se fossem pensamento próprio: 'homem não chora', 'mãe boa aguenta tudo', 'cada um tem o que merece'. O sujeito, portanto, fala com palavras que escolheu, mas também com discursos que recebeu, repetiu e interiorizou ao longo da vida. Para a interpretação, a consequência é decisiva: quando uma formulação soa familiar e genérica, é provável que estejamos diante de uma voz social e não de uma posição singular — e cabe à escuta verificar se o sujeito assume aquela voz, a contradiz ou tenta negociá-la.",
         examples: [
           "Frases como 'homem não chora' ou 'mãe boa aguenta tudo' podem aparecer na fala individual como vozes sociais antigas.",
           "A escuta observa que o sujeito fala com palavras próprias, mas também com discursos que recebeu e repetiu ao longo da vida.",
+          "'Eu não deveria reclamar, tem gente pior': formulação pronta que antecipa o julgamento social e encurta o relato.",
+          "Na escrita acadêmica: repertório decorado sem comentário indica repetição de memória discursiva, não argumento próprio.",
+          "Teste de leitura: pergunte 'de onde vem essa frase?' antes de perguntar 'o que ela significa?'.",
         ],
       },
     ],
@@ -158,42 +185,86 @@ const deepLessons: Record<string, DeepLesson> = {
     concepts: [
       {
         title: "Tema",
-        explanation: "Tema é o assunto sobre o qual o texto fala. Ele pode ser amplo, como 'escuta clínica', 'linguagem' ou 'saúde mental'. O tema sozinho ainda não mostra a posição do autor.",
+        explanation:
+          "Tema é o assunto de que o texto trata: o campo mais amplo dentro do qual a discussão acontece. Ele é formulado em termos de objeto e perspectiva, não em termos de opinião, e por isso pode ser abordado por textos com conclusões opostas. Temas amplos, como 'linguagem', 'escuta clínica' ou 'saúde mental', servem de ponto de partida, mas raramente funcionam direto como título de redação, porque não indicam recorte. Um bom tema é delimitado por um eixo que conecta dois polos — por exemplo, linguagem e registro clínico, escuta e formação profissional, tecnologia e atenção —, de modo que já se perceba qual relação será examinada. É preciso separar três níveis que costumam ser confundidos: tema (o assunto), tese (a posição assumida sobre esse assunto) e problemática (a pergunta que organiza a discussão). Enquanto o tema permanece neutro e pode aparecer até em forma de pergunta, a tese é uma afirmação discutível que exige defesa. Uma prova que pede 'discuta' não quer que você repita o tema com palavras diferentes; quer que você o transforme em pergunta e responda a ela com argumentos.",
         examples: [
-          "Tema: precisão linguística em registros clínicos.",
-          "Tema: o papel da escuta na formação em Psicologia.",
+          "Tema amplo demais: 'linguagem'. Sem recorte, o texto não sabe por onde começar nem onde parar.",
+          "Tema delimitado: 'a precisão linguística nos registros clínicos como forma de proteção ética do paciente'.",
+          "Tema delimitado: 'o papel da escuta na formação em Psicologia'.",
+          "Problemática derivada do tema: 'até que ponto a padronização de relatórios melhora a comunicação entre profissionais sem empobrecer o relato do caso?'",
+          "Teste prático: se duas pessoas conseguem defender conclusões opostas a partir da mesma formulação, você tem um tema; se a frase já entrega a conclusão, você tem uma tese.",
         ],
       },
       {
         title: "Tese",
-        explanation: "Tese é a posição central defendida. Ela precisa ser discutível e orientar todo o texto. Uma tese fraca apenas anuncia o assunto; uma tese forte apresenta um ponto de vista que será sustentado.",
+        explanation:
+          "Tese é a posição central que o texto assume e pretende sustentar até o fim. Ela não é um resumo do assunto nem uma declaração de boa vontade: é uma afirmação discutível, específica o bastante para poder ser atacada por um leitor atento e defensável com argumentos disponíveis no repertório do estudante. Uma tese fraca apenas nomeia o tema ('este texto fala sobre escuta clínica') ou pede concordância genérica ('a escuta é importante'); uma tese forte apresenta uma relação de causa, condição, prioridade ou limite, e é por isso que ela costuma vir acompanhada de um 'porque', um 'embora', um 'só se' ou um 'na medida em'. A tese cumpre três funções ao mesmo tempo: define o ângulo do texto, impõe os limites do que será tratado e serve de critério para aprovar ou rejeitar cada argumento — se um parágrafo não ajuda a defender a tese, ele não pertence ao texto. Em provas com proposta de intervenção, a tese deve estar presente na introdução e sustentar a conclusão; ela nunca deve aparecer apenas na primeira frase e ser esquecida em seguida. Vale ainda lembrar que tese não é verdade absoluta: ela é uma leitura provisória, argumentada, aceitável por parte razoável dos leitores.",
         examples: [
-          "Fraca: 'Este texto fala sobre escuta clínica.'",
-          "Forte: 'A escuta clínica exige precisão linguística porque diferencia observação, hipótese e interpretação.'",
+          "Fraca (apenas anuncia o assunto): 'Este texto fala sobre escuta clínica.'",
+          "Fraca (senso comum sem discussão): 'A linguagem é muito importante para todos nós.'",
+          "Forte (relação causal): 'A escuta clínica exige precisão linguística porque diferencia observação, hipótese e interpretação.'",
+          "Forte (com limites explícitos): 'Embora o prontuário padronizado agilize a comunicação entre equipes, ele só preserva a qualidade do cuidado quando deixa espaço para a descrição do caso.'",
+          "Tese e proposta de intervenção: 'A formação em Psicologia precisa incluir treino de escrita observável, sob coordenação de docentes e com avaliação por rubrica, para reduzir inferências indevidas em relatórios.'",
         ],
       },
       {
         title: "Argumento",
-        explanation: "Argumento é a razão que sustenta a tese. Pode envolver explicação conceitual, exemplo, dado, relação causal, comparação ou referência teórica. Ele precisa estar conectado à tese e não apenas enfeitar o parágrafo.",
+        explanation:
+          "Argumento é a razão que sustenta a tese: o passo de raciocínio que mostra por que a posição defendida faz sentido. Ele não é opinião solta nem exemplo decorado; é uma proposição verificável, conectada à tese por uma relação lógica explícita (causa, consequência, condição, comparação, contraste, analogia, autoridade). A prova de que um argumento é pertinente é simples: ao retirá-lo, a tese fica mais fraca. Se nada muda, aquilo era ornamento. Existem formatos argumentativos recorrentes que valem ser treinados: argumento causal (mostra o mecanismo pelo qual X produz Y), argumento de autoridade (apela a quem tem competência no assunto, desde que a fonte seja citada e o uso seja pertinente), argumento por exemplo (tira uma regra de um caso concreto), argumento por analogia (transfere uma lógica de um campo para outro, desde que as semelhanças sejam relevantes), argumento estadístico (usa dados quantitativos, com fonte e período) e argumento concessivo (reconhece uma objeção e mostra seu limite). O erro mais comum é confundir argumento com prova: em redação de vestibular, o exemplo ilustra e convence, mas só produz argumento quando o texto explica a ligação entre o caso e a tese. Exemplo integrado: ao escrever 'resistente', sem descrever o comportamento observado, o profissional transforma uma hipótese em característica do sujeito — e é essa passagem indevida que sustenta a defesa de que a precisão vocabular protege o paciente.",
         examples: [
-          "Argumento: registros vagos podem produzir interpretações indevidas sobre o paciente.",
-          "Exemplo integrado: ao escrever 'resistente', sem descrever o comportamento observado, o profissional pode transformar uma hipótese em característica do sujeito.",
+          "Argumento causal: registros vagos produzem interpretações indevidas porque quem lê é obrigado a suprir a lacuna com suposições.",
+          "Argumento por analogia: um prontuário incompleto funciona como uma fotografia desfocada — não registra o que aconteceu, registra apenas a aparência de ter registrado.",
+          "Argumento concessivo: reconhecer que a padronização agiliza o preenchimento não invalida a tese, desde que se mostre que agilidade e riqueza descritiva não são incompatíveis.",
+          "Exemplo integrado: o caso de um relato que registrou apenas 'paciente colaborativo' e omitiu o choro durante a entrevista mostra como a síntese apaga o dado clínico mais relevante.",
+          "Repertório sociocultural útil: a Classificação Internacional de Doenças como dispositivo de linguagem em saúde; a noção de registro como ato ético e não apenas administrativo.",
         ],
       },
       {
         title: "Tópico frasal",
-        explanation: "É a frase que apresenta a ideia central do parágrafo. Ela funciona como uma promessa: o restante do parágrafo deve explicar, justificar ou exemplificar essa ideia.",
+        explanation:
+          "Tópico frasal é a frase que abre o parágrafo e anuncia a ideia principal que será desenvolvida nele. Ele funciona como uma promessa feita ao leitor: tudo o que vier depois precisa explicar, justificar, exemplificar ou delimitar aquela ideia — e nada do que vier depois pode depender de informação que ainda não foi dada. Um tópico frasal eficaz costuma ser específico o bastante para não poder valer para qualquer parágrafo do texto; a frase 'a linguagem é importante' serviria para qualquer tema, e por isso é um tópico frasal vazio. Um bom teste é cobrir os demais parágrafos e ler apenas as primeiras frases de cada um: elas, sozinhas, devem formar um resumo coerente da argumentação. Há variações legítimas conforme a função do parágrafo: parágrafo de tese retoma a posição; parágrafo de argumento enuncia a razão; parágrafo de exemplo introduz o caso ('Um caso ilustra esse raciocínio...'); parágrafo de objeção abre a contra-argumentação ('Há, contudo, uma objeção a considerar...'). Em textos mais longos, é possível usar também um parágrafo-ponte, que retoma o fim do anterior e prepara o próximo, evitando a sensação de lista de tópicos desconectados.",
         examples: [
-          "Bom tópico: 'A precisão vocabular protege o registro clínico de conclusões precipitadas.'",
-          "Depois dele, o parágrafo deve explicar como isso acontece e trazer exemplo ou justificativa.",
+          "Bom tópico (específico e defendável): 'A precisão vocabular protege o registro clínico de conclusões precipitadas.'",
+          "Tópico fraco (genérico): 'A linguagem é muito importante na Psicologia.' — serviria para qualquer parágrafo do texto.",
+          "Tópico de exemplo: 'Dois casos mostram como a omissão de detalhes muda a leitura de um relato.' — e o parágrafo deve efetivamente apresentar os dois casos.",
+          "Sequência de tópicos que forma um resumo: 1) a padronização melhora a circulação do documento; 2) porém reduz a descrição do caso; 3) por isso o modelo deve prever campos abertos.",
+          "Depois de anunciar a ideia, o parágrafo deve explicar o mecanismo, sustentar com prova e fechar retomando a ligação com a tese.",
         ],
       },
       {
         title: "Progressão argumentativa",
-        explanation: "Um bom texto não repete a tese com outras palavras em todos os parágrafos. Ele avança: apresenta uma razão, aprofunda, mostra consequência, discute limite e fecha o percurso.",
+        explanation:
+          "Progressão é a organização do texto em ordem de pensamento: cada parágrafo deve acrescentar algo que o anterior não disse e preparar o terreno para o seguinte. O oposto não é o desacordo, é a repetição — repetir a tese com sinônimos em três parágrafos produz um texto que parece argumentativo sem argumentar. Avançar significa mudar de operação lógica ao longo do texto: apresentar o problema, explicar o mecanismo, mostrar a consequência, reconhecer a limitação ou objeção e encaminhar a conclusão ou a intervenção. Existem dois movimentos clássicos que organizam essa ordem: a progressão por encadeamento causal (do problema à causa, da causa ao efeito, do efeito ao remédio) e a progressão por tensão (tese, objeção, resposta à objeção — a chamada estrutura dialógica). A coesão sustenta a progressão: conectivos lógicos (portanto, contudo, sobretudo, ainda assim, em contrapartida) e retomadas nominais deixam visível a relação entre as ideias, mas não substituem o conteúdo — um parágrafo todo construído com 'além disso' não avança se não trouxer raciocínio novo. Sinal de alerta: se você consegue trocar a ordem dos parágrafos sem que o texto perca sentido, a progressão não existe. A prova final é a leitura das frases iniciais isoladamente: elas precisam contar uma história coerente.",
         examples: [
-          "Parágrafo 1: define o problema. Parágrafo 2: mostra consequência. Parágrafo 3: propõe cuidado ou encaminhamento.",
-          "Sem progressão: repetir 'a linguagem é importante' em todos os parágrafos sem acrescentar razões novas.",
+          "Parágrafo 1 apresenta o problema (relatórios vagos); parágrafo 2 explica o mecanismo (lacunas são supostas por quem lê); parágrafo 3 propõe o cuidado (descrever comportamento observável).",
+          "Progressão por tensão: defendo a padronização → reconheço que ela reduz a riqueza do relato → mostro que campos abertos resolvem o impasse.",
+          "Sem progressão: repetir 'a linguagem é importante' em três parágrafos com sinônimos diferentes e nenhum mecanismo novo.",
+          "Teste da ordem: se você inverter o parágrafo 2 com o 3 e o texto continuar igual, eles não estão encadeados.",
+          "Conectivo sem conteúdo: um parágrafo que começa por 'além disso' e só repete o anterior com palavras diferentes.",
+        ],
+      },
+      {
+        title: "Coesão e conexão entre parágrafos",
+        explanation:
+          "Coesão é o conjunto de recursos que ligam as partes do texto entre si: referentes e retomadas (artigos, pronomes, sinônimos, expressões nominalizantes), conectivos lógicos e temporais, e a manutenção de um mesmo eixo temático. Ela é o que faz o texto ser lido como uma unidade, e não como uma lista de frases corretas. A coesão tem dois níveis que costumam ser confundidos: a coesão intrafrasal, que organiza o interior da frase (por exemplo, evitar ambiguidade de pronome), e a coesão entre frases e parágrafos, que garante que uma ideia retome a anterior. Entre parágrafos, a ligação deve ser feita de dois lados ao mesmo tempo: por um elemento retomado, que reaparece em forma variantada (não literalmente igual), e por um elemento novo, que efetivamente acrescenta. Essa é a chamada regra da progressão informativa: um parágrafo que só retoma não avança; um parágrafo que só avança sem retomar quebra a unidade. Em textos dissertativos longos, também é papel da coesão marcar a hierarquia das ideias — distinguir o que é tese, o que é argumento e o que é exemplo —, e não apenas encadear frases. Cuidado com o excesso: o encadeamento 'primeiro, depois, portanto, ainda assim' repetido mecanicamente produz um texto com aparência lógica e conteúdo parado.",
+        examples: [
+          "Retomada nominal boa: 'a padronização do relatório' → 'essa padronização' → 'o modelo fechado' (mesmo referente, formulado de modo variado).",
+          "Ambiguidade a evitar: 'A mãe falou com a filha quando ela chorou' — sem desambiguação, a coesão falha mesmo com frase gramaticalmente correta.",
+          "Progressão com retomada e acréscimo: o parágrafo 2 retoma 'lacuna descritiva' e acrescenta o mecanismo de suposição por parte do leitor.",
+          "Coesão entre parágrafos: fechar o parágrafo anterior com a consequência e abrir o próximo retomando essa consequência como problema.",
+          "Sinal de fraca coesão: pronomes 'ele/ela' sem antecedente claro e parágrafos que poderiam ser trocados de lugar sem prejuízo.",
+        ],
+      },
+      {
+        title: "Repertório sociocultural e referências",
+        explanation:
+          "Repertório é o material externo que o autor traz para sustentar ou ilustrar a tese: fatos, dados, leis, conceitos teóricos, obras, casos históricos e experiências de observação. Ele só tem função argumentativa quando é pertinente e quando o texto explica a ponte entre a referência e a tese — trazer um nome célebre sem essa explicação produz o que se chama 'decorativo', e é um dos erros mais penalizados em correção. A pertinência se testa por três perguntas: a referência trata do mesmo eixo temático do texto? Eu consigo explicar, em uma frase, o que ela comprova aqui? Ela acrescenta algo que o meu próprio raciocínio não teria produzido sozinho? Dependendo da prova, o repertório pode ser mobilizado de formas diferentes: em ENEM, a socioculturalidade é avaliada; em provas de Psicologia, é esperado repertório técnico (autores, classificações, dispositivos de saúde). O repertório também pode ser interno — um exemplo construído pelo próprio autor, um dado hipotético bem descrito — desde que seja verossímil e comentado. Evite generalizações do tipo 'estudos mostram' sem fonte e 'a sociedade moderna exige' sem definição: elas enfraquecem a credibilidade justamente quando o texto quer parecer rigoroso.",
+        examples: [
+          "Repertório pertinente e comentado: a passagem de registros livres para modelos padronizados em saúde mostra que a linguagem técnica sempre foi objeto de decisão coletiva, não de gosto pessoal.",
+          "Repertório decorativo: citar um autor clássico no fim do parágrafo sem explicar o que aquele argumento sustenta aqui.",
+          "Repertório técnico da área: a noção de escuta ativa como condição de produção de relato confiável em entrevista clínica.",
+          "Repertório de observação pessoal (interno): relatos de estudantes indicam que a dúvida mais frequente em anamnese é o medo de escrever demais.",
+          "Uso inadequado: 'segundo especialistas, a linguagem é importante' — fonte genérica, afirmação semântica vazia.",
         ],
       },
     ],
@@ -231,7 +302,7 @@ const deepLessons: Record<string, DeepLesson> = {
     concepts: [
       {
         title: "Precisão clínica",
-        explanation: "Precisão clínica é a capacidade de escrever de modo claro, observável e responsável. Em prontuários, relatórios e laudos, uma palavra vaga pode transformar hipótese em conclusão, impressão em fato ou julgamento em registro técnico. O ideal é separar quatro camadas: dado observado, fala relatada, hipótese interpretativa e análise sustentada.",
+        explanation: "Precisão clínica é a capacidade de escrever de modo claro, observável e responsável — isto é, de modo que outra pessoa, lendo o mesmo documento em outro momento, consiga distinguir o que foi visto do que foi deduzido. Em prontuários, relatórios e laudos, uma palavra vaga não é apenas feiura de estilo: ela produz efeito prático, porque transforma hipótese em conclusão, impressão em fato ou julgamento em característica do sujeito, e esses registros circulam entre profissionais, instituições e, às vezes, instâncias judiciais. O critério operacional é separar quatro camadas que a escrita apressada costuma fundir: dado observado (o que pode ser visto ou medido), fala relatada (o que a pessoa disse, com fidelidade), hipótese interpretativa (a leitura possível, marcada como tal) e análise sustentada (a conclusão apoiada em conjunto de dados e referência teórica). A revisão deve ainda verificar três propriedades do texto: se é verificável (outro leitor pode conferir), se é datado (indica período e frequência) e se é não patologizante (descreve comportamento em vez de rotular pessoa).",
         examples: [
           "Vago: 'O paciente estava muito mal.' Melhor: 'O paciente relatou insônia em três noites da última semana e chorou durante parte da entrevista.'",
           "Inferência indevida: 'O silêncio comprovou resistência.' Melhor: 'Houve silêncio por cerca de dez segundos antes da resposta; o sentido clínico do episódio será investigado.'",
@@ -253,7 +324,7 @@ const deepLessons: Record<string, DeepLesson> = {
       },
       {
         title: "Mas, mais e houve",
-        explanation: "'Mas' é conjunção adversativa: marca contraste, oposição ou quebra de expectativa. 'Mais' indica quantidade, intensidade ou acréscimo. Já 'houve', quando vem do verbo haver com sentido de existir, ocorrer ou acontecer, é impessoal e fica no singular, mesmo quando o complemento está no plural.",
+        explanation: "'Mas' é conjunção adversativa: articula duas ideias marcando contraste, oposição ou quebra de expectativa, e por isso exige que os termos confrontados tenham relação real entre si — um 'mas' que liga frases sem tensão é dispensável. 'Mais' é palavra de acréscimo: indica quantidade, intensidade ou grão comparativo ('mais episódios', 'mais grave', 'mais uma vez'), e jamais deve ser escrito com o sentido adversativo. Já 'houve', quando provém do verbo haver com sentido de existir, ocorrer ou acontecer, é impessoal: não tem sujeito e permanece no singular, independentemente do número do complemento, do mesmo modo como acontece com 'fazer' nesse mesmo uso ('havia muitos casos', 'faz dois anos'). A exceção importante é que, quando haver indica posse ou obrigação, ele é plenamente conjugado e concorda com o sujeito — 'haviam pendências na fila' é correto nesse sentido. A ordem da decisão é sempre a mesma: primeiro descubra o que o verbo significa na frase, depois escolha o número.",
         examples: [
           "Mas: 'Apresentou dificuldade inicial, mas concluiu a atividade.' Há oposição entre dificuldade e conclusão.",
           "Mais: 'Relatou mais episódios de ansiedade na última semana.' Indica quantidade maior.",
@@ -264,7 +335,7 @@ const deepLessons: Record<string, DeepLesson> = {
       },
       {
         title: "Onde e aonde",
-        explanation: "'Onde' indica localização, lugar fixo ou situação em que algo ocorre. 'Aonde' junta a preposição 'a' com 'onde' e deve ser usada com ideia de movimento, direção ou destino. A diferença depende do verbo: ocorrer, estar e permanecer pedem localização; ir, levar, chegar e dirigir-se podem pedir destino.",
+        explanation: "'Onde' indica localização: lugar fixo, espaço ou situação em que algo se encontra ou ocorre, e pode ser usado no sentido literal ou figurado ('numa situação em que...'). 'Aonde' resulta da junção da preposição 'a' com 'onde' e marca movimento, direção ou destino, isto é, algo que se desloca até um ponto. A escolha depende do verbo que governa a oração: verbos de existência e permanência (ocorrer, estar, permanecer, acontecer, situar-se) pedem 'onde'; verbos de movimento e direção (ir, levar, chegar, dirigir-se, aproximar-se, caminhar) pedem 'aonde'. O teste de substituição resolve os casos difíceis: se a frase puder ser respondida por 'em algum lugar', use 'onde'; se puder ser respondida por 'para algum lugar', use 'aonde'. Mesmo em sentido figurado, 'aonde' continua valendo, porque a ideia de direção permanece — 'aonde essa argumentação nos leva?'",
         examples: [
           "Onde: 'Onde ocorreu a sessão?' A sessão ocorreu em um lugar fixo.",
           "Onde: 'Onde o paciente estava durante a crise?' Pergunta por localização.",
@@ -275,7 +346,7 @@ const deepLessons: Record<string, DeepLesson> = {
       },
       {
         title: "Pronomes e retomada",
-        explanation: "Pronomes organizam a retomada das ideias e evitam repetição, mas podem gerar ambiguidade. 'Esse/essa' costuma retomar algo já mencionado ou próximo de quem ouve. 'Este/esta' aponta para algo que será apresentado, para o tempo presente ou para algo próximo de quem fala/escreve. Em textos técnicos, também é importante evitar 'o mesmo/a mesma' como substituto de pessoa, porque isso deixa a frase artificial e, às vezes, ambígua.",
+        explanation: "Pronomes organizam a retomada das ideias, evitam repetição e dão coesão ao texto — mas, mal posicionados, criam ambiguidade, um dos defeitos mais penalizados em escrita técnica. A partícula 'esse/essa/isso' costuma retomar algo já mencionado ou algo próximo de quem escuta; 'este/esta/isto' aponta para algo que será apresentado, para o tempo presente ou para algo próximo de quem fala ou escreve; 'aquele/aquilo' afasta, marcando algo dito antes ou distante. Além da distância, o que decide a escolha é a direção da referência: 'esse' olha para trás e retoma, 'este' olha para frente e anuncia. Nos textos técnicos, evite ainda 'o mesmo/a mesma' como substituto de pessoa: a prática burocrática deixa a frase artificial e, com dois antecedentes possíveis, provoca dupla leitura. O remédio estrutural é simples — quando houver mais de um antecedente, repita o substantivo em vez de usar o pronome, mesmo que isso custe uma repetição. Em registro clínico, clareza vale mais do que economia de palavras.",
         examples: [
           "Esse retomando algo já dito: 'O paciente relatou ansiedade. Essa dificuldade apareceu antes das provas.'",
           "Este anunciando algo: 'Este relatório apresenta observações realizadas em três encontros.'",
@@ -386,10 +457,10 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
         </Link>
         <p className="mt-8 text-xs font-black uppercase tracking-[0.18em] text-rose-200">Produção e interpretação</p>
         <h1 className="mt-2 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-6xl">
-          Aulas autorais, não cópia dos slides.
+          Aulas autorais, com método próprio de estudo.
         </h1>
-        <p className="mt-5 max-w-3xl text-lg leading-8 text-rose-50/80">
-          {subjectDescription} Cada tema foi reescrito como aula própria, com conceitos, exemplos, aplicação e treino. Os slides ficam no fim apenas como referência visual.
+        <p className="mt-5 max-w-3xl text-lg leading-8 text-rose-50/80 text-justify">
+          {subjectDescription} Cada tema foi reescrito como aula própria, com conceitos aprofundados, exemplos comentados, aplicação clínica e treino guiado. Os slides ficam no fim apenas como referência visual.
         </p>
       </section>
 
@@ -421,7 +492,7 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
           <div className="border-b border-red-100 bg-[radial-gradient(circle_at_top_left,#fee2e2,transparent_34%),linear-gradient(135deg,#fff7ed,#fff)] p-6 sm:p-8">
             <span className="text-xs font-black uppercase tracking-[0.16em] text-[#aa0000]">Tema {activeIndex + 1} de {textsUnits.length}</span>
             <h2 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950">{unit.title}</h2>
-            <p className="mt-3 max-w-3xl leading-7 text-slate-600">{unit.videoDescription}</p>
+            <p className="mt-3 max-w-3xl leading-7 text-slate-600 text-justify">{unit.videoDescription}</p>
           </div>
 
           <div className="space-y-8 p-6 sm:p-8">
@@ -429,7 +500,7 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
               <div className="rounded-[28px] bg-[#2a0d0d] p-6 text-white sm:p-8">
                 <span className="text-xs font-black uppercase tracking-[0.14em] text-rose-200">Aula {activeIndex + 1} · feita por tema</span>
                 <h3 className="mt-2 text-2xl font-semibold tracking-tight">O que você vai aprender</h3>
-                <p className="mt-3 max-w-3xl leading-8 text-rose-50/85">{lesson.goal}</p>
+                <p className="mt-3 max-w-3xl leading-8 text-rose-50/85 text-justify">{lesson.goal}</p>
               </div>
               <div className="mt-5 grid gap-4">
                 {lesson.concepts.map((concept, index) => (
@@ -437,11 +508,11 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
                     <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#aa0000] text-2xl font-black text-white">{String(index + 1).padStart(2, "0")}</div>
                     <div>
                     <h4 className="text-lg font-semibold text-slate-900">{concept.title}</h4>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">{concept.explanation}</p>
+                    <p className="mt-2 text-sm leading-6 text-slate-600 text-justify">{concept.explanation}</p>
                     {concept.examples?.length ? (
                       <div className="mt-4 rounded-2xl bg-red-50 p-4">
                         <p className="text-xs font-black uppercase tracking-[0.12em] text-[#aa0000]">Exemplos</p>
-                        <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
+                        <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700 text-justify">
                           {concept.examples.map((example) => (
                             <li key={example}>{example}</li>
                           ))}
@@ -460,7 +531,7 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
                 {lesson.sections.map((section) => (
                   <article className="rounded-2xl border border-red-100 bg-white p-5" key={section.title}>
                     <h4 className="font-semibold text-slate-950">{section.title}</h4>
-                    <p className="mt-2 leading-7 text-slate-700">{section.body}</p>
+                    <p className="mt-2 leading-7 text-slate-700 text-justify">{section.body}</p>
                   </article>
                 ))}
               </div>
@@ -469,9 +540,9 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
             <section className="rounded-2xl border border-red-100 bg-white p-5">
               <span className="text-xs font-black uppercase tracking-[0.14em] text-[#aa0000]">Vamos resolver juntos</span>
               <h3 className="mt-2 text-xl font-semibold text-slate-950">{lesson.worked.title}</h3>
-              <p className="mt-3 rounded-xl bg-red-50 p-4 text-sm font-semibold leading-6 text-slate-700">{lesson.worked.source}</p>
-              <p className="mt-3 leading-7 text-slate-700">{lesson.worked.analysis}</p>
-              <p className="mt-3 rounded-xl bg-white p-4 text-sm text-slate-700"><strong>Erro comum:</strong> {activity.trap}</p>
+              <p className="mt-3 rounded-xl bg-red-50 p-4 text-sm font-semibold leading-6 text-slate-700 text-justify">{lesson.worked.source}</p>
+              <p className="mt-3 leading-7 text-slate-700 text-justify">{lesson.worked.analysis}</p>
+              <p className="mt-3 rounded-xl bg-white p-4 text-sm leading-6 text-slate-700 text-justify"><strong>Erro comum:</strong> {activity.trap}</p>
             </section>
 
             <section className="rounded-2xl border border-red-100 bg-[#fffafa] p-5">
@@ -481,7 +552,7 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
                 {lesson.recall.map((item, index) => (
                   <details className="rounded-xl border border-red-100 bg-white p-4" key={item.question}>
                     <summary className="cursor-pointer font-semibold text-slate-900">{index + 1}. {item.question}</summary>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">{item.answer}</p>
+                    <p className="mt-2 text-sm leading-6 text-slate-600 text-justify">{item.answer}</p>
                   </details>
                 ))}
               </div>
@@ -489,7 +560,7 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
 
             <section className="rounded-2xl border border-red-100 bg-[#fffafa] p-5">
               <h3 className="text-xl font-semibold text-slate-950">Aplique em dois minutos</h3>
-              <p className="mt-2 leading-7 text-slate-600">{activity.prompt}</p>
+              <p className="mt-2 leading-7 text-slate-600 text-justify">{activity.prompt}</p>
               <textarea
                 aria-label="Sua resposta para a atividade de escrita"
                 className="mt-4 min-h-32 w-full rounded-xl border border-red-100 bg-white p-4 outline-none transition focus:border-[#aa0000]"
@@ -500,7 +571,7 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
               <button className="mt-3 rounded-full border border-[#aa0000] px-5 py-2 text-sm font-bold text-[#aa0000] hover:bg-red-50" onClick={() => setShowModel((value) => !value)} type="button">
                 {showModel ? "Ocultar resposta possível" : "Ver uma resposta possível"}
               </button>
-              {showModel ? <p className="mt-3 rounded-xl bg-white p-4 text-sm leading-6 text-slate-700"><strong>Uma resposta possível:</strong> {activity.model}</p> : null}
+              {showModel ? <p className="mt-3 rounded-xl bg-white p-4 text-sm leading-6 text-slate-700 text-justify"><strong>Uma resposta possível:</strong> {activity.model}</p> : null}
             </section>
 
             {question ? (
@@ -512,7 +583,7 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
                 <div className="mt-4 h-2 overflow-hidden rounded-full bg-red-50">
                   <div className="h-full rounded-full bg-[#aa0000]" style={{ width: `${answeredProgress}%` }} />
                 </div>
-                <p className="mt-5 text-lg font-semibold leading-8 text-slate-900">{question.prompt}</p>
+                <p className="mt-5 text-lg font-semibold leading-8 text-slate-900 text-justify">{question.prompt}</p>
                 <div className="mt-4 grid gap-3">
                   {question.options.map((option) => {
                     const isSelected = selectedOption === option;
@@ -535,7 +606,7 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
                 {selectedOption ? (
                   <div className={`mt-4 rounded-xl p-4 ${isCorrect ? "bg-emerald-50 text-emerald-900" : "bg-red-50 text-[#7f0000]"}`}>
                     <p className="font-bold">{isCorrect ? "Correto" : "Incorreto"}</p>
-                    <p className="mt-1 text-sm leading-6">{question.explanation}</p>
+                    <p className="mt-1 text-sm leading-6 text-justify">{question.explanation}</p>
                     <button className="mt-3 rounded-full bg-[#aa0000] px-5 py-2 text-sm font-bold text-white hover:bg-[#8b0000]" onClick={nextQuestion} type="button">
                       Próxima questão
                     </button>
@@ -552,7 +623,7 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
                 </div>
                 <span className="text-sm text-slate-500">{unit.atlasItems.length} referência{unit.atlasItems.length === 1 ? "" : "s"}</span>
               </div>
-              <p className="mt-2 text-sm leading-6 text-slate-600">Use estas imagens apenas para reconhecer o material original. A aula acima já reescreve e organiza os conceitos.</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600 text-justify">Use estas imagens apenas para reconhecer o material original. A aula acima já reescreve e organiza os conceitos.</p>
               <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {unit.atlasItems.map((slide) => (
                   <figure className="overflow-hidden rounded-2xl border border-red-100 bg-white" key={slide.title}>
