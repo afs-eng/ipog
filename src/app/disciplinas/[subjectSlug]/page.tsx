@@ -114,7 +114,7 @@ function PsychologyStudyPage({ subjectName }: { subjectName: string }) {
     <main className="min-h-screen bg-white">
       <iframe
         className="h-screen w-full border-0 bg-white"
-        sandbox="allow-scripts"
+        sandbox="allow-scripts allow-top-navigation-by-user-activation"
         srcDoc={html}
         title={subjectName}
       />
