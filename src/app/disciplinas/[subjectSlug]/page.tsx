@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { NeuroCourseCard } from "@/components/neuro-course-card";
@@ -20,6 +22,10 @@ export default async function SubjectPage({
 
   if (!subject) {
     notFound();
+  }
+
+  if (subjectSlug === "introducao-psicologia-historia-fundamentos") {
+    return <PsychologyStudyPage subjectName={subject.name} />;
   }
 
   if (subjectSlug !== "neuroanatomofisiologia" && subjectSlug !== "desenvolvimento-anos-iniciais-escolares" && subjectSlug !== "producao-interpretacao-textos") {
@@ -97,6 +103,34 @@ export default async function SubjectPage({
           </div>
         </div>
       </section>
+    </main>
+  );
+}
+
+function PsychologyStudyPage({ subjectName }: { subjectName: string }) {
+  const html = readFileSync(path.join(process.cwd(), "aux", "introducao-psicologia.html"), "utf8");
+
+  return (
+    <main className="min-h-screen bg-slate-950 text-white">
+      <header className="border-b border-white/10 bg-slate-950/95">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+          <div>
+            <Link className="text-sm font-semibold text-rose-200 hover:text-white" href="/disciplinas">
+              Voltar para disciplinas
+            </Link>
+            <h1 className="mt-2 text-2xl font-semibold tracking-tight">{subjectName}</h1>
+          </div>
+          <p className="max-w-xl text-sm leading-6 text-slate-300">
+            Modelo carregado de <code>aux/introducao-psicologia.html</code>, com aulas e questões dissertativas por tema.
+          </p>
+        </div>
+      </header>
+      <iframe
+        className="h-[calc(100vh-129px)] w-full border-0 bg-white sm:h-[calc(100vh-105px)]"
+        sandbox="allow-scripts"
+        srcDoc={html}
+        title={subjectName}
+      />
     </main>
   );
 }
