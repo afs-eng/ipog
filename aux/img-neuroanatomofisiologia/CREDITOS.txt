@@ -1,0 +1,27 @@
+Figuras anatômicas originais: OpenStax / Rice University. Uso educacional não comercial.
+Adaptação: textos internos traduzidos para português brasileiro usando edição de imagem por IA, com revisão dos rótulos. Originais preservados no código-fonte, fora da pasta de publicação.
+Consulte cada página de origem para autoria e termos aplicáveis.
+Licença AP2e: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+medula: https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system
+Arquivo de origem: https://openstax.org/apps/archive/20260604.144757/resources/c6ce3f728a80e735cbb42aaf4a4216484a353be4
+nervos-espinhais: https://openstax.org/books/anatomy-and-physiology-2e/pages/13-4-the-peripheral-nervous-system
+Arquivo de origem: https://openstax.org/apps/archive/20260604.144757/resources/52d03bc6b3572cb7b46923c2c136ffe4bc48d53d
+meninges: https://openstax.org/books/anatomy-and-physiology/pages/13-3-circulation-and-the-central-nervous-system
+Arquivo de origem: https://openstax.org/apps/archive/20260604.144757/resources/b29ce6b50efa0d318868b53e86dbbf3672eb9cb5
+liquor: https://openstax.org/books/anatomy-and-physiology/pages/13-3-circulation-and-the-central-nervous-system
+Arquivo de origem: https://openstax.org/apps/archive/20260604.144757/resources/65b175d65cc4e4d696c6115ef4e8ec768f3915c9
+tronco: https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system
+Arquivo de origem: https://openstax.org/apps/archive/20260604.144757/resources/850091deeb9f5948976e80e1d66900e78cb0e445
+cerebelo: https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system
+Arquivo de origem: https://openstax.org/apps/archive/20260604.144757/resources/50ad0adfd4f00bc8443f645a1f9ce581c6b0671b
+nervos-cranianos: https://openstax.org/books/anatomy-and-physiology-2e/pages/13-4-the-peripheral-nervous-system
+Arquivo de origem: https://openstax.org/apps/archive/20260604.144757/resources/0301c86d5b037f2400c0bf1f32466c60cd8d93ee
+cortex: https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system
+Arquivo de origem: https://openstax.org/apps/archive/20260604.144757/resources/f75da3bb96ad3ae41e909d74e28d06351e4a8d3e
+diencefalo: https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system
+Arquivo de origem: https://openstax.org/apps/archive/20260604.144757/resources/33321c113f077238b2a12cfbad1d9edc5158b072
+hemisferios: https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system
+Arquivo de origem: https://openstax.org/apps/archive/20260604.144757/resources/8f2bb6eaf9e5b57aa56c5679502525b6815c36a7
+glandulas: https://openstax.org/books/psychology-2e/pages/3-5-the-endocrine-system
+Arquivo de origem: https://openstax.org/apps/archive/20260604.144757/resources/2dd33ed5be2a0f2d1feface5f793dcf43580ffa3
