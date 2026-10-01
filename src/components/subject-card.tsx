@@ -7,6 +7,8 @@ type SubjectCardProps = {
 };
 
 export function SubjectCard({ subject }: SubjectCardProps) {
+  const title = subject.slug === "neuroanatomofisiologia" ? "Neuro Anatomofisiologia" : subject.name;
+
   return (
     <article className="group flex h-full min-w-0 flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
       <div className={`h-2 bg-gradient-to-r ${subject.accent}`} />
@@ -16,7 +18,7 @@ export function SubjectCard({ subject }: SubjectCardProps) {
             Disciplina
           </p>
           <h3 className="mt-4 min-h-[7rem] text-center text-xl font-semibold leading-tight tracking-tight text-balance text-slate-950 break-words sm:text-2xl">
-            {subject.name}
+            {title}
           </h3>
           <p className="mt-4 min-h-[6.75rem] leading-7 text-slate-600 [overflow-wrap:anywhere]">
             {subject.description}
