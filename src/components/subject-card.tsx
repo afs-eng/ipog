@@ -12,10 +12,10 @@ export function SubjectCard({ subject }: SubjectCardProps) {
       <div className={`h-2 bg-gradient-to-r ${subject.accent}`} />
       <div className="flex min-h-[520px] min-w-0 flex-1 flex-col p-6">
         <div className="min-w-0 flex-1">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-slate-500 [overflow-wrap:anywhere]">
+          <p className="text-center text-sm font-medium uppercase tracking-[0.18em] text-slate-500">
             Disciplina
           </p>
-          <h3 className="mt-4 min-h-[7.5rem] text-2xl font-semibold leading-tight tracking-tight text-slate-950 [hyphens:auto] [overflow-wrap:anywhere]">
+          <h3 className="mt-4 min-h-[7rem] text-center text-xl font-semibold leading-tight tracking-tight text-balance text-slate-950 break-words sm:text-2xl">
             {subject.name}
           </h3>
           <p className="mt-4 min-h-[6.75rem] leading-7 text-slate-600 [overflow-wrap:anywhere]">
