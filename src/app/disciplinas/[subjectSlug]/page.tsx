@@ -96,6 +96,21 @@ export default async function SubjectPage({
 
         <div>
           <h1 className="mb-8 text-3xl font-normal tracking-tight text-[#aa0000]">{subject.name}</h1>
+          {!isDevelopment && !isTexts ? (
+            <section className="mb-8 border border-red-200 bg-red-50 p-6">
+              <p className="text-sm font-bold uppercase tracking-wide text-[#aa0000]">Revisão para prova</p>
+              <h2 className="mt-2 text-2xl font-normal tracking-tight text-slate-950">Simulado de Neuroanatomofisiologia</h2>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-700">
+                Acesse a página de revisão com aulas por tema, simulado completo com 25 questões e gabarito comentado.
+              </p>
+              <Link
+                className="mt-5 inline-flex rounded-sm bg-[#aa0000] px-5 py-3 text-xs font-bold uppercase text-white hover:bg-[#8b0000]"
+                href="/disciplinas/neuroanatomofisiologia/simulado"
+              >
+                Abrir simulado
+              </Link>
+            </section>
+          ) : null}
           <div className="space-y-8">
             {sections.map((section) => (
               isDevelopment || isTexts ? <CourseCard key={section.id} quizId={quizId} section={section} topicOnlyAvailable /> : <NeuroCourseCard key={section.id} section={section} />
