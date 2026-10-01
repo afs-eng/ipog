@@ -4,17 +4,17 @@ import path from "node:path";
 export default function NeuroSimulationPage() {
   const rawHtml = readFileSync(path.join(process.cwd(), "aux", "neuroanatomofisiologia.html"), "utf8");
   const reviewImages = {
-    cerebelo: imageDataUrl("cerebelo-ptbr.png"),
-    cortex: imageDataUrl("cortex-ptbr.png"),
-    diencefalo: imageDataUrl("diencefalo-ptbr.png"),
-    glandulas: imageDataUrl("glandulas-ptbr.png"),
-    hemisferios: imageDataUrl("hemisferios-ptbr.png"),
-    liquor: imageDataUrl("liquor-ptbr.png"),
-    medula: imageDataUrl("medula-ptbr.png"),
-    meninges: imageDataUrl("meninges-ptbr.png"),
-    nervosCranianos: imageDataUrl("nervos-cranianos-ptbr.png"),
-    nervosEspinhais: imageDataUrl("nervos-espinhais-ptbr.png"),
-    tronco: imageDataUrl("tronco-ptbr.png"),
+    cerebelo: "/neuroanatomofisiologia/revisao/cerebelo-ptbr.png",
+    cortex: "/neuroanatomofisiologia/revisao/cortex-ptbr.png",
+    diencefalo: "/neuroanatomofisiologia/revisao/diencefalo-ptbr.png",
+    glandulas: "/neuroanatomofisiologia/revisao/glandulas-ptbr.png",
+    hemisferios: "/neuroanatomofisiologia/revisao/hemisferios-ptbr.png",
+    liquor: "/neuroanatomofisiologia/revisao/liquor-ptbr.png",
+    medula: "/neuroanatomofisiologia/revisao/medula-ptbr.png",
+    meninges: "/neuroanatomofisiologia/revisao/meninges-ptbr.png",
+    nervosCranianos: "/neuroanatomofisiologia/revisao/nervos-cranianos-ptbr.png",
+    nervosEspinhais: "/neuroanatomofisiologia/revisao/nervos-espinhais-ptbr.png",
+    tronco: "/neuroanatomofisiologia/revisao/tronco-ptbr.png",
   };
   const lessonVisualScript = String.raw`
 const originalRenderLesson=renderLesson;
@@ -58,16 +58,10 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeImageModal()});
     <main className="min-h-screen bg-white">
       <iframe
         className="h-screen w-full border-0 bg-white"
-        sandbox="allow-scripts allow-top-navigation-by-user-activation"
+        sandbox="allow-scripts allow-same-origin allow-top-navigation-by-user-activation"
         srcDoc={html}
         title="Simulado de Neuroanatomofisiologia"
       />
     </main>
   );
-}
-
-function imageDataUrl(fileName: string) {
-  const image = readFileSync(path.join(process.cwd(), "public", "neuroanatomofisiologia", "revisao", fileName));
-
-  return `data:image/png;base64,${image.toString("base64")}`;
 }
