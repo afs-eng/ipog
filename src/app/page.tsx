@@ -28,6 +28,9 @@ export default function Home() {
               <Link className="rounded-full border border-white/15 bg-white/10 px-4 py-2 backdrop-blur transition hover:bg-white hover:text-slate-950" href="/disciplinas">
                 Disciplinas
               </Link>
+              <Link className="rounded-full border border-white/15 bg-white/10 px-4 py-2 backdrop-blur transition hover:bg-white hover:text-slate-950" href="/calculadora-de-notas">
+                Calculadora de notas
+              </Link>
               <Link className="rounded-full border border-rose-100/60 bg-rose-100 px-4 py-2 text-[#5c0505] shadow-lg shadow-red-950/20 transition hover:bg-white" href="/disciplinas/neuroanatomofisiologia">
                 Começar agora
               </Link>

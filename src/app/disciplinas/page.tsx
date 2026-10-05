@@ -17,6 +17,9 @@ export default function SubjectsPage() {
           A estrutura já permite adicionar novas disciplinas no futuro sem mudar a arquitetura da interface.
         </p>
       </div>
+      <Link className="mt-6 inline-flex rounded-full bg-[#aa0000] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#8b0000]" href="/calculadora-de-notas">
+        Calcular minhas notas
+      </Link>
       <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {subjects.map((subject) => (
           <SubjectCard key={subject.slug} subject={subject} />

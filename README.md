@@ -23,7 +23,12 @@ Abra `http://localhost:3000` no navegador.
 ```bash
 npm run lint
 npm run build
+npm run test
 ```
+
+## Calculadora de Notas
+
+Acesse `/calculadora-de-notas` pelo início ou pela lista de disciplinas. A calculadora aplica os pesos de 70% para avaliação formal e 30% para processual, exige frequência mínima de 75% e verifica aprovação com média parcial de 7,0 ou média final de 5,0. As médias são truncadas em uma casa decimal, sem arredondamento. N1 e N2 preservam a precisão dos pesos até o cálculo da média parcial. A NEF aceita notas em intervalos de 0,5.
 
 ## Deploy Grátis na Vercel
 
