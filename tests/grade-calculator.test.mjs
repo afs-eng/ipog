@@ -10,6 +10,15 @@ test("aprovação em 7,0 com frequência exatamente 75%", () => {
   assert.equal(result.requiredExam, null);
 });
 
+test("NEF não entra no cálculo quando a média de N1 e N2 é pelo menos 7", () => {
+  for (const grade of [7, 7.5, 10]) {
+    const result = calculateGrades({ ...input, formal1: grade, processual1: grade, formal2: grade, processual2: grade, exam: 0 });
+    assert.equal(result.status, "approved");
+    assert.equal(result.final, null);
+    assert.equal(result.requiredExam, null);
+  }
+});
+
 test("pesos de 70/30 e truncamento sem arredondamento", () => {
   const result = calculateGrades({ ...input, formal1: 7.5, processual1: 5, formal2: 8, processual2: 4.5 });
   assert.equal(result.n1, 6.75);

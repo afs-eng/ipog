@@ -23,7 +23,9 @@ export function calculateGrades(input: GradeInputs) {
   const n1Hundredths = formal1 * 70 + processual1 * 30;
   const n2Hundredths = formal2 * 70 + processual2 * 30;
   const partialTenths = Math.floor((n1Hundredths + n2Hundredths) / 20);
-  const finalTenths = exam === null ? null : Math.floor((partialTenths + exam * 10) / 2);
+  const finalTenths = partialTenths >= 70 || exam === null
+    ? null
+    : Math.floor((partialTenths + exam * 10) / 2);
   const requiredExam = partialTenths >= 70 ? null : Math.ceil((100 - partialTenths) / 5) / 2;
   const status = frequency < 75
     ? "failed-attendance"
