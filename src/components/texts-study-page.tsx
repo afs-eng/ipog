@@ -1927,6 +1927,14 @@ export function TextsStudyPage({ subjectName, subjectDescription }: TextsStudyPa
           </p>
         </section>
 
+        <section className="mb-7 rounded-2xl border border-rose-200/20 bg-white/5 p-6 text-white">
+          <h2 className="text-xl font-semibold">Sorteio do seminário — Jung</h2>
+          <p className="mt-2 text-sm leading-6 text-rose-50/75">Distribua os temas de Jung e a Interpretação dos Sonhos entre quatro alunos e salve o resultado em PDF.</p>
+          <Link className="mt-4 inline-flex rounded-lg bg-rose-100 px-5 py-3 text-sm font-bold text-[#7f0000] hover:bg-white" href="/disciplinas/producao-interpretacao-textos/sorteio-jung">
+            Acessar sorteio
+          </Link>
+        </section>
+
         <div className="grid items-start gap-[25px] pb-[70px] max-[810px]:grid-cols-1 lg:grid-cols-[236px_minmax(0,1fr)]">
           <aside className="lg:sticky lg:top-5 max-[810px]:static" aria-label="Temas de estudo">
             <h2 className="mb-3 text-[.85rem] font-bold uppercase tracking-[.09em] text-rose-100/60">Temas</h2>
