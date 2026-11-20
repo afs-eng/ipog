@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export type CourseSection = { id: string; title: string; description: string; imageUrl: string; lessons: { title: string; description: string; materialSlug?: string; topicSlug?: string }[] };
+export type CourseSection = { id: string; title: string; description: string; imageUrl: string; lessons: { title: string; description: string; materialSlug?: string; topicSlug?: string; href?: string }[] };
 
 export function CourseCard({ section, quizId, topicOnlyAvailable = false, answeredCount = 0 }: { section: CourseSection; quizId: string; topicOnlyAvailable?: boolean; answeredCount?: number }) {
   const isDevelopment = quizId.startsWith("desenvolvimento-");
-  const available = (lesson: CourseSection["lessons"][number]) => Boolean(lesson.materialSlug || (topicOnlyAvailable && lesson.topicSlug));
+  const available = (lesson: CourseSection["lessons"][number]) => Boolean(lesson.href || lesson.materialSlug || (topicOnlyAvailable && lesson.topicSlug));
   const firstLesson = section.lessons.find(available);
   const href = firstLesson ? lessonHref(quizId, firstLesson) : "#";
   const progress = Math.min(100, (answeredCount / section.lessons.length) * 100);
@@ -26,10 +26,10 @@ export function CourseCard({ section, quizId, topicOnlyAvailable = false, answer
         </div>
         <div className="col-start-2 flex flex-wrap gap-2 sm:col-start-auto">
           <Link className={`rounded-sm px-4 py-2 text-xs font-bold uppercase text-white ${available(lesson) ? "bg-[#aa0000] hover:bg-[#8b0000]" : "pointer-events-none bg-slate-300"}`} href={lessonUrl}>Estudar</Link>
-          {isDevelopment ? <Link className={`rounded-sm border px-4 py-2 text-xs font-bold uppercase ${available(lesson) ? "border-[#aa0000] bg-white text-[#aa0000] hover:bg-red-50" : "pointer-events-none border-slate-300 bg-white text-slate-400"}`} href={mapUrl}>Mapa conceitual</Link> : null}
+          {isDevelopment && !lesson.href ? <Link className={`rounded-sm border px-4 py-2 text-xs font-bold uppercase ${available(lesson) ? "border-[#aa0000] bg-white text-[#aa0000] hover:bg-red-50" : "pointer-events-none border-slate-300 bg-white text-slate-400"}`} href={mapUrl}>Mapa conceitual</Link> : null}
         </div>
       </div>;
     })}
   </section>;
 }
-function lessonHref(quizId: string, lesson: CourseSection["lessons"][number]) { const params = new URLSearchParams(); if (lesson.materialSlug) params.set("material", lesson.materialSlug); if (lesson.topicSlug) params.set("topic", lesson.topicSlug); return `/quiz/${quizId}${params.toString() ? `?${params}` : ""}`; }
+function lessonHref(quizId: string, lesson: CourseSection["lessons"][number]) { if (lesson.href) return lesson.href; const params = new URLSearchParams(); if (lesson.materialSlug) params.set("material", lesson.materialSlug); if (lesson.topicSlug) params.set("topic", lesson.topicSlug); return `/quiz/${quizId}${params.toString() ? `?${params}` : ""}`; }

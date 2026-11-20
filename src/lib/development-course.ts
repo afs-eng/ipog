@@ -1,6 +1,6 @@
-import type { NeuroCourseSection } from "./neuro-course";
+import type { CourseSection } from "../components/course-card";
 
-export type DevelopmentCourseSection = NeuroCourseSection;
+export type DevelopmentCourseSection = CourseSection;
 
 export const developmentCourseSections: DevelopmentCourseSection[] = [
   {
@@ -42,6 +42,19 @@ export const developmentCourseSections: DevelopmentCourseSection[] = [
         description: "Relações entre estágio cognitivo, conservação, jogos e participação ativa na aprendizagem.",
         materialSlug: "desenvolvimento-anos-iniciais-escolares-unidade-3",
         topicSlug: "desenvolvimento-anos-iniciais-escolares-unidade-3",
+      },
+    ],
+  },
+  {
+    id: "unidade-4",
+    title: "Unidade 4 — Vygotsky e Wallon",
+    description: "Mediação, linguagem, afetividade e desenvolvimento integral em um laboratório interativo de aprendizagem.",
+    imageUrl: "/conteudos/desenvolvimento-anos-iniciais-escolares/unidade-2-inteligencia-construtivismo.png",
+    lessons: [
+      {
+        title: "Aprender com o outro e desenvolver por inteiro",
+        description: "Cartões de revisão, associação de conceitos, percurso dos estágios de Wallon e 12 casos de sala de aula com feedback explicado.",
+        href: "/disciplinas/desenvolvimento-anos-iniciais-escolares/unidade-4",
       },
     ],
   },
