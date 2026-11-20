@@ -22,6 +22,11 @@
 .experience :is(a, button, input, summary):focus-visible { outline: 2px solid var(--amber); outline-offset: 5px; }
 .experience :is(h3, section):focus { outline: none; }
 .experience em { color: var(--orange); font-style: normal; }
+.quizPage { height: auto; min-height: 100svh; overflow: visible; }
+.scene.quizScene { min-height: 0; align-items: flex-start; padding-top: clamp(30px, 5vh, 65px); padding-bottom: 60px; }
+.scene.quizScene h1 { font-size: clamp(36px, 4.5vw, 62px); }
+.quizQuestions { border-top: 1px solid var(--line); padding-top: 25px; margin-top: 35px; }
+.stage .caseSituation > .questionSource, .feedback > .questionSource, .questionSource { font-size: 11px; line-height: 1.7; color: #a19b93; }
 .topbar { flex: 0 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 19px 4vw; border-bottom: 1px solid var(--line); z-index: 2; }
 .back, .indexButton { display: flex; align-items: center; gap: 10px; color: var(--soft); font-size: 13px !important; min-height: 28px; text-decoration: none; background: none; border: 0; }
 .back:hover, .indexButton:hover { color: var(--orange); }

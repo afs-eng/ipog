@@ -1,4 +1,5 @@
 export const unitFourHref = "/disciplinas/desenvolvimento-anos-iniciais-escolares/unidade-4";
+export const unitFourQuizHref = `${unitFourHref}/quiz`;
 
 export const unitFourSources = {
   vygotsky: "Macedo, Etiene. Principais conceitos do pensamento de Vygotsky. Slides de Psicologia Histórico-Cultural, 14/10/2026.",

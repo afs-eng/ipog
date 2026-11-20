@@ -1,7 +1,25 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { associations, associationOptions, classroomCases, reviewCards, scoreCases, wallonStages } from "../src/lib/development-unit-four.ts";
+import { associations, associationOptions, classroomCases, reviewCards, scoreCases, unitFourHref, unitFourQuizHref, wallonStages } from "../src/lib/development-unit-four.ts";
 import { unitFourScenes } from "../src/lib/development-unit-four-scenes.ts";
+import { developmentCourseSections } from "../src/lib/development-course.ts";
+
+test("Unidade 4 abre o quiz separado e mantém o acesso à aula", () => {
+  assert.notEqual(unitFourQuizHref, unitFourHref);
+  const section = developmentCourseSections.find((item) => item.id === "unidade-4");
+  assert.equal(section.href, unitFourQuizHref);
+  assert.equal(section.lessons[0].href, unitFourQuizHref);
+  assert.ok(section.lessons.some((lesson) => lesson.href === unitFourHref));
+  for (const previous of developmentCourseSections.slice(0, 3)) {
+    assert.equal(previous.href, undefined);
+    assert.ok(previous.lessons[0].materialSlug);
+  }
+});
+
+test("quiz cobre os dois PDFs com seis perguntas de cada autor", () => {
+  assert.equal(classroomCases.filter((item) => item.author === "Vygotsky").length, 6);
+  assert.equal(classroomCases.filter((item) => item.author === "Wallon").length, 6);
+});
 
 test("percurso visual tem cenas únicas, os dois autores, prática e referências", () => {
   assert.equal(unitFourScenes.length, 14);

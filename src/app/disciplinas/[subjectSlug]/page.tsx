@@ -87,9 +87,9 @@ export default async function SubjectPage({
         <aside className="h-fit lg:sticky lg:top-8">
           <nav className="space-y-2 pl-7 text-[16px] leading-6 text-slate-700">
             {sections.map((section) => (
-              <a className={`block hover:text-sky-600 ${section.id === (isDevelopment ? "unidade-1" : "cerebro") ? "text-sky-600" : ""}`} href={`#${section.id}`} key={section.id}>
+              <Link className={`block hover:text-sky-600 ${section.id === (isDevelopment ? "unidade-1" : "cerebro") ? "text-sky-600" : ""}`} href={"href" in section && typeof section.href === "string" ? section.href : `#${section.id}`} key={section.id}>
                 {section.title}
-              </a>
+              </Link>
             ))}
           </nav>
         </aside>

@@ -48,12 +48,18 @@ export const developmentCourseSections: DevelopmentCourseSection[] = [
   {
     id: "unidade-4",
     title: "Unidade 4 — Vygotsky e Wallon",
-    description: "Uma aula visual sobre mediação, linguagem, afetividade e desenvolvimento integral.",
+    href: "/disciplinas/desenvolvimento-anos-iniciais-escolares/unidade-4/quiz",
+    description: "Quiz interativo baseado nos PDFs de Psicologia Histórico-Cultural e Desenvolvimento Cognitivo segundo Henri Wallon.",
     imageUrl: "/conteudos/desenvolvimento-anos-iniciais-escolares/unidade-2-inteligencia-construtivismo.png",
     lessons: [
       {
-        title: "Aprender com o outro e desenvolver por inteiro",
-        description: "14 cenas com ilustrações animadas, conceitos para explorar e 12 situações de sala de aula com feedback explicado.",
+        title: "Quiz de perguntas — Vygotsky e Wallon",
+        description: "12 perguntas com alternativas, correção comentada, resultado e opção de refazer os erros.",
+        href: "/disciplinas/desenvolvimento-anos-iniciais-escolares/unidade-4/quiz",
+      },
+      {
+        title: "Aula visual — Vygotsky e Wallon",
+        description: "Revise os conceitos em 14 cenas com ilustrações e interações antes de responder ao quiz.",
         href: "/disciplinas/desenvolvimento-anos-iniciais-escolares/unidade-4",
       },
     ],
