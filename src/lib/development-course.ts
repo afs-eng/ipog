@@ -48,12 +48,12 @@ export const developmentCourseSections: DevelopmentCourseSection[] = [
   {
     id: "unidade-4",
     title: "Unidade 4 — Vygotsky e Wallon",
-    description: "Mediação, linguagem, afetividade e desenvolvimento integral em um laboratório interativo de aprendizagem.",
+    description: "Uma aula visual sobre mediação, linguagem, afetividade e desenvolvimento integral.",
     imageUrl: "/conteudos/desenvolvimento-anos-iniciais-escolares/unidade-2-inteligencia-construtivismo.png",
     lessons: [
       {
         title: "Aprender com o outro e desenvolver por inteiro",
-        description: "Cartões de revisão, associação de conceitos, percurso dos estágios de Wallon e 12 casos de sala de aula com feedback explicado.",
+        description: "14 cenas com ilustrações animadas, conceitos para explorar e 12 situações de sala de aula com feedback explicado.",
         href: "/disciplinas/desenvolvimento-anos-iniciais-escolares/unidade-4",
       },
     ],

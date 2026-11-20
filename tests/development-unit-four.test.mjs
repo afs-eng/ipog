@@ -1,6 +1,22 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { associations, associationOptions, classroomCases, reviewCards, scoreCases, wallonStages } from "../src/lib/development-unit-four.ts";
+import { unitFourScenes } from "../src/lib/development-unit-four-scenes.ts";
+
+test("percurso visual tem cenas únicas, os dois autores, prática e referências", () => {
+  assert.equal(unitFourScenes.length, 14);
+  assert.equal(new Set(unitFourScenes.map((scene) => scene.id)).size, unitFourScenes.length);
+  assert.equal(unitFourScenes[0].id, "abertura");
+  assert.equal(unitFourScenes.at(-1).id, "referencias");
+  for (const id of ["mediacao", "internalizacao", "zdp", "pessoa-completa", "emocao", "estagios", "pratica"]) {
+    assert.ok(unitFourScenes.some((scene) => scene.id === id));
+  }
+  for (const scene of unitFourScenes) {
+    assert.ok(scene.title.trim());
+    assert.ok(scene.subtitle.trim());
+    assert.ok(scene.chapter.trim());
+  }
+});
 
 test("unidade 4 tem revisão, cinco estágios e casos dos dois autores", () => {
   assert.equal(reviewCards.length, 12);
