@@ -1,5 +1,5 @@
 .page { background: #0b1324; color: #f8fbfd; height: 100svh; display: flex; flex-direction: column; }
-.header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 16px 24px; border-bottom: 1px solid #5e758a59; font-size: 13px; }
+.header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding: 16px 24px; border-bottom: 1px solid #5e758a59; font-size: 13px; }
 .header a { color: #bdd6e2; text-decoration: none; line-height: 1.5; }
 .header a:hover { text-decoration: underline; }
 .header a:focus-visible { outline: 3px solid #f5c371; outline-offset: 4px; }

@@ -3,6 +3,20 @@ import test from "node:test";
 import { readFileSync, statSync } from "node:fs";
 import { directedQuestions, estimatedChapterSeconds, narrationSegments, psychologyChapters, psychologyN2Href, psychologyN2Sources } from "../src/lib/psychology-n2.ts";
 
+test("revisão para a prova tem acesso separado, sete questões e guia PDF", () => {
+  const page = readFileSync(new URL("../src/app/disciplinas/introducao-psicologia-historia-fundamentos/estudo-dirigido-prova/page.tsx", import.meta.url), "utf8");
+  const subject = readFileSync(new URL("../src/app/disciplinas/[subjectSlug]/page.tsx", import.meta.url), "utf8");
+  const html = readFileSync(new URL("../public/psicologia/estudo-dirigido-prova/index.html", import.meta.url), "utf8");
+  assert.ok(page.includes('/psicologia/estudo-dirigido-prova/index.html'));
+  assert.ok(page.includes('/psicologia/estudo-dirigido-prova/guia-de-estudo.pdf'));
+  assert.ok(subject.includes('/estudo-dirigido-prova'));
+  assert.ok(subject.includes('/videoaula-n2'));
+  const chapters = JSON.parse(html.match(/const CHAPTERS=(\[.*?\]);/s)[1]);
+  assert.deepEqual(chapters.filter((chapter) => chapter.n.startsWith("Questão ")).map((chapter) => chapter.n), ["Questão 1", "Questão 2", "Questão 3", "Questão 4", "Questão 5", "Questão 7", "Questão 8"]);
+  const pdf = readFileSync(new URL("../public/psicologia/estudo-dirigido-prova/guia-de-estudo.pdf", import.meta.url));
+  assert.equal(pdf.toString("ascii", 0, 5), "%PDF-");
+});
+
 test("roteiro anterior N2 tem 12 capítulos e 36 cenas baseadas nos dois PDFs", () => {
   assert.ok(psychologyN2Href.endsWith("/videoaula-n2"));
   assert.equal(psychologyChapters.length, 12);

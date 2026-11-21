@@ -1,16 +1,27 @@
 import Link from "next/link";
 import styles from "./psychology-video-lesson.module.css";
 
-export function PsychologyVideoLesson() {
+type PsychologyVideoLessonProps = {
+  src?: string;
+  title?: string;
+  guideHref?: string;
+};
+
+export function PsychologyVideoLesson({
+  src = "/psicologia/modelo-videoaula/index.html",
+  title = "Videoaula de Psicologia: professora e cenas animadas em 24 capítulos",
+  guideHref,
+}: PsychologyVideoLessonProps = {}) {
   return <main className={styles.page}>
     <nav aria-label="Navegação da videoaula" className={styles.header}>
       <Link href="/disciplinas/introducao-psicologia-historia-fundamentos">← Voltar à disciplina</Link>
-      <a href="/psicologia/modelo-videoaula/index.html" target="_blank" rel="noopener noreferrer">Abrir aula em outra aba ↗</a>
+      {guideHref ? <a href={guideHref} target="_blank" rel="noopener noreferrer">Guia de estudo em PDF ↗</a> : null}
+      <a href={src} target="_blank" rel="noopener noreferrer">Abrir aula em outra aba ↗</a>
     </nav>
     <iframe
       className={styles.lesson}
-      src="/psicologia/modelo-videoaula/index.html"
-      title="Videoaula de Psicologia: professora e cenas animadas em 24 capítulos"
+      src={src}
+      title={title}
       allow="fullscreen"
     />
   </main>;

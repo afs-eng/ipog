@@ -127,6 +127,16 @@ function PsychologyStudyPage({ subjectName }: { subjectName: string }) {
 
   return (
     <main className="min-h-screen bg-white">
+      <section className="border-b border-red-200 bg-red-50 px-6 py-7">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-5">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-[#aa0000]">Estudo para a prova · N2</p>
+            <h2 className="mt-2 text-2xl text-slate-950">Estudo dirigido — questões explicadas</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-700">Nova videoaula com narração, sete questões explicadas e respostas-modelo para construir suas próprias respostas. Inclui guia de estudo em PDF. A narração precisa de internet.</p>
+          </div>
+          <Link className="rounded-lg bg-[#aa0000] px-5 py-3 text-sm font-bold text-white hover:bg-[#8b0000]" href="/disciplinas/introducao-psicologia-historia-fundamentos/estudo-dirigido-prova">Assistir à revisão para a prova ↗</Link>
+        </div>
+      </section>
       <section className="border-b border-slate-200 bg-[#172e36] px-6 py-7 text-white">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-5">
           <div><p className="text-xs font-bold uppercase tracking-widest text-[#f3b17e]">Videoaula animada · N2</p><h1 className="mt-2 text-2xl">História e áreas de atuação da Psicologia</h1><p className="mt-2 max-w-2xl text-sm leading-6 text-slate-200">Professora à esquerda, cenas animadas, narração em português e 24 capítulos para estudar no seu ritmo.</p></div>
