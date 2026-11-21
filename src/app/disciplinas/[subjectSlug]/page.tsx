@@ -127,22 +127,37 @@ function PsychologyStudyPage({ subjectName }: { subjectName: string }) {
 
   return (
     <main className="min-h-screen bg-white">
-      <section className="border-b border-red-200 bg-red-50 px-6 py-7">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-5">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-[#aa0000]">Estudo para a prova · N2</p>
-            <h2 className="mt-2 text-2xl text-slate-950">Estudo dirigido — questões explicadas</h2>
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-700">Nova videoaula com narração, sete questões explicadas e respostas-modelo para construir suas próprias respostas. Inclui guia de estudo em PDF. A narração precisa de internet.</p>
+      <header className="border-b border-white/10 bg-[#12283d] px-5 py-7 text-white sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#f2c477]">Introdução à Psicologia · N2</p>
+              <h1 className="mt-1.5 text-xl font-semibold tracking-tight sm:text-2xl">Suas videoaulas de estudo</h1>
+            </div>
+            <Link className="rounded-lg px-3 py-2 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f2c477]" href="/disciplinas">← Disciplinas</Link>
           </div>
-          <Link className="rounded-lg bg-[#aa0000] px-5 py-3 text-sm font-bold text-white hover:bg-[#8b0000]" href="/disciplinas/introducao-psicologia-historia-fundamentos/estudo-dirigido-prova">Assistir à revisão para a prova ↗</Link>
+          <nav aria-label="Videoaulas de Psicologia" className="grid gap-3 md:grid-cols-2">
+            <Link className="group flex items-center gap-4 rounded-2xl border border-[#f2c477]/30 bg-[#f2c477]/10 p-5 transition-colors hover:border-[#f2c477]/60 hover:bg-[#f2c477]/15 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f2c477]" href="/disciplinas/introducao-psicologia-historia-fundamentos/estudo-dirigido-prova">
+              <span aria-hidden="true" className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#f2c477] text-sm text-[#12283d]">▶</span>
+              <div className="min-w-0 flex-1">
+                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#f2c477]">Revisão para a prova</p>
+                <h2 className="mt-1 text-base font-semibold text-white">Estudo dirigido explicado</h2>
+                <p className="mt-1 text-xs leading-5 text-slate-300">7 questões · Respostas-modelo · Guia em PDF</p>
+              </div>
+              <span aria-hidden="true" className="text-xl text-[#f2c477] transition-transform group-hover:translate-x-1">→</span>
+            </Link>
+            <Link className="group flex items-center gap-4 rounded-2xl border border-white/15 bg-white/5 p-5 transition-colors hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f2c477]" href="/disciplinas/introducao-psicologia-historia-fundamentos/videoaula-n2">
+              <span aria-hidden="true" className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-sm text-slate-200">▶</span>
+              <div className="min-w-0 flex-1">
+                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">Aula completa</p>
+                <h2 className="mt-1 text-base font-semibold text-white">História e áreas da Psicologia</h2>
+                <p className="mt-1 text-xs leading-5 text-slate-300">24 capítulos · Cenas animadas · Narração em português</p>
+              </div>
+              <span aria-hidden="true" className="text-xl text-slate-300 transition-transform group-hover:translate-x-1">→</span>
+            </Link>
+          </nav>
         </div>
-      </section>
-      <section className="border-b border-slate-200 bg-[#172e36] px-6 py-7 text-white">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-5">
-          <div><p className="text-xs font-bold uppercase tracking-widest text-[#f3b17e]">Videoaula animada · N2</p><h1 className="mt-2 text-2xl">História e áreas de atuação da Psicologia</h1><p className="mt-2 max-w-2xl text-sm leading-6 text-slate-200">Professora à esquerda, cenas animadas, narração em português e 24 capítulos para estudar no seu ritmo.</p></div>
-          <Link className="rounded-lg bg-[#f3b17e] px-5 py-3 text-sm font-bold text-[#172e36]" href="/disciplinas/introducao-psicologia-historia-fundamentos/videoaula-n2">Assistir à videoaula ↗</Link>
-        </div>
-      </section>
+      </header>
       <iframe
         className="h-screen w-full border-0 bg-white"
         sandbox="allow-scripts allow-top-navigation-by-user-activation"
