@@ -1,0 +1,146 @@
+[
+  {
+    "id": "ler-a-historia",
+    "duration": 63.37,
+    "sceneStarts": [
+      0,
+      20.49,
+      40.09
+    ],
+    "src": "/psicologia/videoaula-n2/ler-a-historia.mp4",
+    "poster": "/psicologia/videoaula-n2/ler-a-historia.jpg",
+    "captions": "/psicologia/videoaula-n2/ler-a-historia.vtt"
+  },
+  {
+    "id": "colonia",
+    "duration": 71.2,
+    "sceneStarts": [
+      0,
+      21.48,
+      46.77
+    ],
+    "src": "/psicologia/videoaula-n2/colonia.mp4",
+    "poster": "/psicologia/videoaula-n2/colonia.jpg",
+    "captions": "/psicologia/videoaula-n2/colonia.vtt"
+  },
+  {
+    "id": "autonomizacao",
+    "duration": 71.94,
+    "sceneStarts": [
+      0,
+      26.32,
+      49.5
+    ],
+    "src": "/psicologia/videoaula-n2/autonomizacao.mp4",
+    "poster": "/psicologia/videoaula-n2/autonomizacao.jpg",
+    "captions": "/psicologia/videoaula-n2/autonomizacao.vtt"
+  },
+  {
+    "id": "consolidacao",
+    "duration": 68.46,
+    "sceneStarts": [
+      0,
+      23.73,
+      46.62
+    ],
+    "src": "/psicologia/videoaula-n2/consolidacao.mp4",
+    "poster": "/psicologia/videoaula-n2/consolidacao.jpg",
+    "captions": "/psicologia/videoaula-n2/consolidacao.vtt"
+  },
+  {
+    "id": "profissao",
+    "duration": 69.51,
+    "sceneStarts": [
+      0,
+      21.88,
+      46.26
+    ],
+    "src": "/psicologia/videoaula-n2/profissao.mp4",
+    "poster": "/psicologia/videoaula-n2/profissao.jpg",
+    "captions": "/psicologia/videoaula-n2/profissao.vtt"
+  },
+  {
+    "id": "decolonialidade",
+    "duration": 73.23,
+    "sceneStarts": [
+      0,
+      23.2,
+      44.72
+    ],
+    "src": "/psicologia/videoaula-n2/decolonialidade.mp4",
+    "poster": "/psicologia/videoaula-n2/decolonialidade.jpg",
+    "captions": "/psicologia/videoaula-n2/decolonialidade.vtt"
+  },
+  {
+    "id": "representatividade",
+    "duration": 73.31,
+    "sceneStarts": [
+      0,
+      22.63,
+      48.55
+    ],
+    "src": "/psicologia/videoaula-n2/representatividade.mp4",
+    "poster": "/psicologia/videoaula-n2/representatividade.jpg",
+    "captions": "/psicologia/videoaula-n2/representatividade.vtt"
+  },
+  {
+    "id": "areas",
+    "duration": 81.66,
+    "sceneStarts": [
+      0,
+      24.26,
+      57.76
+    ],
+    "src": "/psicologia/videoaula-n2/areas.mp4",
+    "poster": "/psicologia/videoaula-n2/areas.jpg",
+    "captions": "/psicologia/videoaula-n2/areas.vtt"
+  },
+  {
+    "id": "censo",
+    "duration": 70.96,
+    "sceneStarts": [
+      0,
+      23.44,
+      44.92
+    ],
+    "src": "/psicologia/videoaula-n2/censo.mp4",
+    "poster": "/psicologia/videoaula-n2/censo.jpg",
+    "captions": "/psicologia/videoaula-n2/censo.vtt"
+  },
+  {
+    "id": "processos",
+    "duration": 71.17,
+    "sceneStarts": [
+      0,
+      22.87,
+      46.36
+    ],
+    "src": "/psicologia/videoaula-n2/processos.mp4",
+    "poster": "/psicologia/videoaula-n2/processos.jpg",
+    "captions": "/psicologia/videoaula-n2/processos.vtt"
+  },
+  {
+    "id": "componentes",
+    "duration": 73.38,
+    "sceneStarts": [
+      0,
+      23.9,
+      50.87
+    ],
+    "src": "/psicologia/videoaula-n2/componentes.mp4",
+    "poster": "/psicologia/videoaula-n2/componentes.jpg",
+    "captions": "/psicologia/videoaula-n2/componentes.vtt"
+  },
+  {
+    "id": "transversalidade",
+    "duration": 79.04,
+    "sceneStarts": [
+      0,
+      26.2,
+      54.52
+    ],
+    "src": "/psicologia/videoaula-n2/transversalidade.mp4",
+    "poster": "/psicologia/videoaula-n2/transversalidade.jpg",
+    "captions": "/psicologia/videoaula-n2/transversalidade.vtt"
+  }
+]

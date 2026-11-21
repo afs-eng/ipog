@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { readFileSync, statSync } from "node:fs";
 import { directedQuestions, estimatedChapterSeconds, narrationSegments, psychologyChapters, psychologyN2Href, psychologyN2Sources } from "../src/lib/psychology-n2.ts";
 
 test("aula N2 tem 12 capítulos, 36 cenas e cobre os dois PDFs", () => {
@@ -38,4 +39,31 @@ test("as sete questões preservam a numeração original e têm preparação e c
 test("segmentação da narração preserva a última frase mesmo sem pontuação", () => {
   assert.deepEqual(narrationSegments("Primeira frase. Outra pergunta? Fim"), ["Primeira frase.", "Outra pergunta?", "Fim"]);
   assert.deepEqual(narrationSegments(""), []);
+});
+
+test("videoaula contém 12 MP4s com pôsteres, legendas e marcações de cenas", () => {
+  const videos = JSON.parse(readFileSync(new URL("../src/lib/psychology-video-manifest.json", import.meta.url), "utf8"));
+  assert.equal(videos.length, psychologyChapters.length);
+  assert.ok(videos.reduce((sum, item) => sum + item.duration, 0) > 800);
+  for (const [index, video] of videos.entries()) {
+    assert.equal(video.id, psychologyChapters[index].id);
+    assert.equal(video.sceneStarts.length, 3);
+    assert.equal(video.sceneStarts[0], 0);
+    assert.ok(video.sceneStarts[1] > 0);
+    assert.ok(video.sceneStarts[2] > video.sceneStarts[1]);
+    assert.ok(video.duration > video.sceneStarts[2]);
+    for (const file of [video.src, video.poster, video.captions]) {
+      assert.ok(file.startsWith("/psicologia/videoaula-n2/"));
+      assert.ok(statSync(new URL(`../public${file}`, import.meta.url)).size > 100);
+    }
+    const mp4 = readFileSync(new URL(`../public${video.src}`, import.meta.url));
+    assert.equal(mp4.toString("ascii", 4, 8), "ftyp");
+    assert.ok(mp4.indexOf("moov") < mp4.indexOf("mdat"), "MP4 deve iniciar sem baixar o arquivo inteiro");
+    const captions = readFileSync(new URL(`../public${video.captions}`, import.meta.url), "utf8");
+    assert.ok(captions.startsWith("WEBVTT\n"));
+    assert.ok(captions.includes("-->"));
+    for (const beat of psychologyChapters[index].beats) {
+      assert.ok(!/questão|questões|questionário|prova/i.test(beat.narration), "Narração deve focar apenas no conteúdo");
+    }
+  }
 });
