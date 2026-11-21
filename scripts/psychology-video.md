@@ -1,5 +1,24 @@
 # Vídeos de Introdução à Psicologia
 
+## Modelo atualmente exibido
+
+A página usa o HTML fornecido em
+`disciplinas/Introdução-psicologia-história-fundamentos/Videoaula_Psicologia/`,
+preservando o original. A cópia publicada fica em
+`public/psicologia/modelo-videoaula/index.html`, com três MP3s locais,
+transcrição e pequenos ajustes de acessibilidade. São 24 capítulos e
+aproximadamente 16min48s. Trata-se de canvas sincronizado com áudio, não MP4.
+O roteiro não foi auditado página por página como cobertura integral dos PDFs.
+
+Para regenerar, baixe os três WAVs indicados no HTML original para
+`/tmp/opencode/psychology-model-part-1.wav` (e partes 2 e 3) e execute:
+
+```bash
+/tmp/opencode/psychology-video-render/bin/python scripts/prepare-psychology-model.py --cache /tmp/opencode
+```
+
+## Produção anterior (preservada, não exibida pela página)
+
 Os arquivos em `public/psicologia/videoaula-n2/` são vídeos MP4 reais,
 com ilustrações animadas em 960 × 540, H.264 e áudio AAC. O player não
 precisa de serviço de voz ou de bibliotecas de animação em produção.

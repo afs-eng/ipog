@@ -129,7 +129,7 @@ function PsychologyStudyPage({ subjectName }: { subjectName: string }) {
     <main className="min-h-screen bg-white">
       <section className="border-b border-slate-200 bg-[#172e36] px-6 py-7 text-white">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-5">
-          <div><p className="text-xs font-bold uppercase tracking-widest text-[#f3b17e]">Videoaula animada · N2</p><h1 className="mt-2 text-2xl">História e áreas de atuação da Psicologia</h1><p className="mt-2 max-w-2xl text-sm leading-6 text-slate-200">Vídeos ilustrados com narração em português, legendas e 12 capítulos para estudar no seu ritmo. Sem perguntas durante a aula.</p></div>
+          <div><p className="text-xs font-bold uppercase tracking-widest text-[#f3b17e]">Videoaula animada · N2</p><h1 className="mt-2 text-2xl">História e áreas de atuação da Psicologia</h1><p className="mt-2 max-w-2xl text-sm leading-6 text-slate-200">Professora à esquerda, cenas animadas, narração em português e 24 capítulos para estudar no seu ritmo.</p></div>
           <Link className="rounded-lg bg-[#f3b17e] px-5 py-3 text-sm font-bold text-[#172e36]" href="/disciplinas/introducao-psicologia-historia-fundamentos/videoaula-n2">Assistir à videoaula ↗</Link>
         </div>
       </section>

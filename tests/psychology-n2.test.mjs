@@ -3,7 +3,7 @@ import test from "node:test";
 import { readFileSync, statSync } from "node:fs";
 import { directedQuestions, estimatedChapterSeconds, narrationSegments, psychologyChapters, psychologyN2Href, psychologyN2Sources } from "../src/lib/psychology-n2.ts";
 
-test("aula N2 tem 12 capítulos, 36 cenas e cobre os dois PDFs", () => {
+test("roteiro anterior N2 tem 12 capítulos e 36 cenas baseadas nos dois PDFs", () => {
   assert.ok(psychologyN2Href.endsWith("/videoaula-n2"));
   assert.equal(psychologyChapters.length, 12);
   assert.equal(new Set(psychologyChapters.map((item) => item.id)).size, 12);
@@ -41,7 +41,7 @@ test("segmentação da narração preserva a última frase mesmo sem pontuação
   assert.deepEqual(narrationSegments(""), []);
 });
 
-test("videoaula contém 12 MP4s com pôsteres, legendas e marcações de cenas", () => {
+test("produção anterior preserva 12 MP4s com pôsteres, legendas e marcações de cenas", () => {
   const videos = JSON.parse(readFileSync(new URL("../src/lib/psychology-video-manifest.json", import.meta.url), "utf8"));
   assert.equal(videos.length, psychologyChapters.length);
   assert.ok(videos.reduce((sum, item) => sum + item.duration, 0) > 800);
@@ -65,5 +65,23 @@ test("videoaula contém 12 MP4s com pôsteres, legendas e marcações de cenas",
     for (const beat of psychologyChapters[index].beats) {
       assert.ok(!/questão|questões|questionário|prova/i.test(beat.narration), "Narração deve focar apenas no conteúdo");
     }
+  }
+});
+
+test("página usa o modelo fornecido com professora, 24 capítulos e áudio local", () => {
+  const html = readFileSync(new URL("../public/psicologia/modelo-videoaula/index.html", import.meta.url), "utf8");
+  const component = readFileSync(new URL("../src/components/psychology-video-lesson.tsx", import.meta.url), "utf8");
+  assert.ok(component.includes('/psicologia/modelo-videoaula/index.html'));
+  assert.ok(html.includes('function permanentTeacher('));
+  assert.ok(html.includes('const FULL_TEACHER=new Image()'));
+  assert.ok(html.includes('Texto da narração e referências'));
+  assert.ok(!html.includes('https://resource2.heygen.ai/'));
+  const chapters = JSON.parse(html.match(/const CHAPTER_DATA=(\[.*?\]);const /s)[1]);
+  assert.equal(chapters.length, 24);
+  assert.equal(chapters[0].num, 1);
+  assert.equal(chapters[23].num, 24);
+  for (let index = 1; index <= 3; index++) {
+    assert.ok(html.includes(`./parte-${index}.mp3`));
+    assert.ok(statSync(new URL(`../public/psicologia/modelo-videoaula/parte-${index}.mp3`, import.meta.url)).size > 1000000);
   }
 });

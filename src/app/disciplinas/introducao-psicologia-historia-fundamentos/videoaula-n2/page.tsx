@@ -3,7 +3,7 @@ import { PsychologyVideoLesson } from "@/components/psychology-video-lesson";
 
 export const metadata: Metadata = {
   title: "Videoaula animada — História e áreas da Psicologia",
-  description: "12 vídeos animados com narração em português e legendas sobre a história da Psicologia no Brasil e suas áreas de atuação. Sem exercícios ou interrupções.",
+  description: "Aula em 24 capítulos com professora, cenas animadas, narração em português e legendas, baseada no modelo fornecido para a disciplina.",
 };
 
 export default function PsychologyN2Page() {
