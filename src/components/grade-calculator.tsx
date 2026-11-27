@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { calculateGrades } from "@/lib/grade-calculator";
+import { calculateGrades, isValidGrade } from "@/lib/grade-calculator";
 
-const gradeOptions = Array.from({ length: 21 }, (_, index) => index / 2);
+const parseGrade = (value: string) => value.trim() === "" ? NaN : Number(value.replace(",", "."));
 const format = (value: number, decimals = 1) => value.toLocaleString("pt-BR", {
   minimumFractionDigits: decimals,
   maximumFractionDigits: decimals,
@@ -14,25 +14,27 @@ type Field = keyof typeof initialValues;
 export function GradeCalculator() {
   const [values, setValues] = useState(initialValues);
   const update = (field: Field, value: string) => setValues((current) => ({ ...current, [field]: value }));
-  const gradesComplete = [values.formal1, values.processual1, values.formal2, values.processual2].every((value) => value !== "");
+  const gradesComplete = [values.formal1, values.processual1, values.formal2, values.processual2].every((value) => isValidGrade(parseGrade(value)));
   const frequency = Number(values.frequency.replace(",", "."));
   const validFrequency = values.frequency.trim() !== "" && Number.isFinite(frequency) && frequency >= 0 && frequency <= 100;
   const result = gradesComplete && validFrequency ? calculateGrades({
-    formal1: Number(values.formal1), processual1: Number(values.processual1),
-    formal2: Number(values.formal2), processual2: Number(values.processual2),
-    frequency, exam: values.exam === "" ? null : Number(values.exam),
+    formal1: parseGrade(values.formal1), processual1: parseGrade(values.processual1),
+    formal2: parseGrade(values.formal2), processual2: parseGrade(values.processual2),
+    frequency, exam: isValidGrade(parseGrade(values.exam)) ? parseGrade(values.exam) : null,
   }) : null;
   const needsExam = result !== null && result.partial < 7;
 
-  function gradeSelect(field: Field, label: string) {
+  function gradeInput(field: Field, label: string) {
+    const invalid = values[field] !== "" && !isValidGrade(parseGrade(values[field]));
     return (
       <label className="block text-sm font-semibold text-slate-700" htmlFor={field}>
         {label}
-        <select id={field} value={values[field]} onChange={(event) => update(field, event.target.value)}
-          className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-950 focus:border-[#aa0000] focus:outline-2 focus:outline-[#aa0000]">
-          <option value="">{field === "exam" ? "Ainda não fiz o exame" : "Selecione a nota"}</option>
-          {gradeOptions.map((grade) => <option key={grade} value={grade}>{format(grade)}</option>)}
-        </select>
+        <input id={field} type="text" inputMode="decimal" value={values[field]}
+          placeholder={field === "exam" ? "Ainda não fiz o exame" : "Ex.: 7,5"}
+          aria-invalid={invalid} aria-describedby={invalid ? `${field}-error` : undefined}
+          onChange={(event) => update(field, event.target.value)}
+          className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-950 focus:border-[#aa0000] focus:outline-2 focus:outline-[#aa0000]" />
+        {invalid && <span id={`${field}-error`} className="mt-2 block text-sm font-normal text-red-700">Informe uma nota de 0 a 10, em intervalos de 0,5.</span>}
       </label>
     );
   }
@@ -49,8 +51,8 @@ export function GradeCalculator() {
           <fieldset key={number} className="rounded-2xl bg-slate-50 p-5">
             <legend className="px-2 font-semibold text-[#aa0000]">Nota {number} (N{number})</legend>
             <div className="grid gap-4 sm:grid-cols-2">
-              {gradeSelect(`formal${number}`, "Avaliação formal · 70%")}
-              {gradeSelect(`processual${number}`, "Avaliação processual · 30%")}
+              {gradeInput(`formal${number}`, "Avaliação formal · 70%")}
+              {gradeInput(`processual${number}`, "Avaliação processual · 30%")}
             </div>
           </fieldset>
         ))}
@@ -64,7 +66,7 @@ export function GradeCalculator() {
         <p id="frequency-help" className="text-sm text-slate-600">
           {values.frequency !== "" && !validFrequency ? "Informe uma frequência válida entre 0 e 100%." : "A aprovação exige frequência mínima de 75%."}
         </p>
-        {needsExam && gradeSelect("exam", "Nota do Exame Final (NEF) · opcional")}
+        {needsExam && gradeInput("exam", "Nota do Exame Final (NEF) · opcional")}
       </section>
 
       <section className="rounded-3xl border border-rose-100 bg-white p-6 shadow-sm sm:p-8" aria-live="polite" aria-atomic="true">
